@@ -3100,7 +3100,7 @@ export const examQuestions = [
   {
     id: 222,
     chapter: 'processAutomation',
-    topic: 'PD1-301',
+    topic: 'PD1-313',
     question: 'Which asynchronous Apex type supports job chaining and non-primitive data types?',
     options: [
       'Queueable Apex',
@@ -3114,7 +3114,7 @@ export const examQuestions = [
   {
     id: 223,
     chapter: 'processAutomation',
-    topic: 'PD1-301',
+    topic: 'PD1-313',
     question: 'What is the maximum number of future calls allowed per Apex invocation?',
     options: [
       '50',
@@ -3128,7 +3128,7 @@ export const examQuestions = [
   {
     id: 224,
     chapter: 'processAutomation',
-    topic: 'PD1-301',
+    topic: 'PD1-313',
     question: 'What is the correct syntax for a future method that makes a callout?',
     options: [
       '@Future(callout=true)',
@@ -3142,7 +3142,7 @@ export const examQuestions = [
   {
     id: 225,
     chapter: 'processAutomation',
-    topic: 'PD1-301',
+    topic: 'PD1-313',
     question: 'Which method in the Database.Batchable interface is called once at the beginning of a batch job?',
     options: [
       'start()',
@@ -3156,7 +3156,7 @@ export const examQuestions = [
   {
     id: 226,
     chapter: 'processAutomation',
-    topic: 'PD1-301',
+    topic: 'PD1-313',
     question: 'What is the default batch size for Batch Apex?',
     options: [
       '200 records',
@@ -3170,7 +3170,7 @@ export const examQuestions = [
   {
     id: 227,
     chapter: 'processAutomation',
-    topic: 'PD1-301',
+    topic: 'PD1-313',
     question: 'Which interface allows batch Apex to maintain state across transactions?',
     options: [
       'Database.Stateful',
@@ -3184,7 +3184,7 @@ export const examQuestions = [
   {
     id: 228,
     chapter: 'processAutomation',
-    topic: 'PD1-301',
+    topic: 'PD1-313',
     question: 'What is the maximum number of scheduled Apex jobs allowed at one time?',
     options: [
       '100',
@@ -3198,7 +3198,7 @@ export const examQuestions = [
   {
     id: 229,
     chapter: 'processAutomation',
-    topic: 'PD1-301',
+    topic: 'PD1-313',
     question: 'What is the CRON expression format for Scheduled Apex?',
     options: [
       'Seconds Minutes Hours Day_of_month Month Day_of_week optional_year',
@@ -4066,7 +4066,7 @@ export const examQuestions = [
   {
     id: 291,
     chapter: 'processAutomation',
-    topic: 'PD1-301',
+    topic: 'PD1-313',
     question: 'What does the start() method return in Batch Apex?',
     options: [
       'A Database.QueryLocator or an Iterable',
@@ -4080,7 +4080,7 @@ export const examQuestions = [
   {
     id: 292,
     chapter: 'processAutomation',
-    topic: 'PD1-301',
+    topic: 'PD1-313',
     question: 'What is the advantage of using Database.QueryLocator in Batch Apex?',
     options: [
       'Bypasses the governor limit for SOQL records (up to 50 million)',
@@ -4094,7 +4094,7 @@ export const examQuestions = [
   {
     id: 293,
     chapter: 'processAutomation',
-    topic: 'PD1-301',
+    topic: 'PD1-313',
     question: 'What happens if one batch fails in Batch Apex?',
     options: [
       'Other successful batch transactions are not rolled back',
@@ -4108,7 +4108,7 @@ export const examQuestions = [
   {
     id: 294,
     chapter: 'processAutomation',
-    topic: 'PD1-301',
+    topic: 'PD1-313',
     question: 'What is the maximum number of jobs that can be added to the queue with System.enqueueJob?',
     options: [
       '50',
@@ -4122,7 +4122,7 @@ export const examQuestions = [
   {
     id: 295,
     chapter: 'processAutomation',
-    topic: 'PD1-301',
+    topic: 'PD1-313',
     question: 'What is job chaining in Queueable Apex?',
     options: [
       'Submitting a second job from within the execute() method',
@@ -4150,7 +4150,7 @@ export const examQuestions = [
   {
     id: 297,
     chapter: 'processAutomation',
-    topic: 'PD1-301',
+    topic: 'PD1-313',
     question: 'What is the workaround for making callouts from scheduled Apex?',
     options: [
       'Use @Future(callout=true) from scheduled Apex, or call a batch job',
@@ -7455,20 +7455,6 @@ export const examQuestions = [
     id: 533,
     chapter: 'testingDebugging',
     topic: 'PD1-512',
-    question: 'What is the source of truth in the Org Development Model?',
-    options: [
-      'The Salesforce org',
-      'Version control system',
-      'The developer sandbox',
-      'The deployment package'
-    ],
-    correct: 0,
-    explanation: 'In the Org Development Model, the Salesforce org is the source of truth. Developers retrieve metadata from the org and deploy changes back to it.'
-  },
-  {
-    id: 534,
-    chapter: 'testingDebugging',
-    topic: 'PD1-512',
     question: 'What is the source of truth in the Package Development Model?',
     options: [
       'Version control system',
@@ -7480,21 +7466,7 @@ export const examQuestions = [
     explanation: 'In the Package Development Model, the version control system (VCS) is the source of truth. Scratch orgs are created from VCS definitions.'
   },
   {
-    id: 535,
-    chapter: 'testingDebugging',
-    topic: 'PD1-512',
-    question: 'What is a change set in Salesforce?',
-    options: [
-      'A point-and-click deployment tool between connected orgs',
-      'A version control system',
-      'A scratch org configuration',
-      'A package definition'
-    ],
-    correct: 0,
-    explanation: 'Change sets are a point-and-click interface for deploying metadata between connected Salesforce orgs (e.g., sandbox to production).'
-  },
-  {
-    id: 536,
+    id: 534,
     chapter: 'testingDebugging',
     topic: 'PD1-512',
     question: 'What are the limitations of change sets?',
@@ -7508,7 +7480,7 @@ export const examQuestions = [
     explanation: 'Change sets cannot delete components, cannot specify deployment order, require a deployment connection between orgs, and do not support all metadata types.'
   },
   {
-    id: 537,
+    id: 535,
     chapter: 'testingDebugging',
     topic: 'PD1-512',
     question: 'What is the difference between Org Development and Package Development models?',
@@ -7522,7 +7494,7 @@ export const examQuestions = [
     explanation: 'The key difference is the source of truth: Org Development Model uses the Salesforce org, while Package Development Model uses the version control system.'
   },
   {
-    id: 538,
+    id: 536,
     chapter: 'testingDebugging',
     topic: 'PD1-512',
     question: 'What test coverage is required for Apex deployment?',
@@ -7534,6 +7506,104 @@ export const examQuestions = [
     ],
     correct: 0,
     explanation: 'Salesforce requires 75% test coverage for Apex code deployment to production. All tests must pass.'
+  },
+  {
+    id: 537,
+    chapter: 'processAutomation',
+    topic: 'PD1-301',
+    question: 'What is the recommended automation tool for updating a field on the same record that triggered the automation?',
+    options: [
+      'Record-Triggered Flow (Fast Field Update)',
+      'Apex Trigger',
+      'Process Builder',
+      'Workflow Rule'
+    ],
+    correct: 0,
+    explanation: 'Record-Triggered Flows with Fast Field Update optimization are recommended for updating the triggering record itself, as they run before the record is saved and provide the best performance.'
+  },
+  {
+    id: 538,
+    chapter: 'processAutomation',
+    topic: 'PD1-301',
+    question: 'Which declarative tool can be used to create a multi-step approval process?',
+    options: [
+      'Approval Processes',
+      'Flow Builder',
+      'Process Builder',
+      'Workflow Rules'
+    ],
+    correct: 0,
+    explanation: 'Approval Processes are the declarative tool designed specifically for multi-step approval workflows, allowing sequential approval steps with approval/rejection actions.'
+  },
+  {
+    id: 539,
+    chapter: 'processAutomation',
+    topic: 'PD1-301',
+    question: 'What is the difference between Flow and Process Builder?',
+    options: [
+      'Flow supports screens and complex logic; Process Builder is simpler with fewer capabilities',
+      'Flow is faster than Process Builder',
+      'Process Builder is deprecated',
+      'There is no difference'
+    ],
+    correct: 0,
+    explanation: 'Flow Builder supports screens, complex logic, loops, and more advanced capabilities, while Process Builder is a simpler tool for basic automation without UI elements.'
+  },
+  {
+    id: 540,
+    chapter: 'processAutomation',
+    topic: 'PD1-301',
+    question: 'Which declarative tool should be used to send an email alert when a record meets certain criteria?',
+    options: [
+      'Flow or Workflow Rules with Email Alert action',
+      'Apex Trigger',
+      'Process Builder',
+      'Approval Process'
+    ],
+    correct: 0,
+    explanation: 'Flow Builder or Workflow Rules can be configured with Email Alert actions to send emails when records meet specific criteria, without writing code.'
+  },
+  {
+    id: 541,
+    chapter: 'processAutomation',
+    topic: 'PD1-301',
+    question: 'What is the maximum number of active record-triggered flows per object?',
+    options: [
+      'No hard limit, but performance degrades with many flows',
+      '5',
+      '10',
+      '50'
+    ],
+    correct: 0,
+    explanation: 'While there is no hard limit on active record-triggered flows per object, Salesforce recommends consolidating flows for better performance and maintainability.'
+  },
+  {
+    id: 542,
+    chapter: 'processAutomation',
+    topic: 'PD1-301',
+    question: 'Which declarative tool can make HTTP callouts to external systems?',
+    options: [
+      'Flow with Apex action (@InvocableMethod)',
+      'Process Builder',
+      'Workflow Rules',
+      'Approval Processes'
+    ],
+    correct: 0,
+    explanation: 'Flow Builder cannot make HTTP callouts directly, but can call Apex methods annotated with @InvocableMethod that perform the callout.'
+  },
+  {
+    id: 543,
+    chapter: 'processAutomation',
+    topic: 'PD1-301',
+    question: 'What happens to Workflow Rules and Process Builder in the future?',
+    options: [
+      'They are being retired in favor of Flow Builder',
+      'They will continue to be supported',
+      'They are being merged into Apex',
+      'There are no plans to change them'
+    ],
+    correct: 0,
+    explanation: 'Salesforce is retiring Workflow Rules and Process Builder, with Flow Builder as the recommended declarative automation tool for all new automation.'
   }
 ];
 
