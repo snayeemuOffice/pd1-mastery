@@ -2631,7 +2631,1491 @@ export const examQuestions = [
     correct: 0,
     explanation: 'Best practice is to catch specific exceptions first for targeted error handling.'
   },
-
+  {
+    id: 236,
+    chapter: 'devFundamentals',
+    topic: 'PD1-601',
+    question: 'What is the correct order of the publish-subscribe messaging pattern for Platform Events?',
+    options: ["Publisher \u2192 Event Message \u2192 Event Bus \u2192 Event Subscription", "Event Bus \u2192 Publisher \u2192 Subscription \u2192 Event Message", "Subscription \u2192 Event Bus \u2192 Publisher \u2192 Event Message", "Event Message \u2192 Publisher \u2192 Subscription \u2192 Event Bus"],
+    correct: 0,
+    explanation: 'The publish-subscribe pattern follows: Publisher creates event message → Event Bus receives and stores → Event Subscription processes the event.'
+  },
+  {
+    id: 237,
+    chapter: 'devFundamentals',
+    topic: 'PD1-601',
+    question: 'What are the three key components of the publish-subscribe messaging pattern for Platform Events?',
+    options: ["Event Message, Event Bus, Event Subscription", "Event Publisher, Event Consumer, Event Store", "Event Creator, Event Handler, Event Logger", "Event Source, Event Target, Event Channel"],
+    correct: 0,
+    explanation: 'The three key components are: Event Message (the data), Event Bus (routing mechanism), and Event Subscription (the consumer).'
+  },
+  {
+    id: 238,
+    chapter: 'devFundamentals',
+    topic: 'PD1-601',
+    question: 'What is Event-Driven Software Architecture?',
+    options: ["A design pattern where decoupled components communicate through events", "A pattern where all components must be tightly coupled", "A pattern that only works with Salesforce Lightning", "A pattern that requires synchronous processing"],
+    correct: 0,
+    explanation: 'Event-Driven Architecture is a design pattern where decoupled components communicate through events, allowing for asynchronous and loosely coupled systems.'
+  },
+  {
+    id: 239,
+    chapter: 'devFundamentals',
+    topic: 'PD1-601',
+    question: 'Which of the following is a benefit of Event-Driven Architecture?',
+    options: ["Loose coupling between components", "Tight integration between all systems", "Synchronous-only processing", "No need for error handling"],
+    correct: 0,
+    explanation: 'Event-Driven Architecture provides loose coupling between components, allowing them to evolve independently and communicate asynchronously.'
+  },
+  {
+    id: 240,
+    chapter: 'processAutomation',
+    topic: 'PD1-301',
+    question: 'Which asynchronous Apex type supports job chaining and non-primitive data types?',
+    options: ["Queueable Apex", "Future Methods", "Batch Apex", "Scheduled Apex"],
+    correct: 0,
+    explanation: 'Queueable Apex supports job chaining and non-primitive data types, making it more flexible than future methods.'
+  },
+  {
+    id: 241,
+    chapter: 'processAutomation',
+    topic: 'PD1-301',
+    question: 'What is the maximum number of future calls allowed per Apex invocation?',
+    options: ["50", "100", "200", "Unlimited"],
+    correct: 0,
+    explanation: 'The governor limit for future methods is 50 calls per Apex invocation.'
+  },
+  {
+    id: 242,
+    chapter: 'processAutomation',
+    topic: 'PD1-301',
+    question: 'What is the correct syntax for a future method that makes a callout?',
+    options: ["@Future(callout=true)", "@Future(callouts=true)", "@Async(callout=true)", "@RemoteAction(callout=true)"],
+    correct: 0,
+    explanation: 'The @Future(callout=true) annotation is used for future methods that need to make web service callouts.'
+  },
+  {
+    id: 243,
+    chapter: 'processAutomation',
+    topic: 'PD1-301',
+    question: 'Which method in the Database.Batchable interface is called once at the beginning of a batch job?',
+    options: ["start()", "execute()", "finish()", "init()"],
+    correct: 0,
+    explanation: 'The start() method is called once at the beginning of a batch job and returns either a Database.QueryLocator or an Iterable.'
+  },
+  {
+    id: 244,
+    chapter: 'processAutomation',
+    topic: 'PD1-301',
+    question: 'What is the default batch size for Batch Apex?',
+    options: ["200 records", "100 records", "500 records", "1000 records"],
+    correct: 0,
+    explanation: 'The default batch size for Batch Apex is 200 records, though this can be customized.'
+  },
+  {
+    id: 245,
+    chapter: 'processAutomation',
+    topic: 'PD1-301',
+    question: 'Which interface allows batch Apex to maintain state across transactions?',
+    options: ["Database.Stateful", "Database.Batchable", "Database.QueryLocator", "Database.Iterable"],
+    correct: 0,
+    explanation: 'Implementing Database.Stateful allows instance member variables to retain values across batch transactions.'
+  },
+  {
+    id: 246,
+    chapter: 'processAutomation',
+    topic: 'PD1-301',
+    question: 'What is the maximum number of scheduled Apex jobs allowed at one time?',
+    options: ["100", "50", "200", "Unlimited"],
+    correct: 0,
+    explanation: 'The governor limit for scheduled Apex jobs is 100 at one time.'
+  },
+  {
+    id: 247,
+    chapter: 'processAutomation',
+    topic: 'PD1-301',
+    question: 'What is the CRON expression format for Scheduled Apex?',
+    options: ["Seconds Minutes Hours Day_of_month Month Day_of_week optional_year", "Minutes Hours Day Month Year", "Hours Day Month Day_of_week", "Day Month Year Hours Minutes"],
+    correct: 0,
+    explanation: 'The CRON expression format is: \'Seconds Minutes Hours Day_of_month Month Day_of_week optional_year\'.'
+  },
+  {
+    id: 248,
+    chapter: 'processAutomation',
+    topic: 'PD1-306',
+    question: 'What does the WITH USER_MODE keyword do in a SOQL query?',
+    options: ["Enforces field-level security and sharing rules for the current user", "Bypasses all security checks", "Runs the query as a system administrator", "Enables bulk API mode"],
+    correct: 0,
+    explanation: 'WITH USER_MODE enforces field-level security and sharing rules for the current user during the query.'
+  },
+  {
+    id: 249,
+    chapter: 'processAutomation',
+    topic: 'PD1-306',
+    question: 'Which method is used to check if a user has create access to an object?',
+    options: ["isCreateable()", "isAccessible()", "isUpdateable()", "isDeleteable()"],
+    correct: 0,
+    explanation: 'isCreateable() checks if the current user has create access to the object and its fields.'
+  },
+  {
+    id: 250,
+    chapter: 'processAutomation',
+    topic: 'PD1-306',
+    question: 'What does the Security.stripInaccessible() method do?',
+    options: ["Removes fields the user cannot access from query results", "Adds security checks to queries", "Creates new security policies", "Deletes inaccessible records"],
+    correct: 0,
+    explanation: 'Security.stripInaccessible() removes fields and relationship fields from query results that the user cannot access.'
+  },
+  {
+    id: 251,
+    chapter: 'processAutomation',
+    topic: 'PD1-306',
+    question: 'What is the recommended approach for enforcing sharing rules in Apex?',
+    options: ["Use the 'with sharing' keyword", "Use the 'without sharing' keyword", "Do not use any sharing keyword", "Use the 'global sharing' keyword"],
+    correct: 0,
+    explanation: 'The \'with sharing\' keyword enforces sharing rules for the current user, ensuring data visibility is respected.'
+  },
+  {
+    id: 252,
+    chapter: 'processAutomation',
+    topic: 'PD1-306',
+    question: 'What does the \'inherited sharing\' keyword do?',
+    options: ["Runs in the sharing mode of the calling class", "Always runs with sharing rules", "Always runs without sharing rules", "Disables sharing for the class"],
+    correct: 0,
+    explanation: 'Inherited sharing runs in the sharing mode of the calling class, or as \'with sharing\' when used as an Aura controller, Visualforce controller, or Apex REST service.'
+  },
+  {
+    id: 253,
+    chapter: 'userInterface',
+    topic: 'PD1-401',
+    question: 'In Lightning Experience, what happens to Visualforce pages?',
+    options: ["They run inside an iframe within the single-page application", "They replace the Lightning Experience entirely", "They cannot be used at all", "They run as native Lightning components"],
+    correct: 0,
+    explanation: 'In Lightning Experience, Visualforce pages run inside an iframe within the SPA, which affects DOM access and JavaScript scope.'
+  },
+  {
+    id: 254,
+    chapter: 'userInterface',
+    topic: 'PD1-401',
+    question: 'Which object is auto-injected in Lightning Experience for navigation?',
+    options: ["sforce.one", "sforce.navigation", "lightning.navigation", "visualforce.navigation"],
+    correct: 0,
+    explanation: 'The sforce.one object is auto-injected in Lightning Experience for navigation functions like navigateToSObject and navigateToURL.'
+  },
+  {
+    id: 255,
+    chapter: 'userInterface',
+    topic: 'PD1-401',
+    question: 'What should you NEVER do in Lightning Experience for navigation?',
+    options: ["Set window.location directly", "Use sforce.one", "Use PageReference", "Use navigateToURL"],
+    correct: 0,
+    explanation: 'Never set window.location directly in Lightning Experience as it can break the single-page application architecture.'
+  },
+  {
+    id: 256,
+    chapter: 'userInterface',
+    topic: 'PD1-401',
+    question: 'What is the purpose of the $User.UIThemeDisplayed variable?',
+    options: ["To detect what UI theme the user is actually seeing", "To set the UI theme", "To change the color scheme", "To enable dark mode"],
+    correct: 0,
+    explanation: '$User.UIThemeDisplayed detects what UI theme the user is actually seeing, which is preferred over $User.UITheme.'
+  },
+  {
+    id: 257,
+    chapter: 'userInterface',
+    topic: 'PD1-405',
+    question: 'What is the recommended approach for lazy instantiation in LWC?',
+    options: ["Use standard tab components, Lightning Component Actions, or utility bar", "Load all components at startup", "Use only static rendering", "Avoid using components at all"],
+    correct: 0,
+    explanation: 'Lazy instantiation approaches include standard tab components, Lightning Component Actions, utility bar, and lightning-tabset/lightning-tab.'
+  },
+  {
+    id: 258,
+    chapter: 'userInterface',
+    topic: 'PD1-405',
+    question: 'What is the difference between CSS slds-show/slds-hide and lwc:if directives?',
+    options: ["CSS preserves state; lwc:if destroys and recreates", "They are identical", "lwc:if preserves state; CSS destroys", "Neither preserves state"],
+    correct: 0,
+    explanation: 'CSS slds-show/slds-hide preserves component state while lwc:if destroys and recreates the component, losing state.'
+  },
+  {
+    id: 259,
+    chapter: 'userInterface',
+    topic: 'PD1-405',
+    question: 'What is the recommended priority for conditional rendering in LWC?',
+    options: ["Lightning App Builder Dynamic Component Visibility > lwc:if > CSS", "CSS > lwc:if > App Builder", "lwc:if > CSS > App Builder", "All are equally recommended"],
+    correct: 0,
+    explanation: 'The recommended priority is: Lightning App Builder Dynamic Component Visibility (declarative), then lwc:if/elseif/else directives, then CSS slds-show/slds-hide.'
+  },
+  {
+    id: 260,
+    chapter: 'userInterface',
+    topic: 'PD1-405',
+    question: 'Why should you avoid using jQuery in LWC?',
+    options: ["LWC uses shadow DOM which encapsulates styles and DOM", "jQuery is too slow", "jQuery doesn't work with JavaScript", "LWC has its own jQuery equivalent"],
+    correct: 0,
+    explanation: 'LWC uses shadow DOM for encapsulation, making jQuery largely unnecessary and potentially problematic.'
+  },
+  {
+    id: 261,
+    chapter: 'userInterface',
+    topic: 'PD1-405',
+    question: 'What are the benefits of base Lightning components?',
+    options: ["Native styles, pre-loaded, responsive, actively developed, accessible", "Only visual consistency", "Only performance improvements", "Only accessibility features"],
+    correct: 0,
+    explanation: 'Base Lightning components provide: native styles, pre-loaded (no download), responsive, actively developed, accessible, and client-side validation.'
+  },
+  {
+    id: 262,
+    chapter: 'userInterface',
+    topic: 'PD1-405',
+    question: 'Can Aura components contain LWC?',
+    options: ["Yes, Aura can contain LWC", "No, they cannot be mixed", "Only in Lightning Experience", "Only in Salesforce Mobile"],
+    correct: 0,
+    explanation: 'Aura components CAN contain LWC, but LWC CANNOT contain Aura components.'
+  },
+  {
+    id: 263,
+    chapter: 'userInterface',
+    topic: 'PD1-405',
+    question: 'What is the LWC equivalent of Aura\'s <aura:handler name=\'init\'>?',
+    options: ["connectedCallback()", "renderedCallback()", "disconnectedCallback()", "constructor()"],
+    correct: 0,
+    explanation: 'The connectedCallback() lifecycle hook in LWC is equivalent to Aura\'s <aura:handler name=\'init\'>.'
+  },
+  {
+    id: 264,
+    chapter: 'userInterface',
+    topic: 'PD1-405',
+    question: 'What is the LWC equivalent of Aura\'s <aura:iteration>?',
+    options: ["<template for:each>", "<template iterate>", "<for-each>", "<repeat>"],
+    correct: 0,
+    explanation: 'The <template for:each={...} for:item=\'...\'> directive is the LWC equivalent of Aura\'s <aura:iteration>.'
+  },
+  {
+    id: 265,
+    chapter: 'userInterface',
+    topic: 'PD1-405',
+    question: 'What type of data binding does LWC use?',
+    options: ["One-way data binding only", "Two-way data binding", "No data binding", "Three-way data binding"],
+    correct: 0,
+    explanation: 'LWC uses one-way data binding only. Changes propagate from owner to child, and child fires events to modify owner data.'
+  },
+  {
+    id: 266,
+    chapter: 'userInterface',
+    topic: 'PD1-405',
+    question: 'What replaces Aura\'s facets in LWC?',
+    options: ["HTML <slot> elements", "Component attributes", "Event handlers", "CSS classes"],
+    correct: 0,
+    explanation: 'HTML <slot> elements replace Aura\'s facets. Named slots replace named facets, and unnamed slots replace the body facet.'
+  },
+  {
+    id: 267,
+    chapter: 'testingDebugging',
+    topic: 'PD1-501',
+    question: 'What is the minimum code coverage required for deploying Apex to production?',
+    options: ["75%", "50%", "80%", "100%"],
+    correct: 0,
+    explanation: 'At least 75% of Apex code must be covered by tests, and all tests must pass before deployment.'
+  },
+  {
+    id: 268,
+    chapter: 'testingDebugging',
+    topic: 'PD1-501',
+    question: 'What does Test.startTest() do?',
+    options: ["Resets governor limits for the test", "Starts the test execution", "Creates test data", "Enables debug logging"],
+    correct: 0,
+    explanation: 'Test.startTest() resets governor limits, isolating data setup limit usage from test execution.'
+  },
+  {
+    id: 269,
+    chapter: 'testingDebugging',
+    topic: 'PD1-501',
+    question: 'What is the purpose of the @TestSetup annotation?',
+    options: ["To create test data once that is available to all test methods", "To mark a class as a test class", "To enable debugging", "To set up the test environment"],
+    correct: 0,
+    explanation: '@TestSetup creates test data once that is available to all test methods in the class, and data rolls back after each test.'
+  },
+  {
+    id: 270,
+    chapter: 'testingDebugging',
+    topic: 'PD1-501',
+    question: 'What interface must be implemented to mock HTTP callouts in tests?',
+    options: ["HttpCalloutMock", "HttpResponseMock", "CalloutMock", "WebServiceMock"],
+    correct: 0,
+    explanation: 'The HttpCalloutMock interface must be implemented to mock HTTP callouts during testing.'
+  },
+  {
+    id: 271,
+    chapter: 'testingDebugging',
+    topic: 'PD1-502',
+    question: 'Can LWC be developed in the Developer Console?',
+    options: ["No, LWC cannot be developed in Developer Console", "Yes, fully supported", "Only basic LWC", "Only with extensions"],
+    correct: 0,
+    explanation: 'LWC cannot be developed in the Developer Console. Use Salesforce Extensions for VS Code instead.'
+  },
+  {
+    id: 272,
+    chapter: 'testingDebugging',
+    topic: 'PD1-502',
+    question: 'What are the two main tools for Salesforce development?',
+    options: ["Developer Console and Salesforce Extensions for VS Code", "Notepad and Sublime Text", "Eclipse and IntelliJ", "Visual Studio and Xcode"],
+    correct: 0,
+    explanation: 'The two main tools are Developer Console (browser-based) and Salesforce Extensions for VS Code (desktop-based with version control).'
+  },
+  {
+    id: 273,
+    chapter: 'testingDebugging',
+    topic: 'PD1-502',
+    question: 'What is the purpose of checkpoints in Developer Console?',
+    options: ["To take snapshots of Apex code at particular execution points", "To pause code execution", "To set breakpoints for debugging", "To mark code for deletion"],
+    correct: 0,
+    explanation: 'Checkpoints provide snapshots of Apex code at particular execution points, showing objects in memory.'
+  },
+  {
+    id: 274,
+    chapter: 'testingDebugging',
+    topic: 'PD1-502',
+    question: 'What is the maximum number of checkpoints allowed per Apex class?',
+    options: ["5", "10", "Unlimited", "1"],
+    correct: 0,
+    explanation: 'The maximum number of checkpoints per Apex class is 5.'
+  },
+  {
+    id: 275,
+    chapter: 'testingDebugging',
+    topic: 'PD1-505',
+    question: 'What is the source of truth in the org development model?',
+    options: ["Version control repository (Git)", "The Salesforce org", "Developer Console", "VS Code"],
+    correct: 0,
+    explanation: 'In the org development model, the version control repository (Git) is the source of truth for all release changes.'
+  },
+  {
+    id: 276,
+    chapter: 'testingDebugging',
+    topic: 'PD1-505',
+    question: 'What is the correct order of the release environment lifecycle?',
+    options: ["Develop & Test \u2192 Build Release \u2192 Test Release \u2192 Release \u2192 Production", "Production \u2192 Release \u2192 Test \u2192 Build \u2192 Develop", "Build \u2192 Develop \u2192 Test \u2192 Release \u2192 Production", "Test \u2192 Develop \u2192 Build \u2192 Release \u2192 Production"],
+    correct: 0,
+    explanation: 'The release lifecycle is: Develop & Test (developer sandboxes) → Build Release (integration) → Test Release (UAT) → Release (training) → Production.'
+  },
+  {
+    id: 277,
+    chapter: 'testingDebugging',
+    topic: 'PD1-505',
+    question: 'What command retrieves metadata from a Salesforce org to a local project?',
+    options: ["sf project retrieve start", "sf project deploy start", "sf org retrieve", "sf metadata pull"],
+    correct: 0,
+    explanation: 'The sf project retrieve start command retrieves metadata from a Salesforce org to the local SFDX project.'
+  },
+  {
+    id: 278,
+    chapter: 'testingDebugging',
+    topic: 'PD1-505',
+    question: 'What is a package.xml manifest?',
+    options: ["A file listing metadata components to deploy", "A package of actual code", "A configuration file", "A documentation file"],
+    correct: 0,
+    explanation: 'A package.xml manifest lists metadata components to deploy but does not contain the actual code.'
+  },
+  {
+    id: 279,
+    chapter: 'testingDebugging',
+    topic: 'PD1-505',
+    question: 'What is Quick Deploy in Salesforce CLI?',
+    options: ["Deploys using a job ID from a successful validation", "Deploys without validation", "Deploys only changed files", "Deploys to multiple orgs simultaneously"],
+    correct: 0,
+    explanation: 'Quick Deploy uses a job ID from a successful validation to deploy without re-running all tests.'
+  },
+  {
+    id: 280,
+    chapter: 'processAutomation',
+    topic: 'PD1-305',
+    question: 'What is the most recommended way to prevent SOQL injection?',
+    options: ["Use static queries with bind variables", "Use String.escapeSingleQuotes()", "Use typecasting", "Use allowlisting"],
+    correct: 0,
+    explanation: 'Static queries with bind variables are the most recommended way to prevent SOQL injection.'
+  },
+  {
+    id: 281,
+    chapter: 'processAutomation',
+    topic: 'PD1-305',
+    question: 'What does String.escapeSingleQuotes() do?',
+    options: ["Escapes single quote characters with a backslash", "Removes all quotes from a string", "Converts quotes to double quotes", "Adds quotes around a string"],
+    correct: 0,
+    explanation: 'String.escapeSingleQuotes() escapes single quote characters with a backslash, preventing attackers from breaking out of string boundaries.'
+  },
+  {
+    id: 282,
+    chapter: 'processAutomation',
+    topic: 'PD1-305',
+    question: 'What is the limitation of String.escapeSingleQuotes() for preventing SOQL injection?',
+    options: ["It only works for strings, not numeric values", "It works for all data types", "It's the strongest defense", "It prevents all injection types"],
+    correct: 0,
+    explanation: 'String.escapeSingleQuotes() only works for strings and doesn\'t prevent injections that don\'t rely on single quote characters (e.g., numeric injection).'
+  },
+  {
+    id: 283,
+    chapter: 'processAutomation',
+    topic: 'PD1-305',
+    question: 'Why is blocklisting (removing bad characters) weaker than allowlisting?',
+    options: ["It's easier to predict good inputs than all possible bad inputs", "Blocklisting is actually stronger", "They are equally strong", "Allowlisting doesn't work for SOQL"],
+    correct: 0,
+    explanation: 'Blocklisting is weaker because it\'s easier to predict a few good inputs than to predict all possible bad inputs.'
+  },
+  {
+    id: 284,
+    chapter: 'processAutomation',
+    topic: 'PD1-306',
+    question: 'What is the default execution mode for Apex classes?',
+    options: ["System mode", "User mode", "Guest mode", "Admin mode"],
+    correct: 0,
+    explanation: 'Apex classes execute in system mode by default, where object permissions, field-level security, and sharing rules aren\'t applied.'
+  },
+  {
+    id: 285,
+    chapter: 'processAutomation',
+    topic: 'PD1-306',
+    question: 'When was User Mode introduced for database operations?',
+    options: ["Spring 2023", "Winter 2022", "Summer 2021", "Spring 2020"],
+    correct: 0,
+    explanation: 'User Mode for database operations was introduced in Spring 2023.'
+  },
+  {
+    id: 286,
+    chapter: 'processAutomation',
+    topic: 'PD1-306',
+    question: 'What is the syntax for SOQL with User Mode?',
+    options: ["SELECT Id FROM Account WITH USER_MODE", "SELECT Id FROM Account IN USER_MODE", "SELECT Id FROM Account AS USER", "SELECT Id FROM Account USER_MODE"],
+    correct: 0,
+    explanation: 'The syntax for SOQL with User Mode is: SELECT Id FROM Account WITH USER_MODE.'
+  },
+  {
+    id: 287,
+    chapter: 'processAutomation',
+    topic: 'PD1-306',
+    question: 'What is the syntax for DML with User Mode?',
+    options: ["insert as user o;", "insert user o;", "insert with user o;", "insert asUser o;"],
+    correct: 0,
+    explanation: 'The syntax for DML with User Mode is: insert as user o; (or database.insert(o, AccessLevel.USER_MODE)).'
+  },
+  {
+    id: 288,
+    chapter: 'userInterface',
+    topic: 'PD1-401',
+    question: 'What happens to showHeader and sidebar in Lightning Experience?',
+    options: ["They are forced to false", "They work normally", "They are ignored", "They cause errors"],
+    correct: 0,
+    explanation: 'In Lightning Experience, showHeader and sidebar are always forced to false.'
+  },
+  {
+    id: 289,
+    chapter: 'userInterface',
+    topic: 'PD1-401',
+    question: 'What is the purpose of the <apex:slds> component?',
+    options: ["Loads Lightning Design System without static resource upload", "Creates a new Lightning component", "Enables Lightning Experience", "Adds SLDS to static resources"],
+    correct: 0,
+    explanation: 'The <apex:slds> component loads the Lightning Design System without requiring static resource upload.'
+  },
+  {
+    id: 290,
+    chapter: 'userInterface',
+    topic: 'PD1-401',
+    question: 'Which Visualforce features don\'t work in Lightning Experience?',
+    options: ["showHeader, sidebar, certain related lists, and <apex:iframe>", "All Visualforce features work", "Only JavaScript features", "Only CSS features"],
+    correct: 0,
+    explanation: 'Features that don\'t work include showHeader, sidebar, certain related lists, and <apex:iframe> (VF already in an iframe).'
+  },
+  {
+    id: 291,
+    chapter: 'userInterface',
+    topic: 'PD1-408',
+    question: 'What should you do with non-lifecycle event listeners in LWC?',
+    options: ["Remove them in disconnectedCallback()", "Keep them always", "Add them in constructor", "Never use them"],
+    correct: 0,
+    explanation: 'Non-lifecycle event listeners should be removed in disconnectedCallback() to prevent memory leaks.'
+  },
+  {
+    id: 292,
+    chapter: 'userInterface',
+    topic: 'PD1-408',
+    question: 'What is event delegation in LWC?',
+    options: ["A technique to reduce the number of event listeners", "A way to delegate events to parent components", "A method to prevent event propagation", "A way to create custom events"],
+    correct: 0,
+    explanation: 'Event delegation is a technique that reduces the number of event listeners by handling events at a higher level in the DOM.'
+  },
+  {
+    id: 293,
+    chapter: 'testingDebugging',
+    topic: 'PD1-501',
+    question: 'What happens when an assertion fails in a test?',
+    options: ["An uncatchable AssertException is thrown", "The test continues", "A warning is logged", "The test is skipped"],
+    correct: 0,
+    explanation: 'Failed assertions throw an AssertException that is fatal and uncatchable, stopping the test.'
+  },
+  {
+    id: 294,
+    chapter: 'testingDebugging',
+    topic: 'PD1-501',
+    question: 'What is a test suite?',
+    options: ["A collection of test classes run together", "A single test method", "A test configuration file", "A test data factory"],
+    correct: 0,
+    explanation: 'A test suite is a collection of test classes that can be run together for regression testing.'
+  },
+  {
+    id: 295,
+    chapter: 'testingDebugging',
+    topic: 'PD1-501',
+    question: 'Do test methods have access to pre-existing org data?',
+    options: ["No, except setup/metadata objects like User and Profile", "Yes, full access", "Only with @seeAllData", "Only custom objects"],
+    correct: 0,
+    explanation: 'Test methods don\'t have access to pre-existing org data, except setup/metadata objects like User, Profile, and Organization.'
+  },
+  {
+    id: 296,
+    chapter: 'testingDebugging',
+    topic: 'PD1-501',
+    question: 'What does @IsTest(seeAllData=true) do?',
+    options: ["Grants access to all org data in the test", "Makes the test run faster", "Enables debugging", "Creates test data automatically"],
+    correct: 0,
+    explanation: '@IsTest(seeAllData=true) grants the test method access to all data in the organization, which is not a best practice.'
+  },
+  {
+    id: 297,
+    chapter: 'processAutomation',
+    topic: 'PD1-302',
+    question: 'What is the difference between instance and static methods?',
+    options: ["Instance methods require an object; static methods belong to the class", "They are identical", "Static methods are faster", "Instance methods can't be overridden"],
+    correct: 0,
+    explanation: 'Instance methods require an object to be called; static methods belong to the class and can be called without an object.'
+  },
+  {
+    id: 298,
+    chapter: 'processAutomation',
+    topic: 'PD1-302',
+    question: 'What are the access modifiers available in Apex?',
+    options: ["private, protected, public, global", "private, public, internal, external", "local, global, public, protected", "private, public, shared, global"],
+    correct: 0,
+    explanation: 'The four access modifiers in Apex are: private, protected, public, and global.'
+  },
+  {
+    id: 299,
+    chapter: 'processAutomation',
+    topic: 'PD1-302',
+    question: 'What data types are available in Apex?',
+    options: ["Primitives, sObject, Collections, Enums, user-defined classes, system-supplied classes", "Only primitives and objects", "Only strings and numbers", "Only collections"],
+    correct: 0,
+    explanation: 'Apex supports: primitives (Integer, Double, Long, Date, Datetime, String, ID, Boolean), sObject, collections (Sets, Maps, Lists), enums, user-defined classes, and system-supplied classes.'
+  },
+  {
+    id: 300,
+    chapter: 'processAutomation',
+    topic: 'PD1-302',
+    question: 'What is the relationship between sObjects and Salesforce records?',
+    options: ["Every Salesforce record is natively represented as an sObject in Apex", "sObjects are only for custom objects", "Records and sObjects are different things", "sObjects are only for API calls"],
+    correct: 0,
+    explanation: 'Every Salesforce record is natively represented as an sObject in Apex, whether it\'s a standard or custom object.'
+  },
+  {
+    id: 301,
+    chapter: 'processAutomation',
+    topic: 'PD1-302',
+    question: 'What is the API name convention for custom objects and fields?',
+    options: ["Custom objects end with __c, custom relationship fields end with __r", "All end with __c", "All end with __r", "No suffix is needed"],
+    correct: 0,
+    explanation: 'Custom objects and fields end with __c, and custom relationship fields end with __r.'
+  },
+  {
+    id: 302,
+    chapter: 'processAutomation',
+    topic: 'PD1-305',
+    question: 'What are the six DML statements in Apex?',
+    options: ["insert, update, upsert, delete, undelete, merge", "insert, update, delete, save, load, merge", "create, update, delete, upsert, undelete, merge", "insert, modify, upsert, delete, undelete, merge"],
+    correct: 0,
+    explanation: 'The six DML statements are: insert, update, upsert, delete, undelete, and merge.'
+  },
+  {
+    id: 303,
+    chapter: 'processAutomation',
+    topic: 'PD1-305',
+    question: 'What happens when upsert finds multiple matches?',
+    options: ["It throws an error", "It updates the first match", "It creates a new record", "It deletes all matches"],
+    correct: 0,
+    explanation: 'When upsert finds multiple matches for a key, it throws an error.'
+  },
+  {
+    id: 304,
+    chapter: 'processAutomation',
+    topic: 'PD1-305',
+    question: 'What is the allOrNone parameter in Database methods?',
+    options: ["When false, allows partial success of DML operations", "When true, allows partial success", "Controls batch size", "Controls error handling"],
+    correct: 0,
+    explanation: 'When allOrNone is set to false, partial success is allowed - some records can succeed while others fail.'
+  },
+  {
+    id: 305,
+    chapter: 'processAutomation',
+    topic: 'PD1-305',
+    question: 'What is the purpose of SOQL for loops?',
+    options: ["To process records in chunks of 200 to avoid heap size limits", "To make queries faster", "To reduce governor limits", "To enable bulk processing"],
+    correct: 0,
+    explanation: 'SOQL for loops process records in chunks of 200, helping to avoid heap size limits when processing large result sets.'
+  },
+  {
+    id: 306,
+    chapter: 'processAutomation',
+    topic: 'PD1-305',
+    question: 'What is the difference between SOQL and SOSL?',
+    options: ["SOQL queries one object; SOSL can search multiple objects simultaneously", "They are identical", "SOQL is faster", "SOSL is for text only"],
+    correct: 0,
+    explanation: 'SOQL queries one object at a time with exact matching; SOSL can search multiple objects simultaneously with word matching.'
+  },
+  {
+    id: 307,
+    chapter: 'processAutomation',
+    topic: 'PD1-305',
+    question: 'What wildcards does SOSL support?',
+    options: ["* (zero or more characters) and ? (exactly one character)", "Only * (any characters)", "Only % (any characters)", "No wildcards"],
+    correct: 0,
+    explanation: 'SOSL supports * wildcard (matches zero or more characters) and ? wildcard (matches exactly one character).'
+  },
+  {
+    id: 308,
+    chapter: 'processAutomation',
+    topic: 'PD1-306',
+    question: 'What are the seven possible trigger events?',
+    options: ["before insert, before update, before delete, after insert, after update, after delete, after undelete", "before and after for insert, update, delete", "insert, update, delete, undelete", "before save, after save, before delete, after delete"],
+    correct: 0,
+    explanation: 'The seven trigger events are: before insert, before update, before delete, after insert, after update, after delete, and after undelete.'
+  },
+  {
+    id: 309,
+    chapter: 'processAutomation',
+    topic: 'PD1-306',
+    question: 'What is the purpose of the addError() method in triggers?',
+    options: ["To throw a fatal error that rolls back the operation", "To log an error message", "To skip the current record", "To continue processing"],
+    correct: 0,
+    explanation: 'addError() throws a fatal error that displays the message in the UI and rolls back the entire operation.'
+  },
+  {
+    id: 310,
+    chapter: 'processAutomation',
+    topic: 'PD1-306',
+    question: 'What is the Trigger.operationType context variable?',
+    options: ["Returns the System.TriggerOperation enum for the current event", "Returns the trigger name", "Returns the object type", "Returns the number of records"],
+    correct: 0,
+    explanation: 'Trigger.operationType returns the System.TriggerOperation enum, which can be used in switch statements to handle different events.'
+  },
+  {
+    id: 311,
+    chapter: 'processAutomation',
+    topic: 'PD1-301',
+    question: 'What does the start() method return in Batch Apex?',
+    options: ["A Database.QueryLocator or an Iterable", "A list of records", "A single record", "Nothing (void)"],
+    correct: 0,
+    explanation: 'The start() method returns either a Database.QueryLocator object or an Iterable for processing records.'
+  },
+  {
+    id: 312,
+    chapter: 'processAutomation',
+    topic: 'PD1-301',
+    question: 'What is the advantage of using Database.QueryLocator in Batch Apex?',
+    options: ["Bypasses the governor limit for SOQL records (up to 50 million)", "Makes the batch run faster", "Reduces memory usage", "Enables parallel processing"],
+    correct: 0,
+    explanation: 'With Database.QueryLocator, the governor limit for SOQL records is bypassed, allowing up to 50 million records to be processed.'
+  },
+  {
+    id: 313,
+    chapter: 'processAutomation',
+    topic: 'PD1-301',
+    question: 'What happens if one batch fails in Batch Apex?',
+    options: ["Other successful batch transactions are not rolled back", "All batches are rolled back", "The entire job fails", "The failed batch is retried"],
+    correct: 0,
+    explanation: 'If one batch fails, other successful batch transactions are not rolled back, providing fault isolation.'
+  },
+  {
+    id: 314,
+    chapter: 'processAutomation',
+    topic: 'PD1-301',
+    question: 'What is the maximum number of jobs that can be added to the queue with System.enqueueJob?',
+    options: ["50", "100", "200", "Unlimited"],
+    correct: 0,
+    explanation: 'Up to 50 jobs can be added to the queue with System.enqueueJob in a single transaction.'
+  },
+  {
+    id: 315,
+    chapter: 'processAutomation',
+    topic: 'PD1-301',
+    question: 'What is job chaining in Queueable Apex?',
+    options: ["Submitting a second job from within the execute() method", "Running multiple jobs simultaneously", "Linking jobs to a schedule", "Connecting jobs to external systems"],
+    correct: 0,
+    explanation: 'Job chaining is submitting a second job from within the execute() method of a Queueable job for sequential processing.'
+  },
+  {
+    id: 316,
+    chapter: 'processAutomation',
+    topic: 'PD1-301',
+    question: 'What interface must a class implement to be schedulable?',
+    options: ["Schedulable", "Scheduleable", "Cronable", "Timeable"],
+    correct: 0,
+    explanation: 'A class must implement the Schedulable interface and its required execute() method to be scheduled.'
+  },
+  {
+    id: 317,
+    chapter: 'processAutomation',
+    topic: 'PD1-301',
+    question: 'What is the workaround for making callouts from scheduled Apex?',
+    options: ["Use @Future(callout=true) from scheduled Apex, or call a batch job", "Direct callouts work fine", "Use Queueable Apex instead", "Callouts are not possible"],
+    correct: 0,
+    explanation: 'Synchronous callouts are not supported from scheduled Apex. Use @Future(callout=true) or execute a batch job that supports callouts.'
+  },
+  {
+    id: 318,
+    chapter: 'testingDebugging',
+    topic: 'PD1-502',
+    question: 'What is the Apex Flex Queue?',
+    options: ["Holds up to 100 batch jobs in holding status", "A queue for future methods", "A queue for scheduled jobs", "A queue for Queueable jobs"],
+    correct: 0,
+    explanation: 'The Apex Flex Queue holds up to 100 batch jobs in holding status, processing them first-in, first-out.'
+  },
+  {
+    id: 319,
+    chapter: 'testingDebugging',
+    topic: 'PD1-502',
+    question: 'How many batch jobs can process simultaneously per org?',
+    options: ["5", "10", "50", "100"],
+    correct: 0,
+    explanation: 'Up to 5 queued or active batch jobs can process simultaneously per org.'
+  },
+  {
+    id: 320,
+    chapter: 'testingDebugging',
+    topic: 'PD1-505',
+    question: 'What are the three main parts of a CLI command structure?',
+    options: ["Command, Flags/Options, Arguments", "Action, Parameters, Output", "Input, Process, Output", "Command, Subcommand, Parameter"],
+    correct: 0,
+    explanation: 'The three main parts are: Command/Utility (what action), Flags/Options (identified by hyphens), and Arguments (what to process).'
+  },
+  {
+    id: 321,
+    chapter: 'testingDebugging',
+    topic: 'PD1-505',
+    question: 'What is the difference between flags and switches in CLI?',
+    options: ["Flags require values; switches don't require arguments", "They are identical", "Switches are faster", "Flags are for Windows only"],
+    correct: 0,
+    explanation: 'Flags require values (e.g., -n ProjectName), while switches don\'t require arguments (e.g., -d for set-default).'
+  },
+  {
+    id: 322,
+    chapter: 'testingDebugging',
+    topic: 'PD1-509',
+    question: 'What command validates a deployment without committing?',
+    options: ["sf project deploy validate", "sf project deploy start", "sf project deploy check", "sf project deploy test"],
+    correct: 0,
+    explanation: 'sf project deploy validate verifies test results without committing the deployment.'
+  },
+  {
+    id: 323,
+    chapter: 'testingDebugging',
+    topic: 'PD1-509',
+    question: 'What is a destructive changes manifest?',
+    options: ["A file that specifies components to delete during deployment", "A file that deletes the entire org", "A backup file", "A rollback file"],
+    correct: 0,
+    explanation: 'A destructive changes manifest specifies metadata components to delete during deployment.'
+  },
+  {
+    id: 324,
+    chapter: 'testingDebugging',
+    topic: 'PD1-509',
+    question: 'What is the time window for Quick Deploy after a successful validation?',
+    options: ["10 days", "24 hours", "7 days", "30 days"],
+    correct: 0,
+    explanation: 'Quick Deploy can use a job ID from a successful validation within a 10-day window.'
+  },
+  {
+    id: 325,
+    chapter: 'userInterface',
+    topic: 'PD1-405',
+    question: 'Why should you lock image dimensions in LWC?',
+    options: ["To avoid reflows and improve performance", "To make images load faster", "To reduce file size", "To enable lazy loading"],
+    correct: 0,
+    explanation: 'Locking image dimensions avoids reflows, which improves rendering performance.'
+  },
+  {
+    id: 326,
+    chapter: 'userInterface',
+    topic: 'PD1-405',
+    question: 'What is the recommended approach for third-party JavaScript libraries in LWC?',
+    options: ["Upload as static resource and use loadScript/loadStyle", "Include directly in HTML", "Use npm install", "Import from CDN"],
+    correct: 0,
+    explanation: 'Third-party libraries must be uploaded as static resources and loaded using loadScript/loadStyle from @salesforce/resourceUrl.'
+  },
+  {
+    id: 327,
+    chapter: 'userInterface',
+    topic: 'PD1-405',
+    question: 'What is the difference between Aura and LWC data binding?',
+    options: ["Aura has two-way binding; LWC has one-way binding only", "They are identical", "LWC has two-way binding; Aura has one-way", "Neither has data binding"],
+    correct: 0,
+    explanation: 'Aura supports two-way data binding, while LWC uses one-way data binding only (child fires events to modify owner data).'
+  },
+  {
+    id: 328,
+    chapter: 'processAutomation',
+    topic: 'PD1-302',
+    question: 'Which of the following is NOT a characteristic of Apex?',
+    options: ["Client-side execution", "Strongly typed", "Multitenant-aware", "Integrated with the database"],
+    correct: 0,
+    explanation: 'Apex is server-side, not client-side. It is strongly typed, multitenant-aware, and integrated with the database.'
+  },
+  {
+    id: 329,
+    chapter: 'processAutomation',
+    topic: 'PD1-302',
+    question: 'What is Anonymous Apex used for?',
+    options: ["Running code on the fly for testing via Developer Console", "Creating permanent classes", "Deploying to production", "Writing triggers"],
+    correct: 0,
+    explanation: 'Anonymous Apex is used for running code on the fly for testing via the Developer Console\'s Execute Anonymous window.'
+  },
+  {
+    id: 330,
+    chapter: 'processAutomation',
+    topic: 'PD1-302',
+    question: 'What is the syntax for declaring a List in Apex?',
+    options: ["List<String> myList = new List<String>();", "Array<String> myList = new Array<String>();", "String[] myList = new String[]();", "ArrayList<String> myList = new ArrayList<String>();"],
+    correct: 0,
+    explanation: 'The syntax for declaring a List in Apex is: List<String> myList = new List<String>(); (or String[] syntax).'
+  },
+  {
+    id: 331,
+    chapter: 'processAutomation',
+    topic: 'PD1-302',
+    question: 'What are the three types of collections in Apex?',
+    options: ["Lists, Maps, and Sets", "Arrays, Objects, and Lists", "Vectors, Hashes, and Queues", "Collections, Arrays, and Dictionaries"],
+    correct: 0,
+    explanation: 'The three types of collections in Apex are: Lists (ordered), Maps (key-value pairs), and Sets (unique values).'
+  },
+  {
+    id: 332,
+    chapter: 'userInterface',
+    topic: 'PD1-401',
+    question: 'Which sforce.one function navigates to a specific record?',
+    options: ["navigateToSObject(recordId)", "navigateToURL(url)", "navigateToList(listViewId)", "createRecord(entityName)"],
+    correct: 0,
+    explanation: 'sforce.one.navigateToSObject(recordId) navigates to a specific record in Lightning Experience.'
+  },
+  {
+    id: 333,
+    chapter: 'userInterface',
+    topic: 'PD1-401',
+    question: 'Which sforce.one function opens the record creation page?',
+    options: ["createRecord(entityName)", "editRecord(recordId)", "navigateToSObject(recordId)", "navigateToURL(url)"],
+    correct: 0,
+    explanation: 'sforce.one.createRecord(entityName) opens the record creation page in Lightning Experience.'
+  },
+  {
+    id: 334,
+    chapter: 'userInterface',
+    topic: 'PD1-407',
+    question: 'What resources are included in an Aura component bundle?',
+    options: ["Component, Controller, Helper, Style, Design, Documentation, Renderer", "Only Component and Controller", "Component, CSS, and JavaScript", "HTML, CSS, and JavaScript"],
+    correct: 0,
+    explanation: 'An Aura component bundle includes: Component (.cmp), Controller (.js), Helper (.js), Style (.css), Design (.design), Documentation, and Renderer.'
+  },
+  {
+    id: 335,
+    chapter: 'userInterface',
+    topic: 'PD1-407',
+    question: 'What is the purpose of the Design resource in an Aura component?',
+    options: ["Exposes attributes to Lightning App Builder", "Defines the component's visual design", "Creates documentation", "Handles events"],
+    correct: 0,
+    explanation: 'The Design resource exposes component attributes to Lightning App Builder for configuration.'
+  },
+  {
+    id: 336,
+    chapter: 'userInterface',
+    topic: 'PD1-405',
+    question: 'When is connectedCallback() called in LWC?',
+    options: ["When the component is inserted into the DOM", "When the component is removed from the DOM", "When the component is rendered", "When the component is created"],
+    correct: 0,
+    explanation: 'connectedCallback() is called when the component is inserted into the DOM, similar to Aura\'s init event.'
+  },
+  {
+    id: 337,
+    chapter: 'userInterface',
+    topic: 'PD1-405',
+    question: 'When should you use disconnectedCallback()?',
+    options: ["To clean up resources when the component is removed from the DOM", "To initialize the component", "To handle errors", "To render the component"],
+    correct: 0,
+    explanation: 'disconnectedCallback() is used to clean up resources (like event listeners) when the component is removed from the DOM.'
+  },
+  {
+    id: 338,
+    chapter: 'processAutomation',
+    topic: 'PD1-306',
+    question: 'What does WITH SECURITY_ENFORCED do in a SOQL query?',
+    options: ["Validates field- and object-level security automatically", "Enables encryption", "Forces user mode", "Bypasses sharing rules"],
+    correct: 0,
+    explanation: 'WITH SECURITY_ENFORCED validates field- and object-level security in SOQL queries automatically.'
+  },
+  {
+    id: 339,
+    chapter: 'processAutomation',
+    topic: 'PD1-306',
+    question: 'What API version is required for WITH SECURITY_ENFORCED?',
+    options: ["48.0+", "40.0+", "50.0+", "45.0+"],
+    correct: 0,
+    explanation: 'WITH SECURITY_ENFORCED requires API version 48.0 or higher.'
+  },
+  {
+    id: 340,
+    chapter: 'processAutomation',
+    topic: 'PD1-306',
+    question: 'What does the isDeleteable() method check?',
+    options: ["Delete access on the object (no field check needed)", "Delete access on each field", "Read access on the object", "Create access on the object"],
+    correct: 0,
+    explanation: 'isDeleteable() checks delete access on the object. No field-level check is needed since you delete entire records.'
+  },
+  {
+    id: 341,
+    chapter: 'processAutomation',
+    topic: 'PD1-306',
+    question: 'When is Trigger.newMap available?',
+    options: ["Before update, after insert, after update, after undelete", "All trigger events", "Only before insert", "Only after delete"],
+    correct: 0,
+    explanation: 'Trigger.newMap is available in: before update, after insert, after update, and after undelete.'
+  },
+  {
+    id: 342,
+    chapter: 'processAutomation',
+    topic: 'PD1-306',
+    question: 'When is Trigger.oldMap available?',
+    options: ["Update and delete triggers", "All trigger events", "Only insert triggers", "Only undelete triggers"],
+    correct: 0,
+    explanation: 'Trigger.oldMap is available in update and delete triggers.'
+  },
+  {
+    id: 343,
+    chapter: 'processAutomation',
+    topic: 'PD1-306',
+    question: 'Can you perform DML on Trigger.new in a before trigger?',
+    options: ["No, performing DML on Trigger.new in a before trigger causes an error", "Yes, it's the recommended approach", "Only for insert triggers", "Only for update triggers"],
+    correct: 0,
+    explanation: 'Performing DML on Trigger.new records in a before trigger causes an error. Records are saved automatically after the trigger finishes.'
+  },
+  {
+    id: 344,
+    chapter: 'processAutomation',
+    topic: 'PD1-306',
+    question: 'What is the recommended pattern for handling multiple trigger events?',
+    options: ["Use a switch statement on Trigger.operationType", "Use if-else statements", "Create separate triggers for each event", "Use a single trigger without a handler"],
+    correct: 0,
+    explanation: 'Using a switch statement on Trigger.operationType is the recommended pattern for handling multiple trigger events.'
+  },
+  {
+    id: 345,
+    chapter: 'processAutomation',
+    topic: 'PD1-306',
+    question: 'How should triggers handle callouts to external services?',
+    options: ["Use @future(callout=true) for asynchronous callouts", "Make synchronous callouts directly", "Use Queueable Apex", "Callouts are not allowed in triggers"],
+    correct: 0,
+    explanation: 'External web service calls from triggers must be asynchronous. Use @future(callout=true) annotation.'
+  },
+  {
+    id: 346,
+    chapter: 'processAutomation',
+    topic: 'PD1-306',
+    question: 'What is the governor limit for SOQL queries in synchronous Apex?',
+    options: ["100", "50", "200", "Unlimited"],
+    correct: 0,
+    explanation: 'The governor limit for SOQL queries in synchronous Apex is 100 (200 for asynchronous).'
+  },
+  {
+    id: 347,
+    chapter: 'processAutomation',
+    topic: 'PD1-306',
+    question: 'What is the governor limit for DML statements per transaction?',
+    options: ["150", "100", "200", "Unlimited"],
+    correct: 0,
+    explanation: 'The governor limit for DML statements per transaction is 150.'
+  },
+  {
+    id: 348,
+    chapter: 'processAutomation',
+    topic: 'PD1-306',
+    question: 'What is the recommended approach for querying related records in triggers?',
+    options: ["Use subqueries (inner queries) or IN clause with Trigger.new binding", "Query inside the for loop", "Use SOSL instead", "Query each record individually"],
+    correct: 0,
+    explanation: 'Use subqueries or IN clause with Trigger.new binding to efficiently query related records without hitting governor limits.'
+  },
+  {
+    id: 349,
+    chapter: 'processAutomation',
+    topic: 'PD1-306',
+    question: 'What is the AddRelatedRecord trigger pattern?',
+    options: ["A pattern that creates child records when parent records are inserted or updated", "A pattern that deletes related records", "A pattern that updates related records", "A pattern that queries related records"],
+    correct: 0,
+    explanation: 'The AddRelatedRecord pattern creates child records (like Opportunities) when parent records (like Accounts) are inserted or updated.'
+  },
+  {
+    id: 350,
+    chapter: 'processAutomation',
+    topic: 'PD1-306',
+    question: 'What is the best practice for adding related records in a trigger?',
+    options: ["Query related child records using SOQL with subquery, build a list, then insert at the end", "Insert records one at a time inside the loop", "Use DML inside the for loop", "Query each record individually"],
+    correct: 0,
+    explanation: 'The bulkified pattern is: query related child records using SOQL with subquery, build a list of new records, then insert at the end.'
+  },
+  {
+    id: 351,
+    chapter: 'processAutomation',
+    topic: 'PD1-310',
+    question: 'What is a DmlException?',
+    options: ["An exception thrown when a DML operation fails", "A database connection error", "A syntax error", "A governor limit error"],
+    correct: 0,
+    explanation: 'A DmlException is thrown when a DML operation fails, such as when a required field is missing or a validation rule fails.'
+  },
+  {
+    id: 352,
+    chapter: 'processAutomation',
+    topic: 'PD1-310',
+    question: 'What is the purpose of try-catch blocks in Apex?',
+    options: ["To handle exceptions gracefully and prevent unhandled errors", "To improve performance", "To enable debugging", "To create test methods"],
+    correct: 0,
+    explanation: 'Try-catch blocks handle exceptions gracefully, allowing the code to respond to errors without crashing.'
+  },
+  {
+    id: 353,
+    chapter: 'testingDebugging',
+    topic: 'PD1-501',
+    question: 'What should tests cover besides positive cases?',
+    options: ["Negative cases, bulk processing, and single-record processing", "Only positive cases", "Only edge cases", "Only bulk processing"],
+    correct: 0,
+    explanation: 'Tests should cover: positive cases, negative cases, bulk processing, and single-record processing.'
+  },
+  {
+    id: 354,
+    chapter: 'testingDebugging',
+    topic: 'PD1-501',
+    question: 'What is a TestDataFactory?',
+    options: ["A public static class with reusable methods for creating test data", "A built-in Salesforce class", "A third-party library", "A testing framework"],
+    correct: 0,
+    explanation: 'A TestDataFactory is a recommended pattern - a public static class annotated with @IsTest that centralizes test-data creation for reuse.'
+  },
+  {
+    id: 355,
+    chapter: 'testingDebugging',
+    topic: 'PD1-501',
+    question: 'What does Test.setFixedSearchResults() do?',
+    options: ["Sets fixed search results for SOSL queries in tests", "Sets fixed SOQL results", "Enables search indexing", "Creates test data"],
+    correct: 0,
+    explanation: 'Test.setFixedSearchResults() sets fixed search results for SOSL queries in tests, since SOSL returns empty results by default in test context.'
+  },
+  {
+    id: 356,
+    chapter: 'testingDebugging',
+    topic: 'PD1-502',
+    question: 'What can you do in the Developer Console?',
+    options: ["Create/edit Apex classes, triggers, Aura components, VF pages; run queries; analyze logs", "Only write Apex code", "Only run queries", "Only debug"],
+    correct: 0,
+    explanation: 'Developer Console can: create/edit Apex, triggers, Aura, VF; run SOQL/SOSL; analyze debug logs; set checkpoints; test code.'
+  },
+  {
+    id: 357,
+    chapter: 'testingDebugging',
+    topic: 'PD1-502',
+    question: 'What are the Log Inspector panels?',
+    options: ["Stack Tree, Execution Stack, Execution Log, Source, Source List, Variables, Execution Overview", "Only Log and Variables", "Only Stack Tree and Source", "Only Execution Log"],
+    correct: 0,
+    explanation: 'The Log Inspector has: Stack Tree, Execution Stack, Execution Log, Source, Source List, Variables, and Execution Overview panels.'
+  },
+  {
+    id: 358,
+    chapter: 'testingDebugging',
+    topic: 'PD1-502',
+    question: 'What are the log levels from least to most detail?',
+    options: ["NONE, ERROR, WARN, INFO, DEBUG, FINE, FINER, FINEST", "LOW, MEDIUM, HIGH", "BASIC, DETAILED, VERBOSE", "1, 2, 3, 4, 5"],
+    correct: 0,
+    explanation: 'Log levels from least to most detail: NONE, ERROR, WARN, INFO, DEBUG, FINE, FINER, FINEST.'
+  },
+  {
+    id: 359,
+    chapter: 'testingDebugging',
+    topic: 'PD1-502',
+    question: 'What is the Perspective Manager in Developer Console?',
+    options: ["A tool for managing predefined and custom Debug and Analysis perspectives", "A code formatting tool", "A query builder", "A deployment tool"],
+    correct: 0,
+    explanation: 'The Perspective Manager manages predefined Debug and Analysis perspectives and allows creating custom perspectives.'
+  },
+  {
+    id: 360,
+    chapter: 'testingDebugging',
+    topic: 'PD1-505',
+    question: 'What is the successor to the Force.com IDE plug-in?',
+    options: ["Salesforce Extensions for VS Code", "Developer Console", "Salesforce CLI", "Eclipse IDE"],
+    correct: 0,
+    explanation: 'Salesforce Extensions for VS Code is the successor to the Force.com IDE plug-in.'
+  },
+  {
+    id: 361,
+    chapter: 'testingDebugging',
+    topic: 'PD1-505',
+    question: 'What is npm used for in Salesforce development?',
+    options: ["Installing packages for LWC development", "Deploying to production", "Creating scratch orgs", "Writing Apex code"],
+    correct: 0,
+    explanation: 'npm is used to install packages quickly, particularly for LWC development.'
+  },
+  {
+    id: 362,
+    chapter: 'testingDebugging',
+    topic: 'PD1-505',
+    question: 'What is the Salesforce CLI command to create a new SFDX project?',
+    options: ["sf project generate", "sf org create", "sf project create", "sf new project"],
+    correct: 0,
+    explanation: 'The command sf project generate creates a new SFDX project with the -n flag for the project name.'
+  },
+  {
+    id: 363,
+    chapter: 'testingDebugging',
+    topic: 'PD1-505',
+    question: 'What is a change list in the org development model?',
+    options: ["A list tracking individual developer changes", "A deployment manifest", "A test suite", "A configuration file"],
+    correct: 0,
+    explanation: 'A change list tracks individual developer changes that need to be committed to source control.'
+  },
+  {
+    id: 364,
+    chapter: 'testingDebugging',
+    topic: 'PD1-505',
+    question: 'What is a deployment run list?',
+    options: ["Manual pre/post-deployment steps documented for deployment", "A list of test classes", "A list of metadata components", "A list of orgs to deploy to"],
+    correct: 0,
+    explanation: 'A deployment run list documents manual pre/post-deployment steps that need to be executed during deployment.'
+  },
+  {
+    id: 365,
+    chapter: 'processAutomation',
+    topic: 'PD1-302',
+    question: 'What does the \'global\' access modifier do in Apex?',
+    options: ["Makes a variable or method available to all classes in the organization", "Makes it private to the class", "Makes it public within the namespace", "Makes it protected"],
+    correct: 0,
+    explanation: 'The \'global\' access modifier makes a variable or method available to all classes in the organization, including managed packages.'
+  },
+  {
+    id: 366,
+    chapter: 'processAutomation',
+    topic: 'PD1-302',
+    question: 'What is the purpose of the \'static\' keyword in Apex?',
+    options: ["Makes a variable or method belong to the class rather than an instance", "Makes a variable constant", "Makes a variable private", "Makes a variable global"],
+    correct: 0,
+    explanation: 'The \'static\' keyword makes a variable or method belong to the class itself rather than to any specific instance.'
+  },
+  {
+    id: 367,
+    chapter: 'processAutomation',
+    topic: 'PD1-302',
+    question: 'What is the purpose of the \'final\' keyword in Apex?',
+    options: ["Makes a variable a constant that cannot be changed after initialization", "Makes a variable static", "Makes a variable global", "Makes a variable private"],
+    correct: 0,
+    explanation: 'The \'final\' keyword makes a variable a constant that cannot be changed after initialization.'
+  },
+  {
+    id: 368,
+    chapter: 'processAutomation',
+    topic: 'PD1-302',
+    question: 'Which of the following is NOT a primitive data type in Apex?',
+    options: ["Array", "Integer", "String", "Boolean"],
+    correct: 0,
+    explanation: 'Array is not a primitive data type. Apex primitives include: Integer, Double, Long, Date, Datetime, String, ID, and Boolean.'
+  },
+  {
+    id: 369,
+    chapter: 'processAutomation',
+    topic: 'PD1-302',
+    question: 'What is an sObject in Apex?',
+    options: ["A data type that represents a Salesforce record", "A string object", "A system object", "A static object"],
+    correct: 0,
+    explanation: 'An sObject is a data type that represents a Salesforce record, either generic or specific to an object type.'
+  },
+  {
+    id: 370,
+    chapter: 'processAutomation',
+    topic: 'PD1-302',
+    question: 'How do you access fields on a generic sObject?',
+    options: ["Using put() and get() methods", "Using dot notation", "Using square brackets", "Using parentheses"],
+    correct: 0,
+    explanation: 'Generic sObject fields are accessible only through put() and get() methods, not dot notation.'
+  },
+  {
+    id: 371,
+    chapter: 'processAutomation',
+    topic: 'PD1-302',
+    question: 'What is the purpose of Apex classes?',
+    options: ["Code reuse and encapsulation of business logic", "Only for creating triggers", "Only for Visualforce controllers", "Only for API calls"],
+    correct: 0,
+    explanation: 'Apex classes provide code reuse and encapsulation of business logic through OOP principles.'
+  },
+  {
+    id: 372,
+    chapter: 'processAutomation',
+    topic: 'PD1-302',
+    question: 'What is the difference between public and private methods in Apex?',
+    options: ["Public methods are accessible outside the class; private methods are not", "They are identical", "Private methods are faster", "Public methods are for triggers only"],
+    correct: 0,
+    explanation: 'Public methods are accessible from other classes; private methods are only accessible within the defining class.'
+  },
+  {
+    id: 373,
+    chapter: 'processAutomation',
+    topic: 'PD1-302',
+    question: 'How do you run Anonymous Apex?',
+    options: ["Through the Developer Console's Execute Anonymous window", "By creating a class", "Through the API", "By writing a trigger"],
+    correct: 0,
+    explanation: 'Anonymous Apex is run through the Developer Console\'s Debug > Open Execute Anonymous window.'
+  },
+  {
+    id: 374,
+    chapter: 'processAutomation',
+    topic: 'PD1-302',
+    question: 'Does Anonymous Apex affect the org?',
+    options: ["Yes, all code affects the org", "No, it's sandboxed", "Only for reads", "Only for custom objects"],
+    correct: 0,
+    explanation: 'All Anonymous Apex code affects the org - it\'s not sandboxed. Be careful with DML operations.'
+  },
+  {
+    id: 375,
+    chapter: 'testingDebugging',
+    topic: 'PD1-502',
+    question: 'What is System.debug() used for?',
+    options: ["Writing custom messages to debug logs", "Pausing code execution", "Setting breakpoints", "Creating test data"],
+    correct: 0,
+    explanation: 'System.debug() writes custom messages to debug logs for debugging purposes.'
+  },
+  {
+    id: 376,
+    chapter: 'testingDebugging',
+    topic: 'PD1-502',
+    question: 'Where can you view debug logs?',
+    options: ["In the Developer Console Logs tab", "Only in VS Code", "Only in the API", "Only in Setup"],
+    correct: 0,
+    explanation: 'Debug logs can be viewed in the Developer Console Logs tab, with filtering and different perspectives.'
+  },
+  {
+    id: 377,
+    chapter: 'processAutomation',
+    topic: 'PD1-302',
+    question: 'Which of the following IS a characteristic of Apex?',
+    options: ["Case-insensitive", "Client-side execution", "Loosely typed", "No governor limits"],
+    correct: 0,
+    explanation: 'Apex is case-insensitive. It is server-side, strongly typed, and has governor limits.'
+  },
+  {
+    id: 378,
+    chapter: 'processAutomation',
+    topic: 'PD1-302',
+    question: 'What language is Apex based on?',
+    options: ["Java idioms", "Python", "JavaScript", "C#"],
+    correct: 0,
+    explanation: 'Apex is based on Java idioms, making it familiar to Java developers.'
+  },
+  {
+    id: 379,
+    chapter: 'processAutomation',
+    topic: 'PD1-302',
+    question: 'What does API versioning do in Apex?',
+    options: ["Controls which features and behaviors are available based on the version", "Makes code run faster", "Enables debugging", "Creates backups"],
+    correct: 0,
+    explanation: 'API versioning controls which features and behaviors are available, ensuring backward compatibility.'
+  },
+  {
+    id: 380,
+    chapter: 'testingDebugging',
+    topic: 'PD1-501',
+    question: 'What are the key benefits of Apex unit tests?',
+    options: ["Ensuring classes and triggers work as expected, providing regression tests, meeting code coverage requirements", "Only code coverage", "Only debugging", "Only performance testing"],
+    correct: 0,
+    explanation: 'Key benefits: ensuring code works as expected, providing regression test suites, and meeting code coverage requirements for deployment.'
+  },
+  {
+    id: 381,
+    chapter: 'testingDebugging',
+    topic: 'PD1-501',
+    question: 'What is the recommended visibility for test classes?',
+    options: ["Private", "Public", "Global", "Protected"],
+    correct: 0,
+    explanation: 'Private visibility is recommended for test classes that are only used for unit testing.'
+  },
+  {
+    id: 382,
+    chapter: 'testingDebugging',
+    topic: 'PD1-501',
+    question: 'Do @IsTest classes count toward the 6 MB Apex code storage limit?',
+    options: ["No, they are excluded", "Yes, they count", "Only if they have errors", "Only in production"],
+    correct: 0,
+    explanation: '@IsTest classes don\'t count toward the 6 MB Apex code storage limit.'
+  },
+  {
+    id: 383,
+    chapter: 'testingDebugging',
+    topic: 'PD1-501',
+    question: 'Do test methods send emails?',
+    options: ["No, test methods don't send emails", "Yes, always", "Only with @seeAllData", "Only in production"],
+    correct: 0,
+    explanation: 'Test methods don\'t send emails, preventing accidental email delivery during testing.'
+  },
+  {
+    id: 384,
+    chapter: 'testingDebugging',
+    topic: 'PD1-501',
+    question: 'Can test methods make callouts?',
+    options: ["No, callouts must be mocked using HttpCalloutMock", "Yes, always", "Only with @seeAllData", "Only in sandbox"],
+    correct: 0,
+    explanation: 'Test methods can\'t make callouts. Use the HttpCalloutMock interface to mock callouts.'
+  },
+  {
+    id: 385,
+    chapter: 'testingDebugging',
+    topic: 'PD1-501',
+    question: 'How do you create a test suite?',
+    options: ["Through Test > New Suite in Developer Console", "By writing code", "Through Setup", "Through the API"],
+    correct: 0,
+    explanation: 'Test suites are created through Test > New Suite in the Developer Console.'
+  },
+  {
+    id: 386,
+    chapter: 'testingDebugging',
+    topic: 'PD1-501',
+    question: 'What is the purpose of Database.DeleteResult in testing?',
+    options: ["Contains information about a delete operation for assertions", "Deletes test data", "Creates test records", "Enables debugging"],
+    correct: 0,
+    explanation: 'Database.DeleteResult contains information about a delete operation, used for making assertions in tests.'
+  },
+  {
+    id: 387,
+    chapter: 'testingDebugging',
+    topic: 'PD1-501',
+    question: 'What is the recommended pattern for creating test data?',
+    options: ["Use a TestDataFactory with reusable methods", "Hardcode test data in each test", "Use @seeAllData", "Query existing data"],
+    correct: 0,
+    explanation: 'The TestDataFactory pattern creates a public static class with reusable methods for creating test data.'
+  },
+  {
+    id: 388,
+    chapter: 'testingDebugging',
+    topic: 'PD1-501',
+    question: 'Why is bulk DML efficient in test data creation?',
+    options: ["All records in a single insert statement counts as one DML", "It's not efficient", "It reduces memory usage", "It enables parallel processing"],
+    correct: 0,
+    explanation: 'Bulk DML is efficient because all records in a single insert statement count as one DML statement.'
+  },
+  {
+    id: 389,
+    chapter: 'testingDebugging',
+    topic: 'PD1-501',
+    question: 'What does Test.startTest() do in trigger testing?',
+    options: ["Resets governor limits to isolate data setup from test execution", "Starts the trigger", "Creates test data", "Enables debugging"],
+    correct: 0,
+    explanation: 'Test.startTest() resets governor limits, isolating data setup limit usage from test execution.'
+  },
+  {
+    id: 390,
+    chapter: 'testingDebugging',
+    topic: 'PD1-501',
+    question: 'What is the purpose of a test utility class?',
+    options: ["Centralizes test-data creation for reuse across multiple test methods", "Runs tests automatically", "Generates test reports", "Debugs test failures"],
+    correct: 0,
+    explanation: 'A test utility class centralizes test-data creation for reuse across multiple test methods.'
+  },
+  {
+    id: 391,
+    chapter: 'processAutomation',
+    topic: 'PD1-306',
+    question: 'What happens in bulk DML with partial success when addError() is used?',
+    options: ["Bad records are set aside; remaining records are partially saved", "All records fail", "The error is ignored", "The trigger stops"],
+    correct: 0,
+    explanation: 'In bulk DML with partial success via API, bad records are set aside and remaining records are partially saved.'
+  },
+  {
+    id: 392,
+    chapter: 'processAutomation',
+    topic: 'PD1-306',
+    question: 'What happens in Apex-initiated DML when an error occurs?',
+    options: ["Any error rolls back the entire operation", "Only the failed record is rolled back", "The error is ignored", "The trigger continues"],
+    correct: 0,
+    explanation: 'In Apex-initiated DML, any error rolls back the entire operation, unlike API partial success.'
+  },
+  {
+    id: 393,
+    chapter: 'processAutomation',
+    topic: 'PD1-306',
+    question: 'What does Trigger.size return?',
+    options: ["The number of records in the current batch", "The total number of records", "The trigger name", "The object type"],
+    correct: 0,
+    explanation: 'Trigger.size returns the number of records in the current batch (batches of 200+).'
+  },
+  {
+    id: 394,
+    chapter: 'processAutomation',
+    topic: 'PD1-306',
+    question: 'What does Trigger.isExecuting return?',
+    options: ["True if the context is a trigger", "True if the trigger is running", "The trigger name", "The execution time"],
+    correct: 0,
+    explanation: 'Trigger.isExecuting returns true if the current context is a trigger execution.'
+  },
+  {
+    id: 395,
+    chapter: 'processAutomation',
+    topic: 'PD1-306',
+    question: 'What is the difference between before and after triggers?',
+    options: ["Before triggers modify values before save; after triggers access system-set values", "They are identical", "Before triggers are faster", "After triggers are for deletes only"],
+    correct: 0,
+    explanation: 'Before triggers modify or validate record values before database save; after triggers access system-set field values (Id, LastModifiedDate).'
+  },
+  {
+    id: 396,
+    chapter: 'processAutomation',
+    topic: 'PD1-306',
+    question: 'Are records in after triggers read-only?',
+    options: ["Yes, records are read-only in after triggers", "No, they can be modified", "Only for insert triggers", "Only for update triggers"],
+    correct: 0,
+    explanation: 'Records in after triggers are read-only. Use before triggers to modify record values.'
+  },
+  {
+    id: 397,
+    chapter: 'processAutomation',
+    topic: 'PD1-306',
+    question: 'What is the recommended approach for trigger logic?',
+    options: ["Delegate to a handler class for code reuse and OOP design", "Put all logic in the trigger", "Use multiple triggers per object", "Use only before triggers"],
+    correct: 0,
+    explanation: 'The recommended approach is to delegate trigger logic to a handler class for code reuse and OOP design.'
+  },
+  {
+    id: 398,
+    chapter: 'processAutomation',
+    topic: 'PD1-306',
+    question: 'Why should you avoid SOQL queries inside for loops?',
+    options: ["It can exceed the governor limit of 100 SOQL queries per transaction", "It makes code slower", "It's not a best practice", "It causes syntax errors"],
+    correct: 0,
+    explanation: 'SOQL queries inside for loops can quickly exceed the governor limit of 100 SOQL queries per transaction.'
+  },
+  {
+    id: 399,
+    chapter: 'processAutomation',
+    topic: 'PD1-306',
+    question: 'Why should you avoid DML statements inside for loops?',
+    options: ["It can exceed the governor limit of 150 DML statements per transaction", "It makes code slower", "It's not a best practice", "It causes syntax errors"],
+    correct: 0,
+    explanation: 'DML statements inside for loops can quickly exceed the governor limit of 150 DML statements per transaction.'
+  },
+  {
+    id: 400,
+    chapter: 'processAutomation',
+    topic: 'PD1-306',
+    question: 'What is the bulk design pattern for adding related records?',
+    options: ["Query with subquery, build list, single DML insert at end", "Insert one at a time in loop", "Use DML in for loop", "Query each record individually"],
+    correct: 0,
+    explanation: 'The bulk design pattern: query with subquery, build list of records, then perform a single bulk DML insert at the end.'
+  }
 ];
 
 export const examConfig = {
