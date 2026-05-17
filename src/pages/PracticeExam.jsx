@@ -135,39 +135,39 @@ export default function PracticeExam() {
           <h2>📈 Official PD1 Exam Weights</h2>
           <div style={{ marginTop: '16px' }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '12px 0', borderBottom: '1px solid var(--gray-100)' }}>
-              <span style={{ fontWeight: 500 }}>Salesforce Fundamentals</span>
+              <span style={{ fontWeight: 500 }}>Developer Fundamentals</span>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px', width: '200px' }}>
                 <div style={{ flex: 1, height: '8px', background: 'var(--gray-200)', borderRadius: '4px', overflow: 'hidden' }}>
-                  <div style={{ width: '23%', height: '100%', background: 'var(--primary)', borderRadius: '4px' }}></div>
+                  <div style={{ width: '27%', height: '100%', background: 'var(--primary)', borderRadius: '4px' }}></div>
                 </div>
-                <span style={{ fontWeight: 600, color: 'var(--primary)', minWidth: '35px', textAlign: 'right' }}>23%</span>
+                <span style={{ fontWeight: 600, color: 'var(--primary)', minWidth: '35px', textAlign: 'right' }}>27%</span>
               </div>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '12px 0', borderBottom: '1px solid var(--gray-100)' }}>
-              <span style={{ fontWeight: 500 }}>Logic & Process Automation</span>
+              <span style={{ fontWeight: 500 }}>Process Automation and Logic</span>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px', width: '200px' }}>
                 <div style={{ flex: 1, height: '8px', background: 'var(--gray-200)', borderRadius: '4px', overflow: 'hidden' }}>
-                  <div style={{ width: '30%', height: '100%', background: 'var(--primary)', borderRadius: '4px' }}></div>
+                  <div style={{ width: '28%', height: '100%', background: 'var(--primary)', borderRadius: '4px' }}></div>
                 </div>
-                <span style={{ fontWeight: 600, color: 'var(--primary)', minWidth: '35px', textAlign: 'right' }}>30%</span>
+                <span style={{ fontWeight: 600, color: 'var(--primary)', minWidth: '35px', textAlign: 'right' }}>28%</span>
               </div>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '12px 0', borderBottom: '1px solid var(--gray-100)' }}>
               <span style={{ fontWeight: 500 }}>User Interface</span>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px', width: '200px' }}>
                 <div style={{ flex: 1, height: '8px', background: 'var(--gray-200)', borderRadius: '4px', overflow: 'hidden' }}>
-                  <div style={{ width: '20%', height: '100%', background: 'var(--primary)', borderRadius: '4px' }}></div>
+                  <div style={{ width: '25%', height: '100%', background: 'var(--primary)', borderRadius: '4px' }}></div>
                 </div>
-                <span style={{ fontWeight: 600, color: 'var(--primary)', minWidth: '35px', textAlign: 'right' }}>20%</span>
+                <span style={{ fontWeight: 600, color: 'var(--primary)', minWidth: '35px', textAlign: 'right' }}>25%</span>
               </div>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '12px 0' }}>
-              <span style={{ fontWeight: 500 }}>Testing, Debug & Deployment</span>
+              <span style={{ fontWeight: 500 }}>Testing, Debugging, and Deployment</span>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px', width: '200px' }}>
                 <div style={{ flex: 1, height: '8px', background: 'var(--gray-200)', borderRadius: '4px', overflow: 'hidden' }}>
-                  <div style={{ width: '12%', height: '100%', background: 'var(--primary)', borderRadius: '4px' }}></div>
+                  <div style={{ width: '20%', height: '100%', background: 'var(--primary)', borderRadius: '4px' }}></div>
                 </div>
-                <span style={{ fontWeight: 600, color: 'var(--primary)', minWidth: '35px', textAlign: 'right' }}>12%</span>
+                <span style={{ fontWeight: 600, color: 'var(--primary)', minWidth: '35px', textAlign: 'right' }}>20%</span>
               </div>
             </div>
           </div>

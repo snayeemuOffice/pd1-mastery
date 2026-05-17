@@ -19,10 +19,10 @@ export default function Footer() {
           <div className="footer-section">
             <h4>Study</h4>
             <ul>
-              <li><Link to="/study/chapter1">Salesforce Fundamentals</Link></li>
-              <li><Link to="/study/chapter2">Apex Programming</Link></li>
-              <li><Link to="/study/chapter3">User Interface</Link></li>
-              <li><Link to="/study/chapter4">Testing & Deployment</Link></li>
+              <li><Link to="/study/devFundamentals">Developer Fundamentals</Link></li>
+              <li><Link to="/study/processAutomation">Process Automation & Logic</Link></li>
+              <li><Link to="/study/userInterface">User Interface</Link></li>
+              <li><Link to="/study/testingDebugging">Testing & Deployment</Link></li>
             </ul>
           </div>
 
@@ -31,8 +31,8 @@ export default function Footer() {
             <ul>
               <li><Link to="/practice">Full Practice Exam</Link></li>
               <li><Link to="/flashcards">Flashcards</Link></li>
-              <li><Link to="/exam/chapter1">Chapter 1 Quiz</Link></li>
-              <li><Link to="/exam/chapter2">Chapter 2 Quiz</Link></li>
+              <li><Link to="/exam/quiz-devFundamentals">Dev Fundamentals Quiz</Link></li>
+              <li><Link to="/exam/quiz-processAutomation">Process Automation Quiz</Link></li>
             </ul>
           </div>
 

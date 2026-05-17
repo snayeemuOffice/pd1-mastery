@@ -152,38 +152,31 @@ export default function Home() {
           <div className="exam-topics-card">
             <h3>Exam Topics & Weights</h3>
             <div className="topic-weight-item">
-              <span className="topic-weight-name">Salesforce Fundamentals</span>
+              <span className="topic-weight-name">Developer Fundamentals</span>
               <div className="topic-weight-bar">
-                <div className="bar"><div className="bar-fill" style={{ width: '23%' }}></div></div>
-                <span className="weight-text">23%</span>
+                <div className="bar"><div className="bar-fill" style={{ width: '27%' }}></div></div>
+                <span className="weight-text">27%</span>
               </div>
             </div>
             <div className="topic-weight-item">
-              <span className="topic-weight-name">Data Modeling & Management</span>
+              <span className="topic-weight-name">Process Automation and Logic</span>
               <div className="topic-weight-bar">
-                <div className="bar"><div className="bar-fill" style={{ width: '20%' }}></div></div>
-                <span className="weight-text">20%</span>
-              </div>
-            </div>
-            <div className="topic-weight-item">
-              <span className="topic-weight-name">Logic & Process Automation</span>
-              <div className="topic-weight-bar">
-                <div className="bar"><div className="bar-fill" style={{ width: '30%' }}></div></div>
-                <span className="weight-text">30%</span>
+                <div className="bar"><div className="bar-fill" style={{ width: '28%' }}></div></div>
+                <span className="weight-text">28%</span>
               </div>
             </div>
             <div className="topic-weight-item">
               <span className="topic-weight-name">User Interface</span>
               <div className="topic-weight-bar">
-                <div className="bar"><div className="bar-fill" style={{ width: '15%' }}></div></div>
-                <span className="weight-text">15%</span>
+                <div className="bar"><div className="bar-fill" style={{ width: '25%' }}></div></div>
+                <span className="weight-text">25%</span>
               </div>
             </div>
             <div className="topic-weight-item">
-              <span className="topic-weight-name">Testing, Debugging & Deployment</span>
+              <span className="topic-weight-name">Testing, Debugging, and Deployment</span>
               <div className="topic-weight-bar">
-                <div className="bar"><div className="bar-fill" style={{ width: '12%' }}></div></div>
-                <span className="weight-text">12%</span>
+                <div className="bar"><div className="bar-fill" style={{ width: '20%' }}></div></div>
+                <span className="weight-text">20%</span>
               </div>
             </div>
           </div>

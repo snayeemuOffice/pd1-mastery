@@ -1,8 +1,8 @@
 export const chapters = [
   {
-    id: 'chapter1',
-    name: 'Salesforce Fundamentals',
-    description: 'Multi-tenant architecture, MVC, data model, and declarative vs programmatic customizations',
+    id: 'devFundamentals',
+    name: 'Developer Fundamentals',
+    description: 'Multi-tenant architecture, MVC, data model, and declarative vs programmatic customizations (27%)',
     icon: '🏛️',
     color: '#0176D3',
     topics: [
@@ -252,9 +252,9 @@ export const chapters = [
     ]
   },
   {
-    id: 'chapter2',
-    name: 'Apex Programming',
-    description: 'Variables, control flow, SOQL, DML, triggers, best practices, governor limits, and exception handling',
+    id: 'processAutomation',
+    name: 'Process Automation and Logic',
+    description: 'Declarative automation, Apex programming, SOQL, DML, triggers, governor limits, and exception handling (28%)',
     icon: '⚡',
     color: '#FF6B35',
     topics: [
@@ -707,9 +707,9 @@ export const chapters = [
     ]
   },
   {
-    id: 'chapter3',
+    id: 'userInterface',
     name: 'User Interface',
-    description: 'Visualforce, Lightning Component Framework, LWC events, and UI security',
+    description: 'Visualforce, Lightning Component Framework, LWC events, and UI security (25%)',
     icon: '🖥️',
     color: '#1B96FF',
     topics: [
@@ -1020,9 +1020,9 @@ export const chapters = [
     ]
   },
   {
-    id: 'chapter4',
-    name: 'Testing, Debugging & Deployment',
-    description: 'Test classes, debugging techniques, developer tools, and deployment processes',
+    id: 'testingDebugging',
+    name: 'Testing, Debugging, and Deployment',
+    description: 'Test classes, debugging techniques, developer tools, and deployment processes (20%)',
     icon: '🔧',
     color: '#032D60',
     topics: [
