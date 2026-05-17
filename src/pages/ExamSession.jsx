@@ -18,13 +18,23 @@ function shuffleQuestionOptions(question) {
   const indices = [0, 1, 2, 3]
   const shuffledIndices = shuffleArray(indices)
   const shuffledOptions = shuffledIndices.map(i => question.options[i])
-  // Find where original correct answer (index 0) ended up
-  const newCorrect = shuffledIndices.indexOf(0)
-  return {
-    ...question,
-    options: shuffledOptions,
-    correct: newCorrect,
-    originalCorrect: 0
+
+  if (question.multiSelect && question.correctAnswers) {
+    // For multi-select, map all correct indices
+    const newCorrectAnswers = question.correctAnswers.map(oldIdx => shuffledIndices.indexOf(oldIdx))
+    return {
+      ...question,
+      options: shuffledOptions,
+      correctAnswers: newCorrectAnswers.sort()
+    }
+  } else {
+    // For single-select, map the single correct index
+    const newCorrect = shuffledIndices.indexOf(0)
+    return {
+      ...question,
+      options: shuffledOptions,
+      correct: newCorrect
+    }
   }
 }
 
@@ -123,20 +133,52 @@ export default function ExamSession() {
 
   const handleSelectOption = (questionId, optionIndex) => {
     if (submitted[questionId]) return
-    setAnswers(prev => ({ ...prev, [questionId]: optionIndex }))
+
+    const question = questions.find(q => q.id === questionId)
+    if (question.multiSelect) {
+      // Multi-select: toggle the selected option
+      setAnswers(prev => {
+        const current = prev[questionId] || []
+        const newAnswers = current.includes(optionIndex)
+          ? current.filter(i => i !== optionIndex)
+          : [...current, optionIndex].sort()
+        return { ...prev, [questionId]: newAnswers }
+      })
+    } else {
+      // Single-select: set the answer
+      setAnswers(prev => ({ ...prev, [questionId]: optionIndex }))
+    }
   }
 
   const handleSubmitAnswer = () => {
     const q = questions[currentIndex]
-    if (answers[q.id] === undefined) return
+    const answer = answers[q.id]
+
+    // Check if answer is provided
+    if (q.multiSelect) {
+      if (!answer || answer.length === 0) return
+    } else {
+      if (answer === undefined) return
+    }
+
     setSubmitted(prev => ({ ...prev, [q.id]: true }))
+
+    // Check if answer is correct
+    let isCorrect = false
+    if (q.multiSelect) {
+      const correctAnswers = q.correctAnswers || []
+      isCorrect = answer.length === correctAnswers.length &&
+        answer.every(a => correctAnswers.includes(a))
+    } else {
+      isCorrect = answer === q.correct
+    }
 
     // Save to localStorage for progress tracking
     const existing = JSON.parse(localStorage.getItem('pd1_progress') || '{}')
     if (!existing.examResults) existing.examResults = []
     existing.examResults.push({
       questionId: q.id,
-      correct: answers[q.id] === q.correct,
+      correct: isCorrect,
       timestamp: Date.now()
     })
     localStorage.setItem('pd1_progress', JSON.stringify(existing))
@@ -162,7 +204,16 @@ export default function ExamSession() {
   const calculateScore = () => {
     let correct = 0
     questions.forEach(q => {
-      if (answers[q.id] === q.correct) correct++
+      const answer = answers[q.id]
+      if (q.multiSelect) {
+        const correctAnswers = q.correctAnswers || []
+        if (answer && answer.length === correctAnswers.length &&
+          answer.every(a => correctAnswers.includes(a))) {
+          correct++
+        }
+      } else {
+        if (answer === q.correct) correct++
+      }
     })
     return {
       correct,
@@ -323,10 +374,28 @@ export default function ExamSession() {
   const currentQuestion = questions[currentIndex]
   const isSubmitted = submitted[currentQuestion.id]
   const selectedAnswer = answers[currentQuestion.id]
-  const isCorrect = selectedAnswer === currentQuestion.correct
+  const isMultiSelect = currentQuestion.multiSelect
+
+  // Check if answer is correct
+  let isCorrect = false
+  if (isSubmitted) {
+    if (isMultiSelect) {
+      const correctAnswers = currentQuestion.correctAnswers || []
+      isCorrect = selectedAnswer && selectedAnswer.length === correctAnswers.length &&
+        selectedAnswer.every(a => correctAnswers.includes(a))
+    } else {
+      isCorrect = selectedAnswer === currentQuestion.correct
+    }
+  }
+
   const submittedCount = Object.keys(submitted).length
   const timeWarning = timeLeft < 300
   const timeDanger = timeLeft < 60
+
+  // Check if answer is provided for submit button
+  const hasAnswer = isMultiSelect
+    ? (selectedAnswer && selectedAnswer.length > 0)
+    : (selectedAnswer !== undefined)
 
   return (
     <div className="exam-session">
@@ -358,6 +427,7 @@ export default function ExamSession() {
       <div className="question-card">
         <div className="question-number">
           Question {currentIndex + 1} of {questions.length}
+          {isMultiSelect && <span className="multi-select-badge"> (Select {currentQuestion.correctAnswers?.length || 2})</span>}
         </div>
         <div className="question-text">{currentQuestion.question}</div>
 
@@ -366,10 +436,21 @@ export default function ExamSession() {
           {currentQuestion.options.map((option, idx) => {
             let className = 'option-item'
             if (isSubmitted) {
-              if (idx === currentQuestion.correct) className += ' correct'
-              else if (idx === selectedAnswer && !isCorrect) className += ' incorrect'
-            } else if (selectedAnswer === idx) {
-              className += ' selected'
+              if (isMultiSelect) {
+                const correctAnswers = currentQuestion.correctAnswers || []
+                const isSelected = selectedAnswer && selectedAnswer.includes(idx)
+                const isCorrectOption = correctAnswers.includes(idx)
+
+                if (isCorrectOption) className += ' correct'
+                if (isSelected && !isCorrectOption) className += ' incorrect'
+              } else {
+                if (idx === currentQuestion.correct) className += ' correct'
+                else if (idx === selectedAnswer && !isCorrect) className += ' incorrect'
+              }
+            } else if (isMultiSelect) {
+              if (selectedAnswer && selectedAnswer.includes(idx)) className += ' selected'
+            } else {
+              if (selectedAnswer === idx) className += ' selected'
             }
 
             return (
@@ -379,7 +460,13 @@ export default function ExamSession() {
                 onClick={() => handleSelectOption(currentQuestion.id, idx)}
               >
                 <span className="option-letter">
-                  {String.fromCharCode(65 + idx)}
+                  {isMultiSelect ? (
+                    <span className={`checkbox ${selectedAnswer && selectedAnswer.includes(idx) ? 'checked' : ''}`}>
+                      {selectedAnswer && selectedAnswer.includes(idx) ? '☑' : '☐'}
+                    </span>
+                  ) : (
+                    String.fromCharCode(65 + idx)
+                  )}
                 </span>
                 <span className="option-text">{option}</span>
               </div>
@@ -393,14 +480,14 @@ export default function ExamSession() {
             <button
               className="btn btn-primary btn-lg"
               onClick={handleSubmitAnswer}
-              disabled={selectedAnswer === undefined}
-              style={{ opacity: selectedAnswer === undefined ? 0.5 : 1 }}
+              disabled={!hasAnswer}
+              style={{ opacity: !hasAnswer ? 0.5 : 1 }}
             >
               Submit Answer
             </button>
-            {selectedAnswer === undefined && (
+            {!hasAnswer && (
               <p style={{ fontSize: '13px', color: 'var(--gray-400)', marginTop: '8px' }}>
-                Select an answer to continue
+                {isMultiSelect ? 'Select all correct answers to continue' : 'Select an answer to continue'}
               </p>
             )}
           </div>
@@ -408,6 +495,11 @@ export default function ExamSession() {
           <div className={`explanation-box ${isCorrect ? 'correct' : 'incorrect'}`}>
             <div className="explanation-header">
               {isCorrect ? '✓ Correct!' : '✗ Incorrect'}
+              {isMultiSelect && !isCorrect && (
+                <div style={{ fontSize: '13px', marginTop: '8px', fontWeight: 'normal' }}>
+                  Correct answers: {(currentQuestion.correctAnswers || []).map(i => String.fromCharCode(65 + i)).join(', ')}
+                </div>
+              )}
             </div>
             <div className="explanation-text">
               {currentQuestion.explanation}

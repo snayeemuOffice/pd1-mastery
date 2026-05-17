@@ -1025,6 +1025,32 @@
   padding-top: 4px;
 }
 
+/* Multi-select checkbox styling */
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.checkbox.checked {
+  color: var(--primary);
+}
+
+.multi-select-badge {
+  font-size: 13px;
+  color: var(--primary);
+  font-weight: 600;
+  margin-left: 8px;
+}
+
+.option-item.selected .checkbox {
+  color: var(--white);
+}
+
 /* Explanation Box */
 .explanation-box {
   margin-top: 20px;

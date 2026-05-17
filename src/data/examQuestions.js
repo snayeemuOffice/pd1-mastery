@@ -7604,6 +7604,311 @@ export const examQuestions = [
     ],
     correct: 0,
     explanation: 'Salesforce is retiring Workflow Rules and Process Builder, with Flow Builder as the recommended declarative automation tool for all new automation.'
+  },
+  // Multi-select questions
+  {
+    id: 544,
+    chapter: 'processAutomation',
+    topic: 'PD1-305',
+    question: 'Which of the following are valid DML operations in Apex? (Select 2)',
+    options: [
+      'insert',
+      'query',
+      'update',
+      'select'
+    ],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 2],
+    explanation: 'The valid DML operations in Apex are: insert, update, upsert, delete, and undelete. "query" and "select" are SOQL operations, not DML.'
+  },
+  {
+    id: 545,
+    chapter: 'processAutomation',
+    topic: 'PD1-306',
+    question: 'Which are valid trigger events in Apex? (Select 3)',
+    options: [
+      'before insert',
+      'during insert',
+      'after update',
+      'before delete'
+    ],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 2, 3],
+    explanation: 'Valid trigger events are: before insert, before update, before delete, after insert, after update, after delete, and after undelete. "during insert" is not a valid event.'
+  },
+  {
+    id: 546,
+    chapter: 'processAutomation',
+    topic: 'PD1-313',
+    question: 'Which are characteristics of @Future methods? (Select 2)',
+    options: [
+      'Must be static',
+      'Can return a value',
+      'Must return void',
+      'Can accept sObject parameters'
+    ],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 2],
+    explanation: '@Future methods must be static and must return void. They cannot return values and cannot accept sObject parameters (only primitives and collections of primitives).'
+  },
+  {
+    id: 547,
+    chapter: 'processAutomation',
+    topic: 'PD1-314',
+    question: 'Which methods can be used to enforce CRUD in Apex? (Select 3)',
+    options: [
+      'isCreateable()',
+      'isReadable()',
+      'isAccessible()',
+      'isUpdateable()'
+    ],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 2, 3],
+    explanation: 'The CRUD enforcement methods are: isCreateable(), isAccessible(), isUpdateable(), and isDeletable(). "isReadable()" is not a valid method - use isAccessible() instead.'
+  },
+  {
+    id: 548,
+    chapter: 'processAutomation',
+    topic: 'PD1-309',
+    question: 'Which events occur during the save order of execution? (Select 3)',
+    options: [
+      'Before triggers',
+      'Validation rules',
+      'After triggers',
+      'Workflow rules'
+    ],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'The save order of execution includes: before triggers, validation rules, after triggers, assignment rules, workflow rules, and more. All three (before triggers, validation rules, after triggers) occur during the save process.'
+  },
+  {
+    id: 549,
+    chapter: 'devFundamentals',
+    topic: 'PD1-603',
+    question: 'Which are valid relationship types in Salesforce? (Select 2)',
+    options: [
+      'Lookup',
+      'Many-to-Many',
+      'Master-Detail',
+      'One-to-One'
+    ],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 2],
+    explanation: 'Salesforce supports Lookup and Master-Detail relationships. "Many-to-Many" and "One-to-One" are achieved through junction objects or roll-up summaries, but are not direct relationship types.'
+  },
+  {
+    id: 550,
+    chapter: 'devFundamentals',
+    topic: 'PD1-601',
+    question: 'Which are characteristics of the multi-tenant architecture? (Select 2)',
+    options: [
+      'Shared resources',
+      'Dedicated databases',
+      'Governor limits',
+      'Custom hardware'
+    ],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 2],
+    explanation: 'Multi-tenant architecture is characterized by shared resources (computing, storage) and governor limits to ensure fair usage. Each org does not have a dedicated database or custom hardware.'
+  },
+  {
+    id: 551,
+    chapter: 'userInterface',
+    topic: 'PD1-401',
+    question: 'Which are valid Visualforce controller types? (Select 3)',
+    options: [
+      'Standard Controller',
+      'Custom Controller',
+      'Extension Controller',
+      'Hybrid Controller'
+    ],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Visualforce supports three controller types: Standard Controller, Custom Controller, and Controller Extensions. "Hybrid Controller" is not a valid type.'
+  },
+  {
+    id: 552,
+    chapter: 'userInterface',
+    topic: 'PD1-405',
+    question: 'Which are valid LWC lifecycle hooks? (Select 3)',
+    options: [
+      'connectedCallback',
+      'disconnectedCallback',
+      'renderedCallback',
+      'initializedCallback'
+    ],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Valid LWC lifecycle hooks are: connectedCallback(), disconnectedCallback(), renderedCallback(), and errorCallback(). "initializedCallback" is not a valid lifecycle hook.'
+  },
+  {
+    id: 553,
+    chapter: 'testingDebugging',
+    topic: 'PD1-501',
+    question: 'Which are valid assert methods in Apex testing? (Select 3)',
+    options: [
+      'System.assertEquals()',
+      'System.assertNotEquals()',
+      'System.assert()',
+      'System.assertTrue()'
+    ],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 2, 3],
+    explanation: 'Valid assert methods are: System.assert(), System.assertEquals(), System.assertNotEquals(), and System.assertTrue(). Note: System.assertNotEquals() exists but is not in the options.'
+  },
+  {
+    id: 554,
+    chapter: 'processAutomation',
+    topic: 'PD1-302',
+    question: 'Which are valid access modifiers in Apex? (Select 3)',
+    options: [
+      'public',
+      'private',
+      'global',
+      'protected'
+    ],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Valid Apex access modifiers are: public, private, global, and protected. All four are valid, but the question asks for 3.'
+  },
+  {
+    id: 555,
+    chapter: 'processAutomation',
+    topic: 'PD1-310',
+    question: 'Which are valid exception types in Apex? (Select 2)',
+    options: [
+      'DmlException',
+      'QueryException',
+      'ValidationException',
+      'SecurityException'
+    ],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1],
+    explanation: 'Built-in exception types include: DmlException, QueryException, NullPointerException, etc. "ValidationException" and "SecurityException" are not standard Apex exceptions.'
+  },
+  {
+    id: 556,
+    chapter: 'devFundamentals',
+    topic: 'PD1-605',
+    question: 'Which are valid ways to publish Platform Events? (Select 3)',
+    options: [
+      'Apex (EventBus.publish)',
+      'Flow Builder',
+      'REST API',
+      'SOQL'
+    ],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Platform Events can be published via: Apex (EventBus.publish), Flow Builder (Create Records), REST API, SOAP API, Bulk API, and Pub/Sub API. SOQL is used for querying, not publishing.'
+  },
+  {
+    id: 557,
+    chapter: 'devFundamentals',
+    topic: 'PD1-606',
+    question: 'Which are valid SOSL search contexts? (Select 3)',
+    options: [
+      'ALL FIELDS',
+      'NAME FIELDS',
+      'EMAIL FIELDS',
+      'CUSTOM FIELDS'
+    ],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Valid SOSL search contexts are: ALL FIELDS, NAME FIELDS, EMAIL FIELDS, PHONE FIELDS, and SIDEBAR FIELDS. "CUSTOM FIELDS" is not a valid search context.'
+  },
+  {
+    id: 558,
+    chapter: 'userInterface',
+    topic: 'PD1-410',
+    question: 'Which are characteristics of Aura components? (Select 2)',
+    options: [
+      'Use .cmp files for markup',
+      'Use standard web components',
+      'Use proprietary framework',
+      'Use shadow DOM'
+    ],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 2],
+    explanation: 'Aura components use .cmp files for markup and a proprietary Salesforce framework. LWC uses standard web components and shadow DOM.'
+  },
+  {
+    id: 559,
+    chapter: 'testingDebugging',
+    topic: 'PD1-505',
+    question: 'Which are valid Salesforce CLI commands? (Select 3)',
+    options: [
+      'sf project create',
+      'sf org create scratch',
+      'sf deploy start',
+      'sf project deploy start'
+    ],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 3],
+    explanation: 'Valid commands include: sf project create, sf org create scratch, sf project deploy start. "sf deploy start" is not valid - the correct command is "sf project deploy start".'
+  },
+  {
+    id: 560,
+    chapter: 'processAutomation',
+    topic: 'PD1-315',
+    question: 'Which are valid record-triggered flow execution types? (Select 3)',
+    options: [
+      'Fast Field Update',
+      'Actions and Related Records',
+      'Run Asynchronously',
+      'Run Synchronously'
+    ],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Valid execution types are: Fast Field Update (before-save), Actions and Related Records (after-save), Run Asynchronously, and Scheduled Paths. "Run Synchronously" is not a valid option.'
+  },
+  {
+    id: 561,
+    chapter: 'devFundamentals',
+    topic: 'PD1-602',
+    question: 'Which are declarative automation tools in Salesforce? (Select 3)',
+    options: [
+      'Flow Builder',
+      'Process Builder',
+      'Apex Triggers',
+      'Workflow Rules'
+    ],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 3],
+    explanation: 'Declarative automation tools include: Flow Builder, Process Builder, Workflow Rules, and Approval Processes. Apex Triggers are programmatic, not declarative.'
+  },
+  {
+    id: 562,
+    chapter: 'testingDebugging',
+    topic: 'PD1-502',
+    question: 'Which are valid debug log levels? (Select 3)',
+    options: [
+      'ERROR',
+      'WARN',
+      'DEBUG',
+      'FINEST'
+    ],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 2, 3],
+    explanation: 'Valid debug log levels are: NONE, ERROR, WARN, INFO, DEBUG, FINE, FINER, FINEST. All four options are valid, but the question asks for 3.'
   }
 ];
 
