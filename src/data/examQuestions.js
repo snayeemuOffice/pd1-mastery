@@ -7909,6 +7909,1698 @@ export const examQuestions = [
     multiSelect: true,
     correctAnswers: [0, 2, 3],
     explanation: 'Valid debug log levels are: NONE, ERROR, WARN, INFO, DEBUG, FINE, FINER, FINEST. All four options are valid, but the question asks for 3.'
+  },
+  // Additional multi-select questions to reach 25%
+  {
+    id: 563,
+    chapter: 'processAutomation',
+    topic: 'PD1-305',
+    question: 'Which are valid SOQL clauses? (Select 3)',
+    options: ['WHERE', 'FROM', 'INSERT', 'ORDER BY'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 3],
+    explanation: 'Valid SOQL clauses include SELECT, FROM, WHERE, ORDER BY, GROUP BY, LIMIT, etc. INSERT is a DML operation, not a SOQL clause.'
+  },
+  {
+    id: 564,
+    chapter: 'processAutomation',
+    topic: 'PD1-305',
+    question: 'Which are valid SOQL aggregate functions? (Select 3)',
+    options: ['COUNT', 'SUM', 'AVERAGE', 'MAX'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 3],
+    explanation: 'Valid SOQL aggregate functions are COUNT, SUM, AVG, MIN, MAX. AVERAGE is not valid - the correct function is AVG.'
+  },
+  {
+    id: 565,
+    chapter: 'processAutomation',
+    topic: 'PD1-305',
+    question: 'Which are valid ways to query related records in SOQL? (Select 2)',
+    options: ['Dot notation', 'JOIN keyword', 'Subquery', 'INNER JOIN'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 2],
+    explanation: 'SOQL uses dot notation for parent-to-child and subqueries for child-to-parent relationships. JOIN and INNER JOIN are SQL concepts, not SOQL.'
+  },
+  {
+    id: 566,
+    chapter: 'processAutomation',
+    topic: 'PD1-306',
+    question: 'Which are valid trigger context variables? (Select 3)',
+    options: ['Trigger.new', 'Trigger.old', 'Trigger.current', 'Trigger.newMap'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 3],
+    explanation: 'Valid trigger context variables are Trigger.new, Trigger.old, Trigger.newMap, Trigger.oldMap, Trigger.isInsert, etc. Trigger.current is not a valid variable.'
+  },
+  {
+    id: 567,
+    chapter: 'processAutomation',
+    topic: 'PD1-306',
+    question: 'When is Trigger.old available? (Select 2)',
+    options: ['Before insert', 'Before update', 'After insert', 'After delete'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [1, 3],
+    explanation: 'Trigger.old is available in update and delete triggers (before/after). It is NOT available in insert triggers because there is no previous version.'
+  },
+  {
+    id: 568,
+    chapter: 'processAutomation',
+    topic: 'PD1-308',
+    question: 'Which are governor limits in Apex? (Select 3)',
+    options: ['SOQL queries per transaction', 'DML statements per transaction', 'CPU time per transaction', 'Variable declarations per transaction'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Governor limits include SOQL queries (100), DML statements (150), CPU time (10s sync/60s async), etc. There is no limit on variable declarations.'
+  },
+  {
+    id: 569,
+    chapter: 'processAutomation',
+    topic: 'PD1-309',
+    question: 'Which operations occur during the save order of execution? (Select 3)',
+    options: ['Before triggers', 'Duplicate rules', 'After triggers', 'Escalation rules'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'The save order includes before triggers, duplicate rules, after triggers, assignment rules, escalation rules, etc.'
+  },
+  {
+    id: 570,
+    chapter: 'processAutomation',
+    topic: 'PD1-310',
+    question: 'Which are ways to handle exceptions in Apex? (Select 3)',
+    options: ['try-catch block', 'throw statement', 'finally block', 'error block'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Exception handling uses try-catch-finally blocks and throw statements. There is no "error block" in Apex.'
+  },
+  {
+    id: 571,
+    chapter: 'processAutomation',
+    topic: 'PD1-312',
+    question: 'Which are benefits of using declarative tools over code? (Select 3)',
+    options: ['Faster development', 'No governor limits', 'Easier maintenance', 'No test coverage required'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 2, 3],
+    explanation: 'Benefits include faster development, easier maintenance, and no test coverage requirement. Declarative tools still have limits, just different ones.'
+  },
+  {
+    id: 572,
+    chapter: 'processAutomation',
+    topic: 'PD1-313',
+    question: 'Which are valid Batch Apex methods? (Select 3)',
+    options: ['start', 'execute', 'finish', 'initialize'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Batch Apex requires start(), execute(), and finish() methods. There is no initialize() method in the Database.Batchable interface.'
+  },
+  {
+    id: 573,
+    chapter: 'processAutomation',
+    topic: 'PD1-313',
+    question: 'Which are advantages of Queueable Apex over @Future? (Select 2)',
+    options: ['Non-primitive parameters', 'Faster execution', 'Job chaining', 'No limits'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 2],
+    explanation: 'Queueable Apex supports non-primitive parameters and job chaining. Execution speed is similar and there are still limits.'
+  },
+  {
+    id: 574,
+    chapter: 'processAutomation',
+    topic: 'PD1-313',
+    question: 'Which are valid ways to schedule Apex? (Select 2)',
+    options: ['System.schedule method', 'Cron expressions', 'Schedule button in UI', 'Flow Builder'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1],
+    explanation: 'Apex is scheduled using System.schedule() with cron expressions. There is no schedule button for Apex and Flow Builder cannot schedule Apex classes.'
+  },
+  {
+    id: 575,
+    chapter: 'processAutomation',
+    topic: 'PD1-314',
+    question: 'Which are valid ways to enforce sharing in Apex? (Select 3)',
+    options: ['with sharing', 'without sharing', 'inherited sharing', 'global sharing'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Valid sharing keywords are with sharing, without sharing, and inherited sharing. There is no "global sharing" keyword.'
+  },
+  {
+    id: 576,
+    chapter: 'processAutomation',
+    topic: 'PD1-314',
+    question: 'Which methods check field-level security? (Select 2)',
+    options: ['isAccessible()', 'isCreateable()', 'isQueryable()', 'isDeletable'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1],
+    explanation: 'isAccessible() and isCreateable() check field-level security. isQueryable() is not a method and isDeletable() checks object-level only.'
+  },
+  {
+    id: 577,
+    chapter: 'processAutomation',
+    topic: 'PD1-315',
+    question: 'Which are valid flow element types? (Select 3)',
+    options: ['Assignment', 'Decision', 'Loop', 'Compile'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Valid flow elements include Assignment, Decision, Loop, Get Records, Create Records, etc. There is no Compile element.'
+  },
+  {
+    id: 578,
+    chapter: 'processAutomation',
+    topic: 'PD1-316',
+    question: 'Which are valid DML statements in Apex? (Select 3)',
+    options: ['insert', 'update', 'merge', 'upsert'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 3],
+    explanation: 'Valid DML statements are insert, update, upsert, delete, and undelete. merge is a method, not a DML statement.'
+  },
+  {
+    id: 579,
+    chapter: 'processAutomation',
+    topic: 'PD1-317',
+    question: 'Which are valid approval process actions? (Select 3)',
+    options: ['Initial submission', 'Approval', 'Rejection', 'Cancellation'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Valid approval process actions are initial submission, approval, rejection, and recall. There is no cancellation action.'
+  },
+  {
+    id: 580,
+    chapter: 'devFundamentals',
+    topic: 'PD1-601',
+    question: 'Which are components of the MVC architecture in Salesforce? (Select 3)',
+    options: ['Model', 'View', 'Controller', 'Database'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'MVC consists of Model (data), View (UI), and Controller (logic). Database is part of the Model layer, not a separate MVC component.'
+  },
+  {
+    id: 581,
+    chapter: 'devFundamentals',
+    topic: 'PD1-602',
+    question: 'Which are programmatic customization tools? (Select 3)',
+    options: ['Apex classes', 'Triggers', 'Flow Builder', 'Visualforce'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 3],
+    explanation: 'Programmatic tools include Apex classes, triggers, Visualforce, and Lightning components. Flow Builder is declarative.'
+  },
+  {
+    id: 582,
+    chapter: 'devFundamentals',
+    topic: 'PD1-603',
+    question: 'Which are valid field types in Salesforce? (Select 3)',
+    options: ['Text', 'Number', 'Currency', 'Decimal'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Valid field types include Text, Number, Currency, Date, Checkbox, etc. Decimal is not a field type - use Number with decimal places instead.'
+  },
+  {
+    id: 583,
+    chapter: 'devFundamentals',
+    topic: 'PD1-603',
+    question: 'Which are characteristics of Master-Detail relationships? (Select 3)',
+    options: ['Cascade delete', 'Roll-up summaries', 'Required field', 'Optional relationship'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Master-Detail relationships support cascade delete, roll-up summaries, and are required. The detail record cannot exist without a master.'
+  },
+  {
+    id: 584,
+    chapter: 'devFundamentals',
+    topic: 'PD1-604',
+    question: 'Which are valid data import tools? (Select 3)',
+    options: ['Data Import Wizard', 'Data Loader', 'API', 'SOQL'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Data import tools include Data Import Wizard, Data Loader, and APIs. SOQL is for querying data, not importing.'
+  },
+  {
+    id: 585,
+    chapter: 'devFundamentals',
+    topic: 'PD1-605',
+    question: 'Which are characteristics of Platform Events? (Select 3)',
+    options: ['Pub/sub model', 'AFTER INSERT triggers only', 'SOQL queryable', '72-hour retention'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 3],
+    explanation: 'Platform Events use pub/sub model, support AFTER INSERT triggers only, and have 72-hour retention. They cannot be queried with SOQL.'
+  },
+  {
+    id: 586,
+    chapter: 'devFundamentals',
+    topic: 'PD1-606',
+    question: 'Which are differences between SOQL and SOSL? (Select 3)',
+    options: ['SOQL queries one object', 'SOSL searches multiple objects', 'SOQL returns List<SObject>', 'SOSL returns List<SObject>'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'SOQL queries one object and returns List<SObject>. SOSL searches multiple objects and returns List<List<SObject>>.'
+  },
+  {
+    id: 587,
+    chapter: 'devFundamentals',
+    topic: 'PD1-607',
+    question: 'Which are capabilities of Einstein for Developers? (Select 2)',
+    options: ['Code generation', 'Database management', 'Test generation', 'Deployment'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 2],
+    explanation: 'Einstein for Developers can generate code and test classes. It does not manage databases or deploy code.'
+  },
+  {
+    id: 588,
+    chapter: 'devFundamentals',
+    topic: 'PD1-608',
+    question: 'Which are valid annotations for agent actions? (Select 2)',
+    options: ['@InvocableMethod', '@AuraEnabled', '@InvocableVariable', '@RemoteAction'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 2],
+    explanation: 'Agent actions use @InvocableMethod and @InvocableVariable. @AuraEnabled is for LWC and @RemoteAction is for Visualforce.'
+  },
+  {
+    id: 589,
+    chapter: 'devFundamentals',
+    topic: 'PD1-609',
+    question: 'Which are features of Agentforce Vibes? (Select 2)',
+    options: ['Code generation', 'Database queries', 'Inline autocompletion', 'Deployment'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 2],
+    explanation: 'Agentforce Vibes supports code generation and inline autocompletion. It does not directly query databases or deploy code.'
+  },
+  {
+    id: 590,
+    chapter: 'devFundamentals',
+    topic: 'PD1-610',
+    question: 'Which are components of Einstein Generative AI? (Select 3)',
+    options: ['Prompt Builder', 'Einstein Copilot', 'Data Cloud', 'Trust Layer'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 3],
+    explanation: 'Einstein Generative AI components include Prompt Builder, Einstein Copilot, and Trust Layer. Data Cloud is a separate product.'
+  },
+  {
+    id: 591,
+    chapter: 'devFundamentals',
+    topic: 'PD1-611',
+    question: 'Which are components of Agentforce DX? (Select 2)',
+    options: ['Agent Builder', 'Flow Builder', 'Agent Actions', 'Process Builder'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 2],
+    explanation: 'Agentforce DX includes Agent Builder and Agent Actions. Flow Builder and Process Builder are separate automation tools.'
+  },
+  {
+    id: 592,
+    chapter: 'userInterface',
+    topic: 'PD1-401',
+    question: 'Which are valid Visualforce page attributes? (Select 3)',
+    options: ['controller', 'extensions', 'standardController', 'customController'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Valid attributes are controller, extensions, and standardController. There is no customController attribute - use controller instead.'
+  },
+  {
+    id: 593,
+    chapter: 'userInterface',
+    topic: 'PD1-401',
+    question: 'Which are valid Visualforce components? (Select 3)',
+    options: ['apex:pageBlock', 'apex:dataTable', 'apex:form', 'apex:button'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Valid components include apex:pageBlock, apex:dataTable, apex:form, etc. Use apex:commandButton instead of apex:button.'
+  },
+  {
+    id: 594,
+    chapter: 'userInterface',
+    topic: 'PD1-405',
+    question: 'Which are valid LWC decorators? (Select 3)',
+    options: ['@api', '@track', '@wire', '@static'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Valid LWC decorators are @api (public props), @track (reactive), and @wire (service binding). @static is not a decorator.'
+  },
+  {
+    id: 595,
+    chapter: 'userInterface',
+    topic: 'PD1-405',
+    question: 'Which are valid LWC template directives? (Select 3)',
+    options: ['for:each', 'if:true', 'lwc:if', 'while:loop'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Valid template directives include for:each, if:true/false, and lwc:if/elseif/else. There is no while:loop directive.'
+  },
+  {
+    id: 596,
+    chapter: 'userInterface',
+    topic: 'PD1-406',
+    question: 'Which are ways to prevent XSS in Visualforce? (Select 3)',
+    options: ['HTMLENCODE', 'JSENCODE', 'URLENCODE', 'SQLCODE'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'XSS prevention functions are HTMLENCODE, JSENCODE, URLENCODE, and JSINHTMLENCODE. SQLCODE is not a function.'
+  },
+  {
+    id: 597,
+    chapter: 'userInterface',
+    topic: 'PD1-407',
+    question: 'Which are valid ways to call Apex from LWC? (Select 2)',
+    options: ['@wire decorator', 'imperative call', 'RemoteAction', 'JavaScript remoting'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1],
+    explanation: 'LWC calls Apex via @wire decorator or imperative calls. RemoteAction and JavaScript remoting are Visualforce concepts.'
+  },
+  {
+    id: 598,
+    chapter: 'userInterface',
+    topic: 'PD1-408',
+    question: 'Which are best practices for LWC? (Select 3)',
+    options: ['Use @api for public props', 'Minimize DOM updates', 'Use shadow DOM', 'Avoid wire service'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Best practices include using @api for public props, minimizing DOM updates, and leveraging shadow DOM. The wire service should be used, not avoided.'
+  },
+  {
+    id: 599,
+    chapter: 'userInterface',
+    topic: 'PD1-409',
+    question: 'Which are differences between Aura and LWC? (Select 3)',
+    options: ['LWC uses web standards', 'Aura uses .cmp files', 'LWC uses shadow DOM', 'Aura is recommended for new development'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'LWC uses web standards and shadow DOM. Aura uses .cmp files. LWC is recommended for new development, not Aura.'
+  },
+  {
+    id: 600,
+    chapter: 'userInterface',
+    topic: 'PD1-410',
+    question: 'Which are valid Aura event types? (Select 2)',
+    options: ['Component events', 'Application events', 'System events', 'Global events'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1],
+    explanation: 'Aura supports component events and application events. There are no system events or global events in Aura.'
+  },
+  {
+    id: 601,
+    chapter: 'testingDebugging',
+    topic: 'PD1-501',
+    question: 'Which are required for Apex test classes? (Select 3)',
+    options: ['@isTest annotation', 'private access', 'test methods', 'SeeAllData=true'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Test classes require @isTest annotation, can be private, and must have test methods. SeeAllData=true is optional and not recommended.'
+  },
+  {
+    id: 602,
+    chapter: 'testingDebugging',
+    topic: 'PD1-501',
+    question: 'Which are valid test data approaches? (Select 2)',
+    options: ['Create test data in test', 'Use SeeAllData', 'Use production data', 'Use static resources'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 3],
+    explanation: 'Best practice is to create test data in test methods or use static resources. SeeAllData and production data access are not recommended.'
+  },
+  {
+    id: 603,
+    chapter: 'testingDebugging',
+    topic: 'PD1-502',
+    question: 'Which are valid debugging tools in Salesforce? (Select 3)',
+    options: ['Developer Console', 'Debug Logs', 'Apex Replay Debugger', 'Code Editor'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Debugging tools include Developer Console, Debug Logs, and Apex Replay Debugger. Code Editor is for writing code, not debugging.'
+  },
+  {
+    id: 604,
+    chapter: 'testingDebugging',
+    topic: 'PD1-505',
+    question: 'Which are valid Salesforce CLI commands? (Select 3)',
+    options: ['sf org login', 'sf data query', 'sf apex run', 'sf code deploy'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Valid commands include sf org login, sf data query, and sf apex run. sf code deploy is not a valid command.'
+  },
+  {
+    id: 605,
+    chapter: 'testingDebugging',
+    topic: 'PD1-509',
+    question: 'Which are valid deployment tools? (Select 3)',
+    options: ['Change Sets', 'Metadata API', 'Salesforce CLI', 'Data Loader'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Deployment tools include Change Sets, Metadata API, and Salesforce CLI. Data Loader is for data import/export, not metadata deployment.'
+  },
+  {
+    id: 606,
+    chapter: 'testingDebugging',
+    topic: 'PD1-510',
+    question: 'Which are valid scratch org configurations? (Select 2)',
+    options: ['project-scratch-def.json', 'sfdx-project.json', 'org-config.json', 'scratch-org.json'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1],
+    explanation: 'Scratch org configuration uses project-scratch-def.json and sfdx-project.json. There are no org-config.json or scratch-org.json files.'
+  },
+  {
+    id: 607,
+    chapter: 'testingDebugging',
+    topic: 'PD1-511',
+    question: 'Which are features of Apex Replay Debugger? (Select 3)',
+    options: ['Set breakpoints', 'Step through code', 'Inspect variables', 'Edit code'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Apex Replay Debugger supports breakpoints, stepping through code, and variable inspection. It does not allow editing code during debugging.'
+  },
+  {
+    id: 608,
+    chapter: 'testingDebugging',
+    topic: 'PD1-512',
+    question: 'Which are valid sandbox types? (Select 3)',
+    options: ['Developer', 'Developer Pro', 'Partial Copy', 'Full Copy'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Sandbox types are Developer, Developer Pro, Partial Copy, and Full. All four are valid, but the question asks for 3.'
+  },
+  {
+    id: 609,
+    chapter: 'processAutomation',
+    topic: 'PD1-301',
+    question: 'Which are valid Flow trigger types? (Select 3)',
+    options: ['Record-Triggered', 'Schedule-Triggered', 'Platform Event-Triggered', 'User-Triggered'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Valid flow trigger types are Record-Triggered, Schedule-Triggered, and Platform Event-Triggered. There is no User-Triggered flow type.'
+  },
+  {
+    id: 610,
+    chapter: 'processAutomation',
+    topic: 'PD1-301',
+    question: 'Which are valid flow screen components? (Select 3)',
+    options: ['Text', 'Number', 'Date', 'Query'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Valid screen components include Text, Number, Date, Checkbox, Picklist, etc. There is no Query component.'
+  },
+  {
+    id: 611,
+    chapter: 'processAutomation',
+    topic: 'PD1-302',
+    question: 'Which are valid data types in Apex? (Select 3)',
+    options: ['Integer', 'String', 'Boolean', 'Float'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Valid Apex data types include Integer, String, Boolean, Decimal, Double, etc. Float is not a data type - use Decimal or Double instead.'
+  },
+  {
+    id: 612,
+    chapter: 'processAutomation',
+    topic: 'PD1-303',
+    question: 'Which are valid loop types in Apex? (Select 3)',
+    options: ['for loop', 'while loop', 'do-while loop', 'foreach loop'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Valid loop types are for, while, and do-while. The "for each" syntax uses the for keyword with a colon, not a foreach keyword.'
+  },
+  {
+    id: 613,
+    chapter: 'processAutomation',
+    topic: 'PD1-305',
+    question: 'Which are valid ways to execute SOQL? (Select 2)',
+    options: ['Inline in Apex', 'Database.query()', 'Execute.SOQL()', 'Query.run()'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1],
+    explanation: 'SOQL can be executed inline in square brackets or using Database.query(). There are no Execute.SOQL() or Query.run() methods.'
+  },
+  {
+    id: 614,
+    chapter: 'processAutomation',
+    topic: 'PD1-306',
+    question: 'Which are trigger best practices? (Select 3)',
+    options: ['One trigger per object', 'Logic in trigger', 'Use handler class', 'Bulkify operations'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 2, 3],
+    explanation: 'Best practices include one trigger per object, using handler classes, and bulkifying operations. Logic should be in handler classes, not in the trigger.'
+  },
+  {
+    id: 615,
+    chapter: 'processAutomation',
+    topic: 'PD1-308',
+    question: 'What is the limit for SOQL queries per transaction? (Select 1)',
+    options: ['50', '100', '150', '200'],
+    correct: 0,
+    multiSelect: false,
+    explanation: 'The governor limit for SOQL queries is 100 per synchronous transaction and 200 per asynchronous transaction.'
+  },
+  {
+    id: 616,
+    chapter: 'processAutomation',
+    topic: 'PD1-313',
+    question: 'Which are valid async Apex types? (Select 3)',
+    options: ['@Future', 'Batch Apex', 'Queueable', 'Inline Apex'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Async Apex types are @Future, Batch Apex, Queueable, and Scheduled Apex. There is no Inline Apex type.'
+  },
+  {
+    id: 617,
+    chapter: 'devFundamentals',
+    topic: 'PD1-605',
+    question: 'Which are valid Platform Event subscribers? (Select 3)',
+    options: ['Apex triggers', 'empApi', 'CometD', 'SOQL'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Platform Event subscribers are Apex triggers, empApi (LWC/Aura), and CometD (external). SOQL cannot subscribe to events.'
+  },
+  {
+    id: 618,
+    chapter: 'devFundamentals',
+    topic: 'PD1-606',
+    question: 'Which are valid SOSL wildcards? (Select 2)',
+    options: ['*', '?', '%', '_'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1],
+    explanation: 'SOSL wildcards are * (multiple chars) and ? (single char). % and _ are SQL wildcards, not SOSL.'
+  },
+  {
+    id: 619,
+    chapter: 'userInterface',
+    topic: 'PD1-405',
+    question: 'Which are valid ways to communicate between LWC components? (Select 2)',
+    options: ['Custom events', 'Lightning Message Service', 'Global variables', 'Direct DOM access'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1],
+    explanation: 'LWC communication uses custom events (parent-child) and Lightning Message Service (cross-component). Global variables and direct DOM access are not recommended.'
+  },
+  {
+    id: 620,
+    chapter: 'testingDebugging',
+    topic: 'PD1-501',
+    question: 'Which are valid test annotations? (Select 3)',
+    options: ['@isTest', '@testVisible', '@testSetup', '@testData'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Valid test annotations are @isTest, @testVisible, and @testSetup. There is no @testData annotation.'
+  },
+  {
+    id: 621,
+    chapter: 'processAutomation',
+    topic: 'PD1-314',
+    question: 'Which are valid security clauses in SOQL? (Select 2)',
+    options: ['WITH SECURITY_ENFORCED', 'WITH USER_MODE', 'WITH CRUD_CHECK', 'WITH FLS_CHECK'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1],
+    explanation: 'Valid security clauses are WITH SECURITY_ENFORCED and WITH USER_MODE. There are no CRUD_CHECK or FLS_CHECK clauses.'
+  },
+  {
+    id: 622,
+    chapter: 'processAutomation',
+    topic: 'PD1-315',
+    question: 'Which are valid flow variable types? (Select 3)',
+    options: ['Text', 'Number', 'Record', 'Query'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Flow variable types include Text, Number, Date, Boolean, Record, etc. There is no Query variable type.'
+  },
+  {
+    id: 623,
+    chapter: 'devFundamentals',
+    topic: 'PD1-603',
+    question: 'Which are valid object types in Salesforce? (Select 3)',
+    options: ['Standard objects', 'Custom objects', 'External objects', 'System objects'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Object types are Standard, Custom, and External objects. There is no "System objects" category in Salesforce.'
+  },
+  {
+    id: 624,
+    chapter: 'devFundamentals',
+    topic: 'PD1-604',
+    question: 'Which are valid data export tools? (Select 3)',
+    options: ['Data Loader', 'Data Export Service', 'Reports', 'SOQL'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Data export tools include Data Loader, Data Export Service, and Reports. SOQL queries data but does not export files.'
+  },
+  {
+    id: 625,
+    chapter: 'processAutomation',
+    topic: 'PD1-309',
+    question: 'Which operations can trigger recursion? (Select 2)',
+    options: ['Triggers', 'Workflow rules', 'Validation rules', 'Page layouts'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1],
+    explanation: 'Triggers and workflow rules can cause recursion. Validation rules and page layouts do not trigger recursion.'
+  },
+  {
+    id: 626,
+    chapter: 'userInterface',
+    topic: 'PD1-401',
+    question: 'Which are valid Visualforce data components? (Select 3)',
+    options: ['apex:outputText', 'apex:inputField', 'apex:dataTable', 'apex:queryTable'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Valid data components include apex:outputText, apex:inputField, apex:dataTable, etc. There is no apex:queryTable component.'
+  },
+  {
+    id: 627,
+    chapter: 'testingDebugging',
+    topic: 'PD1-505',
+    question: 'Which are valid metadata types? (Select 3)',
+    options: ['ApexClass', 'ApexTrigger', 'LightningComponent', 'DataRecord'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Metadata types include ApexClass, ApexTrigger, LightningComponent, etc. DataRecord is not a metadata type - data is separate from metadata.'
+  },
+  {
+    id: 628,
+    chapter: 'processAutomation',
+    topic: 'PD1-310',
+    question: 'Which are common exception types? (Select 3)',
+    options: ['NullPointerException', 'DmlException', 'ListException', 'CodeException'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Common exceptions are NullPointerException, DmlException, ListException, etc. There is no CodeException type.'
+  },
+  {
+    id: 629,
+    chapter: 'devFundamentals',
+    topic: 'PD1-601',
+    question: 'Which are benefits of multi-tenant architecture? (Select 3)',
+    options: ['Shared infrastructure', 'Automatic updates', 'Governor limits', 'Custom servers'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Benefits include shared infrastructure, automatic updates, and governor limits. Customers do not get custom servers.'
+  },
+  {
+    id: 630,
+    chapter: 'processAutomation',
+    topic: 'PD1-302',
+    question: 'Which are valid collection types in Apex? (Select 3)',
+    options: ['List', 'Set', 'Map', 'Array'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Collection types are List, Set, and Map. There is no separate Array type - use List instead.'
+  },
+  {
+    id: 631,
+    chapter: 'userInterface',
+    topic: 'PD1-407',
+    question: 'Which are valid Apex annotations for LWC? (Select 2)',
+    options: ['@AuraEnabled', '@RemoteAction', '@InvocableMethod', '@WebService'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 2],
+    explanation: 'LWC uses @AuraEnabled for methods and @InvocableMethod for Flow integration. @RemoteAction and @WebService are for Visualforce.'
+  },
+  {
+    id: 632,
+    chapter: 'testingDebugging',
+    topic: 'PD1-502',
+    question: 'Which are valid log categories? (Select 3)',
+    options: ['APEX_CODE', 'DATABASE', 'VISUALFORCE', 'LIGHTNING'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Log categories include APEX_CODE, DATABASE, VISUALFORCE, WORKFLOW, etc. LIGHTNING is not a standard log category.'
+  },
+  {
+    id: 633,
+    chapter: 'processAutomation',
+    topic: 'PD1-305',
+    question: 'Which are valid SOSL clauses? (Select 3)',
+    options: ['FIND', 'IN', 'RETURNING', 'WHERE'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'SOSL clauses are FIND, IN, RETURNING, LIMIT, OFFSET. WHERE is used inside RETURNING, not as a top-level clause.'
+  },
+  {
+    id: 634,
+    chapter: 'devFundamentals',
+    topic: 'PD1-602',
+    question: 'Which tools can send outbound messages? (Select 2)',
+    options: ['Workflow Rules', 'Process Builder', 'Flow Builder', 'Approval Processes'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 2],
+    explanation: 'Workflow Rules and Flow Builder can send outbound messages. Process Builder and Approval Processes cannot directly send outbound messages.'
+  },
+  {
+    id: 635,
+    chapter: 'processAutomation',
+    topic: 'PD1-313',
+    question: 'What is the maximum batch size for Batch Apex? (Select 1)',
+    options: ['200', '500', '1000', '2000'],
+    correct: 0,
+    multiSelect: false,
+    explanation: 'The maximum batch size for Batch Apex is 2000 records per execution. The default is 200.'
+  },
+  {
+    id: 636,
+    chapter: 'userInterface',
+    topic: 'PD1-405',
+    question: 'Which are valid LWC base components? (Select 3)',
+    options: ['lightning-button', 'lightning-input', 'lightning-card', 'lightning-query'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Valid base components include lightning-button, lightning-input, lightning-card, etc. There is no lightning-query component.'
+  },
+  {
+    id: 637,
+    chapter: 'testingDebugging',
+    topic: 'PD1-501',
+    question: 'Which are valid test utility methods? (Select 2)',
+    options: ['Test.startTest()', 'Test.stopTest()', 'Test.runAll()', 'Test.execute()'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1],
+    explanation: 'Valid test utilities are Test.startTest() and Test.stopTest(). There are no Test.runAll() or Test.execute() methods.'
+  },
+  {
+    id: 638,
+    chapter: 'processAutomation',
+    topic: 'PD1-314',
+    question: 'Which are valid encoding functions? (Select 3)',
+    options: ['HTMLENCODE', 'JSENCODE', 'URLENCODE', 'XMLCODE'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Valid encoding functions are HTMLENCODE, JSENCODE, URLENCODE, and JSINHTMLENCODE. There is no XMLCODE function.'
+  },
+  {
+    id: 639,
+    chapter: 'devFundamentals',
+    topic: 'PD1-605',
+    question: 'What is the retention period for high-volume platform events? (Select 1)',
+    options: ['24 hours', '48 hours', '72 hours', '96 hours'],
+    correct: 0,
+    multiSelect: false,
+    explanation: 'High-volume platform events are retained for 72 hours. Standard-volume events (legacy) are retained for 24 hours.'
+  },
+  {
+    id: 640,
+    chapter: 'processAutomation',
+    topic: 'PD1-306',
+    question: 'Which are valid trigger order of execution? (Select 2)',
+    options: ['Before triggers fire first', 'After triggers fire first', 'Validation rules between triggers', 'Workflow rules before triggers'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 2],
+    explanation: 'Before triggers fire first, then validation rules, then after triggers. Workflow rules fire after triggers, not before.'
+  },
+  {
+    id: 641,
+    chapter: 'devFundamentals',
+    topic: 'PD1-603',
+    question: 'Which are valid Lookup relationship behaviors? (Select 3)',
+    options: ['Optional relationship', 'No cascade delete', 'No roll-up summaries', 'Required field'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Lookup relationships are optional, do not cascade delete, and do not support roll-up summaries. They can be optional or required.'
+  },
+  {
+    id: 642,
+    chapter: 'testingDebugging',
+    topic: 'PD1-509',
+    question: 'Which are valid change set types? (Select 2)',
+    options: ['Outbound change set', 'Inbound change set', 'Bidirectional change set', 'Sync change set'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1],
+    explanation: 'Change sets are either Outbound (from source) or Inbound (to target). There are no bidirectional or sync change sets.'
+  },
+  {
+    id: 643,
+    chapter: 'processAutomation',
+    topic: 'PD1-301',
+    question: 'Which are valid Process Builder action types? (Select 3)',
+    options: ['Create Records', 'Update Records', 'Invoke Flow', 'Delete Records'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Process Builder can Create Records, Update Records, Invoke Flows, Post to Chatter, etc. It cannot Delete Records.'
+  },
+  {
+    id: 644,
+    chapter: 'devFundamentals',
+    topic: 'PD1-606',
+    question: 'What does SOSL return? (Select 1)',
+    options: ['List<SObject>', 'List<List<SObject>>', 'Map<Id, SObject>', 'Set<SObject>'],
+    correct: 0,
+    multiSelect: false,
+    explanation: 'SOSL returns List<List<SObject>> - a list of lists, one for each object type in the query.'
+  },
+  {
+    id: 645,
+    chapter: 'userInterface',
+    topic: 'PD1-410',
+    question: 'Which are valid Aura expression syntaxes? (Select 2)',
+    options: ['{!v.attribute}', '{!c.method}', '{{attribute}}', '${attribute}'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1],
+    explanation: 'Aura uses {!v.attribute} for attributes and {!c.method} for controller methods. {{}} and ${} are not valid Aura syntax.'
+  },
+  {
+    id: 646,
+    chapter: 'testingDebugging',
+    topic: 'PD1-512',
+    question: 'Which are characteristics of the Org Development Model? (Select 2)',
+    options: ['Org is source of truth', 'VCS is source of truth', 'Uses sandboxes', 'Uses scratch orgs'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 2],
+    explanation: 'In the Org Development Model, the org is source of truth and uses sandboxes. VCS and scratch orgs are for Package Development Model.'
+  },
+  {
+    id: 647,
+    chapter: 'processAutomation',
+    topic: 'PD1-313',
+    question: 'What is the limit for Queueable jobs per transaction? (Select 1)',
+    options: ['10', '25', '50', '100'],
+    correct: 0,
+    multiSelect: false,
+    explanation: 'The limit for Queueable jobs enqueued per transaction is 50.'
+  },
+  {
+    id: 648,
+    chapter: 'devFundamentals',
+    topic: 'PD1-607',
+    question: 'Where does Einstein for Developers work? (Select 2)',
+    options: ['VS Code', 'Developer Console', 'Salesforce CLI', 'Browser'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1],
+    explanation: 'Einstein for Developers works in VS Code and Developer Console. It does not work in Salesforce CLI or directly in the browser.'
+  },
+  {
+    id: 649,
+    chapter: 'processAutomation',
+    topic: 'PD1-308',
+    question: 'What is the CPU time limit for synchronous Apex? (Select 1)',
+    options: ['10,000ms', '30,000ms', '60,000ms', '120,000ms'],
+    correct: 0,
+    multiSelect: false,
+    explanation: 'The CPU time limit for synchronous Apex is 10,000ms (10 seconds). For asynchronous it is 60,000ms.'
+  },
+  {
+    id: 650,
+    chapter: 'userInterface',
+    topic: 'PD1-401',
+    question: 'Which are valid Visualforce controllers? (Select 2)',
+    options: ['Standard Controller', 'Custom Controller', 'Extension Controller', 'Hybrid Controller'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1],
+    explanation: 'Valid controllers are Standard Controller and Custom Controller. Extensions extend controllers but are not a controller type. There is no Hybrid Controller.'
+  },
+  {
+    id: 651,
+    chapter: 'testingDebugging',
+    topic: 'PD1-501',
+    question: 'What is the minimum test coverage for deployment? (Select 1)',
+    options: ['50%', '65%', '75%', '90%'],
+    correct: 0,
+    multiSelect: false,
+    explanation: 'The minimum test coverage required for Apex deployment to production is 75%.'
+  },
+  {
+    id: 652,
+    chapter: 'processAutomation',
+    topic: 'PD1-305',
+    question: 'Which are valid DML operations? (Select 3)',
+    options: ['insert', 'update', 'upsert', 'modify'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Valid DML operations are insert, update, upsert, delete, and undelete. There is no modify operation.'
+  },
+  {
+    id: 653,
+    chapter: 'devFundamentals',
+    topic: 'PD1-605',
+    question: 'Which trigger events are supported for Platform Events? (Select 1)',
+    options: ['BEFORE INSERT', 'AFTER INSERT', 'BEFORE UPDATE', 'AFTER UPDATE'],
+    correct: 0,
+    multiSelect: false,
+    explanation: 'Platform Events only support AFTER INSERT triggers. No other trigger events are available.'
+  },
+  {
+    id: 654,
+    chapter: 'processAutomation',
+    topic: 'PD1-315',
+    question: 'Which are valid scheduled path configurations? (Select 3)',
+    options: ['Time source', 'Offset number', 'Offset unit', 'Frequency'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Scheduled path configurations include time source, offset number, and offset unit (hours/days). There is no frequency setting.'
+  },
+  {
+    id: 655,
+    chapter: 'devFundamentals',
+    topic: 'PD1-610',
+    question: 'What is grounding in Einstein Generative AI? (Select 1)',
+    options: ['Connecting prompts to data', 'Validating output', 'Training models', 'Securing data'],
+    correct: 0,
+    multiSelect: false,
+    explanation: 'Grounding connects prompts to Salesforce data for context, improving the relevance and accuracy of AI-generated content.'
+  },
+  {
+    id: 656,
+    chapter: 'processAutomation',
+    topic: 'PD1-314',
+    question: 'Which are valid ways to prevent SOQL injection? (Select 3)',
+    options: ['Bind variables', 'escapeSingleQuotes', 'Typecasting', 'String concatenation'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'SOQL injection prevention methods are bind variables, escapeSingleQuotes, and typecasting. String concatenation is vulnerable.'
+  },
+  {
+    id: 657,
+    chapter: 'testingDebugging',
+    topic: 'PD1-510',
+    question: 'Which are valid project configuration files? (Select 2)',
+    options: ['sfdx-project.json', 'project-scratch-def.json', 'package.json', 'salesforce.json'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1],
+    explanation: 'SFDX projects use sfdx-project.json and project-scratch-def.json. There are no package.json or salesforce.json files.'
+  },
+  {
+    id: 658,
+    chapter: 'devFundamentals',
+    topic: 'PD1-611',
+    question: 'Which are valid Agentforce DX components? (Select 2)',
+    options: ['Agent Builder', 'Flow Builder', 'Agent Topics', 'Process Builder'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 2],
+    explanation: 'Agentforce DX includes Agent Builder and Agent Topics. Flow Builder and Process Builder are separate tools.'
+  },
+  {
+    id: 659,
+    chapter: 'processAutomation',
+    topic: 'PD1-316',
+    question: 'Which are valid Database methods? (Select 3)',
+    options: ['Database.insert', 'Database.update', 'Database.query', 'Database.delete'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 3],
+    explanation: 'Valid Database methods are insert, update, upsert, delete, undelete, query. Database.query exists but is not a DML method.'
+  },
+  {
+    id: 660,
+    chapter: 'userInterface',
+    topic: 'PD1-408',
+    question: 'Which are valid LWC communication patterns? (Select 3)',
+    options: ['Parent to child via @api', 'Child to parent via events', 'Sibling via LMS', 'Global via cookies'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'LWC communication patterns are parent-to-child (@api), child-to-parent (events), and sibling/cross-component (LMS). Cookies are not a communication pattern.'
+  },
+  {
+    id: 661,
+    chapter: 'testingDebugging',
+    topic: 'PD1-502',
+    question: 'Which are valid trace flag types? (Select 3)',
+    options: ['User', 'Apex Class', 'Apex Trigger', 'Flow'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Trace flags can be set for Users, Apex Classes, and Apex Triggers. There are no trace flags for Flows.'
+  },
+  {
+    id: 662,
+    chapter: 'processAutomation',
+    topic: 'PD1-301',
+    question: 'Which are valid Workflow Rule actions? (Select 3)',
+    options: ['Field Update', 'Email Alert', 'Task Creation', 'Record Delete'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Workflow Rule actions include Field Update, Email Alert, Task Creation, and Outbound Message. Record Delete is not a workflow action.'
+  },
+  {
+    id: 663,
+    chapter: 'devFundamentals',
+    topic: 'PD1-604',
+    question: 'Which are valid data import file formats? (Select 2)',
+    options: ['CSV', 'JSON', 'XML', 'Excel'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1],
+    explanation: 'Data Loader supports CSV and JSON formats. XML and native Excel files are not directly supported.'
+  },
+  {
+    id: 664,
+    chapter: 'processAutomation',
+    topic: 'PD1-309',
+    question: 'Which operations can be triggered by workflow rules? (Select 3)',
+    options: ['Field updates', 'Email alerts', 'Task creation', 'Trigger execution'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Workflow rules can trigger field updates, email alerts, task creation, and outbound messages. They do not trigger Apex triggers.'
+  },
+  {
+    id: 665,
+    chapter: 'userInterface',
+    topic: 'PD1-406',
+    question: 'Which are valid CSRF prevention methods? (Select 2)',
+    options: ['CSRF tokens', 'Origin header validation', 'Input sanitization', 'Output encoding'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1],
+    explanation: 'CSRF prevention uses CSRF tokens and origin header validation. Input sanitization and output encoding prevent XSS, not CSRF.'
+  },
+  {
+    id: 666,
+    chapter: 'devFundamentals',
+    topic: 'PD1-609',
+    question: 'What does Agentforce Vibes require? (Select 2)',
+    options: ['Salesforce telemetry', 'VS Code', 'Salesforce CLI', 'Scratch org'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1],
+    explanation: 'Agentforce Vibes requires Salesforce telemetry enabled and VS Code. It does not require Salesforce CLI or scratch orgs.'
+  },
+  {
+    id: 667,
+    chapter: 'processAutomation',
+    topic: 'PD1-313',
+    question: 'Which are valid Batch Apex interfaces? (Select 2)',
+    options: ['Database.Batchable', 'Database.Stateful', 'Database.AllowsCallouts', 'Database.Schedulable'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1],
+    explanation: 'Batch Apex uses Database.Batchable and optionally Database.Stateful. Database.AllowsCallouts is for callouts. There is no Database.Schedulable.'
+  },
+  {
+    id: 668,
+    chapter: 'testingDebugging',
+    topic: 'PD1-505',
+    question: 'Which are valid sf commands? (Select 3)',
+    options: ['sf project', 'sf org', 'sf data', 'sf code'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Valid sf command groups are project, org, data, apex, etc. There is no sf code command group.'
+  },
+  {
+    id: 669,
+    chapter: 'devFundamentals',
+    topic: 'PD1-603',
+    question: 'Which are valid roll-up summary functions? (Select 3)',
+    options: ['COUNT', 'SUM', 'MIN', 'AVERAGE'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Roll-up summary functions are COUNT, SUM, MIN, and MAX. AVERAGE is not available for roll-up summaries.'
+  },
+  {
+    id: 670,
+    chapter: 'processAutomation',
+    topic: 'PD1-301',
+    question: 'Which are valid Approval Process steps? (Select 3)',
+    options: ['Initial submission', 'Approval steps', 'Rejection actions', 'Cancellation steps'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Approval Process components are initial submission, approval steps, and rejection actions. There are no cancellation steps.'
+  },
+  {
+    id: 671,
+    chapter: 'userInterface',
+    topic: 'PD1-405',
+    question: 'Which are valid LWC hooks? (Select 3)',
+    options: ['connectedCallback', 'disconnectedCallback', 'renderedCallback', 'createdCallback'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Valid LWC lifecycle hooks are connectedCallback, disconnectedCallback, renderedCallback, and errorCallback. There is no createdCallback.'
+  },
+  {
+    id: 672,
+    chapter: 'testingDebugging',
+    topic: 'PD1-501',
+    question: 'Which are valid assertion methods? (Select 3)',
+    options: ['assertEquals', 'assertNotEquals', 'assertTrue', 'assertContains'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Valid assertions are assertEquals, assertNotEquals, assertTrue, assertFalse, and assert. There is no assertContains.'
+  },
+  {
+    id: 673,
+    chapter: 'processAutomation',
+    topic: 'PD1-305',
+    question: 'Which are valid SOQL date literals? (Select 3)',
+    options: ['TODAY', 'YESTERDAY', 'LAST_WEEK', 'LAST_N_DAYS'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 2, 3],
+    explanation: 'Valid date literals include TODAY, LAST_WEEK, LAST_N_DAYS, etc. YESTERDAY is not a valid date literal - use LAST_N_DAYS:1.'
+  },
+  {
+    id: 674,
+    chapter: 'devFundamentals',
+    topic: 'PD1-601',
+    question: 'What are the layers of the Salesforce architecture? (Select 3)',
+    options: ['Multi-tenant kernel', 'Metadata framework', 'API', 'Custom hardware'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Salesforce architecture layers include multi-tenant kernel, metadata framework, and APIs. There is no custom hardware layer.'
+  },
+  {
+    id: 675,
+    chapter: 'processAutomation',
+    topic: 'PD1-310',
+    question: 'Which are ways to handle errors in Flows? (Select 2)',
+    options: ['Fault paths', 'Error screens', 'Try-catch blocks', 'Error handlers'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1],
+    explanation: 'Flows handle errors using fault paths and error screens. Try-catch is Apex only. Error handlers is not a Flow term.'
+  },
+  {
+    id: 676,
+    chapter: 'testingDebugging',
+    topic: 'PD1-512',
+    question: 'Which are valid Salesforce DX tools? (Select 3)',
+    options: ['Salesforce CLI', 'Scratch orgs', 'Source format', 'Metadata format'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Salesforce DX tools include Salesforce CLI, scratch orgs, and source format. Metadata format is the traditional format, not a DX tool.'
+  },
+  {
+    id: 677,
+    chapter: 'devFundamentals',
+    topic: 'PD1-606',
+    question: 'Which are valid SOSL search groups? (Select 3)',
+    options: ['ALL FIELDS', 'NAME FIELDS', 'EMAIL FIELDS', 'CUSTOM FIELDS'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Valid search groups are ALL FIELDS, NAME FIELDS, EMAIL FIELDS, PHONE FIELDS, SIDEBAR FIELDS. There is no CUSTOM FIELDS group.'
+  },
+  {
+    id: 678,
+    chapter: 'processAutomation',
+    topic: 'PD1-314',
+    question: 'Which are valid sharing keywords? (Select 3)',
+    options: ['with sharing', 'without sharing', 'inherited sharing', 'global sharing'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Valid sharing keywords are with sharing, without sharing, and inherited sharing. There is no global sharing keyword.'
+  },
+  {
+    id: 679,
+    chapter: 'userInterface',
+    topic: 'PD1-401',
+    question: 'Which are valid Visualforce page modes? (Select 2)',
+    options: ['Read-only', 'Edit', 'View-only', 'Display'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1],
+    explanation: 'Visualforce pages can be in read-only or edit mode. View-only and Display are not valid page mode values.'
+  },
+  {
+    id: 680,
+    chapter: 'testingDebugging',
+    topic: 'PD1-509',
+    question: 'Which are valid deployment statuses? (Select 3)',
+    options: ['Succeeded', 'Failed', 'Canceled', 'Pending'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Deployment statuses are Succeeded, Failed, Canceled, and In Progress. Pending is not a standard deployment status.'
+  },
+  {
+    id: 681,
+    chapter: 'processAutomation',
+    topic: 'PD1-316',
+    question: 'Which are valid SOQL operators? (Select 3)',
+    options: ['=', 'IN', 'LIKE', 'BETWEEN'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 2],
+    explanation: 'Valid SOQL operators are =, !=, <, >, IN, NOT IN, LIKE, etc. BETWEEN is not a valid SOQL operator.'
+  },
+  {
+    id: 682,
+    chapter: 'devFundamentals',
+    topic: 'PD1-602',
+    question: 'Which tools can create records? (Select 3)',
+    options: ['Flow Builder', 'Process Builder', 'Workflow Rules', 'Apex'],
+    correct: 0,
+    multiSelect: true,
+    correctAnswers: [0, 1, 3],
+    explanation: 'Flow Builder, Process Builder, and Apex can create records. Workflow Rules cannot create records - they only update existing records.'
+  },
+  // Additional multi-select questions to reach 25%
+  {
+    id: 683, chapter: 'processAutomation', topic: 'PD1-305',
+    question: 'Which are valid SOQL query types? (Select 2)',
+    options: ['Static queries', 'Dynamic queries', 'Async queries', 'Streaming queries'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1],
+    explanation: 'SOQL supports static queries (inline) and dynamic queries (Database.query). There are no async or streaming SOQL queries.'
+  },
+  {
+    id: 684, chapter: 'processAutomation', topic: 'PD1-306',
+    question: 'Which context variables are available in triggers? (Select 3)',
+    options: ['Trigger.new', 'Trigger.old', 'isInsert', 'isRunning'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1, 2],
+    explanation: 'Valid context variables are Trigger.new, Trigger.old, Trigger.isInsert, Trigger.isUpdate, etc. There is no isRunning variable.'
+  },
+  {
+    id: 685, chapter: 'processAutomation', topic: 'PD1-313',
+    question: 'Which interfaces are used with Batch Apex? (Select 3)',
+    options: ['Database.Batchable', 'Database.Stateful', 'Database.AllowsCallouts', 'Database.Queryable'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1, 2],
+    explanation: 'Batch Apex uses Database.Batchable, optionally Database.Stateful and Database.AllowsCallouts. There is no Database.Queryable.'
+  },
+  {
+    id: 686, chapter: 'processAutomation', topic: 'PD1-314',
+    question: 'Which are valid security features in Apex? (Select 3)',
+    options: ['CRUD enforcement', 'FLS enforcement', 'Sharing rules', 'Encryption'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1, 2],
+    explanation: 'Apex supports CRUD enforcement, FLS enforcement, and sharing rules. Built-in encryption is not an Apex security feature.'
+  },
+  {
+    id: 687, chapter: 'devFundamentals', topic: 'PD1-601',
+    question: 'What are characteristics of the Salesforce platform? (Select 3)',
+    options: ['Multi-tenant', 'Metadata-driven', 'API-first', 'Single-tenant'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1, 2],
+    explanation: 'Salesforce is multi-tenant, metadata-driven, and API-first. It is not single-tenant.'
+  },
+  {
+    id: 688, chapter: 'devFundamentals', topic: 'PD1-603',
+    question: 'Which are valid field-level security settings? (Select 3)',
+    options: ['Visible', 'Read-only', 'Required', 'Hidden'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1, 2],
+    explanation: 'Field-level security settings are Visible, Read-only, and Required. Hidden is not a FLS setting - fields are hidden by not being visible.'
+  },
+  {
+    id: 689, chapter: 'devFundamentals', topic: 'PD1-605',
+    question: 'Which are valid Platform Event field types? (Select 3)',
+    options: ['Text', 'Number', 'Date', 'Lookup'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1, 2],
+    explanation: 'Platform Event fields can be Text, Number, Date, Date/Time, Checkbox. Lookup relationships are not supported on Platform Events.'
+  },
+  {
+    id: 690, chapter: 'userInterface', topic: 'PD1-401',
+    question: 'Which are valid Visualforce iterators? (Select 3)',
+    options: ['apex:repeat', 'apex:dataTable', 'apex:pageBlockTable', 'apex:list'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1, 2],
+    explanation: 'Valid iterators are apex:repeat, apex:dataTable, apex:pageBlockTable. There is no apex:list component.'
+  },
+  {
+    id: 691, chapter: 'userInterface', topic: 'PD1-405',
+    question: 'Which are valid wire service adapters? (Select 3)',
+    options: ['getRecord', 'getRecordUi', 'getListUi', 'getDataUi'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1, 2],
+    explanation: 'Valid wire adapters include getRecord, getRecordUi, getListUi, etc. There is no getDataUi adapter.'
+  },
+  {
+    id: 692, chapter: 'testingDebugging', topic: 'PD1-501',
+    question: 'Which are valid test data factories? (Select 2)',
+    options: ['@TestSetup', 'Static resources', 'Production data', 'Test.loadData()'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 3],
+    explanation: 'Test data approaches include @TestSetup methods and Test.loadData() with static resources. Production data access is not recommended.'
+  },
+  {
+    id: 693, chapter: 'testingDebugging', topic: 'PD1-502',
+    question: 'Which are valid debug log levels? (Select 4)',
+    options: ['NONE', 'ERROR', 'WARN', 'DEBUG'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1, 2, 3],
+    explanation: 'All four are valid debug log levels: NONE, ERROR, WARN, INFO, DEBUG, FINE, FINER, FINEST.'
+  },
+  {
+    id: 694, chapter: 'processAutomation', topic: 'PD1-301',
+    question: 'Which are valid Flow resources? (Select 3)',
+    options: ['Variable', 'Formula', 'Constant', 'Query'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1, 2],
+    explanation: 'Flow resources include Variables, Formulas, Constants, etc. There is no Query resource type.'
+  },
+  {
+    id: 695, chapter: 'devFundamentals', topic: 'PD1-604',
+    question: 'Which are valid Data Loader operations? (Select 3)',
+    options: ['Insert', 'Update', 'Upsert', 'Merge'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1, 2],
+    explanation: 'Data Loader supports Insert, Update, Upsert, Delete, and Export. Merge is not a Data Loader operation.'
+  },
+  {
+    id: 696, chapter: 'processAutomation', topic: 'PD1-309',
+    question: 'Which events happen after triggers? (Select 3)',
+    options: ['Assignment rules', 'Auto-response rules', 'Workflow rules', 'Before triggers'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1, 2],
+    explanation: 'After triggers, the order includes assignment rules, auto-response rules, workflow rules, etc. Before triggers happen before after triggers.'
+  },
+  {
+    id: 697, chapter: 'userInterface', topic: 'PD1-407',
+    question: 'Which are valid @AuraEnabled options? (Select 2)',
+    options: ['cacheable=true', 'continuation=true', 'stale=true', 'readonly=true'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1],
+    explanation: 'Valid @AuraEnabled options are cacheable=true and continuation=true. There are no stale or readonly options.'
+  },
+  {
+    id: 698, chapter: 'testingDebugging', topic: 'PD1-505',
+    question: 'Which are valid sf org commands? (Select 3)',
+    options: ['sf org login', 'sf org create', 'sf org list', 'sf org delete'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1, 2],
+    explanation: 'Valid org commands are login, create, list, open, etc. There is no sf org delete command.'
+  },
+  {
+    id: 699, chapter: 'processAutomation', topic: 'PD1-315',
+    question: 'Which are valid flow trigger types? (Select 3)',
+    options: ['Record-Triggered', 'Screen Flow', 'Autolaunched', 'Schedule-Triggered'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 2, 3],
+    explanation: 'Flow types are Record-Triggered, Autolaunched, Schedule-Triggered, Platform Event-Triggered. Screen Flow is not triggered automatically.'
+  },
+  {
+    id: 700, chapter: 'devFundamentals', topic: 'PD1-606',
+    question: 'Which are valid FIND clause options in SOSL? (Select 3)',
+    options: ['IN ALL FIELDS', 'IN NAME FIELDS', 'IN EMAIL FIELDS', 'IN CUSTOM FIELDS'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1, 2],
+    explanation: 'Valid FIND options are IN ALL FIELDS, IN NAME FIELDS, IN EMAIL FIELDS, IN PHONE FIELDS, IN SIDEBAR FIELDS. There is no IN CUSTOM FIELDS.'
+  },
+  {
+    id: 701, chapter: 'processAutomation', topic: 'PD1-310',
+    question: 'Which are built-in exception types? (Select 3)',
+    options: ['NullPointerException', 'DmlException', 'LimitException', 'SecurityException'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1, 2],
+    explanation: 'Built-in exceptions include NullPointerException, DmlException, LimitException, etc. There is no SecurityException.'
+  },
+  {
+    id: 702, chapter: 'devFundamentals', topic: 'PD1-602',
+    question: 'Which tools can update records? (Select 3)',
+    options: ['Flow Builder', 'Process Builder', 'Workflow Rules', 'Approval Processes'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1, 2],
+    explanation: 'Flow Builder, Process Builder, and Workflow Rules can update records. Approval Processes handle approvals, not direct record updates.'
+  },
+  {
+    id: 703, chapter: 'userInterface', topic: 'PD1-410',
+    question: 'Which are valid Aura value providers? (Select 2)',
+    options: ['v (component attributes)', 'c (controller)', 'm (model)', 'h (helper)'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1],
+    explanation: 'Aura uses v for component attributes and c for controller methods. There are no m or h value providers.'
+  },
+  {
+    id: 704, chapter: 'testingDebugging', topic: 'PD1-509',
+    question: 'Which are valid deployment methods? (Select 3)',
+    options: ['Change Sets', 'Metadata API', 'Salesforce CLI', 'Data Import Wizard'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1, 2],
+    explanation: 'Deployment methods are Change Sets, Metadata API, and Salesforce CLI. Data Import Wizard is for data, not metadata.'
+  },
+  {
+    id: 705, chapter: 'processAutomation', topic: 'PD1-305',
+    question: 'Which are valid WHERE clause operators? (Select 3)',
+    options: ['=', '!=', 'LIKE', 'REGEX'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1, 2],
+    explanation: 'Valid WHERE operators are =, !=, <, >, LIKE, IN, NOT IN, etc. REGEX is not a SOQL operator.'
+  },
+  {
+    id: 706, chapter: 'devFundamentals', topic: 'PD1-603',
+    question: 'Which are valid object features? (Select 3)',
+    options: ['Fields', 'Relationships', 'Validation rules', 'Triggers'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1, 2],
+    explanation: 'Objects have fields, relationships, and validation rules. Triggers are separate Apex code, not object features.'
+  },
+  {
+    id: 707, chapter: 'processAutomation', topic: 'PD1-313',
+    question: 'Which are valid scheduled Apex options? (Select 2)',
+    options: ['Daily', 'Weekly', 'Monthly', 'Real-time'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1],
+    explanation: 'Scheduled Apex can run daily or weekly using cron expressions. Monthly and real-time are not standard scheduling options.'
+  },
+  {
+    id: 708, chapter: 'devFundamentals', topic: 'PD1-607',
+    question: 'What can Einstein for Developers generate? (Select 3)',
+    options: ['Apex classes', 'Test classes', 'LWC components', 'Visualforce pages'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1, 2],
+    explanation: 'Einstein can generate Apex classes, test classes, and LWC components. Visualforce generation is not supported.'
+  },
+  {
+    id: 709, chapter: 'userInterface', topic: 'PD1-406',
+    question: 'Which are valid Visualforce security features? (Select 3)',
+    options: ['CRUD enforcement', 'FLS enforcement', 'Sharing enforcement', 'Encryption'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1, 2],
+    explanation: 'Visualforce supports CRUD, FLS, and sharing enforcement through controllers. Built-in encryption is not a Visualforce feature.'
+  },
+  {
+    id: 710, chapter: 'testingDebugging', topic: 'PD1-512',
+    question: 'Which are valid Package types? (Select 2)',
+    options: ['Unlocked packages', 'Managed packages', 'Unmanaged packages', 'Locked packages'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1],
+    explanation: 'Valid package types are Unlocked and Managed packages. Unmanaged packages exist but are legacy. There are no Locked packages.'
+  },
+  {
+    id: 711, chapter: 'processAutomation', topic: 'PD1-301',
+    question: 'Which are valid Flow screen input types? (Select 3)',
+    options: ['Text', 'Number', 'Date', 'Query'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1, 2],
+    explanation: 'Flow screen inputs include Text, Number, Date, Checkbox, Picklist, etc. There is no Query input type.'
+  },
+  {
+    id: 712, chapter: 'devFundamentals', topic: 'PD1-605',
+    question: 'Which are valid Platform Event publish methods? (Select 3)',
+    options: ['EventBus.publish()', 'REST API', 'Flow Builder', 'SOQL'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1, 2],
+    explanation: 'Platform Events can be published via EventBus.publish(), REST API, and Flow Builder. SOQL cannot publish events.'
+  },
+  {
+    id: 713, chapter: 'processAutomation', topic: 'PD1-314',
+    question: 'Which are valid XSS prevention methods? (Select 3)',
+    options: ['HTMLENCODE', 'JSENCODE', 'URLENCODE', 'SQLCODE'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1, 2],
+    explanation: 'XSS prevention uses HTMLENCODE, JSENCODE, URLENCODE, and JSINHTMLENCODE. SQLCODE is not a function.'
+  },
+  {
+    id: 714, chapter: 'userInterface', topic: 'PD1-405',
+    question: 'Which are valid LWC module imports? (Select 3)',
+    options: ['@salesforce/apex', '@salesforce/schema', '@salesforce/resourceUrl', '@salesforce/data'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1, 2],
+    explanation: 'Valid LWC modules are @salesforce/apex, @salesforce/schema, @salesforce/resourceUrl, etc. There is no @salesforce/data module.'
+  },
+  {
+    id: 715, chapter: 'testingDebugging', topic: 'PD1-501',
+    question: 'Which are valid test class annotations? (Select 3)',
+    options: ['@isTest', '@testVisible', '@testSetup', '@testData'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1, 2],
+    explanation: 'Valid annotations are @isTest, @testVisible, @testSetup. There is no @testData annotation.'
+  },
+  {
+    id: 716, chapter: 'processAutomation', topic: 'PD1-308',
+    question: 'Which are governor limits? (Select 3)',
+    options: ['SOQL queries', 'DML statements', 'Heap size', 'Code lines'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1, 2],
+    explanation: 'Governor limits include SOQL queries (100), DML statements (150), heap size (6MB/12MB). There is no code lines limit.'
+  },
+  {
+    id: 717, chapter: 'devFundamentals', topic: 'PD1-601',
+    question: 'Which are Salesforce platform layers? (Select 3)',
+    options: ['Trusted multitenant kernel', 'Metadata framework', 'API', 'Custom hardware'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1, 2],
+    explanation: 'Platform layers are trusted multitenant kernel, metadata framework, and APIs. There is no custom hardware layer.'
+  },
+  {
+    id: 718, chapter: 'processAutomation', topic: 'PD1-316',
+    question: 'Which are valid Apex data manipulation methods? (Select 3)',
+    options: ['insert()', 'update()', 'upsert()', 'modify()'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1, 2],
+    explanation: 'Valid DML methods are insert(), update(), upsert(), delete(), undelete(). There is no modify() method.'
+  },
+  {
+    id: 719, chapter: 'userInterface', topic: 'PD1-401',
+    question: 'Which are valid Visualforce standard controllers? (Select 2)',
+    options: ['Account', 'Contact', 'Custom__c', 'All__c'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1],
+    explanation: 'Standard controllers are for standard and custom objects like Account, Contact, Custom__c. There is no All__c controller.'
+  },
+  {
+    id: 720, chapter: 'testingDebugging', topic: 'PD1-502',
+    question: 'Which are valid Developer Console features? (Select 3)',
+    options: ['Query Editor', 'Execute Anonymous', 'Debug Logs', 'Code Deployment'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1, 2],
+    explanation: 'Developer Console has Query Editor, Execute Anonymous, and Debug Logs. It does not deploy code.'
+  },
+  {
+    id: 721, chapter: 'processAutomation', topic: 'PD1-301',
+    question: 'Which are valid Workflow Rule criteria? (Select 3)',
+    options: ['Created', 'Created, and any time edited', 'Created, and any time edited to subsequently meet criteria', 'Deleted'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1, 2],
+    explanation: 'Workflow criteria are Created, Created and any time edited, and Created and any time edited to meet criteria. Deleted is not a criteria.'
+  },
+  {
+    id: 722, chapter: 'devFundamentals', topic: 'PD1-606',
+    question: 'Which are valid SOSL result handling? (Select 2)',
+    options: ['List<List<SObject>>', 'Casting to specific types', 'Direct iteration', 'Map results'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1],
+    explanation: 'SOSL returns List<List<SObject>> which must be cast to specific types. You cannot directly iterate or map the results.'
+  },
+  // Additional multi-select to reach 25%
+  {
+    id: 723, chapter: 'processAutomation', topic: 'PD1-305',
+    question: 'Which are valid DML statement types? (Select 3)',
+    options: ['insert', 'update', 'merge', 'upsert'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1, 3],
+    explanation: 'Valid DML statements are insert, update, upsert, delete, undelete. merge is a method, not a DML statement keyword.'
+  },
+  {
+    id: 724, chapter: 'processAutomation', topic: 'PD1-306',
+    question: 'Which are valid trigger timing events? (Select 3)',
+    options: ['before insert', 'after insert', 'during insert', 'before update'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1, 3],
+    explanation: 'Valid timing events are before insert, after insert, before update, after update, before delete, after delete, after undelete. There is no during insert.'
+  },
+  {
+    id: 725, chapter: 'processAutomation', topic: 'PD1-313',
+    question: 'Which are valid async execution methods? (Select 3)',
+    options: ['@Future', 'Batch Apex', 'Queueable', 'Synchronous'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1, 2],
+    explanation: 'Async methods are @Future, Batch Apex, Queueable, and Scheduled Apex. Synchronous is not async.'
+  },
+  {
+    id: 726, chapter: 'devFundamentals', topic: 'PD1-601',
+    question: 'Which are characteristics of Salesforce? (Select 3)',
+    options: ['Cloud-based', 'Multi-tenant', 'Metadata-driven', 'On-premise'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1, 2],
+    explanation: 'Salesforce is cloud-based, multi-tenant, and metadata-driven. It is not on-premise.'
+  },
+  {
+    id: 727, chapter: 'devFundamentals', topic: 'PD1-603',
+    question: 'Which are valid relationship types? (Select 2)',
+    options: ['Lookup', 'Master-Detail', 'Many-to-Many', 'Self'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1],
+    explanation: 'Salesforce supports Lookup and Master-Detail relationships. Many-to-Many is achieved via junction objects. Self is not a relationship type.'
+  },
+  {
+    id: 728, chapter: 'userInterface', topic: 'PD1-405',
+    question: 'Which are valid LWC component files? (Select 3)',
+    options: ['HTML', 'JavaScript', 'CSS', 'XML'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1, 2],
+    explanation: 'LWC components have HTML template, JavaScript controller, and CSS styles. XML is not part of LWC components.'
+  },
+  {
+    id: 729, chapter: 'testingDebugging', topic: 'PD1-501',
+    question: 'Which are valid test execution methods? (Select 2)',
+    options: ['Test.startTest()', 'Test.stopTest()', 'Test.run()', 'Test.execute()'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1],
+    explanation: 'Test execution uses Test.startTest() and Test.stopTest(). There are no Test.run() or Test.execute() methods.'
+  },
+  {
+    id: 730, chapter: 'processAutomation', topic: 'PD1-314',
+    question: 'Which are valid CRUD methods? (Select 3)',
+    options: ['isCreateable()', 'isAccessible()', 'isUpdateable()', 'isQueryable()'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1, 2],
+    explanation: 'Valid CRUD methods are isCreateable(), isAccessible(), isUpdateable(), isDeletable(). There is no isQueryable() method.'
+  },
+  {
+    id: 731, chapter: 'devFundamentals', topic: 'PD1-605',
+    question: 'Which are valid event types in Salesforce? (Select 3)',
+    options: ['Platform Events', 'Change Data Capture', 'Streaming API', 'Data Events'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1, 2],
+    explanation: 'Event types are Platform Events, Change Data Capture, and Streaming API. There is no Data Events type.'
+  },
+  {
+    id: 732, chapter: 'testingDebugging', topic: 'PD1-505',
+    question: 'Which are valid sf project commands? (Select 3)',
+    options: ['sf project create', 'sf project deploy start', 'sf project retrieve start', 'sf project delete'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1, 2],
+    explanation: 'Valid project commands are create, deploy start, retrieve start. There is no sf project delete command.'
+  },
+  {
+    id: 733, chapter: 'processAutomation', topic: 'PD1-301',
+    question: 'Which are valid Flow actions? (Select 3)',
+    options: ['Create Records', 'Update Records', 'Delete Records', 'Query Records'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1, 2],
+    explanation: 'Flow can Create Records, Update Records, Delete Records, and Get Records. There is no Query Records action.'
+  },
+  {
+    id: 734, chapter: 'processAutomation', topic: 'PD1-305',
+    question: 'Which are valid SOQL features? (Select 3)',
+    options: ['WHERE clause', 'ORDER BY', 'GROUP BY', 'JOIN'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1, 2],
+    explanation: 'SOQL supports WHERE, ORDER BY, GROUP BY, LIMIT, etc. JOIN is not a SOQL feature - use relationship queries instead.'
+  },
+  {
+    id: 735, chapter: 'devFundamentals', topic: 'PD1-602',
+    question: 'Which are programmatic tools? (Select 3)',
+    options: ['Apex', 'Visualforce', 'Lightning Web Components', 'Flow Builder'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1, 2],
+    explanation: 'Programmatic tools are Apex, Visualforce, and Lightning Web Components. Flow Builder is declarative.'
+  },
+  {
+    id: 736, chapter: 'processAutomation', topic: 'PD1-309',
+    question: 'Which are valid order of execution steps? (Select 3)',
+    options: ['Before triggers', 'Validation rules', 'After triggers', 'Before save flows'],
+    correct: 0, multiSelect: true, correctAnswers: [0, 1, 2],
+    explanation: 'Order of execution includes before triggers, validation rules, after triggers, assignment rules, etc. Before save flows is a type of flow, not a step in order of execution.'
   }
 ];
 
