@@ -3,6 +3,31 @@ import { useParams, Link } from 'react-router-dom'
 import { examQuestions, examConfig } from '../data/examQuestions'
 import { examSets, chapterQuizzes, topicQuizzes } from '../data/examSets'
 
+// Shuffle array using Fisher-Yates
+function shuffleArray(array) {
+  const arr = [...array]
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]]
+  }
+  return arr
+}
+
+// Shuffle options for a question and return mapping
+function shuffleQuestionOptions(question) {
+  const indices = [0, 1, 2, 3]
+  const shuffledIndices = shuffleArray(indices)
+  const shuffledOptions = shuffledIndices.map(i => question.options[i])
+  // Find where original correct answer (index 0) ended up
+  const newCorrect = shuffledIndices.indexOf(0)
+  return {
+    ...question,
+    options: shuffledOptions,
+    correct: newCorrect,
+    originalCorrect: 0
+  }
+}
+
 export default function ExamSession() {
   const { examId } = useParams()
 
@@ -62,11 +87,11 @@ export default function ExamSession() {
       name = config.name
     }
 
-    // Shuffle
-    for (let i = questionsList.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [questionsList[i], questionsList[j]] = [questionsList[j], questionsList[i]]
-    }
+    // Shuffle question order
+    questionsList = shuffleArray(questionsList)
+
+    // Shuffle options for each question
+    questionsList = questionsList.map(q => shuffleQuestionOptions(q))
 
     setQuestions(questionsList)
     setTimeLeft(time * 60)
@@ -157,12 +182,9 @@ export default function ExamSession() {
     setCurrentIndex(0)
     setShowResults(false)
     setExamStarted(false)
-    // Re-shuffle
-    let questionsList = [...questions]
-    for (let i = questionsList.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [questionsList[i], questionsList[j]] = [questionsList[j], questionsList[i]]
-    }
+    // Re-shuffle questions and options
+    let questionsList = shuffleArray(questions)
+    questionsList = questionsList.map(q => shuffleQuestionOptions(q))
     setQuestions(questionsList)
     setTimeLeft(Math.floor(timeLeft / 60) * 60)
   }
