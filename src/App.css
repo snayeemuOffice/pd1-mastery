@@ -750,6 +750,14 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
+  align-items: stretch;
+}
+
+.exam-options-grid > a {
+  display: flex;
+  text-decoration: none;
+  color: inherit;
+  min-height: 0;
 }
 
 @media (max-width: 1024px) {
@@ -767,7 +775,7 @@
 .exam-option-card {
   background: var(--white);
   border-radius: var(--radius-xl);
-  padding: 32px 28px;
+  padding: 28px 24px;
   box-shadow: var(--shadow);
   border: 1px solid var(--gray-200);
   transition: all 0.3s ease;
@@ -775,7 +783,8 @@
   text-align: center;
   display: flex;
   flex-direction: column;
-  min-height: 320px;
+  flex: 1;
+  box-sizing: border-box;
 }
 
 .exam-option-card:hover {
@@ -790,58 +799,61 @@
 }
 
 .exam-option-card .exam-icon {
-  width: 64px;
-  height: 64px;
-  margin: 0 auto 16px;
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 14px;
   background: var(--primary-light);
-  border-radius: 16px;
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 28px;
+  font-size: 24px;
+  flex-shrink: 0;
 }
 
 .exam-option-card h3 {
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 700;
   color: var(--gray-900);
   margin-bottom: 8px;
-  min-height: 24px;
+  flex-shrink: 0;
 }
 
 .exam-option-card .exam-desc {
-  font-size: 14px;
+  font-size: 13px;
   color: var(--gray-500);
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   line-height: 1.5;
-  flex-grow: 1;
+  flex: 1 1 auto;
 }
 
 .exam-option-details {
   display: flex;
   justify-content: center;
-  gap: 16px;
-  margin-bottom: 20px;
-  padding: 12px;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding: 10px;
   background: var(--gray-50);
   border-radius: var(--radius);
+  flex-shrink: 0;
 }
 
 .exam-option-detail {
   display: flex;
   align-items: center;
-  gap: 6px;
-  font-size: 13px;
+  gap: 4px;
+  font-size: 12px;
   color: var(--gray-600);
   font-weight: 500;
 }
 
 .exam-option-detail .detail-icon {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .exam-option-card .btn {
   width: 100%;
+  flex-shrink: 0;
   justify-content: center;
   padding: 12px 20px;
 }
@@ -1383,4 +1395,120 @@
 .empty-state p {
   font-size: 15px;
   color: var(--gray-500);
+}
+
+/* Detailed Content Styles */
+.detailed-content {
+  line-height: 1.7;
+}
+
+.content-heading {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--gray-800);
+  margin: 24px 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--primary-light);
+}
+
+.content-heading:first-child {
+  margin-top: 0;
+}
+
+.content-paragraph {
+  font-size: 15px;
+  color: var(--gray-700);
+  margin-bottom: 16px;
+}
+
+.content-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+}
+
+.content-list li {
+  position: relative;
+  padding: 6px 0 6px 24px;
+  font-size: 14px;
+  color: var(--gray-700);
+}
+
+.content-list li::before {
+  content: '•';
+  position: absolute;
+  left: 8px;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.content-code {
+  background: var(--gray-900);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin: 16px 0;
+}
+
+.content-code .code-header {
+  background: var(--gray-800);
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+}
+
+.content-code .code-lang {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.content-code pre {
+  padding: 16px;
+  margin: 0;
+  overflow-x: auto;
+}
+
+.content-code code {
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 13px;
+  color: #e2e8f0;
+  line-height: 1.6;
+}
+
+.content-table-wrapper {
+  overflow-x: auto;
+  margin: 16px 0;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--gray-200);
+}
+
+.content-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.content-table th {
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  font-weight: 600;
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 2px solid var(--primary);
+}
+
+.content-table td {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--gray-100);
+  color: var(--gray-700);
+}
+
+.content-table tr:last-child td {
+  border-bottom: none;
+}
+
+.content-table tr:hover td {
+  background: var(--gray-50);
 }

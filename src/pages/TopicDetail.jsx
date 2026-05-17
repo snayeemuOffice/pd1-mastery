@@ -59,6 +59,59 @@ export default function TopicDetail() {
           <p className="topic-description">{topic.description}</p>
         </div>
 
+        {/* Study Material */}
+        {topic.detailedContent && (
+          <div className="content-section">
+            <h2>📖 Study Material</h2>
+            <div className="detailed-content">
+              {topic.detailedContent.map((block, idx) => {
+                switch (block.type) {
+                  case 'heading':
+                    return <h4 key={idx} className="content-heading">{block.text}</h4>
+                  case 'paragraph':
+                    return <p key={idx} className="content-paragraph">{block.text}</p>
+                  case 'list':
+                    return (
+                      <ul key={idx} className="content-list">
+                        {block.items.map((item, i) => <li key={i}>{item}</li>)}
+                      </ul>
+                    )
+                  case 'code':
+                    return (
+                      <div key={idx} className="content-code">
+                        <div className="code-header">
+                          <span className="code-lang">{block.language || 'code'}</span>
+                        </div>
+                        <pre><code>{block.code}</code></pre>
+                      </div>
+                    )
+                  case 'table':
+                    return (
+                      <div key={idx} className="content-table-wrapper">
+                        <table className="content-table">
+                          <thead>
+                            <tr>
+                              {block.headers.map((h, i) => <th key={i}>{h}</th>)}
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {block.rows.map((row, i) => (
+                              <tr key={i}>
+                                {row.map((cell, j) => <td key={j}>{cell}</td>)}
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    )
+                  default:
+                    return null
+                }
+              })}
+            </div>
+          </div>
+        )}
+
         {/* Key Points */}
         <div className="content-section">
           <h2>📌 Key Points</h2>

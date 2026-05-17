@@ -1415,7 +1415,1223 @@ export const examQuestions = [
     ],
     correct: 0,
     explanation: 'Using bind variables in dynamic SOQL is the best way to prevent SOQL injection. Bind variables automatically escape user input, preventing malicious SOQL from being injected.'
-  }
+  },
+  {
+    id: 101,
+    chapter: 'chapter1',
+    topic: 'PD1-601',
+    question: 'Pages and components are part of which component of the MVC?',
+    options: ["View", "Controller", "Model", "Neither - Pages are separate from MVC"],
+    correct: 0,
+    explanation: 'View'
+  },
+  {
+    id: 102,
+    chapter: 'chapter1',
+    topic: 'PD1-601',
+    question: 'What part of the MVC do Salesforce Objects map to?',
+    options: ["Model", "View", "Controller", "Neither - Objects are separate from MVC"],
+    correct: 0,
+    explanation: 'Model'
+  },
+  {
+    id: 103,
+    chapter: 'chapter1',
+    topic: 'PD1-603',
+    question: 'What can be created to update a custom field on an unrelated custom object whenever a new account is created in Salesforce?',
+    options: ["A record-triggered flow", "A Visualforce page", "A Lightning component", "A formula field"],
+    correct: 0,
+    explanation: 'A flow for simpler scenarios. An Apex trigger for more complex scenarios.'
+  },
+  {
+    id: 104,
+    chapter: 'chapter1',
+    topic: 'PD1-601',
+    question: 'Which two programming models are available for building Lightning components?',
+    options: ["Aura Components and Lightning Web Components (LWC)", "Visualforce and Aura", "Lightning Web Components and Visualforce", "Apex and Lightning Web Components"],
+    correct: 0,
+    explanation: 'Aura Components and Lightning Web Components (LWC)'
+  },
+  {
+    id: 105,
+    chapter: 'chapter1',
+    topic: 'PD1-601',
+    question: 'Which tool can be used to add custom Lightning components to a page in Lightning Experience?',
+    options: ["Lightning App Builder", "Setup Menu", "Developer Console", "Visualforce Editor"],
+    correct: 0,
+    explanation: 'Lightning App Builder'
+  },
+  {
+    id: 106,
+    chapter: 'chapter1',
+    topic: 'PD1-601',
+    question: 'What namespace is used by Lightning components that exist in two versions (Aura component and Lightning web component)?',
+    options: ["c:", "lightning:", "force:", "ui:"],
+    correct: 0,
+    explanation: '‘lightning’ namespace'
+  },
+  {
+    id: 107,
+    chapter: 'chapter1',
+    topic: 'PD1-603',
+    question: 'Which property of an object or field can be changed when it is referenced in Apex code?',
+    options: ["The label", "The API name", "The data type", "The field length"],
+    correct: 0,
+    explanation: 'Label Name'
+  },
+  {
+    id: 108,
+    chapter: 'chapter1',
+    topic: 'PD1-603',
+    question: 'What does the user interface display when a user tries to change the data type of a field that is referenced in Apex code?',
+    options: ["A warning that the field is referenced in code and the data type cannot be changed", "The change is automatically applied", "The field is automatically deleted", "An error message with no option to proceed"],
+    correct: 0,
+    explanation: 'Validation Error'
+  },
+  {
+    id: 109,
+    chapter: 'chapter1',
+    topic: 'PD1-603',
+    question: 'Can relationship types be changed?',
+    options: ["Yes, with conditions: master-detail can convert to lookup if not used in roll-up summary fields", "No, relationship types cannot be changed", "Yes, but only lookup to master-detail", "Yes, but only with Salesforce support approval"],
+    correct: 0,
+    explanation: 'If a master-detail relationship is not used in a roll-up summary field, it can be converted to a lookup relationship, and also vice versa as long as the lookup relationship field contains values in all of its records.'
+  },
+  {
+    id: 110,
+    chapter: 'chapter1',
+    topic: 'PD1-603',
+    question: 'Which relationship can be used on the User object to associate one user with another?',
+    options: ["Lookup relationship to User", "Master-detail relationship", "Junction object", "Hierarchical relationship"],
+    correct: 0,
+    explanation: 'Hierarchical relationship'
+  },
+  {
+    id: 111,
+    chapter: 'chapter1',
+    topic: 'PD1-603',
+    question: 'Which type of custom object should be created for a many-to-many relationship in Salesforce?',
+    options: ["Junction object with two master-detail relationships", "Two lookup relationships", "A single master-detail relationship", "A formula field"],
+    correct: 0,
+    explanation: 'Junction object'
+  },
+  {
+    id: 112,
+    chapter: 'chapter1',
+    topic: 'PD1-603',
+    question: 'What is an external ID?',
+    options: ["A field containing a unique identifier from an external system", "A field that auto-generates IDs", "A field that links to external databases", "A field that stores API names"],
+    correct: 0,
+    explanation: 'An external ID is a field that contains a unique identifier from a system outside of Salesforce.'
+  },
+  {
+    id: 113,
+    chapter: 'chapter1',
+    topic: 'PD1-603',
+    question: 'What are some limitations of roll-up summary fields?',
+    options: ["Max number per object, does not work for lookups, cannot roll up formula fields referencing other objects", "Works with all relationship types", "Can roll up any field type", "No limitations exist"],
+    correct: 0,
+    explanation: 'There is a max number of roll-up summary fields per object. Does not work for lookups. Cannot rollup a formula field that references a field on another object or contains dynamic date function.'
+  },
+  {
+    id: 114,
+    chapter: 'chapter1',
+    topic: 'PD1-603',
+    question: 'Which two options are available to access the token for an object in Apex?',
+    options: ["getSObjectType() method and sObjectType static member variable", "getObjectToken() and Token.get()", "Schema.getToken() and Object.type()", "getType() and SObject.class"],
+    correct: 0,
+    explanation: 'The getSObjectType method and the sObjectType static member variable'
+  },
+  {
+    id: 115,
+    chapter: 'chapter1',
+    topic: 'PD1-601',
+    question: 'What platform features are part of the control layer in the MVC model?',
+    options: ["Declarative (workflow rules) or programmatic (Apex classes) business logic", "Only Visualforce pages", "Only Lightning components", "Database tables and fields"],
+    correct: 0,
+    explanation: 'Declarative (e.g. workflow and escalation rules) or programmatic (e.g. Visualforce controllers or Apex classes) business logic'
+  },
+  {
+    id: 116,
+    chapter: 'chapter1',
+    topic: 'PD1-601',
+    question: 'What are 2 considerations that a developer new to Salesforce should be aware of?',
+    options: ["Governor limits on shared resources and 75% test coverage required for deployment", "No limits on queries or API calls", "Single-tenant architecture with dedicated servers", "All customizations must be done through code"],
+    correct: 0,
+    explanation: 'Limits are enforced on shared resources (Governor Limits). Code cannot be deployed into production unless test code coverage is achieved.'
+  },
+  {
+    id: 117,
+    chapter: 'chapter1',
+    topic: 'PD1-601',
+    question: 'Which platform is best to use if you want to create user interfaces without writing code?',
+    options: ["App Cloud (Salesforce Platform)", "Salesforce DX", "Visual Studio Code", "Developer Console"],
+    correct: 0,
+    explanation: 'App Cloud (Salesforce Platform)'
+  },
+  {
+    id: 118,
+    chapter: 'chapter1',
+    topic: 'PD1-601',
+    question: 'What can be done to display a custom user interface that allows users to update several related records simultaneously on the opportunity page in Lightning Experience?',
+    options: ["Develop a custom Lightning Component and add it using Lightning App Builder", "Use a standard Visualforce page", "Create a formula field", "Use Process Builder"],
+    correct: 0,
+    explanation: 'A custom Lightning Component can be developed and added to the record page using Lightning App Builder.'
+  },
+  {
+    id: 119,
+    chapter: 'chapter1',
+    topic: 'PD1-602',
+    question: 'Which declarative automation tools can be used to perform automated actions for an app in Salesforce?',
+    options: ["Process Builder, Flow Builder, Approval Process, and Workflow Rule", "Only Apex triggers", "Only Visualforce pages", "Only Lightning components"],
+    correct: 0,
+    explanation: 'Process Builder, Flow Builder, Approval Process, and Workflow Rule'
+  },
+  {
+    id: 120,
+    chapter: 'chapter1',
+    topic: 'PD1-602',
+    question: 'Which annotation should be used for an Apex method that needs to be invoked by a process?',
+    options: ["@InvocableMethod", "@AuraEnabled", "@RemoteAction", "@future"],
+    correct: 0,
+    explanation: '@InvocableMethod'
+  },
+  {
+    id: 121,
+    chapter: 'chapter1',
+    topic: 'PD1-603',
+    question: 'What happens when a field whose value is not specified for an object in an Apex class is made required?',
+    options: ["The Apex code throws an exception", "The field is automatically set to null", "A default value is assigned", "The record is not saved but no error occurs"],
+    correct: 0,
+    explanation: 'The Apex code throws an exception when it is executed.'
+  },
+  {
+    id: 122,
+    chapter: 'chapter1',
+    topic: 'PD1-604',
+    question: 'What are some options for exporting data from a development environment?',
+    options: ["Data Loader, Workbench, Reports, dataloader.io, and ETL tools", "Only Data Loader", "Only Reports", "Only the Data Export feature"],
+    correct: 0,
+    explanation: 'Data Loader, Workbench, Reports, dataloader.io, ETL tools'
+  },
+  {
+    id: 123,
+    chapter: 'chapter1',
+    topic: 'PD1-604',
+    question: 'What are some limitations of the Data Import Wizard?',
+    options: ["Cannot import more than 50,000 records, does not support all standard objects, cannot save mappings", "Only works with custom objects", "Requires Data Loader to be installed", "Cannot handle CSV files"],
+    correct: 0,
+    explanation: 'Does not support all standard objects, cannot load more than 50K records, cannot save mappings, cannot export data'
+  },
+  {
+    id: 124,
+    chapter: 'chapter1',
+    topic: 'PD1-603',
+    question: 'How is a many-to-many relationship created?',
+    options: ["Junction object with two master-detail relationships", "Two lookup relationships", "A single master-detail relationship", "A formula field"],
+    correct: 0,
+    explanation: 'Using a junction object. This object sits between the two objects in the many-to-many relationship and has two master-detail fields, one for each of the objects to be related.'
+  },
+  {
+    id: 125,
+    chapter: 'chapter1',
+    topic: 'PD1-603',
+    question: 'Which type of relationship field should be created to ensure that the value of the field related to the parent record is required on child records?',
+    options: ["Master-detail relationship", "Lookup relationship", "External relationship", "Formula field"],
+    correct: 0,
+    explanation: 'Master-detail relationship'
+  },
+  {
+    id: 126,
+    chapter: 'chapter1',
+    topic: 'PD1-603',
+    question: 'When would creating a formula field be appropriate?',
+    options: ["When a read-only field is needed calculated from field values", "When users need to edit the value", "When the value changes frequently", "When the value comes from an external system"],
+    correct: 0,
+    explanation: 'When a read-only field is required that is calculated based on values of fields (including fields in related objects) or based on a defined formula'
+  },
+  {
+    id: 127,
+    chapter: 'chapter1',
+    topic: 'PD1-603',
+    question: 'What functions are available for roll-up summary fields?',
+    options: ["Count, Sum, Max, Min", "Count, Sum, Average, Max, Min", "Count, Sum, Average", "Count, Sum, Max"],
+    correct: 0,
+    explanation: 'Count, Sum, Max, Min'
+  },
+  {
+    id: 128,
+    chapter: 'chapter1',
+    topic: 'PD1-603',
+    question: 'Which formula would need to be defined in a formula field to add 6 months to a custom field named \'Contract_Start_Date__c\'?',
+    options: ["ADDMONTHS(Contract_Start_Date__c, 6)", "DATEADD(Contract_Start_Date__c, 6, MONTH)", "Contract_Start_Date__c + 180", "DATE(Contract_Start_Date__c, 6)"],
+    correct: 0,
+    explanation: 'ADDMONTHS(Contract_Start_Date__c, 6)'
+  },
+  {
+    id: 129,
+    chapter: 'chapter3',
+    topic: 'PD1-401',
+    question: 'Which component can be used to display individual fields on a record in a Visualforce page?',
+    options: ["<apex:outputField>", "<apex:inputField>", "<apex:detail>", "<apex:pageBlockTable>"],
+    correct: 0,
+    explanation: '<apex:outputField>'
+  },
+  {
+    id: 130,
+    chapter: 'chapter3',
+    topic: 'PD1-401',
+    question: 'Which coarse grained component can be used to display the detail page of an object in a Visualforce page?',
+    options: ["<apex:detail>", "<apex:outputField>", "<apex:pageBlock>", "<apex:form>"],
+    correct: 0,
+    explanation: '<apex:detail>'
+  },
+  {
+    id: 131,
+    chapter: 'chapter3',
+    topic: 'PD1-401',
+    question: 'Which iteration component can be used to generate a table of data with platform styling?',
+    options: ["<apex:pageBlockTable>", "<apex:dataTable>", "<apex:repeat>", "All of the above"],
+    correct: 3,
+    explanation: '<apex:pageBlockTable>'
+  },
+  {
+    id: 132,
+    chapter: 'chapter3',
+    topic: 'PD1-405',
+    question: 'What type of code can be defined inline in HTML tags?',
+    options: ["CSS code", "JavaScript code", "Apex code", "SQL code"],
+    correct: 0,
+    explanation: 'CSS code'
+  },
+  {
+    id: 133,
+    chapter: 'chapter3',
+    topic: 'PD1-401',
+    question: 'Which tag is used to add CSS to a Visualforce page?',
+    options: ["<apex:stylesheet>", "<apex:style>", "<apex:css>", "<style>"],
+    correct: 0,
+    explanation: '<apex:stylesheet>'
+  },
+  {
+    id: 134,
+    chapter: 'chapter3',
+    topic: 'PD1-401',
+    question: 'Which component can be used to display an external website in an inline frame within a Visualforce page?',
+    options: ["<apex:iframe>", "<apex:include>", "<apex:embed>", "<apex:external>"],
+    correct: 0,
+    explanation: '<apex:iframe>'
+  },
+  {
+    id: 135,
+    chapter: 'chapter3',
+    topic: 'PD1-401',
+    question: 'What is required to override a tab home page with a Visualforce page?',
+    options: ["The page must use the standard list controller, a custom controller, or no controller", "The page must use a standard controller", "The page must be a Lightning component", "The page must use an extension controller"],
+    correct: 0,
+    explanation: 'The Visualforce page must use the standard list controller for that tab, a custom controller, or no controller.'
+  },
+  {
+    id: 136,
+    chapter: 'chapter3',
+    topic: 'PD1-401',
+    question: 'What can be added to a console to display a Visualforce page?',
+    options: ["Custom console component to the sidebar or footer", "A Lightning component", "A formula field", "A workflow rule"],
+    correct: 0,
+    explanation: 'Custom console component to the sidebar or footer'
+  },
+  {
+    id: 137,
+    chapter: 'chapter3',
+    topic: 'PD1-405',
+    question: 'Which communication model is used by the Lightning Component Framework?',
+    options: ["Event-driven model", "Request-response model", "Polling model", "Direct method call model"],
+    correct: 0,
+    explanation: 'Event-driven model'
+  },
+  {
+    id: 138,
+    chapter: 'chapter3',
+    topic: 'PD1-405',
+    question: 'Where can Lightning components be made available?',
+    options: ["Salesforce Mobile App, Lightning Experience, and Communities", "Only Lightning Experience", "Only Salesforce Mobile App", "Only Communities"],
+    correct: 0,
+    explanation: 'Salesforce Mobile App, Lightning Experience, and Communities'
+  },
+  {
+    id: 139,
+    chapter: 'chapter3',
+    topic: 'PD1-405',
+    question: 'Which design supported by the Lightning Component Framework ensures compatibility with different devices?',
+    options: ["Responsive design", "Fixed-width design", "Desktop-first design", "Mobile-only design"],
+    correct: 0,
+    explanation: 'Responsive design'
+  },
+  {
+    id: 140,
+    chapter: 'chapter3',
+    topic: 'PD1-405',
+    question: 'In an Aura component bundle, which resource contains the markup definition for reusable units of an app?',
+    options: ["Component (.cmp)", "Controller", "Helper", "Style"],
+    correct: 0,
+    explanation: 'Component'
+  },
+  {
+    id: 141,
+    chapter: 'chapter3',
+    topic: 'PD1-401',
+    question: 'How can CSS be added to an Aura component bundle in the Developer Console?',
+    options: ["By clicking on the STYLE button", "By creating a CSS file", "By using the @css annotation", "By adding a link tag"],
+    correct: 0,
+    explanation: 'By clicking on the STYLE button in the Developer Console sidebar'
+  },
+  {
+    id: 142,
+    chapter: 'chapter3',
+    topic: 'PD1-405',
+    question: 'Which component in an Aura component bundle is used to expose attributes to the Lightning App Builder?',
+    options: ["Design resource", "Controller resource", "Helper resource", "Style resource"],
+    correct: 0,
+    explanation: 'Design'
+  },
+  {
+    id: 143,
+    chapter: 'chapter3',
+    topic: 'PD1-405',
+    question: 'Which tag can be used to reference a JavaScript library uploaded as a static resource in .cmp markup?',
+    options: ["<ltng:require>", "<script>", "<aura:import>", "<c:require>"],
+    correct: 0,
+    explanation: '<ltng:require>'
+  },
+  {
+    id: 144,
+    chapter: 'chapter3',
+    topic: 'PD1-401',
+    question: 'Which Visualforce overrides are available for Lightning console apps?',
+    options: ["Custom console component to the sidebar or footer", "A Lightning component", "A formula field", "A workflow rule"],
+    correct: 0,
+    explanation: 'Visualforce overrides are supported for new, edit, view, tab, list, and clone in Lightning console apps.'
+  },
+  {
+    id: 145,
+    chapter: 'chapter3',
+    topic: 'PD1-401',
+    question: 'Which attribute of the < apex:page > component is used to associate a standard controller with a Visualforce page?',
+    options: ["standardController", "controller", "extensions", "name"],
+    correct: 0,
+    explanation: 'standardController'
+  },
+  {
+    id: 146,
+    chapter: 'chapter3',
+    topic: 'PD1-401',
+    question: 'Which method can be used in a custom controller to respond to user input on a Visualforce page?',
+    options: ["Action method", "Getter method", "Setter method", "Constructor method"],
+    correct: 0,
+    explanation: 'Action method'
+  },
+  {
+    id: 147,
+    chapter: 'chapter3',
+    topic: 'PD1-401',
+    question: 'Which UI framework allows building single-page web apps with dynamic and responsive user interfaces in Salesforce?',
+    options: ["Lightning Component Framework", "Visualforce", "Classic UI", "Service Cloud"],
+    correct: 0,
+    explanation: 'Lightning Component Framework'
+  },
+  {
+    id: 148,
+    chapter: 'chapter3',
+    topic: 'PD1-405',
+    question: 'What should be used instead of dynamic SOQL to prevent SOQL injection?',
+    options: ["Static query with a bind variable", "String concatenation", "SOSL query", "No alternative exists"],
+    correct: 0,
+    explanation: 'Static query with a bind variable'
+  },
+  {
+    id: 149,
+    chapter: 'chapter3',
+    topic: 'PD1-401',
+    question: 'What can prevent a Visualforce page from using an anti-CSRF token?',
+    options: ["An action handler in apex:page", "A standard controller", "A Lightning component", "A custom object"],
+    correct: 0,
+    explanation: 'An action handler in apex:page'
+  },
+  {
+    id: 150,
+    chapter: 'chapter3',
+    topic: 'PD1-405',
+    question: 'Which tag can be utilized in an Aura component to register to an event?',
+    options: ["<aura:registerEvent>", "<aura:handler>", "<aura:event>", "<aura:listener>"],
+    correct: 0,
+    explanation: '<aura:registerEvent>'
+  },
+  {
+    id: 151,
+    chapter: 'chapter3',
+    topic: 'PD1-405',
+    question: 'Which tag can be utilized in an Aura component to handle an event?',
+    options: ["<aura:handler>", "<aura:registerEvent>", "<aura:listener>", "<aura:event>"],
+    correct: 0,
+    explanation: '<aura:handler>'
+  },
+  {
+    id: 152,
+    chapter: 'chapter3',
+    topic: 'PD1-405',
+    question: 'Which type of event is not subject to the component\'s hierarchical setup?',
+    options: ["Application Event", "Component Event", "System Event", "Custom Event"],
+    correct: 0,
+    explanation: 'Application Event'
+  },
+  {
+    id: 153,
+    chapter: 'chapter3',
+    topic: 'PD1-405',
+    question: 'Which type of event is more efficient and should be preferred when an event needs to be handled within the containment hierarchy?',
+    options: ["Component Event", "Application Event", "System Event", "Platform Event"],
+    correct: 0,
+    explanation: 'Component Event'
+  },
+  {
+    id: 154,
+    chapter: 'chapter3',
+    topic: 'PD1-405',
+    question: 'What are the different types of Lightning Components',
+    options: ["Standard, Custom, and AppExchange Components", "Only Standard Components", "Only Custom Components", "Aura and LWC only"],
+    correct: 0,
+    explanation: 'Standard Components, Custom Components and AppExchange Components'
+  },
+  {
+    id: 155,
+    chapter: 'chapter3',
+    topic: 'PD1-401',
+    question: 'How can flow hide unnecessary fields on a screen?',
+    options: ["Component visibility settings on a screen component", "A formula field", "A validation rule", "A workflow rule"],
+    correct: 0,
+    explanation: 'By using the component visibility settings on a screen component'
+  },
+  {
+    id: 156,
+    chapter: 'chapter3',
+    topic: 'PD1-401',
+    question: 'In what ways can Visualforce page be embedded?',
+    options: ["In page layout and on Lightning pages using the Visualforce component", "Only in page layouts", "Only in Lightning pages", "Only in iframes"],
+    correct: 0,
+    explanation: 'In page layout and on Lightning pages using the Visualforce component'
+  },
+  {
+    id: 157,
+    chapter: 'chapter3',
+    topic: 'PD1-401',
+    question: 'What Salesforce feature should be used to build dynamic PDF documents?',
+    options: ["Visualforce Page with renderAs=\"pdf\"", "Lightning Component", "Flow", "Process Builder"],
+    correct: 0,
+    explanation: 'Visualforce Page'
+  },
+  {
+    id: 158,
+    chapter: 'chapter3',
+    topic: 'PD1-401',
+    question: 'Which function can be used to securely retrieve third-party images on a Visualforce page?',
+    options: ["IMAGEPROXYURL()", "IMAGEURL()", "PROXYIMAGE()", "GETIMAGE()"],
+    correct: 0,
+    explanation: 'IMAGEPROXYURL'
+  },
+  {
+    id: 159,
+    chapter: 'chapter3',
+    topic: 'PD1-401',
+    question: 'What does Einstein Next Best Action rely on?',
+    options: ["Flows, recommendations, strategies, and components", "Only Apex code", "Only Lightning components", "Only Visualforce pages"],
+    correct: 0,
+    explanation: 'flows, recommendations, strategies, and components'
+  },
+  {
+    id: 160,
+    chapter: 'chapter3',
+    topic: 'PD1-405',
+    question: 'What can be used to isolate a static HTML file on a separate domain?',
+    options: ["Lightning Web Component (LWC)", "Visualforce page", "Aura component", "Static Resource"],
+    correct: 0,
+    explanation: '$IFrameResource.<resource_name>, where \'resource_name\' is the name of the static resource'
+  },
+  {
+    id: 161,
+    chapter: 'chapter4',
+    topic: 'PD1-501',
+    question: 'What can be used to create test data once and access it throughout the test class?',
+    options: ["@testSetup method", "@isTest method", "Test.loadData method", "Static resource"],
+    correct: 0,
+    explanation: 'Test setup method'
+  },
+  {
+    id: 162,
+    chapter: 'chapter4',
+    topic: 'PD1-501',
+    question: 'Which class can contain reusable code for test data creation?',
+    options: ["Public test utility class (Test Data Factory)", "Standard controller", "Custom metadata type", "Static resource"],
+    correct: 0,
+    explanation: 'Public test utility class, also known as Test Data Factory'
+  },
+  {
+    id: 163,
+    chapter: 'chapter4',
+    topic: 'PD1-501',
+    question: 'What can be created and executed using the Salesforce testing framework to ensure error-free code?',
+    options: ["Unit tests", "Apex classes", "Triggers", "Flows"],
+    correct: 0,
+    explanation: 'Unit tests'
+  },
+  {
+    id: 164,
+    chapter: 'chapter4',
+    topic: 'PD1-501',
+    question: 'Which tests are run by default for deployment to production?',
+    options: ["All local tests", "Only @isTest methods", "Only system tests", "No tests by default"],
+    correct: 0,
+    explanation: 'All local tests'
+  },
+  {
+    id: 165,
+    chapter: 'chapter4',
+    topic: 'PD1-501',
+    question: 'Which annotation should be used for a unit test method?',
+    options: ["@isTest", "@Test", "@TestMethod", "@TestCase"],
+    correct: 0,
+    explanation: '@isTest'
+  },
+  {
+    id: 166,
+    chapter: 'chapter4',
+    topic: 'PD1-501',
+    question: 'Which method can be used to verify whether a test achieves expected results?',
+    options: ["System.assertEquals()", "System.assert()", "System.debug()", "System.verify()"],
+    correct: 0,
+    explanation: 'System.assert()'
+  },
+  {
+    id: 167,
+    chapter: 'chapter4',
+    topic: 'PD1-501',
+    question: 'Which two static methods are used to assign a new set of governor limits?',
+    options: ["Test.startTest() and Test.stopTest()", "Test.begin() and Test.end()", "Limits.reset() and Limits.restore()", "Test.init() and Test.finish()"],
+    correct: 0,
+    explanation: 'startTest() and stopTest()'
+  },
+  {
+    id: 168,
+    chapter: 'chapter4',
+    topic: 'PD1-501',
+    question: 'Which page on the Salesforce user interface allows unit class testing?',
+    options: ["Apex Test Execution page in Setup", "Developer Console", "Workbench", "App Builder"],
+    correct: 0,
+    explanation: 'Apex Test Execution'
+  },
+  {
+    id: 169,
+    chapter: 'chapter4',
+    topic: 'PD1-501',
+    question: 'What can be used to create or delete tests that can be run together?',
+    options: ["Suite Manager in Developer Console", "Test Manager in Setup", "Apex Test Execution", "Developer Console"],
+    correct: 0,
+    explanation: 'Suite Manager in Developer Console'
+  },
+  {
+    id: 170,
+    chapter: 'chapter4',
+    topic: 'PD1-501',
+    question: 'What does not affect actual data after successful code execution?',
+    options: ["Unit Tests", "Apex Classes", "Triggers", "Batch Jobs"],
+    correct: 0,
+    explanation: 'Unit Tests'
+  },
+  {
+    id: 171,
+    chapter: 'chapter4',
+    topic: 'PD1-501',
+    question: 'Which default sharing mode is used for anonymous block execution?',
+    options: ["User mode with sharing", "System mode without sharing", "No sharing mode", "Global sharing mode"],
+    correct: 0,
+    explanation: 'User mode with sharing'
+  },
+  {
+    id: 172,
+    chapter: 'chapter4',
+    topic: 'PD1-509',
+    question: 'What are unmanaged packages typically used for?',
+    options: ["Distributing free software, templates, and open source components", "Selling on AppExchange", "Upgrading existing packages", "Protecting intellectual property"],
+    correct: 0,
+    explanation: 'Distributing free software, templates, and open source components'
+  },
+  {
+    id: 173,
+    chapter: 'chapter4',
+    topic: 'PD1-509',
+    question: 'What is the difference between a managed package and unmanaged package?',
+    options: ["Managed: protected, upgradeable, sold on AppExchange. Unmanaged: not protected, cannot be upgraded", "They are identical in functionality", "Managed is for free distribution, unmanaged is for sale", "Unmanaged can be upgraded, managed cannot"],
+    correct: 0,
+    explanation: 'A managed package is protected, upgradeable and is typically sold on the AppExchange. Unmanaged packages are not protected and can be used for distribution to others and can be modified once installed.'
+  },
+  {
+    id: 174,
+    chapter: 'chapter4',
+    topic: 'PD1-509',
+    question: 'What can a change set be used for?',
+    options: ["Moving metadata between related orgs (sandbox to production)", "Moving data between orgs", "Creating new objects", "Writing Apex code"],
+    correct: 0,
+    explanation: 'Moving meta data between related orgs, e.g. from a sandbox to production. It cannot be used for moving data.'
+  },
+  {
+    id: 175,
+    chapter: 'chapter4',
+    topic: 'PD1-509',
+    question: 'What is required to use change sets in 2 orgs?',
+    options: ["A deployment connection between the orgs", "Both orgs on the same edition", "Same geographic region", "Same admin user"],
+    correct: 0,
+    explanation: 'A deployment connection between the orgs and each org must explicitly authorize the other org to send change sets to it.'
+  },
+  {
+    id: 176,
+    chapter: 'chapter4',
+    topic: 'PD1-509',
+    question: 'What are some restrictions of change sets?',
+    options: ["75% test coverage required, not all metadata supported, cannot specify deploy order", "No restrictions exist", "Can only deploy code, not configuration", "Requires Data Loader"],
+    correct: 0,
+    explanation: 'Code must have 75% test coverage. Not all metadata types are supported. The order of components deployed cannot be specified. Cannot be used to rename or delete components.'
+  },
+  {
+    id: 177,
+    chapter: 'chapter4',
+    topic: 'PD1-509',
+    question: 'What option can be used for distributing metadata to multiple unrelated orgs?',
+    options: ["Unmanaged packages", "Change sets", "Data Loader", "Metadata API"],
+    correct: 0,
+    explanation: 'Unmanaged packages can be used to distribute metadata to unrelated orgs.'
+  },
+  {
+    id: 178,
+    chapter: 'chapter4',
+    topic: 'PD1-509',
+    question: 'What option would you choose to move metadata in a scripted manner to multiple environments?',
+    options: ["Force.com Migration Tool (ANT)", "Change Sets", "Data Loader", "Workbench"],
+    correct: 0,
+    explanation: 'Force.com migration tool can be used to script deployments to multiple environments.'
+  },
+  {
+    id: 179,
+    chapter: 'chapter4',
+    topic: 'PD1-502',
+    question: 'What are the different log levels available in Apex?',
+    options: ["NONE, ERROR, WARN, INFO, DEBUG, FINE, FINER, FINEST", "ERROR, WARNING, INFO, DEBUG", "LOW, MEDIUM, HIGH, CRITICAL", "BASIC, DETAILED, VERBOSE"],
+    correct: 0,
+    explanation: 'NONE, ERROR, WARN, INFO, DEBUG, FINE, FINER, FINEST'
+  },
+  {
+    id: 180,
+    chapter: 'chapter4',
+    topic: 'PD1-509',
+    question: 'What are the options for moving metadata between environments?',
+    options: ["Change Sets, Force.com Migration Tool, VS Code, Workbench, Unmanaged Packages", "Only Change Sets", "Only Data Loader", "Only Metadata API"],
+    correct: 0,
+    explanation: 'Change Sets, Force.com Migration Tool, Visual Studio Code, Workbench, Unmanaged Packages'
+  },
+  {
+    id: 181,
+    chapter: 'chapter4',
+    topic: 'PD1-502',
+    question: 'Where can debug logs be viewed, downloaded and deleted?',
+    options: ["Developer Console and Setup (Debug Logs panel)", "Only Developer Console", "Only Setup", "Workbench"],
+    correct: 0,
+    explanation: 'Developer Console and Setup'
+  },
+  {
+    id: 182,
+    chapter: 'chapter4',
+    topic: 'PD1-502',
+    question: 'Which suite of tools can be used to query, update, delete and insert data in Salesforce via the Force.com APIs?',
+    options: ["Workbench", "Data Loader", "Developer Console", "VS Code"],
+    correct: 0,
+    explanation: 'Workbench'
+  },
+  {
+    id: 183,
+    chapter: 'chapter4',
+    topic: 'PD1-502',
+    question: 'Which Salesforce feature provides a Query Editor for executing SOQL and SOSL queries?',
+    options: ["Developer Console", "Setup Menu", "Data Loader", "Workbench"],
+    correct: 0,
+    explanation: 'Developer Console'
+  },
+  {
+    id: 184,
+    chapter: 'chapter4',
+    topic: 'PD1-502',
+    question: 'Which environment is used for migrating and combining changes from different development environments?',
+    options: ["Integration environment", "Development environment", "Production environment", "Staging environment"],
+    correct: 0,
+    explanation: 'Integration environment'
+  },
+  {
+    id: 185,
+    chapter: 'chapter4',
+    topic: 'PD1-509',
+    question: 'Which environment can be used for a test deployment before changes are migrated to production?',
+    options: ["Staging environment", "Development environment", "Integration environment", "UAT environment"],
+    correct: 0,
+    explanation: 'Staging environment'
+  },
+  {
+    id: 186,
+    chapter: 'chapter4',
+    topic: 'PD1-502',
+    question: 'Which type of tests are conducted in a UAT environment?',
+    options: ["User acceptance tests", "Unit tests", "Integration tests", "Performance tests"],
+    correct: 0,
+    explanation: 'User acceptance tests'
+  },
+  {
+    id: 187,
+    chapter: 'chapter4',
+    topic: 'PD1-502',
+    question: 'How many checkpoints can be set in Apex code at a time?',
+    options: ["Five", "Three", "Ten", "Unlimited"],
+    correct: 0,
+    explanation: 'Five'
+  },
+  {
+    id: 188,
+    chapter: 'chapter4',
+    topic: 'PD1-502',
+    question: 'What can be used to investigate the objects in memory at a specific checkpoint and see the other objects with references to them?',
+    options: ["Checkpoint Inspector", "Debug Log", "Developer Console", "System.debug()"],
+    correct: 0,
+    explanation: 'Checkpoint Inspector'
+  },
+  {
+    id: 189,
+    chapter: 'chapter4',
+    topic: 'PD1-509',
+    question: 'Which file must be created in order to delete metadata components?',
+    options: ["destructiveChanges.xml", "package.xml", "build.xml", "deploy.xml"],
+    correct: 0,
+    explanation: 'destructiveChanges.xml'
+  },
+  {
+    id: 190,
+    chapter: 'chapter4',
+    topic: 'PD1-505',
+    question: 'Which API provides fine-grained access to an org’s metadata by retrieving smaller pieces of metadata?',
+    options: ["Tooling API", "Metadata API", "REST API", "SOAP API"],
+    correct: 0,
+    explanation: 'Tooling API'
+  },
+  {
+    id: 191,
+    chapter: 'chapter4',
+    topic: 'PD1-505',
+    question: 'Which tools are available to access functionality provided by Metadata API?',
+    options: ["Visual Studio Code and Ant Migration Tool", "Only Developer Console", "Only Workbench", "Only Data Loader"],
+    correct: 0,
+    explanation: 'Visual Studio Code and Ant Migration Tool'
+  },
+  {
+    id: 192,
+    chapter: 'chapter4',
+    topic: 'PD1-502',
+    question: 'Where can debug mode be enabled for Lightning components?',
+    options: ["Debug Mode setting in Setup", "Developer Console", "VS Code", "Lightning App Builder"],
+    correct: 0,
+    explanation: '\'Debug Mode\' in Setup'
+  },
+  {
+    id: 193,
+    chapter: 'chapter4',
+    topic: 'PD1-505',
+    question: 'What are the key milestones in an Application lifecycle when a sandbox is involved?',
+    options: ["Manage Requirements, Develop in Sandbox, Test Changes, Deploy to Production, Notify Users", "Develop, Test, Deploy", "Plan, Code, Test, Release", "Design, Build, Test, Deploy"],
+    correct: 0,
+    explanation: 'Manage Requirements, Develop Changes in Sandbox, Test Changes, Deploy Changes to Production, Notify End Users of Changes'
+  },
+  {
+    id: 194,
+    chapter: 'chapter4',
+    topic: 'PD1-505',
+    question: 'What is the difference between a Developer and Developer Pro sandbox?',
+    options: ["Developer Pro has higher storage limit. Both copy production config (not data)", "Developer Pro copies data", "They are identical", "Developer Pro can only be refreshed monthly"],
+    correct: 0,
+    explanation: 'Developer Pro has a higher storage limit. Both contain a copy of production configuration and not data. Both can be refreshed once a day.'
+  },
+  {
+    id: 195,
+    chapter: 'chapter4',
+    topic: 'PD1-505',
+    question: 'Why would a Partial Copy sandbox be used instead of a Full Copy sandbox?',
+    options: ["Partial Copy is cheaper, refreshes more frequently, uses templates for selective data", "Partial Copy has more data", "They are identical", "Full Copy refreshes more frequently"],
+    correct: 0,
+    explanation: 'A Partial Copy sandbox is cheaper and can be refreshed more frequently (5 days). It has a data and file storage limit of 5 GB, so a template can be used to define the data copied (up to 10,000 records).'
+  },
+  {
+    id: 196,
+    chapter: 'chapter4',
+    topic: 'PD1-505',
+    question: 'What is a full copy sandbox usually used for?',
+    options: ["When identical-to-production environment is needed for testing", "For daily development", "For code reviews", "For documentation"],
+    correct: 0,
+    explanation: 'When an environment that is identical to production is required for performance, load, regression or user acceptance testing.'
+  },
+  {
+    id: 197,
+    chapter: 'chapter4',
+    topic: 'PD1-502',
+    question: 'Which type of user can be traced using a debug log to track data that is synchronized using the Salesforce Integration Cloud?',
+    options: ["Any user with a trace flag configured", "Only administrators", "Only developers", "Only system administrators"],
+    correct: 0,
+    explanation: 'Platform Integration User'
+  },
+  {
+    id: 198,
+    chapter: 'chapter4',
+    topic: 'PD1-505',
+    question: 'When creating a new sandbox, what can a developer do to copy data and metadata from an existing sandbox?',
+    options: ["Clone the existing sandbox", "Use Data Loader", "Export and import manually", "Create from production"],
+    correct: 0,
+    explanation: 'Clone the existing sandbox'
+  },
+  {
+    id: 199,
+    chapter: 'chapter4',
+    topic: 'PD1-505',
+    question: 'When a new sandbox is created, what happens to the users\' email addresses?',
+    options: ["Salesforce appends .invalid to email addresses", "Emails are deleted", "Emails are forwarded to admins", "No change to emails"],
+    correct: 0,
+    explanation: 'Salesforce appends .invalid to the email addresses. For example, name@email.com becomes name@email.com.invalid.'
+  },
+  {
+    id: 200,
+    chapter: 'chapter4',
+    topic: 'PD1-505',
+    question: 'Which IDE (Integrated Development Environment) should be used to create and edit Apex code, manage development projects, and migrate metadata components from one org to another?',
+    options: ["Visual Studio Code with Salesforce Extension Pack", "Eclipse", "Notepad++", "Sublime Text"],
+    correct: 0,
+    explanation: 'Visual Studio Code'
+  },
+  {
+    id: 201,
+    chapter: 'chapter4',
+    topic: 'PD1-502',
+    question: 'What needs to be set up to generate debug logs when a user performs an action in Salesforce, such as updating an account record?',
+    options: ["User trace flag", "Debug level", "Log category", "System.debug()"],
+    correct: 0,
+    explanation: 'User trace flag'
+  },
+  {
+    id: 202,
+    chapter: 'chapter4',
+    topic: 'PD1-502',
+    question: 'What does each debug log contain?',
+    options: ["Header, execution units, code units, log lines", "Only error messages", "Only system.debug outputs", "Only SOQL queries"],
+    correct: 0,
+    explanation: 'Each debug log consists of a header, execution units, code units, log lines, and other log data.'
+  },
+  {
+    id: 203,
+    chapter: 'chapter4',
+    topic: 'PD1-502',
+    question: 'Which panel of the Log Inspector shows information in a top-down manner from the initiating calls to the next level down?',
+    options: ["Stack Tree panel", "Execution Overview panel", "Timeline panel", "Filter panel"],
+    correct: 0,
+    explanation: 'Stack Tree'
+  },
+  {
+    id: 204,
+    chapter: 'chapter4',
+    topic: 'PD1-502',
+    question: 'When troubleshooting processes, what is the significance of myVariable_current and myVariable_old?',
+    options: ["myVariable_current = current field value, myVariable_old = most recent previous value", "Both are the same value", "myVariable_current is always null", "myVariable_old is the original value from creation"],
+    correct: 0,
+    explanation: '‘myVariable_current’ refers to the field value when the process was executed. On the other hand, ‘myVariable_old’ refers to the most recent previous value.'
+  },
+  {
+    id: 205,
+    chapter: 'chapter4',
+    topic: 'PD1-505',
+    question: 'What is a Scratch Org?',
+    options: ["A disposable, configurable, short-term Salesforce environment", "A permanent development environment", "A production org with debugging", "A type of sandbox"],
+    correct: 0,
+    explanation: 'A Scratch Org is a dedicated, configurable, and short-term Salesforce environment'
+  },
+  {
+    id: 206,
+    chapter: 'chapter4',
+    topic: 'PD1-502',
+    question: 'What developer tool can be used to make code changes effective immediately in an org without installing any software?',
+    options: ["Developer Console", "VS Code", "Data Loader", "Workbench"],
+    correct: 0,
+    explanation: 'Developer Console'
+  },
+  {
+    id: 207,
+    chapter: 'chapter4',
+    topic: 'PD1-502',
+    question: 'What external web-based platform can be used to query, insert, update and delete Salesforce data?',
+    options: ["Workbench", "Data Loader", "Developer Console", "VS Code"],
+    correct: 0,
+    explanation: 'Workbench'
+  },
+  {
+    id: 208,
+    chapter: 'chapter2',
+    topic: 'PD1-301',
+    question: 'Which declarative automation feature can send an outbound message without code?',
+    options: ["Workflow Rules","Process Builder","Approval Processes","Flow Builder"],
+    correct: 0,
+    explanation: 'Workflow Rules can send outbound messages as one of their action types.'
+  },
+  {
+    id: 209,
+    chapter: 'chapter2',
+    topic: 'PD1-301',
+    question: 'Which automation tool can display a custom user interface?',
+    options: ["Flow (Screen Flow)","Process Builder","Workflow Rule","Approval Process"],
+    correct: 0,
+    explanation: 'Screen Flows are the only declarative tool that can display a custom UI.'
+  },
+  {
+    id: 210,
+    chapter: 'chapter2',
+    topic: 'PD1-302',
+    question: 'Which access modifier makes a variable available to all classes in the org?',
+    options: ["global","public","private","protected"],
+    correct: 0,
+    explanation: 'The global modifier makes a variable available to all classes in the organization.'
+  },
+  {
+    id: 211,
+    chapter: 'chapter2',
+    topic: 'PD1-303',
+    question: 'Which loop type always executes at least once?',
+    options: ["do-while loop","for loop","while loop","for-each loop"],
+    correct: 0,
+    explanation: 'The do-while loop always executes at least once because the condition is checked after the body.'
+  },
+  {
+    id: 212,
+    chapter: 'chapter2',
+    topic: 'PD1-303',
+    question: 'What does the break statement do in a loop?',
+    options: ["Terminates the loop","Skips to next iteration","Pauses execution","Restarts the loop"],
+    correct: 0,
+    explanation: 'The break statement immediately terminates the loop.'
+  },
+  {
+    id: 213,
+    chapter: 'chapter2',
+    topic: 'PD1-305',
+    question: 'Which SOQL clause sorts query results?',
+    options: ["ORDER BY","SORT BY","GROUP BY","ARRANGE BY"],
+    correct: 0,
+    explanation: 'The ORDER BY clause sorts SOQL query results.'
+  },
+  {
+    id: 214,
+    chapter: 'chapter2',
+    topic: 'PD1-305',
+    question: 'What does the UPSERT DML operation do?',
+    options: ["Inserts new or updates existing records","Deletes and recreates records","Merges duplicates","Converts leads"],
+    correct: 0,
+    explanation: 'UPSERT inserts new records or updates existing ones based on an external ID.'
+  },
+  {
+    id: 215,
+    chapter: 'chapter2',
+    topic: 'PD1-305',
+    question: 'What is the purpose of bind variables in dynamic SOQL?',
+    options: ["Prevent SOQL injection","Improve performance","Reduce governor limits","Enable bulk queries"],
+    correct: 0,
+    explanation: 'Bind variables escape user input to prevent SOQL injection.'
+  },
+  {
+    id: 216,
+    chapter: 'chapter2',
+    topic: 'PD1-306',
+    question: 'What is the recommended pattern for trigger logic?',
+    options: ["One trigger per object with handler class","Multiple triggers per object","All logic in trigger","Only before triggers"],
+    correct: 0,
+    explanation: 'Use one trigger per object with a handler class for separation of concerns.'
+  },
+  {
+    id: 217,
+    chapter: 'chapter2',
+    topic: 'PD1-306',
+    question: 'Why should SOQL not be inside for loops?',
+    options: ["Exceeds 100 SOQL query governor limit","Causes syntax errors","Makes code unreadable","Slows the loop"],
+    correct: 0,
+    explanation: 'SOQL in loops can exceed the 100 SOQL queries per transaction governor limit.'
+  },
+  {
+    id: 218,
+    chapter: 'chapter2',
+    topic: 'PD1-308',
+    question: 'What is the governor limit for SOQL queries per transaction?',
+    options: ["100","50","150","200"],
+    correct: 0,
+    explanation: 'The limit is 100 SOQL queries per transaction.'
+  },
+  {
+    id: 219,
+    chapter: 'chapter2',
+    topic: 'PD1-308',
+    question: 'What is the governor limit for DML statements per transaction?',
+    options: ["150","50","100","200"],
+    correct: 0,
+    explanation: 'The limit is 150 DML statements per transaction.'
+  },
+  {
+    id: 220,
+    chapter: 'chapter2',
+    topic: 'PD1-308',
+    question: 'What is the CPU time limit for synchronous Apex?',
+    options: ["10,000 ms","5,000 ms","30,000 ms","60,000 ms"],
+    correct: 0,
+    explanation: 'Synchronous Apex has a 10,000 ms CPU time limit.'
+  },
+  {
+    id: 221,
+    chapter: 'chapter2',
+    topic: 'PD1-309',
+    question: 'What is the first step in save order of execution?',
+    options: ["Before triggers","Validation rules","After triggers","Assignment rules"],
+    correct: 0,
+    explanation: 'Before triggers fire first in the save order of execution.'
+  },
+  {
+    id: 222,
+    chapter: 'chapter2',
+    topic: 'PD1-309',
+    question: 'How can recursion be prevented in triggers?',
+    options: ["Static Boolean variable","Final keyword","More governor limits","Cannot be prevented"],
+    correct: 0,
+    explanation: 'A static Boolean flag prevents re-entry of the trigger.'
+  },
+  {
+    id: 223,
+    chapter: 'chapter2',
+    topic: 'PD1-310',
+    question: 'Which exception is thrown when a single-record SOQL returns no results?',
+    options: ["QueryException","DmlException","NullPointerException","LimitException"],
+    correct: 0,
+    explanation: 'QueryException is thrown when a single-record query returns no results.'
+  },
+  {
+    id: 224,
+    chapter: 'chapter2',
+    topic: 'PD1-312',
+    question: 'What annotation makes Apex callable from Flow?',
+    options: ["@InvocableMethod","@AuraEnabled","@RemoteAction","@future"],
+    correct: 0,
+    explanation: '@InvocableMethod makes an Apex method callable from Flow and Process Builder.'
+  },
+  {
+    id: 225,
+    chapter: 'chapter2',
+    topic: 'PD1-302',
+    question: 'What does the static keyword do for a variable?',
+    options: ["Makes it class-level and shared across all instances","Makes it a constant","Makes it private","Makes it global"],
+    correct: 0,
+    explanation: 'Static makes a variable class-level, shared across all instances of the class.'
+  },
+  {
+    id: 226,
+    chapter: 'chapter2',
+    topic: 'PD1-305',
+    question: 'What does Database.insert(records, false) do?',
+    options: ["Allows partial success with allOrNone=false","Inserts all records atomically","Deletes records first","Validates only without inserting"],
+    correct: 0,
+    explanation: 'Database.insert with allOrNone=false allows partial success - some records can succeed while others fail.'
+  },
+  {
+    id: 227,
+    chapter: 'chapter2',
+    topic: 'PD1-306',
+    question: 'Which trigger context variable contains the old field values?',
+    options: ["Trigger.old","Trigger.new","Trigger.oldMap","Trigger.newMap"],
+    correct: 0,
+    explanation: 'Trigger.old contains the old versions of the records before the update.'
+  },
+  {
+    id: 228,
+    chapter: 'chapter2',
+    topic: 'PD1-308',
+    question: 'What happens when a governor limit is exceeded?',
+    options: ["Exception thrown, DML rolled back","Code continues with warning","Limit increased automatically","Only current operation fails"],
+    correct: 0,
+    explanation: 'An unhandled exception is thrown and all DML operations in the transaction are rolled back.'
+  },
+  {
+    id: 229,
+    chapter: 'chapter2',
+    topic: 'PD1-310',
+    question: 'What is the purpose of the finally block?',
+    options: ["Always executes for cleanup","Catches exceptions","Stops execution","Creates test data"],
+    correct: 0,
+    explanation: 'The finally block always executes regardless of whether an exception occurred, useful for cleanup.'
+  },
+  {
+    id: 230,
+    chapter: 'chapter2',
+    topic: 'PD1-301',
+    question: 'Which tool can send outbound messages declaratively?',
+    options: ["Workflow Rules","Flow Builder","Process Builder","Approval Processes"],
+    correct: 0,
+    explanation: 'Workflow Rules are the declarative tool specifically designed for sending outbound messages.'
+  },
+  {
+    id: 231,
+    chapter: 'chapter2',
+    topic: 'PD1-302',
+    question: 'Can a class implement multiple interfaces in Apex?',
+    options: ["Yes, but extend only one class","No, only one interface","Yes, and extend multiple classes","No interfaces are supported"],
+    correct: 0,
+    explanation: 'A class can implement multiple interfaces but can only extend one class.'
+  },
+  {
+    id: 232,
+    chapter: 'chapter2',
+    topic: 'PD1-305',
+    question: 'Which method allows partial DML success?',
+    options: ["Database.insert(records, false)","insert records","Database.upsert(records)","System.dml(records)"],
+    correct: 0,
+    explanation: 'Database methods with allOrNone=false allow partial success.'
+  },
+  {
+    id: 233,
+    chapter: 'chapter2',
+    topic: 'PD1-308',
+    question: 'What is the heap size limit for synchronous Apex?',
+    options: ["6 MB","3 MB","12 MB","24 MB"],
+    correct: 0,
+    explanation: 'The heap size limit for synchronous Apex is 6 MB.'
+  },
+  {
+    id: 234,
+    chapter: 'chapter2',
+    topic: 'PD1-309',
+    question: 'When do validation rules fire in the save order?',
+    options: ["After before triggers, before after triggers","Before before triggers","After after triggers","At the very end"],
+    correct: 0,
+    explanation: 'Validation rules fire after before triggers but before after triggers.'
+  },
+  {
+    id: 235,
+    chapter: 'chapter2',
+    topic: 'PD1-310',
+    question: 'Should you catch generic Exception or specific exceptions?',
+    options: ["Catch specific exceptions first","Always catch generic Exception","Never use try-catch","Only use finally"],
+    correct: 0,
+    explanation: 'Best practice is to catch specific exceptions first for targeted error handling.'
+  },
+
 ];
 
 export const examConfig = {

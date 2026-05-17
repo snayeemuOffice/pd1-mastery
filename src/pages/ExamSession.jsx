@@ -1,10 +1,10 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { examQuestions, examConfig } from '../data/examQuestions'
+import { examSets, chapterQuizzes, topicQuizzes } from '../data/examSets'
 
 export default function ExamSession() {
   const { examId } = useParams()
-  const config = examConfig[examId]
 
   const [questions, setQuestions] = useState([])
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -13,23 +13,66 @@ export default function ExamSession() {
   const [showResults, setShowResults] = useState(false)
   const [timeLeft, setTimeLeft] = useState(0)
   const [examStarted, setExamStarted] = useState(false)
+  const [examName, setExamName] = useState('')
+  const [passingScore, setPassingScore] = useState(68)
 
   // Initialize exam
   useEffect(() => {
-    if (!config) return
-    let filtered = config.questions === 'all'
-      ? [...examQuestions]
-      : examQuestions.filter(q => q.chapter === config.questions)
+    let examData = null
+    let questionsList = []
+    let time = 110
+    let pass = 68
+    let name = 'Practice Exam'
 
-    // Shuffle questions
-    for (let i = filtered.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [filtered[i], filtered[j]] = [filtered[j], filtered[i]]
+    // Check exam sets first
+    const examSet = examSets.find(s => s.id === examId)
+    if (examSet) {
+      questionsList = examSet.questions
+      time = examSet.timeLimit
+      pass = examSet.passingScore
+      name = examSet.name
     }
 
-    setQuestions(filtered)
-    setTimeLeft(config.timeLimit * 60)
-  }, [config])
+    // Check chapter quizzes
+    const chapterQuiz = chapterQuizzes.find(q => q.id === examId)
+    if (chapterQuiz) {
+      questionsList = chapterQuiz.questions
+      time = chapterQuiz.timeLimit
+      pass = chapterQuiz.passingScore
+      name = chapterQuiz.name
+    }
+
+    // Check topic quizzes
+    const topicQuiz = topicQuizzes.find(q => q.id === examId)
+    if (topicQuiz) {
+      questionsList = topicQuiz.questions
+      time = topicQuiz.timeLimit
+      pass = 70
+      name = topicQuiz.name
+    }
+
+    // Fall back to exam config
+    if (questionsList.length === 0 && examConfig[examId]) {
+      const config = examConfig[examId]
+      questionsList = config.questions === 'all'
+        ? [...examQuestions]
+        : examQuestions.filter(q => q.chapter === config.questions)
+      time = config.timeLimit
+      pass = config.passingScore
+      name = config.name
+    }
+
+    // Shuffle
+    for (let i = questionsList.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [questionsList[i], questionsList[j]] = [questionsList[j], questionsList[i]]
+    }
+
+    setQuestions(questionsList)
+    setTimeLeft(time * 60)
+    setPassingScore(pass)
+    setExamName(name)
+  }, [examId])
 
   // Timer
   useEffect(() => {
@@ -76,22 +119,20 @@ export default function ExamSession() {
 
   const handleSubmitExam = useCallback(() => {
     setShowResults(true)
-    // Mark all unanswered as submitted
     const allSubmitted = {}
     questions.forEach(q => { allSubmitted[q.id] = true })
     setSubmitted(allSubmitted)
 
-    // Save exam result
     const score = calculateScore()
-    const existing = JSON.parse(localStorage.setItem('pd1_lastExam', JSON.stringify({
+    localStorage.setItem('pd1_lastExam', JSON.stringify({
       examId,
       score: score.percentage,
       correct: score.correct,
       total: score.total,
-      passed: score.percentage >= config.passingScore,
+      passed: score.percentage >= passingScore,
       date: Date.now()
-    })))
-  }, [questions, answers, examId, config])
+    }))
+  }, [questions, answers, examId, passingScore])
 
   const calculateScore = () => {
     let correct = 0
@@ -116,19 +157,17 @@ export default function ExamSession() {
     setCurrentIndex(0)
     setShowResults(false)
     setExamStarted(false)
-    setTimeLeft(config.timeLimit * 60)
     // Re-shuffle
-    let filtered = config.questions === 'all'
-      ? [...examQuestions]
-      : examQuestions.filter(q => q.chapter === config.questions)
-    for (let i = filtered.length - 1; i > 0; i--) {
+    let questionsList = [...questions]
+    for (let i = questionsList.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      [filtered[i], filtered[j]] = [filtered[j], filtered[i]]
+      [questionsList[i], questionsList[j]] = [questionsList[j], questionsList[i]]
     }
-    setQuestions(filtered)
+    setQuestions(questionsList)
+    setTimeLeft(Math.floor(timeLeft / 60) * 60)
   }
 
-  if (!config) {
+  if (questions.length === 0) {
     return (
       <div className="container" style={{ padding: '60px 24px' }}>
         <div className="empty-state">
@@ -149,19 +188,19 @@ export default function ExamSession() {
       <div className="exam-session" style={{ paddingTop: '40px' }}>
         <div className="results-card">
           <div style={{ fontSize: '60px', marginBottom: '20px' }}>📝</div>
-          <h2>{config.name}</h2>
-          <p className="results-subtitle">{config.description}</p>
+          <h2>{examName}</h2>
+          <p className="results-subtitle">{questions.length} questions • {Math.floor(timeLeft / 60)} minutes • {passingScore}% to pass</p>
           <div className="results-stats">
             <div className="result-stat">
               <div className="stat-value">{questions.length}</div>
               <div className="stat-label">Questions</div>
             </div>
             <div className="result-stat">
-              <div className="stat-value">{config.timeLimit}</div>
+              <div className="stat-value">{Math.floor(timeLeft / 60)}</div>
               <div className="stat-label">Minutes</div>
             </div>
             <div className="result-stat">
-              <div className="stat-value">{config.passingScore}%</div>
+              <div className="stat-value">{passingScore}%</div>
               <div className="stat-label">Passing Score</div>
             </div>
           </div>
@@ -181,7 +220,7 @@ export default function ExamSession() {
   // Results screen
   if (showResults) {
     const score = calculateScore()
-    const passed = score.percentage >= config.passingScore
+    const passed = score.percentage >= passingScore
 
     return (
       <div className="results-container">
@@ -212,7 +251,7 @@ export default function ExamSession() {
               <div className="stat-label">Incorrect</div>
             </div>
             <div className="result-stat">
-              <div className="stat-value">{config.passingScore}%</div>
+              <div className="stat-value">{passingScore}%</div>
               <div className="stat-label">Passing Score</div>
             </div>
           </div>
@@ -263,7 +302,6 @@ export default function ExamSession() {
   const isSubmitted = submitted[currentQuestion.id]
   const selectedAnswer = answers[currentQuestion.id]
   const isCorrect = selectedAnswer === currentQuestion.correct
-  const answeredCount = Object.keys(answers).length
   const submittedCount = Object.keys(submitted).length
   const timeWarning = timeLeft < 300
   const timeDanger = timeLeft < 60

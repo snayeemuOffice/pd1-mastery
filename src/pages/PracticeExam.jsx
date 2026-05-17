@@ -1,147 +1,198 @@
 import { Link } from 'react-router-dom'
-import { examQuestions, examConfig } from '../data/examQuestions'
+import { examQuestions } from '../data/examQuestions'
+import { examSets, chapterQuizzes, topicQuizzes } from '../data/examSets'
 
 export default function PracticeExam() {
-  const getQuestionCount = (filter) => {
-    if (filter === 'all') return examQuestions.length
-    return examQuestions.filter(q => q.chapter === filter).length
-  }
-
-  const examOptions = [
-    { key: 'fullExam', ...examConfig.fullExam, icon: '📋', featured: true },
-    { key: 'chapter1', ...examConfig.chapter1, icon: '🏛️' },
-    { key: 'chapter2', ...examConfig.chapter2, icon: '⚡' },
-    { key: 'chapter3', ...examConfig.chapter3, icon: '🖥️' },
-    { key: 'chapter4', ...examConfig.chapter4, icon: '🔧' }
-  ]
-
   return (
     <div>
       <div className="page-header">
         <div className="container">
           <h1>Practice Exams</h1>
-          <p>Test your knowledge with realistic PD1 exam questions</p>
+          <p>Test your knowledge with realistic PD1 exam questions - 60 questions per set, official marking ratios</p>
         </div>
       </div>
 
       <div className="container" style={{ padding: '40px 24px' }}>
-        <div className="section-header" style={{ marginBottom: '40px' }}>
-          <h2>Choose Your Exam</h2>
-          <p>Select a full exam or focus on specific chapters</p>
+        {/* Full Exam Sets */}
+        <div className="section-header" style={{ marginBottom: '32px' }}>
+          <h2>Full Practice Exam Sets</h2>
+          <p>60 questions each, 110 minutes, following official PD1 exam format</p>
         </div>
 
         <div className="exam-options-grid">
-          {examOptions.map((exam) => (
-            <Link
-              key={exam.key}
-              to={`/exam/${exam.key}`}
-              style={{ textDecoration: 'none', color: 'inherit' }}
-            >
-              <div className={`exam-option-card ${exam.featured ? 'full-exam' : ''}`}>
-                <div className="exam-icon">{exam.icon}</div>
-                <h3>{exam.name}</h3>
-                <p className="exam-desc">{exam.description}</p>
+          {examSets.map((set) => (
+            <Link key={set.id} to={`/exam/${set.id}`}>
+              <div className="exam-option-card">
+                <div className="exam-icon">📋</div>
+                <h3>{set.name}</h3>
+                <p className="exam-desc">{set.description}</p>
                 <div className="exam-option-details">
                   <div className="exam-option-detail">
                     <span className="detail-icon">📝</span>
-                    <span>{getQuestionCount(exam.questions)} Qs</span>
+                    <span>60 Qs</span>
                   </div>
                   <div className="exam-option-detail">
                     <span className="detail-icon">⏱️</span>
-                    <span>{exam.timeLimit} min</span>
+                    <span>110 min</span>
                   </div>
                   <div className="exam-option-detail">
                     <span className="detail-icon">🎯</span>
-                    <span>{exam.passingScore}%</span>
+                    <span>68%</span>
                   </div>
                 </div>
-                <button className="btn btn-primary">
-                  Start Exam
-                </button>
+                <button className="btn btn-primary">Start Exam</button>
               </div>
             </Link>
           ))}
         </div>
 
-        {/* Quick Stats */}
+        {/* Chapter Quizzes */}
+        <div className="section-header" style={{ marginBottom: '32px', marginTop: '48px' }}>
+          <h2>Chapter Quizzes</h2>
+          <p>20 questions focused on specific chapters</p>
+        </div>
+
+        <div className="exam-options-grid">
+          {chapterQuizzes.map((quiz) => (
+            <Link key={quiz.id} to={`/exam/${quiz.id}`}>
+              <div className="exam-option-card">
+                <div className="exam-icon">{quiz.icon}</div>
+                <h3>{quiz.name}</h3>
+                <p className="exam-desc">{quiz.description}</p>
+                <div className="exam-option-details">
+                  <div className="exam-option-detail">
+                    <span className="detail-icon">📝</span>
+                    <span>20 Qs</span>
+                  </div>
+                  <div className="exam-option-detail">
+                    <span className="detail-icon">⏱️</span>
+                    <span>30 min</span>
+                  </div>
+                  <div className="exam-option-detail">
+                    <span className="detail-icon">🎯</span>
+                    <span>70%</span>
+                  </div>
+                </div>
+                <button className="btn btn-outline">Start Quiz</button>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        {/* Topic Quizzes */}
+        <div className="section-header" style={{ marginBottom: '32px', marginTop: '48px' }}>
+          <h2>Topic-Specific Quizzes</h2>
+          <p>10 questions on individual exam topics</p>
+        </div>
+
+        <div className="exam-options-grid" style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
+          {topicQuizzes.map((quiz) => (
+            <Link key={quiz.id} to={`/exam/${quiz.id}`}>
+              <div className="exam-option-card" style={{ padding: '20px 16px' }}>
+                <h3 style={{ fontSize: '14px' }}>{quiz.name}</h3>
+                <p className="exam-desc" style={{ fontSize: '12px' }}>{quiz.topic}</p>
+                <div className="exam-option-details" style={{ padding: '6px', marginBottom: '12px' }}>
+                  <div className="exam-option-detail" style={{ fontSize: '11px' }}>
+                    <span>📝</span>
+                    <span>10 Qs</span>
+                  </div>
+                  <div className="exam-option-detail" style={{ fontSize: '11px' }}>
+                    <span>⏱️</span>
+                    <span>15 min</span>
+                  </div>
+                </div>
+                <button className="btn btn-sm btn-ghost" style={{ width: '100%' }}>Start</button>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        {/* Exam Stats */}
         <div className="content-section" style={{ marginTop: '48px' }}>
-          <h2>📊 Exam Content Overview</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '20px', marginTop: '20px' }}>
+          <h2>📊 Content Overview</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px', marginTop: '20px' }}>
             <div style={{ textAlign: 'center', padding: '20px', background: 'var(--primary-light)', borderRadius: 'var(--radius-lg)' }}>
-              <div style={{ fontSize: '32px', fontWeight: 800, color: 'var(--primary)' }}>{examQuestions.length}</div>
-              <div style={{ fontSize: '14px', color: 'var(--gray-600)' }}>Total Questions</div>
+              <div style={{ fontSize: '28px', fontWeight: 800, color: 'var(--primary)' }}>{examQuestions.length}</div>
+              <div style={{ fontSize: '13px', color: 'var(--gray-600)' }}>Total Questions</div>
             </div>
             <div style={{ textAlign: 'center', padding: '20px', background: 'var(--success-light)', borderRadius: 'var(--radius-lg)' }}>
-              <div style={{ fontSize: '32px', fontWeight: 800, color: 'var(--success)' }}>4</div>
-              <div style={{ fontSize: '14px', color: 'var(--gray-600)' }}>Chapters Covered</div>
+              <div style={{ fontSize: '28px', fontWeight: 800, color: 'var(--success)' }}>5</div>
+              <div style={{ fontSize: '13px', color: 'var(--gray-600)' }}>Exam Sets</div>
             </div>
             <div style={{ textAlign: 'center', padding: '20px', background: 'var(--warning-light)', borderRadius: 'var(--radius-lg)' }}>
-              <div style={{ fontSize: '32px', fontWeight: 800, color: 'var(--warning)' }}>134</div>
-              <div style={{ fontSize: '14px', color: 'var(--gray-600)' }}>Flashcards</div>
+              <div style={{ fontSize: '28px', fontWeight: 800, color: 'var(--warning)' }}>5</div>
+              <div style={{ fontSize: '13px', color: 'var(--gray-600)' }}>Chapter Quizzes</div>
             </div>
             <div style={{ textAlign: 'center', padding: '20px', background: 'var(--secondary-light)', borderRadius: 'var(--radius-lg)' }}>
-              <div style={{ fontSize: '32px', fontWeight: 800, color: 'var(--secondary)' }}>25</div>
-              <div style={{ fontSize: '14px', color: 'var(--gray-600)' }}>Study Topics</div>
+              <div style={{ fontSize: '28px', fontWeight: 800, color: 'var(--secondary)' }}>16</div>
+              <div style={{ fontSize: '13px', color: 'var(--gray-600)' }}>Topic Quizzes</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Marking Ratios */}
+        <div className="content-section" style={{ marginTop: '24px' }}>
+          <h2>📈 Official PD1 Exam Weights</h2>
+          <div style={{ marginTop: '16px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '12px 0', borderBottom: '1px solid var(--gray-100)' }}>
+              <span style={{ fontWeight: 500 }}>Salesforce Fundamentals</span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', width: '200px' }}>
+                <div style={{ flex: 1, height: '8px', background: 'var(--gray-200)', borderRadius: '4px', overflow: 'hidden' }}>
+                  <div style={{ width: '23%', height: '100%', background: 'var(--primary)', borderRadius: '4px' }}></div>
+                </div>
+                <span style={{ fontWeight: 600, color: 'var(--primary)', minWidth: '35px', textAlign: 'right' }}>23%</span>
+              </div>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '12px 0', borderBottom: '1px solid var(--gray-100)' }}>
+              <span style={{ fontWeight: 500 }}>Logic & Process Automation</span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', width: '200px' }}>
+                <div style={{ flex: 1, height: '8px', background: 'var(--gray-200)', borderRadius: '4px', overflow: 'hidden' }}>
+                  <div style={{ width: '30%', height: '100%', background: 'var(--primary)', borderRadius: '4px' }}></div>
+                </div>
+                <span style={{ fontWeight: 600, color: 'var(--primary)', minWidth: '35px', textAlign: 'right' }}>30%</span>
+              </div>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '12px 0', borderBottom: '1px solid var(--gray-100)' }}>
+              <span style={{ fontWeight: 500 }}>User Interface</span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', width: '200px' }}>
+                <div style={{ flex: 1, height: '8px', background: 'var(--gray-200)', borderRadius: '4px', overflow: 'hidden' }}>
+                  <div style={{ width: '20%', height: '100%', background: 'var(--primary)', borderRadius: '4px' }}></div>
+                </div>
+                <span style={{ fontWeight: 600, color: 'var(--primary)', minWidth: '35px', textAlign: 'right' }}>20%</span>
+              </div>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '12px 0' }}>
+              <span style={{ fontWeight: 500 }}>Testing, Debug & Deployment</span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', width: '200px' }}>
+                <div style={{ flex: 1, height: '8px', background: 'var(--gray-200)', borderRadius: '4px', overflow: 'hidden' }}>
+                  <div style={{ width: '12%', height: '100%', background: 'var(--primary)', borderRadius: '4px' }}></div>
+                </div>
+                <span style={{ fontWeight: 600, color: 'var(--primary)', minWidth: '35px', textAlign: 'right' }}>12%</span>
+              </div>
             </div>
           </div>
         </div>
 
         {/* Exam Tips */}
         <div className="content-section" style={{ marginTop: '24px' }}>
-          <h2>💡 Exam Tips & Strategies</h2>
+          <h2>💡 Exam Strategies</h2>
           <div className="exam-tips-list">
             <div className="exam-tip">
               <span className="tip-icon">⏱️</span>
-              <span className="tip-text"><strong>Time Management:</strong> You have approximately 1.8 minutes per question. Don't spend too long on any single question - flag it and come back later.</span>
+              <span className="tip-text"><strong>Time Management:</strong> 110 minutes for 60 questions = ~1.8 min per question. Flag difficult questions and return later.</span>
             </div>
             <div className="exam-tip">
               <span className="tip-icon">📖</span>
-              <span className="tip-text"><strong>Read Carefully:</strong> Look for keywords like "always", "never", "best", "most appropriate". These words significantly change the correct answer.</span>
-            </div>
-            <div className="exam-tip">
-              <span className="tip-icon">✅</span>
-              <span className="tip-text"><strong>Review Answers:</strong> Use the question map to review all answers before submitting. You can navigate between questions freely.</span>
+              <span className="tip-text"><strong>Read Carefully:</strong> Look for keywords like "always", "never", "best", "most appropriate". These change the correct answer.</span>
             </div>
             <div className="exam-tip">
               <span className="tip-icon">🎯</span>
-              <span className="tip-text"><strong>Multi-Select Questions:</strong> Make sure you select ALL correct answers. Partial credit is not given for multi-select questions.</span>
+              <span className="tip-text"><strong>Passing Score:</strong> You need 68% (41/60 correct) to pass. Focus on your strong areas first.</span>
             </div>
             <div className="exam-tip">
               <span className="tip-icon">🧠</span>
-              <span className="tip-text"><strong>Process of Elimination:</strong> If unsure, eliminate obviously wrong answers first. This increases your chances of selecting the correct answer.</span>
+              <span className="tip-text"><strong>Process of Elimination:</strong> Eliminate obviously wrong answers first to increase your chances.</span>
             </div>
-            <div className="exam-tip">
-              <span className="tip-icon">📝</span>
-              <span className="tip-text"><strong>Key Topics:</strong> Focus on Apex best practices, governor limits, bulkification, and the save order of execution. These are heavily tested.</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Study Resources */}
-        <div className="content-section" style={{ marginTop: '24px' }}>
-          <h2>📚 Additional Study Resources</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px', marginTop: '16px' }}>
-            <Link to="/study" style={{ textDecoration: 'none' }}>
-              <div style={{ padding: '20px', background: 'var(--gray-50)', borderRadius: 'var(--radius-lg)', textAlign: 'center', transition: 'all 0.2s', cursor: 'pointer' }}>
-                <div style={{ fontSize: '32px', marginBottom: '8px' }}>📚</div>
-                <div style={{ fontWeight: 600, color: 'var(--gray-800)' }}>Study Guide</div>
-                <div style={{ fontSize: '13px', color: 'var(--gray-500)' }}>Comprehensive study materials</div>
-              </div>
-            </Link>
-            <Link to="/flashcards" style={{ textDecoration: 'none' }}>
-              <div style={{ padding: '20px', background: 'var(--gray-50)', borderRadius: 'var(--radius-lg)', textAlign: 'center', transition: 'all 0.2s', cursor: 'pointer' }}>
-                <div style={{ fontSize: '32px', marginBottom: '8px' }}>🔄</div>
-                <div style={{ fontWeight: 600, color: 'var(--gray-800)' }}>Flashcards</div>
-                <div style={{ fontSize: '13px', color: 'var(--gray-500)' }}>Review key concepts</div>
-              </div>
-            </Link>
-            <Link to="/progress" style={{ textDecoration: 'none' }}>
-              <div style={{ padding: '20px', background: 'var(--gray-50)', borderRadius: 'var(--radius-lg)', textAlign: 'center', transition: 'all 0.2s', cursor: 'pointer' }}>
-                <div style={{ fontSize: '32px', marginBottom: '8px' }}>📊</div>
-                <div style={{ fontWeight: 600, color: 'var(--gray-800)' }}>Progress</div>
-                <div style={{ fontSize: '13px', color: 'var(--gray-500)' }}>Track your preparation</div>
-              </div>
-            </Link>
           </div>
         </div>
       </div>
