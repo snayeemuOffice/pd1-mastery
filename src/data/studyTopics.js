@@ -2018,6 +2018,60 @@ export const chapters = [
           { type: 'heading', text: 'Key Exam Scenario' },
           { type: 'paragraph', text: 'A developer needs to debug an Apex trigger that is failing. They can capture a debug log, download it, and use Apex Replay Debugger in VS Code to step through the code and identify the issue.' }
         ]
+      },
+      {
+        id: 'pd1-512',
+        code: 'PD1-512',
+        title: 'Org Development Model',
+        description: 'Manage change with Salesforce DX tools and source control',
+        weight: '5%',
+        keyPoints: [
+          'Org Development Model: Org is source of truth',
+          'Package Development Model: VCS is source of truth',
+          'Change sets: Point-and-click deployment between connected orgs',
+          'Metadata API: XML-based metadata deployment',
+          'Salesforce CLI: Command-line deployment tools',
+          'Source format: Version-control friendly metadata format',
+          'Sandbox types: Developer, Developer Pro, Partial, Full',
+          'Scratch orgs: Disposable, configurable development environments',
+          'Unlocked packages: Modular deployment units',
+          'Change tracking: Monitor metadata changes in org',
+          'Deployment validation: Test before deploying',
+          'Rollback: Undo failed deployments'
+        ],
+        examTips: [
+          'Org Development Model uses org as source of truth',
+          'Package Development Model uses VCS as source of truth',
+          'Change sets only work between connected orgs',
+          'Salesforce CLI is the modern deployment tool',
+          'Scratch orgs are defined by config files',
+          '75% test coverage required for Apex deployment'
+        ],
+        detailedContent: [
+          { type: 'heading', text: 'Org Development Model Overview' },
+          { type: 'paragraph', text: 'The Org Development Model treats the Salesforce org as the source of truth. Developers retrieve metadata from the org and deploy changes back to it.' },
+          { type: 'heading', text: 'Two Development Models' },
+          { type: 'table', headers: ['Feature', 'Org Development Model', 'Package Development Model'], rows: [
+            ['Source of Truth', 'Salesforce org', 'Version control system'],
+            ['Development', 'Sandboxes', 'Scratch orgs'],
+            ['Deployment', 'Change sets, Metadata API', 'Salesforce CLI, packages'],
+            ['Collaboration', 'Shared sandbox', 'Individual scratch orgs'],
+            ['Best For', 'Existing orgs, small teams', 'New development, large teams']
+          ]},
+          { type: 'heading', text: 'Change Sets' },
+          { type: 'list', items: [
+            'Point-and-click interface for deploying metadata',
+            'Requires deployment connection between orgs',
+            'Cannot delete components or specify deployment order',
+            '75% test coverage required for Apex',
+            'Upload from source, deploy in target',
+            'Not all metadata types are supported'
+          ]},
+          { type: 'heading', text: 'Salesforce CLI Commands' },
+          { type: 'code', language: 'text', code: 'sf project create -n my-project\nsf org create scratch -f config/project-scratch-def.json\nsf project deploy start\nsf project retrieve start\nsf apex run -f scripts/apex/hello.apex\nsf data import tree -f data/sample-data.json' },
+          { type: 'heading', text: 'Key Exam Scenario' },
+          { type: 'paragraph', text: 'A developer needs to deploy changes from a sandbox to production. They should use Change Sets for simple deployments, or Salesforce CLI for automated deployments with more control over the process.' }
+        ]
       }
     ]
   }

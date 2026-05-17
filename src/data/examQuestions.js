@@ -5451,7 +5451,7 @@ export const examQuestions = [
   },
   {
     id: 390,
-    chapter: 'devFundamentals',
+    chapter: 'processAutomation',
     topic: 'PD1-606',
     question: 'What is SOSL used for in Salesforce?',
     options: [
@@ -5465,7 +5465,7 @@ export const examQuestions = [
   },
   {
     id: 391,
-    chapter: 'devFundamentals',
+    chapter: 'processAutomation',
     topic: 'PD1-606',
     question: 'What is the syntax for a basic SOSL search?',
     options: [
@@ -5479,7 +5479,7 @@ export const examQuestions = [
   },
   {
     id: 392,
-    chapter: 'devFundamentals',
+    chapter: 'processAutomation',
     topic: 'PD1-606',
     question: 'What wildcard characters are used in SOSL?',
     options: [
@@ -5493,7 +5493,7 @@ export const examQuestions = [
   },
   {
     id: 393,
-    chapter: 'devFundamentals',
+    chapter: 'processAutomation',
     topic: 'PD1-606',
     question: 'What is the governor limit for SOSL queries per transaction?',
     options: [
@@ -5507,7 +5507,7 @@ export const examQuestions = [
   },
   {
     id: 394,
-    chapter: 'devFundamentals',
+    chapter: 'processAutomation',
     topic: 'PD1-606',
     question: 'Can SOSL be used directly in Apex triggers?',
     options: [
@@ -5521,7 +5521,7 @@ export const examQuestions = [
   },
   {
     id: 395,
-    chapter: 'devFundamentals',
+    chapter: 'processAutomation',
     topic: 'PD1-606',
     question: 'What does SOSL return compared to SOQL?',
     options: [
@@ -5535,7 +5535,7 @@ export const examQuestions = [
   },
   {
     id: 396,
-    chapter: 'devFundamentals',
+    chapter: 'processAutomation',
     topic: 'PD1-606',
     question: 'Which SOSL search context searches all text fields?',
     options: [
@@ -5549,7 +5549,7 @@ export const examQuestions = [
   },
   {
     id: 397,
-    chapter: 'devFundamentals',
+    chapter: 'processAutomation',
     topic: 'PD1-606',
     question: 'Does SOSL provide relevance ranking for search results?',
     options: [
@@ -5563,7 +5563,7 @@ export const examQuestions = [
   },
   {
     id: 398,
-    chapter: 'devFundamentals',
+    chapter: 'processAutomation',
     topic: 'PD1-606',
     question: 'How do you access results from a SOSL query that returns Account and Contact?',
     options: [
@@ -5577,7 +5577,7 @@ export const examQuestions = [
   },
   {
     id: 399,
-    chapter: 'devFundamentals',
+    chapter: 'processAutomation',
     topic: 'PD1-606',
     question: 'Can you use LIMIT in SOSL queries?',
     options: [
@@ -6025,7 +6025,7 @@ export const examQuestions = [
   },
   {
     id: 431,
-    chapter: 'devFundamentals',
+    chapter: 'userInterface',
     topic: 'PD1-608',
     question: 'What annotation makes an Apex method callable from agents?',
     options: [
@@ -6039,7 +6039,7 @@ export const examQuestions = [
   },
   {
     id: 432,
-    chapter: 'devFundamentals',
+    chapter: 'userInterface',
     topic: 'PD1-608',
     question: 'What annotation defines input/output parameters for agent actions?',
     options: [
@@ -6053,7 +6053,7 @@ export const examQuestions = [
   },
   {
     id: 433,
-    chapter: 'devFundamentals',
+    chapter: 'userInterface',
     topic: 'PD1-608',
     question: 'What is the recommended way to handle errors in agent Apex actions?',
     options: [
@@ -6067,7 +6067,7 @@ export const examQuestions = [
   },
   {
     id: 434,
-    chapter: 'devFundamentals',
+    chapter: 'userInterface',
     topic: 'PD1-608',
     question: 'Can agents invoke Flows that call Apex?',
     options: [
@@ -6081,7 +6081,7 @@ export const examQuestions = [
   },
   {
     id: 435,
-    chapter: 'devFundamentals',
+    chapter: 'userInterface',
     topic: 'PD1-608',
     question: 'What is the purpose of the label parameter in @InvocableMethod?',
     options: [
@@ -6361,7 +6361,7 @@ export const examQuestions = [
   },
   {
     id: 455,
-    chapter: 'devFundamentals',
+    chapter: 'processAutomation',
     topic: 'PD1-606',
     question: 'What search context is used to search name fields only?',
     options: [
@@ -6375,7 +6375,7 @@ export const examQuestions = [
   },
   {
     id: 456,
-    chapter: 'devFundamentals',
+    chapter: 'processAutomation',
     topic: 'PD1-606',
     question: 'Can SOSL search across different object types?',
     options: [
@@ -6389,7 +6389,7 @@ export const examQuestions = [
   },
   {
     id: 457,
-    chapter: 'devFundamentals',
+    chapter: 'processAutomation',
     topic: 'PD1-606',
     question: 'What does the RETURNING clause specify in SOSL?',
     options: [
@@ -6403,7 +6403,7 @@ export const examQuestions = [
   },
   {
     id: 458,
-    chapter: 'devFundamentals',
+    chapter: 'processAutomation',
     topic: 'PD1-606',
     question: 'Is SOSL case-sensitive?',
     options: [
@@ -6585,7 +6585,7 @@ export const examQuestions = [
   },
   {
     id: 471,
-    chapter: 'devFundamentals',
+    chapter: 'userInterface',
     topic: 'PD1-608',
     question: 'What is the purpose of the description parameter in @InvocableMethod?',
     options: [
@@ -6599,7 +6599,7 @@ export const examQuestions = [
   },
   {
     id: 472,
-    chapter: 'devFundamentals',
+    chapter: 'userInterface',
     topic: 'PD1-608',
     question: 'Can an @InvocableMethod return multiple values?',
     options: [
@@ -6613,7 +6613,7 @@ export const examQuestions = [
   },
   {
     id: 473,
-    chapter: 'devFundamentals',
+    chapter: 'userInterface',
     topic: 'PD1-608',
     question: 'What naming convention should invocable classes follow?',
     options: [
@@ -7450,6 +7450,90 @@ export const examQuestions = [
     ],
     correct: 0,
     explanation: 'Database methods (e.g., Database.insert) support the allOrNone parameter for partial success, while DML statements (insert) are all-or-nothing.'
+  },
+  {
+    id: 533,
+    chapter: 'testingDebugging',
+    topic: 'PD1-512',
+    question: 'What is the source of truth in the Org Development Model?',
+    options: [
+      'The Salesforce org',
+      'Version control system',
+      'The developer sandbox',
+      'The deployment package'
+    ],
+    correct: 0,
+    explanation: 'In the Org Development Model, the Salesforce org is the source of truth. Developers retrieve metadata from the org and deploy changes back to it.'
+  },
+  {
+    id: 534,
+    chapter: 'testingDebugging',
+    topic: 'PD1-512',
+    question: 'What is the source of truth in the Package Development Model?',
+    options: [
+      'Version control system',
+      'The Salesforce org',
+      'The scratch org',
+      'The package registry'
+    ],
+    correct: 0,
+    explanation: 'In the Package Development Model, the version control system (VCS) is the source of truth. Scratch orgs are created from VCS definitions.'
+  },
+  {
+    id: 535,
+    chapter: 'testingDebugging',
+    topic: 'PD1-512',
+    question: 'What is a change set in Salesforce?',
+    options: [
+      'A point-and-click deployment tool between connected orgs',
+      'A version control system',
+      'A scratch org configuration',
+      'A package definition'
+    ],
+    correct: 0,
+    explanation: 'Change sets are a point-and-click interface for deploying metadata between connected Salesforce orgs (e.g., sandbox to production).'
+  },
+  {
+    id: 536,
+    chapter: 'testingDebugging',
+    topic: 'PD1-512',
+    question: 'What are the limitations of change sets?',
+    options: [
+      'Cannot delete components, cannot specify deployment order, requires connection',
+      'Only work with scratch orgs',
+      'Only deploy Apex code',
+      'Require Salesforce CLI'
+    ],
+    correct: 0,
+    explanation: 'Change sets cannot delete components, cannot specify deployment order, require a deployment connection between orgs, and do not support all metadata types.'
+  },
+  {
+    id: 537,
+    chapter: 'testingDebugging',
+    topic: 'PD1-512',
+    question: 'What is the difference between Org Development and Package Development models?',
+    options: [
+      'Org uses org as source of truth; Package uses VCS as source of truth',
+      'Org uses scratch orgs; Package uses sandboxes',
+      'Org uses Salesforce CLI; Package uses change sets',
+      'There is no difference'
+    ],
+    correct: 0,
+    explanation: 'The key difference is the source of truth: Org Development Model uses the Salesforce org, while Package Development Model uses the version control system.'
+  },
+  {
+    id: 538,
+    chapter: 'testingDebugging',
+    topic: 'PD1-512',
+    question: 'What test coverage is required for Apex deployment?',
+    options: [
+      '75%',
+      '50%',
+      '90%',
+      '100%'
+    ],
+    correct: 0,
+    explanation: 'Salesforce requires 75% test coverage for Apex code deployment to production. All tests must pass.'
   }
 ];
 
