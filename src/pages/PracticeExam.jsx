@@ -8,11 +8,11 @@ export default function PracticeExam() {
   }
 
   const examOptions = [
-    { key: 'fullExam', ...examConfig.fullExam, color: '#0176D3', icon: '📋' },
-    { key: 'chapter1', ...examConfig.chapter1, color: '#0176D3', icon: '🏛️' },
-    { key: 'chapter2', ...examConfig.chapter2, color: '#FF6B35', icon: '⚡' },
-    { key: 'chapter3', ...examConfig.chapter3, color: '#1B96FF', icon: '🖥️' },
-    { key: 'chapter4', ...examConfig.chapter4, color: '#032D60', icon: '🔧' }
+    { key: 'fullExam', ...examConfig.fullExam, icon: '📋', featured: true },
+    { key: 'chapter1', ...examConfig.chapter1, icon: '🏛️' },
+    { key: 'chapter2', ...examConfig.chapter2, icon: '⚡' },
+    { key: 'chapter3', ...examConfig.chapter3, icon: '🖥️' },
+    { key: 'chapter4', ...examConfig.chapter4, icon: '🔧' }
   ]
 
   return (
@@ -31,34 +31,31 @@ export default function PracticeExam() {
         </div>
 
         <div className="exam-options-grid">
-          {examOptions.map((exam, idx) => (
+          {examOptions.map((exam) => (
             <Link
               key={exam.key}
               to={`/exam/${exam.key}`}
               style={{ textDecoration: 'none', color: 'inherit' }}
             >
-              <div
-                className={`exam-option-card ${exam.key === 'fullExam' ? 'full-exam' : ''}`}
-                style={{ borderTop: exam.key !== 'fullExam' ? `4px solid ${exam.color}` : undefined }}
-              >
-                <div style={{ fontSize: '40px', marginBottom: '12px' }}>{exam.icon}</div>
+              <div className={`exam-option-card ${exam.featured ? 'full-exam' : ''}`}>
+                <div className="exam-icon">{exam.icon}</div>
                 <h3>{exam.name}</h3>
-                <p>{exam.description}</p>
+                <p className="exam-desc">{exam.description}</p>
                 <div className="exam-option-details">
                   <div className="exam-option-detail">
-                    <span>📝</span>
-                    <span>{getQuestionCount(exam.questions)} Questions</span>
+                    <span className="detail-icon">📝</span>
+                    <span>{getQuestionCount(exam.questions)} Qs</span>
                   </div>
                   <div className="exam-option-detail">
-                    <span>⏱️</span>
-                    <span>{exam.timeLimit} Minutes</span>
+                    <span className="detail-icon">⏱️</span>
+                    <span>{exam.timeLimit} min</span>
                   </div>
                   <div className="exam-option-detail">
-                    <span>🎯</span>
-                    <span>{exam.passingScore}% to Pass</span>
+                    <span className="detail-icon">🎯</span>
+                    <span>{exam.passingScore}%</span>
                   </div>
                 </div>
-                <button className="btn btn-primary" style={{ width: '100%' }}>
+                <button className="btn btn-primary">
                   Start Exam
                 </button>
               </div>
@@ -66,26 +63,85 @@ export default function PracticeExam() {
           ))}
         </div>
 
-        {/* Exam Tips */}
+        {/* Quick Stats */}
         <div className="content-section" style={{ marginTop: '48px' }}>
-          <h2>💡 Exam Tips</h2>
+          <h2>📊 Exam Content Overview</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '20px', marginTop: '20px' }}>
+            <div style={{ textAlign: 'center', padding: '20px', background: 'var(--primary-light)', borderRadius: 'var(--radius-lg)' }}>
+              <div style={{ fontSize: '32px', fontWeight: 800, color: 'var(--primary)' }}>{examQuestions.length}</div>
+              <div style={{ fontSize: '14px', color: 'var(--gray-600)' }}>Total Questions</div>
+            </div>
+            <div style={{ textAlign: 'center', padding: '20px', background: 'var(--success-light)', borderRadius: 'var(--radius-lg)' }}>
+              <div style={{ fontSize: '32px', fontWeight: 800, color: 'var(--success)' }}>4</div>
+              <div style={{ fontSize: '14px', color: 'var(--gray-600)' }}>Chapters Covered</div>
+            </div>
+            <div style={{ textAlign: 'center', padding: '20px', background: 'var(--warning-light)', borderRadius: 'var(--radius-lg)' }}>
+              <div style={{ fontSize: '32px', fontWeight: 800, color: 'var(--warning)' }}>134</div>
+              <div style={{ fontSize: '14px', color: 'var(--gray-600)' }}>Flashcards</div>
+            </div>
+            <div style={{ textAlign: 'center', padding: '20px', background: 'var(--secondary-light)', borderRadius: 'var(--radius-lg)' }}>
+              <div style={{ fontSize: '32px', fontWeight: 800, color: 'var(--secondary)' }}>25</div>
+              <div style={{ fontSize: '14px', color: 'var(--gray-600)' }}>Study Topics</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Exam Tips */}
+        <div className="content-section" style={{ marginTop: '24px' }}>
+          <h2>💡 Exam Tips & Strategies</h2>
           <div className="exam-tips-list">
             <div className="exam-tip">
               <span className="tip-icon">⏱️</span>
-              <span className="tip-text">Manage your time - approximately 1.8 minutes per question on the full exam</span>
+              <span className="tip-text"><strong>Time Management:</strong> You have approximately 1.8 minutes per question. Don't spend too long on any single question - flag it and come back later.</span>
             </div>
             <div className="exam-tip">
               <span className="tip-icon">📖</span>
-              <span className="tip-text">Read each question carefully - look for keywords like "always", "never", "best", "most appropriate"</span>
+              <span className="tip-text"><strong>Read Carefully:</strong> Look for keywords like "always", "never", "best", "most appropriate". These words significantly change the correct answer.</span>
             </div>
             <div className="exam-tip">
               <span className="tip-icon">✅</span>
-              <span className="tip-text">Review your answers before submitting - you can navigate between questions</span>
+              <span className="tip-text"><strong>Review Answers:</strong> Use the question map to review all answers before submitting. You can navigate between questions freely.</span>
             </div>
             <div className="exam-tip">
               <span className="tip-icon">🎯</span>
-              <span className="tip-text">For multi-select questions, make sure you select ALL correct answers</span>
+              <span className="tip-text"><strong>Multi-Select Questions:</strong> Make sure you select ALL correct answers. Partial credit is not given for multi-select questions.</span>
             </div>
+            <div className="exam-tip">
+              <span className="tip-icon">🧠</span>
+              <span className="tip-text"><strong>Process of Elimination:</strong> If unsure, eliminate obviously wrong answers first. This increases your chances of selecting the correct answer.</span>
+            </div>
+            <div className="exam-tip">
+              <span className="tip-icon">📝</span>
+              <span className="tip-text"><strong>Key Topics:</strong> Focus on Apex best practices, governor limits, bulkification, and the save order of execution. These are heavily tested.</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Study Resources */}
+        <div className="content-section" style={{ marginTop: '24px' }}>
+          <h2>📚 Additional Study Resources</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px', marginTop: '16px' }}>
+            <Link to="/study" style={{ textDecoration: 'none' }}>
+              <div style={{ padding: '20px', background: 'var(--gray-50)', borderRadius: 'var(--radius-lg)', textAlign: 'center', transition: 'all 0.2s', cursor: 'pointer' }}>
+                <div style={{ fontSize: '32px', marginBottom: '8px' }}>📚</div>
+                <div style={{ fontWeight: 600, color: 'var(--gray-800)' }}>Study Guide</div>
+                <div style={{ fontSize: '13px', color: 'var(--gray-500)' }}>Comprehensive study materials</div>
+              </div>
+            </Link>
+            <Link to="/flashcards" style={{ textDecoration: 'none' }}>
+              <div style={{ padding: '20px', background: 'var(--gray-50)', borderRadius: 'var(--radius-lg)', textAlign: 'center', transition: 'all 0.2s', cursor: 'pointer' }}>
+                <div style={{ fontSize: '32px', marginBottom: '8px' }}>🔄</div>
+                <div style={{ fontWeight: 600, color: 'var(--gray-800)' }}>Flashcards</div>
+                <div style={{ fontSize: '13px', color: 'var(--gray-500)' }}>Review key concepts</div>
+              </div>
+            </Link>
+            <Link to="/progress" style={{ textDecoration: 'none' }}>
+              <div style={{ padding: '20px', background: 'var(--gray-50)', borderRadius: 'var(--radius-lg)', textAlign: 'center', transition: 'all 0.2s', cursor: 'pointer' }}>
+                <div style={{ fontSize: '32px', marginBottom: '8px' }}>📊</div>
+                <div style={{ fontWeight: 600, color: 'var(--gray-800)' }}>Progress</div>
+                <div style={{ fontSize: '13px', color: 'var(--gray-500)' }}>Track your preparation</div>
+              </div>
+            </Link>
           </div>
         </div>
       </div>

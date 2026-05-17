@@ -13,17 +13,26 @@ export const chapters = [
         description: 'Understand multi-tenant concepts and design frameworks, such as MVC architecture and Lightning Component Framework',
         weight: '10%',
         keyPoints: [
-          'Multi-tenant architecture means shared resources among customers',
+          'Multi-tenant architecture means shared resources among multiple customers (tenants)',
+          'Salesforce uses a multi-tenant architecture to efficiently serve many organizations from shared infrastructure',
+          'Governor limits are enforced to ensure fair resource sharing in multi-tenant environment',
           'MVC: Model (Objects/Data) → View (UI/Lightning/VF) → Controller (Apex)',
+          'Objects represent the Model layer, defining data structure and business logic',
+          'Visualforce pages and Lightning components represent the View layer',
+          'Apex controllers represent the Controller layer',
           'Lightning Component Framework: Aura and LWC are the two models',
           'LWC uses standard web technologies (ES6+, Custom Elements, Shadow DOM)',
-          'Aura uses proprietary framework with component markup',
-          'Both use "c:" namespace for custom components'
+          'Aura uses proprietary framework with component markup (.cmp)',
+          'Both use "c:" namespace for custom components',
+          'Lightning App Builder is used to add components to pages',
+          'Components can be used in Lightning Experience, Mobile, and Communities'
         ],
         examTips: [
           'Remember the MVC mapping: Objects = Model, UI = View, Apex = Controller',
-          'Know the difference between Aura and LWC',
-          'Understand that multi-tenant means shared infrastructure with data isolation'
+          'Know the difference between Aura and LWC - LWC is the modern standard',
+          'Understand that multi-tenant means shared infrastructure with data isolation',
+          'Governor limits exist because of multi-tenant architecture',
+          'Lightning App Builder is the tool for adding components to pages'
         ]
       },
       {
@@ -33,17 +42,25 @@ export const chapters = [
         description: 'Given a scenario, identify common use cases and best practices for declarative versus programmatic customizations',
         weight: '10%',
         keyPoints: [
-          'Declarative: Flows, Process Builder, Workflow Rules, Approval Processes',
-          'Programmatic: Apex classes, triggers, Visualforce, Lightning components',
-          'Use declarative when possible; code when complex logic needed',
+          'Declarative tools: Flows, Process Builder, Workflow Rules, Approval Processes',
+          'Programmatic tools: Apex classes, triggers, Visualforce, Lightning components',
+          'Use declarative when possible; code only when complex logic needed',
           'Formula fields and roll-up summaries are declarative',
           'Governor limits apply to programmatic customizations',
-          'Flow can handle complex logic including loops and decisions'
+          'Flow can handle complex logic including loops and decisions',
+          '@InvocableMethod makes Apex callable from Flow and Process Builder',
+          'When a required field value is not specified, Apex code throws an exception',
+          'Flow can display custom user interfaces (Screen Flows)',
+          'Workflow Rules can send outbound messages',
+          'Process Builder can create records and invoke processes',
+          'Approval Processes handle multi-step approval workflows'
         ],
         examTips: [
           'Declarative tools should be first choice when they meet requirements',
           'Apex needed for: complex logic, integrations, complex error handling',
-          'Know when formula fields and roll-up summaries are appropriate'
+          'Know when formula fields and roll-up summaries are appropriate',
+          '@InvocableMethod bridges declarative and programmatic',
+          'Understand the capabilities and limitations of each automation tool'
         ]
       },
       {
@@ -53,17 +70,29 @@ export const chapters = [
         description: 'Given a scenario, determine, create, and access the appropriate data model including objects, fields, relationships, and external IDs',
         weight: '15%',
         keyPoints: [
-          'Lookup: Optional relationship, no cascade delete',
-          'Master-Detail: Required relationship, cascade delete, roll-up summaries',
+          'Lookup: Optional relationship, no cascade delete, child retains ownership',
+          'Master-Detail: Required relationship, cascade delete, roll-up summaries, child inherits ownership',
           'Many-to-many: Junction object with two master-detail relationships',
           'External IDs: Used for data integration and upsert operations',
           'Changing data type of field referenced in Apex is blocked',
-          'API names cannot be changed once created; labels can'
+          'API names cannot be changed once created; labels can',
+          'Roll-up summary fields: Count, Sum, Max, Min (only on master-detail)',
+          'Formula fields: Read-only, calculated based on expressions',
+          'CURRENCYRATE() function for currency conversion',
+          'ADDMONTHS() function for date calculations',
+          'isCreateable() method checks if user can create records',
+          'getSObjectType() method returns the SObject token',
+          'describeSObjects() method retrieves metadata information',
+          'Relationship types can be converted with conditions',
+          'Lookup field values are optional by default'
         ],
         examTips: [
           'Know the difference between lookup and master-detail thoroughly',
           'Understand junction objects for many-to-many relationships',
-          'Remember: labels can change, API names cannot'
+          'Remember: labels can change, API names cannot',
+          'Roll-up summary fields only work on master-detail relationships',
+          'Know the available functions: CURRENCYRATE, ADDMONTHS, etc.',
+          'Understand isCreateable() and other CRUD methods'
         ]
       },
       {
@@ -77,12 +106,21 @@ export const chapters = [
           'Data Loader: Up to 5 million records, command-line capable',
           'Bulk API: For very large data volumes',
           'Import considerations: data mapping, duplicate handling, relationships',
-          'Export options: Data Loader, reports, API'
+          'Export options: Data Loader, reports, API, Workbench',
+          'Data Import Wizard limitations: Cannot save mappings, cannot export',
+          'Data Import Wizard does not support all standard objects',
+          'Data Loader supports command-line operations',
+          'ETL tools can also be used for data operations',
+          'Consider data relationships when importing',
+          'External IDs enable upsert operations',
+          'Duplicate handling rules can be configured'
         ],
         examTips: [
           'Data Import Wizard = small volumes (≤50K), Data Loader = large volumes',
           'Know the differences and when to use each tool',
-          'Understand the impact on relationships during import'
+          'Understand the impact on relationships during import',
+          'Data Import Wizard has significant limitations',
+          'External IDs are important for data integration'
         ]
       }
     ]
@@ -106,12 +144,18 @@ export const chapters = [
           'Flow: Most powerful, can have UI (Screen Flows), complex logic',
           'Approval Processes: Multi-step approval workflows',
           'Each tool has specific use cases and limitations',
-          'Order of execution matters when combining tools'
+          'Order of execution matters when combining tools',
+          'Flow can display custom user interfaces',
+          'Process Builder can invoke Apex with @InvocableMethod',
+          'Workflow Rules can send outbound messages',
+          'Approval Processes support multiple approval steps'
         ],
         examTips: [
           'Flow is the most versatile declarative tool',
           'Know what each automation tool can and cannot do',
-          'Understand the order of execution'
+          'Understand the order of execution',
+          'Screen Flows can display custom UI',
+          '@InvocableMethod bridges Apex and Flow'
         ]
       },
       {
@@ -122,16 +166,23 @@ export const chapters = [
         weight: '10%',
         keyPoints: [
           'Access modifiers: private, public, protected, global',
+          'private: Only accessible within the defining class',
+          'public: Accessible within the current namespace',
+          'protected: Accessible in subclasses',
+          'global: Accessible by ALL classes in the organization',
           'static: Class-level, shared across all instances',
           'final: Cannot be reassigned after initialization',
           'Constants: static final (or final static)',
           'Interfaces: Define method signatures without implementation',
-          'Classes can implement multiple interfaces but extend one class'
+          'Classes can implement multiple interfaces but extend one class',
+          'Use global sparingly - cannot be removed in managed packages'
         ],
         examTips: [
           'global = entire org, public = namespace, private = class only',
           'static final for constants - both keywords matter',
-          'Know interface vs abstract class differences'
+          'Know interface vs abstract class differences',
+          'Understand when to use each access modifier',
+          'global has implications for managed packages'
         ]
       },
       {
@@ -147,12 +198,17 @@ export const chapters = [
           'do-while: Loop with condition checked after body (executes at least once)',
           'break: Exit the loop immediately',
           'continue: Skip to next iteration',
-          'switch (when): Pattern matching (Apex v45+)'
+          'switch (when): Pattern matching (Apex v45+)',
+          'Nested loops are supported',
+          'for-each loop: Iterate over collections',
+          'Loop control affects program flow'
         ],
         examTips: [
           'do-while always executes at least once',
           'break exits the loop; continue skips to next iteration',
-          'Know when to use each loop type'
+          'Know when to use each loop type',
+          'switch statement uses when clauses',
+          'Understand loop control flow'
         ]
       },
       {
@@ -167,12 +223,23 @@ export const chapters = [
           'DML: insert, update, upsert, delete, undelete',
           'Database methods: More options (allOrNone parameter)',
           'Bind variables prevent SOQL injection',
-          'SOQL returns structured records; SOSL returns search results'
+          'SOQL returns structured records; SOSL returns search results',
+          'ORDER BY clause sorts query results',
+          'GROUP BY clause groups results for aggregation',
+          'LIMIT clause restricts number of records returned',
+          'UPSERT inserts new or updates existing records',
+          'Database.insert(records, false) allows partial success',
+          'SOQL can query related objects using relationship queries',
+          'SOSL searches across multiple objects',
+          'Dynamic SOQL uses Database.query()'
         ],
         examTips: [
           'SOQL for specific object queries; SOSL for text search across objects',
           'Always use bind variables for dynamic SOQL',
-          'Database methods allow partial success (allOrNone=false)'
+          'Database methods allow partial success (allOrNone=false)',
+          'Know ORDER BY, GROUP BY, LIMIT clauses',
+          'UPSERT uses external ID or record ID for matching',
+          'Understand the difference between DML statements and Database methods'
         ]
       },
       {
@@ -187,12 +254,21 @@ export const chapters = [
           'Avoid SOQL/DML in loops (governor limits)',
           'Use Trigger.new for before triggers (modifiable)',
           'Separate business logic from triggers into handler classes',
-          'Use proper naming conventions'
+          'Use proper naming conventions',
+          'Trigger handler pattern improves maintainability',
+          'Maps for efficient lookups',
+          'Collect IDs before querying',
+          'Process records as collections',
+          'Avoid hardcoding IDs',
+          'Use constants for magic numbers'
         ],
         examTips: [
           'Bulkification is critical - always think about collections',
           'One trigger per object using handler pattern',
-          'Never put SOQL or DML inside for loops'
+          'Never put SOQL or DML inside for loops',
+          'Use maps for efficient data lookups',
+          'Trigger handler pattern is the recommended approach',
+          'Understand the trigger context variables'
         ]
       },
       {
@@ -208,12 +284,17 @@ export const chapters = [
           'Total records processed by DML: 10,000',
           'CPU time: 10,000ms (synchronous), 60,000ms (asynchronous)',
           'Heap size: 6MB (synchronous), 12MB (asynchronous)',
-          'Exceeding limits throws unhandled exception, rolls back DML'
+          'Exceeding limits throws unhandled exception, rolls back DML',
+          'Governor limits ensure fair resource sharing',
+          'Limits apply per transaction',
+          'Asynchronous limits are higher than synchronous'
         ],
         examTips: [
           'Memorize key limits: 100 SOQL, 150 DML, 50K records, 10s CPU',
           'Exceeding limits = exception + rollback',
-          'Governor limits ensure fair resource sharing in multi-tenant'
+          'Governor limits ensure fair resource sharing in multi-tenant',
+          'Asynchronous limits are higher than synchronous',
+          'Understand the consequences of exceeding limits'
         ]
       },
       {
@@ -226,12 +307,16 @@ export const chapters = [
           'Order: Before triggers → Validation rules → After triggers → Assignment rules → Auto-response → Workflow → Processes → Flows → Escalation rules → Roll-up summaries → Entitlement rules → Criteria-based sharing',
           'Recursion: Use static Boolean flag to prevent re-entry',
           'Understanding order is critical for avoiding unexpected behavior',
-          'before triggers can modify Trigger.new values'
+          'before triggers can modify Trigger.new values',
+          'Validation rules fire after before triggers',
+          'Static variables persist within a transaction'
         ],
         examTips: [
           'Know the order: Before triggers FIRST, then validation rules',
           'Static Boolean flag prevents recursion',
-          'before triggers fire before validation rules'
+          'before triggers fire before validation rules',
+          'Understand how each step affects the transaction',
+          'Recursion can occur if not properly handled'
         ]
       },
       {
@@ -246,12 +331,18 @@ export const chapters = [
           'Custom exceptions: Extend Exception class',
           'Catch specific before generic Exception',
           'finally block always executes',
-          'Unhandled exceptions roll back the transaction'
+          'Unhandled exceptions roll back the transaction',
+          'QueryException thrown when single query returns no results',
+          'DmlException thrown for DML operation failures',
+          'Custom exceptions can have custom messages',
+          'Exception handling improves code robustness'
         ],
         examTips: [
           'Catch specific exceptions first, then generic',
           'Custom exceptions extend the Exception class',
-          'finally always executes - useful for cleanup'
+          'finally always executes - useful for cleanup',
+          'QueryException for single-record queries with no results',
+          'Understand when to use custom exceptions'
         ]
       },
       {
@@ -265,12 +356,19 @@ export const chapters = [
           'Invocable methods: Apex methods callable from Flow',
           'Flow can call Apex for complex logic or external integrations',
           'Consider order of execution when combining tools',
-          'Use declarative first, extend with code when needed'
+          'Use declarative first, extend with code when needed',
+          '@InvocableMethod annotation bridges Flow and Apex',
+          '@InvocableVariable defines input/output for invocable methods',
+          'Flow can pass data to Apex and receive results',
+          'Apex provides error handling capabilities',
+          'Declarative tools handle simple scenarios well'
         ],
         examTips: [
           '@InvocableMethod makes Apex callable from Flow',
           'Declarative first, then code for complex requirements',
-          'Understand how Flow and triggers interact'
+          'Understand how Flow and triggers interact',
+          '@InvocableVariable defines data for invocable methods',
+          'Know when to use Apex vs declarative tools'
         ]
       }
     ]
@@ -293,14 +391,25 @@ export const chapters = [
           '<apex:inputField>: Editable field input',
           '<apex:detail>: Complete record detail page',
           '<apex:pageBlockTable>: Styled table with column headers',
+          '<apex:dataTable>: Standard HTML table',
           '<apex:repeat>: Custom iteration markup',
           'Standard controllers: Automatic CRUD/FLS',
-          'Custom controllers: Full control over logic'
+          'Custom controllers: Full control over logic',
+          'Controller extensions: Add to standard controllers',
+          'standardController attribute associates object',
+          'extensions attribute adds custom logic',
+          'Visualforce can render as PDF',
+          'CSS can be added with <apex:stylesheet>',
+          '<apex:iframe> embeds external websites',
+          'Action methods respond to user input'
         ],
         examTips: [
           'outputField for display, inputField for editing',
           'pageBlockTable has Salesforce styling; dataTable is plain HTML',
-          'Standard controllers respect FLS; custom controllers must enforce it manually'
+          'Standard controllers respect FLS; custom controllers must enforce it manually',
+          'Know when to use standard vs custom controllers',
+          'Visualforce can generate PDF documents',
+          'Understand controller extensions'
         ]
       },
       {
@@ -315,12 +424,25 @@ export const chapters = [
           'Aura: Proprietary framework, .cmp markup',
           'LWC: Standard web technologies (ES6+, Shadow DOM)',
           'Works in Lightning Experience, Mobile, Communities',
-          'Both use @AuraEnabled Apex methods'
+          'Both use @AuraEnabled Apex methods',
+          'Component resource contains markup definition',
+          'Controller resource handles events',
+          'Helper resource contains reusable functions',
+          'Style resource contains CSS',
+          'Design resource exposes attributes to App Builder',
+          '<ltng:require> loads JavaScript libraries',
+          'Standard, Custom, and AppExchange components',
+          'Responsive design for cross-device compatibility',
+          '<aura:registerEvent> registers events',
+          '<aura:handler> handles events'
         ],
         examTips: [
           'LWC is the modern standard; Aura is legacy',
           'Components communicate via events (Aura) or properties+events (LWC)',
-          'Both frameworks can coexist in the same page'
+          'Both frameworks can coexist in the same page',
+          'Know the component bundle resources',
+          'Understand event types: component vs application',
+          'Lightning App Builder adds components to pages'
         ]
       },
       {
@@ -331,16 +453,24 @@ export const chapters = [
         weight: '10%',
         keyPoints: [
           'SOQL injection: Use bind variables, not string concatenation',
-          'XSS prevention: Use outputText with escape attribute',
+          'XSS prevention: Use appropriate encoding functions',
+          'JSENCODE() for JavaScript context',
+          'HTMLENCODE() for HTML context',
+          'URLENCODE() for URL context',
           'CRUD/FLS enforcement: isAccessible(), isCreateable(), etc.',
           'With Sharing: Enforces sharing rules',
           'Without Sharing: Bypasses sharing rules (use cautiously)',
-          'Inherited Sharing: Uses caller\'s sharing context'
+          'Inherited Sharing: Uses caller\'s sharing context',
+          'CSRF protection with anti-CSRF tokens',
+          'Component visibility settings control display'
         ],
         examTips: [
           'Bind variables are the #1 defense against SOQL injection',
           'With Sharing enforces sharing; Without Sharing bypasses it',
-          'Always check CRUD/FLS in custom controllers'
+          'Always check CRUD/FLS in custom controllers',
+          'Use appropriate encoding for different contexts',
+          'CSRF protection is automatic in most cases',
+          'Understand sharing modes and their implications'
         ]
       },
       {
@@ -355,12 +485,19 @@ export const chapters = [
           'Imperative calls: Direct method invocation from JS',
           'Wire service: Reactive data binding',
           'Lightning Data Service: CRUD without Apex',
-          'Error handling: AuraHandledException for user-friendly errors'
+          'Error handling: AuraHandledException for user-friendly errors',
+          'Cacheable methods should not perform DML',
+          'Wire service automatically refreshes when data changes',
+          'Imperative calls provide more control',
+          'LDS handles record caching and sharing'
         ],
         examTips: [
           'cacheable=true for wire service; omit for DML operations',
           'AuraHandledException for proper error messages in UI',
-          'LDS can replace simple CRUD Apex methods'
+          'LDS can replace simple CRUD Apex methods',
+          'Know when to use wire vs imperative calls',
+          'Understand caching implications',
+          'LDS provides built-in data synchronization'
         ]
       },
       {
@@ -375,12 +512,19 @@ export const chapters = [
           'dispatchEvent(): Sends the event',
           'Lightning Message Service: Cross-DOM communication',
           'Publish-subscribe pattern for unrelated components',
-          'Event detail: Carries the payload data'
+          'Event detail: Carries the payload data',
+          'Component events handled within hierarchy',
+          'Application events handled by any component',
+          'Event propagation can be stopped',
+          'LMS uses message channels'
         ],
         examTips: [
           'CustomEvent for child-to-parent communication',
           'LMS for sibling or cross-DOM communication',
-          'Use composed: true for shadow DOM traversal'
+          'Use composed: true for shadow DOM traversal',
+          'Understand event bubbling and propagation',
+          'Component events are more efficient within hierarchy',
+          'Application events work across hierarchy'
         ]
       },
       {
@@ -395,12 +539,19 @@ export const chapters = [
           'Custom controllers: Complete control',
           'Controller extensions: Add functionality to standard controllers',
           'Lightning Data Service: Record UI without Apex',
-          '@wire decorator for reactive data fetching'
+          '@wire decorator for reactive data fetching',
+          'Apex methods can be called from Visualforce',
+          'Remote actions for AJAX calls',
+          'Apex provides server-side processing',
+          'Controller extensions combine standard and custom logic'
         ],
         examTips: [
           '@AuraEnabled is the bridge between Apex and Lightning',
           'Extensions add to standard controllers; custom controllers replace them',
-          'LDS handles basic CRUD; Apex needed for complex logic'
+          'LDS handles basic CRUD; Apex needed for complex logic',
+          'Know when to use standard vs custom controllers',
+          'Understand @wire decorator for reactive data',
+          'Controller extensions provide best of both worlds'
         ]
       }
     ]
@@ -425,12 +576,23 @@ export const chapters = [
           '@testSetup: Create shared test data',
           '75% minimum code coverage for deployment',
           'SeeAllData=true: Access org data (discouraged)',
-          'Test data factories: Reusable test data creation'
+          'Test data factories: Reusable test data creation',
+          'Test.loadData: Load data from static resource',
+          'Suite Manager: Create and manage test suites',
+          'Execute Anonymous: Run code without storing',
+          'Test data is rolled back after each method',
+          'All local tests run by default for deployment',
+          'System.assert() verifies conditions',
+          'Test execution page in Setup',
+          'Unit tests don\'t affect actual data'
         ],
         examTips: [
           '75% minimum coverage, but aim for 100% with meaningful tests',
           'Test.startTest() resets limits - critical for async testing',
-          '@testSetup runs once per test method - data is rolled back after each'
+          '@testSetup runs once per test method - data is rolled back after each',
+          'Use test data factories for reusable test data creation',
+          'Test.loadData loads data from static resource CSV',
+          'Understand when to use SeeAllData (rarely)'
         ]
       },
       {
@@ -445,12 +607,24 @@ export const chapters = [
           'Log categories: Database, Workflow, Validation, etc.',
           'Checkpoint debugging: Set breakpoints in Developer Console',
           'System.debug(): Output messages to debug logs',
-          'Log levels: NONE, ERROR, WARN, INFO, DEBUG, FINE, FINER, FINEST'
+          'Log levels: NONE, ERROR, WARN, INFO, DEBUG, FINE, FINER, FINEST',
+          'Maximum debug log size: 20 MB',
+          'User trace flags configure logging for specific users',
+          'Checkpoint Inspector examines objects in memory',
+          'Maximum 5 checkpoints at a time',
+          'Stack Tree panel shows call hierarchy',
+          'myVariable_current and myVariable_old in troubleshooting',
+          'Workbench: External tool for data/metadata operations',
+          'Query Editor for SOQL/SOSL in Developer Console',
+          'Debug mode for Lightning components'
         ],
         examTips: [
           'Developer Console is the primary debugging tool',
           'Debug logs have a 20MB maximum size',
-          'System.debug() messages appear in debug logs'
+          'System.debug() messages appear in debug logs',
+          'Know the log levels and when to use each',
+          'Checkpoint Inspector helps examine memory',
+          'User trace flags enable logging for specific users'
         ]
       },
       {
@@ -465,12 +639,26 @@ export const chapters = [
           'Scratch orgs: Disposable, configurable dev environments',
           'Developer Console: Browser-based IDE',
           'VS Code with Salesforce Extensions: Full IDE experience',
-          'Source format: Version-control friendly metadata format'
+          'Source format: Version-control friendly metadata format',
+          'VCS is the source of truth in SFDX',
+          'Sandbox types: Developer, Developer Pro, Partial, Full',
+          'Developer Pro has higher storage than Developer',
+          'Partial Copy uses templates for selective data',
+          'Full Copy is identical to production',
+          'Sandbox refresh limits vary by type',
+          'Email addresses get .invalid appended in sandboxes',
+          'Tooling API for fine-grained metadata access',
+          'Metadata Coverage Report shows supported types',
+          'ANT Migration Tool for scripted deployments',
+          'Salesforce Extension Pack for VS Code'
         ],
         examTips: [
           'Scratch orgs are defined by config files, not org settings',
           'SFDX enables CI/CD workflows',
-          'CLI is the backbone of Salesforce DX'
+          'CLI is the backbone of Salesforce DX',
+          'Know sandbox types and their differences',
+          'VCS is source of truth in SFDX',
+          'VS Code with Salesforce Extensions is the recommended IDE'
         ]
       },
       {
@@ -485,12 +673,24 @@ export const chapters = [
           'Salesforce CLI: sf project deploy start',
           'Unlocked Packages: Modular, version-controlled deployments',
           'Deployment order: Metadata dependencies matter',
-          'Test requirements: 75% coverage for Apex deployment'
+          'Test requirements: 75% coverage for Apex deployment',
+          'Change sets require deployment connection',
+          'destructiveChanges.xml deletes components',
+          'Unmanaged packages for free distribution',
+          'Managed packages for AppExchange',
+          '75% test coverage required for production deployment',
+          'Change sets cannot rename/delete components',
+          'Integration environment combines changes',
+          'Staging environment for test deployment',
+          'UAT environment for user acceptance tests'
         ],
         examTips: [
           'Change Sets for simple deployments between connected orgs',
           'Metadata API/CLI for automated deployments',
-          'Understand deployment dependencies and order'
+          'Understand deployment dependencies and order',
+          '75% test coverage is mandatory for production',
+          'destructiveChanges.xml removes components',
+          'Know the different deployment tools and when to use each'
         ]
       }
     ]

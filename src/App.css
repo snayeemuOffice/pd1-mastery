@@ -745,60 +745,105 @@
 /* Practice Exam Page */
 .exam-options-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
 }
 
+@media (max-width: 1024px) {
+  .exam-options-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .exam-options-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .exam-option-card {
   background: var(--white);
   border-radius: var(--radius-xl);
-  padding: 32px;
+  padding: 32px 28px;
   box-shadow: var(--shadow);
   border: 1px solid var(--gray-200);
-  transition: var(--transition);
+  transition: all 0.3s ease;
   cursor: pointer;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 320px;
 }
 
 .exam-option-card:hover {
   box-shadow: var(--shadow-xl);
-  transform: translateY(-4px);
+  transform: translateY(-6px);
   border-color: var(--primary);
 }
 
 .exam-option-card.full-exam {
   border-top: 4px solid var(--primary);
+  background: linear-gradient(to bottom, var(--primary-light) 0%, var(--white) 30%);
+}
+
+.exam-option-card .exam-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
+  background: var(--primary-light);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
 }
 
 .exam-option-card h3 {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
   color: var(--gray-900);
   margin-bottom: 8px;
+  min-height: 24px;
 }
 
-.exam-option-card p {
+.exam-option-card .exam-desc {
   font-size: 14px;
   color: var(--gray-500);
   margin-bottom: 20px;
+  line-height: 1.5;
+  flex-grow: 1;
 }
 
 .exam-option-details {
   display: flex;
   justify-content: center;
-  gap: 24px;
-  margin-bottom: 24px;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding: 12px;
+  background: var(--gray-50);
+  border-radius: var(--radius);
 }
 
 .exam-option-detail {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 14px;
+  font-size: 13px;
   color: var(--gray-600);
+  font-weight: 500;
+}
+
+.exam-option-detail .detail-icon {
+  font-size: 16px;
+}
+
+.exam-option-card .btn {
+  width: 100%;
+  justify-content: center;
+  padding: 12px 20px;
 }
 
 /* Exam Session */

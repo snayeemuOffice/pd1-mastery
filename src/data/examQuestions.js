@@ -780,14 +780,649 @@ export const examQuestions = [
     ],
     correct: 1,
     explanation: 'A change set is a declarative deployment tool that allows you to send customizations from one Salesforce org to another connected org (typically from sandbox to production). It uses a point-and-click interface to select components for deployment.'
+  },
+  // Additional comprehensive questions from PDF materials
+  // Chapter 1 Additional Questions
+  {
+    id: 56,
+    chapter: 'chapter1',
+    topic: 'PD1-601',
+    question: 'What are the key considerations for developers new to the Salesforce platform?',
+    options: [
+      'Governor limits are enforced on shared resources and code cannot be deployed without 75% test coverage',
+      'Salesforce uses a single-tenant architecture with dedicated servers',
+      'There are no limits on database queries or API calls',
+      'All customizations must be done through code only'
+    ],
+    correct: 0,
+    explanation: 'Key considerations for Salesforce developers include: Governor limits are enforced on shared resources in the multi-tenant environment, and code cannot be deployed to production without achieving at least 75% test code coverage.'
+  },
+  {
+    id: 57,
+    chapter: 'chapter1',
+    topic: 'PD1-601',
+    question: 'Which tool can be used to add custom Lightning components to a page in Lightning Experience?',
+    options: [
+      'Setup Menu',
+      'Lightning App Builder',
+      'Developer Console',
+      'Visualforce Editor'
+    ],
+    correct: 1,
+    explanation: 'Lightning App Builder provides a drag-and-drop interface for adding custom Lightning components to Lightning pages, record pages, and app pages.'
+  },
+  {
+    id: 58,
+    chapter: 'chapter1',
+    topic: 'PD1-602',
+    question: 'Which annotation should be used for an Apex method that needs to be invoked by a process?',
+    options: [
+      '@AuraEnabled',
+      '@InvocableMethod',
+      '@RemoteAction',
+      '@future'
+    ],
+    correct: 1,
+    explanation: 'The @InvocableMethod annotation makes an Apex method callable from Flow and Process Builder. This allows declarative automation tools to invoke custom Apex logic.'
+  },
+  {
+    id: 59,
+    chapter: 'chapter1',
+    topic: 'PD1-603',
+    question: 'Which type of relationship ensures that the child record is deleted when the parent record is deleted?',
+    options: [
+      'Lookup relationship',
+      'Master-detail relationship',
+      'External relationship',
+      'Hierarchical relationship'
+    ],
+    correct: 1,
+    explanation: 'In a master-detail relationship, the detail (child) record is automatically deleted when the master (parent) record is deleted. This is called cascade delete.'
+  },
+  {
+    id: 60,
+    chapter: 'chapter1',
+    topic: 'PD1-603',
+    question: 'Which function returns the conversion rate to the corporate currency for a given ISO code?',
+    options: [
+      'CURRENCYCONVERT()',
+      'CURRENCYRATE()',
+      'EXCHANGERATE()',
+      'CONVERTCURRENCY()'
+    ],
+    correct: 1,
+    explanation: 'The CURRENCYRATE(isoCode) function returns the conversion rate for the specified currency ISO code to the corporate currency.'
+  },
+  {
+    id: 61,
+    chapter: 'chapter1',
+    topic: 'PD1-603',
+    question: 'Which method checks whether an object can be created by the current user?',
+    options: [
+      'isUpdateable()',
+      'isCreateable()',
+      'isAccessible()',
+      'isDeletable()'
+    ],
+    correct: 1,
+    explanation: 'The isCreateable() method on DescribeSObjectResult checks whether the current user has permission to create records of that object type.'
+  },
+  {
+    id: 62,
+    chapter: 'chapter1',
+    topic: 'PD1-604',
+    question: 'What are limitations of the Data Import Wizard?',
+    options: [
+      'Cannot import more than 50,000 records and does not support all standard objects',
+      'Only works with custom objects',
+      'Requires Data Loader to be installed',
+      'Cannot handle CSV files'
+    ],
+    correct: 0,
+    explanation: 'The Data Import Wizard has limitations including: cannot import more than 50,000 records, does not support all standard objects, cannot save field mappings, and cannot export data.'
+  },
+  {
+    id: 63,
+    chapter: 'chapter1',
+    topic: 'PD1-603',
+    question: 'What functions are available for roll-up summary fields?',
+    options: [
+      'Count, Sum, Average, Max, Min',
+      'Count, Sum, Max, Min',
+      'Count, Sum, Average',
+      'Count, Sum, Max'
+    ],
+    correct: 1,
+    explanation: 'Roll-up summary fields support four functions: Count (number of records), Sum (total of a field), Max (highest value), and Min (lowest value).'
+  },
+  // Chapter 2 Additional Questions
+  {
+    id: 64,
+    chapter: 'chapter2',
+    topic: 'PD1-301',
+    question: 'Which declarative automation tool can display a custom user interface?',
+    options: [
+      'Workflow Rule',
+      'Process Builder',
+      'Flow (Screen Flow)',
+      'Approval Process'
+    ],
+    correct: 2,
+    explanation: 'Flow (specifically Screen Flows) is the only declarative automation tool that can display a custom user interface with input fields, choices, and other screen elements.'
+  },
+  {
+    id: 65,
+    chapter: 'chapter2',
+    topic: 'PD1-302',
+    question: 'Which access modifier makes a method accessible only within the defining class?',
+    options: [
+      'public',
+      'private',
+      'protected',
+      'global'
+    ],
+    correct: 1,
+    explanation: 'The private access modifier restricts access to only the defining class. Public allows access within the namespace, protected allows access in subclasses, and global allows access across the entire organization.'
+  },
+  {
+    id: 66,
+    chapter: 'chapter2',
+    topic: 'PD1-303',
+    question: 'What does the "continue" statement do in a loop?',
+    options: [
+      'Exits the loop completely',
+      'Skips to the next iteration of the loop',
+      'Pauses the loop execution',
+      'Restarts the loop from the beginning'
+    ],
+    correct: 1,
+    explanation: 'The "continue" statement skips the remaining code in the current iteration and jumps to the next iteration of the loop.'
+  },
+  {
+    id: 67,
+    chapter: 'chapter2',
+    topic: 'PD1-305',
+    question: 'Which SOQL clause is used to sort query results?',
+    options: [
+      'SORT BY',
+      'ORDER BY',
+      'GROUP BY',
+      'ARRANGE BY'
+    ],
+    correct: 1,
+    explanation: 'The ORDER BY clause is used to sort SOQL query results by one or more fields. Use ASC for ascending (default) or DESC for descending order.'
+  },
+  {
+    id: 68,
+    chapter: 'chapter2',
+    topic: 'PD1-305',
+    question: 'What is the purpose of the UPSERT DML operation?',
+    options: [
+      'To delete and recreate records',
+      'To insert new records or update existing records based on an external ID',
+      'To merge duplicate records',
+      'To convert leads'
+    ],
+    correct: 1,
+    explanation: 'UPSERT inserts new records and updates existing records. It matches records using an external ID field or the record ID to determine whether to insert or update.'
+  },
+  {
+    id: 69,
+    chapter: 'chapter2',
+    topic: 'PD1-306',
+    question: 'What is the recommended pattern for organizing trigger logic?',
+    options: [
+      'Put all logic directly in the trigger',
+      'Use a trigger handler class to separate logic from the trigger',
+      'Create multiple triggers per object',
+      'Use only before triggers'
+    ],
+    correct: 1,
+    explanation: 'Best practice is to use a trigger handler pattern where the trigger delegates all logic to a separate handler class. This improves maintainability, testability, and follows separation of concerns.'
+  },
+  {
+    id: 70,
+    chapter: 'chapter2',
+    topic: 'PD1-308',
+    question: 'What is the governor limit for DML statements in a single Apex transaction?',
+    options: [
+      '50',
+      '100',
+      '150',
+      '200'
+    ],
+    correct: 2,
+    explanation: 'The governor limit for total DML statements (insert, update, delete, undelete) in a single Apex transaction is 150.'
+  },
+  {
+    id: 71,
+    chapter: 'chapter2',
+    topic: 'PD1-309',
+    question: 'In the save order of execution, when do validation rules fire?',
+    options: [
+      'Before before triggers',
+      'After before triggers but before after triggers',
+      'After after triggers',
+      'At the very end of the process'
+    ],
+    correct: 1,
+    explanation: 'In the save order of execution, validation rules fire after before triggers but before after triggers. This means before triggers can modify field values that validation rules will evaluate.'
+  },
+  {
+    id: 72,
+    chapter: 'chapter2',
+    topic: 'PD1-310',
+    question: 'How should you handle a situation where a SOQL query might return no results?',
+    options: [
+      'Always use try-catch to handle QueryException',
+      'Use a list variable and check if it is empty',
+      'Use LIMIT 1 to ensure exactly one result',
+      'Ignore the possibility of no results'
+    ],
+    correct: 1,
+    explanation: 'Best practice is to query into a list and check if the list is empty before accessing elements. This avoids QueryException from single-record queries that return no results.'
+  },
+  {
+    id: 73,
+    chapter: 'chapter2',
+    topic: 'PD1-312',
+    question: 'What is the purpose of the @InvocableVariable annotation?',
+    options: [
+      'To make a variable accessible from Lightning components',
+      'To define input/output variables for @InvocableMethod',
+      'To create a static variable',
+      'To define a constant'
+    ],
+    correct: 1,
+    explanation: '@InvocableVariable defines input and output variables for methods annotated with @InvocableMethod. This allows Flow and Process Builder to pass data to and from Apex methods.'
+  },
+  // Chapter 3 Additional Questions
+  {
+    id: 74,
+    chapter: 'chapter3',
+    topic: 'PD1-401',
+    question: 'Which Visualforce component creates a styled table with column headers?',
+    options: [
+      '<apex:dataTable>',
+      '<apex:pageBlockTable>',
+      '<apex:repeat>',
+      '<apex:outputPanel>'
+    ],
+    correct: 1,
+    explanation: '<apex:pageBlockTable> creates a table with Salesforce styling and column headers. <apex:dataTable> creates a standard HTML table, while <apex:repeat> provides custom iteration without table structure.'
+  },
+  {
+    id: 75,
+    chapter: 'chapter3',
+    topic: 'PD1-401',
+    question: 'Which attribute of apex:page associates a standard controller?',
+    options: [
+      'controller',
+      'standardController',
+      'extensions',
+      'name'
+    ],
+    correct: 1,
+    explanation: 'The standardController attribute associates a standard or custom object with the Visualforce page, providing built-in CRUD operations and field access.'
+  },
+  {
+    id: 76,
+    chapter: 'chapter3',
+    topic: 'PD1-405',
+    question: 'Where can Lightning components be used?',
+    options: [
+      'Only in Lightning Experience',
+      'Salesforce Mobile App, Lightning Experience, and Communities',
+      'Only in Salesforce Mobile App',
+      'Only in Communities'
+    ],
+    correct: 1,
+    explanation: 'Lightning components can be used in Salesforce Mobile App, Lightning Experience, and Communities (formerly known as Community Cloud).'
+  },
+  {
+    id: 77,
+    chapter: 'chapter3',
+    topic: 'PD1-405',
+    question: 'In an Aura component bundle, which resource contains the component markup?',
+    options: [
+      'Controller',
+      'Helper',
+      'Component (.cmp)',
+      'Style'
+    ],
+    correct: 2,
+    explanation: 'The Component resource (.cmp file) contains the markup definition for an Aura component. It defines the component structure, attributes, and HTML-like markup.'
+  },
+  {
+    id: 78,
+    chapter: 'chapter3',
+    topic: 'PD1-406',
+    question: 'Which function is used to prevent XSS in Visualforce?',
+    options: [
+      'JSENCODE()',
+      'HTMLENCODE()',
+      'URLENCODE()',
+      'All of the above depending on context'
+    ],
+    correct: 3,
+    explanation: 'Different encoding functions are used based on context: JSENCODE() for JavaScript, HTMLENCODE() for HTML content, and URLENCODE() for URLs. Using the appropriate encoder prevents XSS vulnerabilities.'
+  },
+  {
+    id: 79,
+    chapter: 'chapter3',
+    topic: 'PD1-407',
+    question: 'What does the cacheable=true parameter do in @AuraEnabled?',
+    options: [
+      'Enables server-side caching only',
+      'Enables client-side caching for read-only data',
+      'Enables database caching',
+      'Disables caching completely'
+    ],
+    correct: 1,
+    explanation: 'cacheable=true enables client-side caching for read-only data, improving performance by reducing server calls. It should not be used for methods that perform DML operations.'
+  },
+  {
+    id: 80,
+    chapter: 'chapter3',
+    topic: 'PD1-408',
+    question: 'What is the recommended way for sibling components to communicate in LWC?',
+    options: [
+      'Direct method calls between components',
+      'Lightning Message Service (LMS)',
+      'Global events',
+      'Shared JavaScript variables'
+    ],
+    correct: 1,
+    explanation: 'Lightning Message Service (LMS) is the recommended way for sibling components or components in different DOM trees to communicate. It uses a publish-subscribe pattern.'
+  },
+  {
+    id: 81,
+    chapter: 'chapter3',
+    topic: 'PD1-409',
+    question: 'Which decorator is used to expose Apex methods to LWC?',
+    options: [
+      '@AuraEnabled',
+      '@RemoteAction',
+      '@InvocableMethod',
+      '@WebService'
+    ],
+    correct: 0,
+    explanation: 'The @AuraEnabled annotation makes Apex methods accessible from Lightning Web Components and Aura components. It is the bridge between server-side Apex and client-side JavaScript.'
+  },
+  // Chapter 4 Additional Questions
+  {
+    id: 82,
+    chapter: 'chapter4',
+    topic: 'PD1-501',
+    question: 'What is the purpose of @testSetup annotation?',
+    options: [
+      'To mark a class as a test class',
+      'To create test data available to all test methods in the class',
+      'To set up the testing environment',
+      'To configure test coverage reporting'
+    ],
+    correct: 1,
+    explanation: '@testSetup defines a method that creates test data available to ALL test methods in the class. The data is rolled back after each test method, ensuring test isolation and efficiency.'
+  },
+  {
+    id: 83,
+    chapter: 'chapter4',
+    topic: 'PD1-501',
+    question: 'What happens to test data after a test method completes?',
+    options: [
+      'It is permanently saved to the database',
+      'It is rolled back and not persisted',
+      'It is moved to a test data table',
+      'It depends on the test annotation'
+    ],
+    correct: 1,
+    explanation: 'Test data is automatically rolled back after each test method completes. This ensures test isolation - each test method starts with a clean data state.'
+  },
+  {
+    id: 84,
+    chapter: 'chapter4',
+    topic: 'PD1-502',
+    question: 'What is the maximum size of a debug log in Salesforce?',
+    options: [
+      '5 MB',
+      '10 MB',
+      '20 MB',
+      '50 MB'
+    ],
+    correct: 2,
+    explanation: 'The maximum size of a debug log is 20 MB. If the log exceeds this size, it will be truncated. Adjusting log levels can help reduce log size.'
+  },
+  {
+    id: 85,
+    chapter: 'chapter4',
+    topic: 'PD1-502',
+    question: 'Which tool provides a Query Editor for executing SOQL and SOSL queries?',
+    options: [
+      'Setup Menu',
+      'Developer Console',
+      'Data Loader',
+      'Workbench'
+    ],
+    correct: 1,
+    explanation: 'Developer Console includes a Query Editor that allows executing SOQL and SOSL queries directly against the org. It also provides Execute Anonymous for running Apex code.'
+  },
+  {
+    id: 86,
+    chapter: 'chapter4',
+    topic: 'PD1-505',
+    question: 'What is the source of truth in Salesforce DX?',
+    options: [
+      'The Salesforce org',
+      'Version Control System',
+      'Developer Console',
+      'The metadata API'
+    ],
+    correct: 1,
+    explanation: 'In Salesforce DX, the Version Control System (VCS) is the source of truth. Code and metadata are stored in VCS, and scratch orgs are created from the source.'
+  },
+  {
+    id: 87,
+    chapter: 'chapter4',
+    topic: 'PD1-505',
+    question: 'What is the difference between Developer and Developer Pro sandboxes?',
+    options: [
+      'Developer Pro has more storage and can copy data',
+      'Developer Pro has less storage',
+      'They are identical',
+      'Developer Pro can only be refreshed monthly'
+    ],
+    correct: 0,
+    explanation: 'Developer Pro sandbox has a higher storage limit than Developer sandbox. Both copy production configuration (not data) and can be refreshed once daily.'
+  },
+  {
+    id: 88,
+    chapter: 'chapter4',
+    topic: 'PD1-509',
+    question: 'What is required to use change sets between two orgs?',
+    options: [
+      'Both orgs must be on the same Salesforce edition',
+      'A deployment connection must be established between the orgs',
+      'The orgs must be in the same geographic region',
+      'Both orgs must have the same admin user'
+    ],
+    correct: 1,
+    explanation: 'To use change sets, a deployment connection must be established between the source and target orgs. Each org must explicitly authorize the other for deployment.'
+  },
+  {
+    id: 89,
+    chapter: 'chapter4',
+    topic: 'PD1-509',
+    question: 'Which file is used to delete metadata components during deployment?',
+    options: [
+      'package.xml',
+      'destructiveChanges.xml',
+      'build.xml',
+      'deploy.xml'
+    ],
+    correct: 1,
+    explanation: 'The destructiveChanges.xml file specifies metadata components to be deleted during deployment. It is used with the Metadata API or ANT Migration Tool.'
+  },
+  {
+    id: 90,
+    chapter: 'chapter1',
+    topic: 'PD1-601',
+    question: 'What does MVC stand for in the Salesforce architecture?',
+    options: [
+      'Model-View-Controller',
+      'Managed-Visual-Cloud',
+      'Multi-View-Component',
+      'Metadata-Version-Control'
+    ],
+    correct: 0,
+    explanation: 'MVC stands for Model-View-Controller, a software design pattern. In Salesforce: Model = Objects/Data, View = UI (Visualforce/Lightning), Controller = Apex classes.'
+  },
+  {
+    id: 91,
+    chapter: 'chapter2',
+    topic: 'PD1-305',
+    question: 'What is the difference between SOQL and SOSL?',
+    options: [
+      'SOQL searches across multiple objects; SOSL searches within a single object',
+      'SOQL searches within specific objects; SOSL searches across multiple objects using text search',
+      'They are identical in functionality',
+      'SOQL is for metadata; SOSL is for data'
+    ],
+    correct: 1,
+    explanation: 'SOQL (Salesforce Object Query Language) queries specific objects and returns structured records. SOSL (Salesforce Object Search Language) performs text searches across multiple objects and returns results grouped by object type.'
+  },
+  {
+    id: 92,
+    chapter: 'chapter2',
+    topic: 'PD1-306',
+    question: 'What is the best practice for bulkifying Apex triggers?',
+    options: [
+      'Use SOQL queries inside for loops',
+      'Collect all record IDs first, then perform one SOQL query outside the loop',
+      'Process records one at a time',
+      'Use Database.query() for each record'
+    ],
+    correct: 1,
+    explanation: 'The best practice for bulkifying triggers is to collect all needed record IDs first (from Trigger.new), then perform a single SOQL query outside any loop to retrieve all related data.'
+  },
+  {
+    id: 93,
+    chapter: 'chapter2',
+    topic: 'PD1-308',
+    question: 'What is the governor limit for CPU time in synchronous Apex?',
+    options: [
+      '5,000 ms',
+      '10,000 ms',
+      '30,000 ms',
+      '60,000 ms'
+    ],
+    correct: 1,
+    explanation: 'The governor limit for CPU time in synchronous Apex is 10,000 ms (10 seconds). For asynchronous Apex, it is 60,000 ms (60 seconds).'
+  },
+  {
+    id: 94,
+    chapter: 'chapter3',
+    topic: 'PD1-401',
+    question: 'What is a Visualforce controller?',
+    options: [
+      'A database table',
+      'An Apex class that provides data and logic to a Visualforce page',
+      'A CSS stylesheet',
+      'A JavaScript library'
+    ],
+    correct: 1,
+    explanation: 'A Visualforce controller is an Apex class that provides data and logic to a Visualforce page. It can be a standard controller (built-in), custom controller, or controller extension.'
+  },
+  {
+    id: 95,
+    chapter: 'chapter3',
+    topic: 'PD1-405',
+    question: 'What is the difference between Aura and LWC?',
+    options: [
+      'Aura uses standard web technologies; LWC uses proprietary framework',
+      'Aura is proprietary; LWC is based on standard web technologies',
+      'They are exactly the same',
+      'LWC can only be used in mobile apps'
+    ],
+    correct: 1,
+    explanation: 'Aura uses a proprietary framework with its own component model, while Lightning Web Components (LWC) is built on standard web technologies (ES6+, custom elements, shadow DOM).'
+  },
+  {
+    id: 96,
+    chapter: 'chapter4',
+    topic: 'PD1-501',
+    question: 'What is the minimum code coverage required for deploying Apex to production?',
+    options: [
+      '50%',
+      '75%',
+      '80%',
+      '100%'
+    ],
+    correct: 1,
+    explanation: 'Salesforce requires a minimum of 75% cumulative code coverage across all Apex classes and triggers for deployment to production.'
+  },
+  {
+    id: 97,
+    chapter: 'chapter2',
+    topic: 'PD1-302',
+    question: 'What is the correct way to declare a constant in Apex?',
+    options: [
+      'const Integer MAX = 10;',
+      'static final Integer MAX = 10;',
+      'final static Integer MAX = 10;',
+      'Both B and C are correct'
+    ],
+    correct: 3,
+    explanation: 'Both "static final Integer MAX = 10;" and "final static Integer MAX = 10;" are valid ways to declare a constant in Apex. The "static" keyword makes it a class-level constant, and "final" prevents reassignment.'
+  },
+  {
+    id: 98,
+    chapter: 'chapter1',
+    topic: 'PD1-603',
+    question: 'How is a many-to-many relationship created in Salesforce?',
+    options: [
+      'Using a junction object with two master-detail relationships',
+      'Using two lookup relationships',
+      'Using a single master-detail relationship',
+      'Using a formula field'
+    ],
+    correct: 0,
+    explanation: 'A many-to-many relationship is created using a junction object that has two master-detail relationships. This junction object sits between the two objects and allows records on both sides to be related to multiple records on the other side.'
+  },
+  {
+    id: 99,
+    chapter: 'chapter2',
+    topic: 'PD1-309',
+    question: 'How can recursion be prevented in Apex triggers?',
+    options: [
+      'By using the "static" keyword on a Boolean variable to track execution',
+      'By using the "final" keyword',
+      'By adding more governor limits',
+      'Recursion cannot be prevented'
+    ],
+    correct: 0,
+    explanation: 'Recursion can be prevented by using a static Boolean variable as a flag. Set it to "true" when the trigger first executes, and check it at the beginning of the trigger to prevent re-entry.'
+  },
+  {
+    id: 100,
+    chapter: 'chapter3',
+    topic: 'PD1-406',
+    question: 'What is the best way to prevent SOQL injection in Visualforce?',
+    options: [
+      'Use bind variables in dynamic SOQL',
+      'Use string concatenation',
+      'Disable user input',
+      'Use SOSL instead of SOQL'
+    ],
+    correct: 0,
+    explanation: 'Using bind variables in dynamic SOQL is the best way to prevent SOQL injection. Bind variables automatically escape user input, preventing malicious SOQL from being injected.'
   }
 ];
 
 export const examConfig = {
   fullExam: {
     name: 'Full Practice Exam',
-    description: '60 questions covering all PD1 exam topics',
-    timeLimit: 110,
+    description: '100 comprehensive questions covering all PD1 exam topics',
+    timeLimit: 180,
     passingScore: 68,
     questions: 'all'
   },

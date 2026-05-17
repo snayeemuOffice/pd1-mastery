@@ -30,11 +30,11 @@ export default function Home() {
               <div className="stat-label">Study Topics</div>
             </div>
             <div className="hero-stat">
-              <div className="stat-number">55+</div>
+              <div className="stat-number">100+</div>
               <div className="stat-label">Practice Questions</div>
             </div>
             <div className="hero-stat">
-              <div className="stat-number">30</div>
+              <div className="stat-number">134</div>
               <div className="stat-label">Flashcards</div>
             </div>
             <div className="hero-stat">
