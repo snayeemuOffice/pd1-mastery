@@ -1,18 +1,18 @@
 // Comprehensive PD1 Exam Questions organized by chapter
 // Based on Focus on Force study materials
+// Correct answers are randomly distributed across positions
 
 export const examQuestions = [
-  // Developer Fundamentals (601-604)
   {
     id: 1,
     chapter: 'devFundamentals',
     topic: 'PD1-601',
     question: 'Which component of the MVC (Model-View-Controller) architecture do Salesforce Objects represent?',
     options: [
-      'View',
       'Controller',
+      'Neither - Objects are separate from MVC',
       'Model',
-      'Neither - Objects are separate from MVC'
+      'View'
     ],
     correct: 2,
     explanation: 'Salesforce Objects represent the Model layer of the MVC architecture. Objects define the data structure and business logic. Visualforce pages and Lightning components represent the View, while Apex controllers represent the Controller layer.'
@@ -23,12 +23,12 @@ export const examQuestions = [
     topic: 'PD1-601',
     question: 'Which two programming models are available for building Lightning components?',
     options: [
-      'Aura and Lightning Web Components (LWC)',
       'Visualforce and Aura',
       'Lightning Web Components and Visualforce',
-      'Apex and Lightning Web Components'
+      'Apex and Lightning Web Components',
+      'Aura and Lightning Web Components (LWC)'
     ],
-    correct: 0,
+    correct: 3,
     explanation: 'The two programming models for building Lightning components are Aura (the original framework) and Lightning Web Components (LWC), which is the modern standards-based framework built on web standards like ES6+, custom elements, and shadow DOM.'
   },
   {
@@ -37,9 +37,9 @@ export const examQuestions = [
     topic: 'PD1-601',
     question: 'What is a key characteristic of a multi-tenant architecture?',
     options: [
-      'Each customer has their own dedicated server',
-      'Resources are shared among multiple customers',
       'There is no customization allowed',
+      'Resources are shared among multiple customers',
+      'Each customer has their own dedicated server',
       'Data is stored in a single database for all customers'
     ],
     correct: 1,
@@ -65,12 +65,12 @@ export const examQuestions = [
     topic: 'PD1-602',
     question: 'What can be created to update a custom field on an unrelated custom object whenever a new account is created in Salesforce?',
     options: [
-      'A record trigger flow',
-      'A Visualforce page',
       'A Lightning component',
-      'A formula field'
+      'A formula field',
+      'A Visualforce page',
+      'A record trigger flow'
     ],
-    correct: 0,
+    correct: 3,
     explanation: 'A record-triggered flow can be used to update a custom field on an unrelated custom object when a new account is created. Flows are the preferred declarative automation tool for this type of cross-object update without writing code.'
   },
   {
@@ -79,12 +79,12 @@ export const examQuestions = [
     topic: 'PD1-602',
     question: 'Which property of an object or field can be changed when it is referenced in Apex code?',
     options: [
-      'The API name',
-      'The label',
       'The data type',
-      'The field length'
+      'The field length',
+      'The API name',
+      'The label'
     ],
-    correct: 1,
+    correct: 3,
     explanation: 'The label of an object or field can be changed without affecting Apex code. Apex code references objects and fields by their API names, which cannot be changed once created. Changing labels is purely a UI/display concern.'
   },
   {
@@ -94,11 +94,11 @@ export const examQuestions = [
     question: 'What is the difference between a lookup and master-detail relationship?',
     options: [
       'Lookup relationships are always required; master-detail are optional',
-      'In master-detail, the detail record is deleted when the master is deleted; in lookup, the child record remains',
+      'There is no difference - they are interchangeable',
       'Lookup relationships support roll-up summary fields; master-detail does not',
-      'There is no difference - they are interchangeable'
+      'In master-detail, the detail record is deleted when the master is deleted; in lookup, the child record remains'
     ],
-    correct: 1,
+    correct: 3,
     explanation: 'In a master-detail relationship, the detail (child) record is automatically deleted when the master (parent) record is deleted (cascade delete). In a lookup relationship, the child record remains and the lookup field is simply cleared. Master-detail also tightly couples security and ownership.'
   },
   {
@@ -107,12 +107,12 @@ export const examQuestions = [
     topic: 'PD1-603',
     question: 'How is a many-to-many relationship created in Salesforce?',
     options: [
-      'Using a junction object with two master-detail relationships',
       'Using two lookup relationships',
       'Using a single master-detail relationship',
-      'Using a formula field'
+      'Using a formula field',
+      'Using a junction object with two master-detail relationships'
     ],
-    correct: 0,
+    correct: 3,
     explanation: 'A many-to-many relationship is created using a junction object that has two master-detail relationships. This junction object sits between the two objects and allows records on both sides to be related to multiple records on the other side.'
   },
   {
@@ -121,12 +121,12 @@ export const examQuestions = [
     topic: 'PD1-603',
     question: 'What does the user interface display when a user tries to change the data type of a field that is referenced in Apex code?',
     options: [
-      'The change is automatically applied',
       'A warning that the field is referenced in code and the data type cannot be changed',
       'The field is automatically deleted',
+      'The change is automatically applied',
       'An error message with no option to proceed'
     ],
-    correct: 1,
+    correct: 0,
     explanation: 'When trying to change the data type of a field referenced in Apex code, Salesforce displays a warning that the field is referenced in code. The data type change is not allowed because it could break the existing Apex code that depends on that field type.'
   },
   {
@@ -135,12 +135,12 @@ export const examQuestions = [
     topic: 'PD1-603',
     question: 'Which relationship can be used on the User object to associate one user with another?',
     options: [
-      'Master-detail relationship',
       'Lookup relationship to User',
       'Junction object',
+      'Master-detail relationship',
       'Hierarchical relationship'
     ],
-    correct: 1,
+    correct: 0,
     explanation: 'A lookup relationship to the User object can be used to associate one user with another. For example, a "Manager" field on the User object is a lookup to another User record.'
   },
   {
@@ -150,11 +150,11 @@ export const examQuestions = [
     question: 'Which tool should be used to import large volumes of data into Salesforce?',
     options: [
       'Data Import Wizard',
+      'Workbench',
       'Data Loader',
-      'Data.com',
-      'Workbench'
+      'Data.com'
     ],
-    correct: 1,
+    correct: 2,
     explanation: 'Data Loader is the recommended tool for importing large volumes of data into Salesforce. It can handle up to 5 million records and supports both import and export operations. The Data Import Wizard is better for smaller volumes (up to 50,000 records).'
   },
   {
@@ -163,28 +163,26 @@ export const examQuestions = [
     topic: 'PD1-604',
     question: 'What is the maximum number of records that the Data Import Wizard can process at once?',
     options: [
-      '5,000',
-      '10,000',
       '50,000',
-      '500,000'
+      '10,000',
+      '500,000',
+      '5,000'
     ],
-    correct: 2,
+    correct: 0,
     explanation: 'The Data Import Wizard can process up to 50,000 records at a time. For larger data volumes, Data Loader should be used instead, which can handle up to 5 million records.'
   },
-
-  // Process Automation and Logic (301-312)
   {
     id: 13,
     chapter: 'processAutomation',
     topic: 'PD1-301',
     question: 'Which declarative automation feature can be used to send an outbound message without writing code?',
     options: [
-      'Process Builder',
       'Workflow Rules',
       'Approval Processes',
-      'All of the above'
+      'All of the above',
+      'Process Builder'
     ],
-    correct: 1,
+    correct: 0,
     explanation: 'Workflow Rules can send outbound messages as an action without writing code. While Process Builder and Flow can also trigger actions, Workflow Rules is the declarative feature specifically designed for outbound messages.'
   },
   {
@@ -195,8 +193,8 @@ export const examQuestions = [
     options: [
       'Flow',
       'Process Builder',
-      'Workflow Rule',
-      'Approval Process'
+      'Approval Process',
+      'Workflow Rule'
     ],
     correct: 0,
     explanation: 'Flow (specifically Screen Flows) is the only declarative automation tool that can display a custom user interface. It can present screens with input fields, choices, and other elements to guide users through a business process.'
@@ -207,10 +205,10 @@ export const examQuestions = [
     topic: 'PD1-302',
     question: 'Which access modifier makes a variable or method available to all other classes in the Salesforce organization?',
     options: [
+      'protected',
       'private',
-      'public',
       'global',
-      'protected'
+      'public'
     ],
     correct: 2,
     explanation: 'The "global" access modifier makes a variable or method available to all other classes in the Salesforce organization, including those in managed packages. "public" is limited to the current namespace, while "private" restricts access to the defining class only.'
@@ -223,10 +221,10 @@ export const examQuestions = [
     options: [
       'static final Integer MAX = 10;',
       'const Integer MAX = 10;',
-      'final static Integer MAX = 10;',
-      'Both A and C are correct'
+      'Both A and C are correct',
+      'final static Integer MAX = 10;'
     ],
-    correct: 3,
+    correct: 2,
     explanation: 'Both "static final Integer MAX = 10;" and "final static Integer MAX = 10;" are valid ways to declare a constant in Apex. The "static" keyword makes it a class-level constant, and "final" prevents reassignment. Apex does not use the "const" keyword.'
   },
   {
@@ -236,11 +234,11 @@ export const examQuestions = [
     question: 'Which loop type in Apex will always execute at least once?',
     options: [
       'for loop',
-      'while loop',
       'do-while loop',
-      'for-each loop'
+      'for-each loop',
+      'while loop'
     ],
-    correct: 2,
+    correct: 1,
     explanation: 'The do-while loop always executes at least once because the condition is checked after the loop body executes. The other loop types check the condition before executing, so they may not execute at all if the condition is initially false.'
   },
   {
@@ -250,11 +248,11 @@ export const examQuestions = [
     question: 'What happens when a "break" statement is encountered inside a loop?',
     options: [
       'The loop continues to the next iteration',
-      'The loop terminates and execution continues after the loop',
+      'An exception is thrown',
       'The entire program terminates',
-      'An exception is thrown'
+      'The loop terminates and execution continues after the loop'
     ],
-    correct: 1,
+    correct: 3,
     explanation: 'When a "break" statement is encountered inside a loop, the loop immediately terminates and execution continues with the first statement after the loop. This is useful for exiting a loop early when a certain condition is met.'
   },
   {
@@ -264,9 +262,9 @@ export const examQuestions = [
     question: 'Which SOQL query is syntactically correct?',
     options: [
       'SELECT Id, Name FROM Account WHERE Industry = \'Technology\'',
-      'SELECT Id, Name FROM Account WHERE Industry = Technology',
       'SELECT Id, Name WHERE Account.Industry = \'Technology\'',
-      'GET Id, Name FROM Account WHERE Industry = \'Technology\''
+      'GET Id, Name FROM Account WHERE Industry = \'Technology\'',
+      'SELECT Id, Name FROM Account WHERE Industry = Technology'
     ],
     correct: 0,
     explanation: 'The correct SOQL syntax uses SELECT fields FROM object WHERE condition. String values must be enclosed in single quotes. The query selects Id and Name fields from Account records where the Industry field equals "Technology".'
@@ -278,11 +276,11 @@ export const examQuestions = [
     question: 'Which DML statement is used to insert multiple records at once?',
     options: [
       'insert records;',
+      'Both A and C are correct',
       'insertList records;',
-      'Database.insert(records);',
-      'Both A and C are correct'
+      'Database.insert(records);'
     ],
-    correct: 3,
+    correct: 1,
     explanation: 'Both "insert records;" (DML statement) and "Database.insert(records);" (Database method) can be used to insert multiple records. The Database method provides additional options like partial success handling with the allOrNone parameter.'
   },
   {
@@ -305,12 +303,12 @@ export const examQuestions = [
     topic: 'PD1-306',
     question: 'What is the best practice for bulkifying Apex triggers?',
     options: [
-      'Use SOQL queries inside for loops',
-      'Collect all record IDs first, then perform one SOQL query outside the loop',
+      'Use Database.query() for each record',
       'Process records one at a time',
-      'Use Database.query() for each record'
+      'Collect all record IDs first, then perform one SOQL query outside the loop',
+      'Use SOQL queries inside for loops'
     ],
-    correct: 1,
+    correct: 2,
     explanation: 'The best practice for bulkifying triggers is to collect all needed record IDs first (from Trigger.new), then perform a single SOQL query outside any loop to retrieve all related data. This avoids hitting governor limits for SOQL queries (100 per transaction).'
   },
   {
@@ -319,12 +317,12 @@ export const examQuestions = [
     topic: 'PD1-306',
     question: 'Which trigger context variable returns a list of sObjects that can be modified in a before trigger?',
     options: [
+      'Trigger.newMap',
       'Trigger.old',
       'Trigger.new',
-      'Trigger.oldMap',
-      'Trigger.newMap'
+      'Trigger.oldMap'
     ],
-    correct: 1,
+    correct: 2,
     explanation: 'Trigger.new returns a list of sObjects that can be modified in before triggers. Changes to field values in Trigger.new during a before trigger are automatically saved to the database. Trigger.old contains the old versions and cannot be modified.'
   },
   {
@@ -333,12 +331,12 @@ export const examQuestions = [
     topic: 'PD1-308',
     question: 'What is the governor limit for total SOQL queries in a single Apex transaction?',
     options: [
-      '50',
       '100',
       '150',
-      '200'
+      '200',
+      '50'
     ],
-    correct: 1,
+    correct: 0,
     explanation: 'The governor limit for total SOQL queries in a single Apex transaction is 100. This limit applies to the total number of SOQL queries executed synchronously and asynchronously within a single transaction.'
   },
   {
@@ -347,12 +345,12 @@ export const examQuestions = [
     topic: 'PD1-308',
     question: 'What happens when a governor limit is exceeded in Apex?',
     options: [
-      'The code continues with a warning',
       'An unhandled exception is thrown and all DML operations are rolled back',
-      'The limit is automatically increased',
-      'Only the current operation fails'
+      'Only the current operation fails',
+      'The code continues with a warning',
+      'The limit is automatically increased'
     ],
-    correct: 1,
+    correct: 0,
     explanation: 'When a governor limit is exceeded, an unhandled exception is thrown and all DML operations in the transaction are rolled back. Governor limits are hard limits and cannot be increased or bypassed - they ensure shared resources in the multi-tenant environment.'
   },
   {
@@ -361,10 +359,10 @@ export const examQuestions = [
     topic: 'PD1-309',
     question: 'What is the correct order of execution when a record is saved in Salesforce?',
     options: [
-      'Validation rules → Before triggers → After triggers → Assignment rules',
-      'Before triggers → Validation rules → After triggers → Assignment rules',
       'Assignment rules → Before triggers → Validation rules → After triggers',
-      'Before triggers → Assignment rules → Validation rules → After triggers'
+      'Before triggers → Validation rules → After triggers → Assignment rules',
+      'Before triggers → Assignment rules → Validation rules → After triggers',
+      'Validation rules → Before triggers → After triggers → Assignment rules'
     ],
     correct: 1,
     explanation: 'The correct save order of execution starts with before triggers, then validation rules, then after triggers, followed by assignment rules, auto-response rules, workflow rules, processes, flows, and escalation rules. Understanding this order is critical for avoiding recursion and unexpected behavior.'
@@ -376,8 +374,8 @@ export const examQuestions = [
     question: 'How can recursion be prevented in Apex triggers?',
     options: [
       'By using the "static" keyword on a Boolean variable to track execution',
-      'By using the "final" keyword',
       'By adding more governor limits',
+      'By using the "final" keyword',
       'Recursion cannot be prevented'
     ],
     correct: 0,
@@ -389,10 +387,10 @@ export const examQuestions = [
     topic: 'PD1-310',
     question: 'Which exception type is thrown when a record is not found in a SOQL query that expects exactly one result?',
     options: [
-      'DmlException',
+      'LimitException',
       'QueryException',
-      'NullPointerException',
-      'LimitException'
+      'DmlException',
+      'NullPointerException'
     ],
     correct: 1,
     explanation: 'A QueryException is thrown when a SOQL query that expects exactly one result (without the "list" keyword) returns no records or more than one record. This typically happens with queries like "Account a = [SELECT Id FROM Account LIMIT 1];" when no accounts exist.'
@@ -404,11 +402,11 @@ export const examQuestions = [
     question: 'How should exceptions be handled in Apex?',
     options: [
       'Always catch the generic Exception type',
-      'Catch specific exception types and handle them appropriately',
       'Let all exceptions propagate to the user',
+      'Catch specific exception types and handle them appropriately',
       'Ignore exceptions to avoid code complexity'
     ],
-    correct: 1,
+    correct: 2,
     explanation: 'Best practice is to catch specific exception types (like DmlException, QueryException, etc.) rather than the generic Exception type. This allows for targeted error handling and provides more meaningful error messages. Specific catches should come before general ones.'
   },
   {
@@ -417,28 +415,26 @@ export const examQuestions = [
     topic: 'PD1-312',
     question: 'When should Apex be used instead of declarative automation?',
     options: [
-      'For simple field updates',
       'For complex business logic that requires multiple conditional branches and integrations',
       'For all automation to ensure maximum control',
-      'Only when declarative tools are unavailable'
+      'Only when declarative tools are unavailable',
+      'For simple field updates'
     ],
-    correct: 1,
+    correct: 0,
     explanation: 'Apex should be used for complex business logic that goes beyond what declarative tools can handle, such as complex conditional logic, integrations with external systems, complex data transformations, or when strict error handling is required. Declarative tools should be preferred when they can meet the requirement.'
   },
-
-  // Chapter 3: User Interface (401-409)
   {
     id: 31,
     chapter: 'userInterface',
     topic: 'PD1-401',
     question: 'Which component can be used to display individual fields on a record in a Visualforce page?',
     options: [
-      '<apex:detail>',
-      '<apex:inputField>',
       '<apex:outputField>',
-      '<apex:pageBlockTable>'
+      '<apex:inputField>',
+      '<apex:pageBlockTable>',
+      '<apex:detail>'
     ],
-    correct: 2,
+    correct: 0,
     explanation: 'The <apex:outputField> component displays individual field values on a record in a Visualforce page. It respects field-level security and displays the field in the appropriate format based on its data type. <apex:inputField> is used for editable fields.'
   },
   {
@@ -447,12 +443,12 @@ export const examQuestions = [
     topic: 'PD1-401',
     question: 'Which coarse-grained component can be used to display the detail page of an object in a Visualforce page?',
     options: [
-      '<apex:detail>',
-      '<apex:outputField>',
       '<apex:pageBlock>',
-      '<apex:form>'
+      '<apex:form>',
+      '<apex:outputField>',
+      '<apex:detail>'
     ],
-    correct: 0,
+    correct: 3,
     explanation: 'The <apex:detail> component is a coarse-grained component that renders the entire detail page for a record, including related lists, buttons, and the record detail. It is a quick way to display a complete record page without manually laying out each field.'
   },
   {
@@ -461,8 +457,8 @@ export const examQuestions = [
     topic: 'PD1-401',
     question: 'Which iteration component can be used to generate a table in Visualforce?',
     options: [
-      '<apex:repeat>',
       '<apex:pageBlockTable>',
+      '<apex:repeat>',
       '<apex:dataTable>',
       'All of the above'
     ],
@@ -475,12 +471,12 @@ export const examQuestions = [
     topic: 'PD1-405',
     question: 'What are the key benefits of the Lightning Component framework?',
     options: [
-      'Component-based architecture, event-driven communication, and server-side rendering only',
-      'Component-based architecture, event-driven communication, and cross-device compatibility',
       'Only works in Lightning Experience',
-      'Requires Visualforce knowledge to use'
+      'Requires Visualforce knowledge to use',
+      'Component-based architecture, event-driven communication, and server-side rendering only',
+      'Component-based architecture, event-driven communication, and cross-device compatibility'
     ],
-    correct: 1,
+    correct: 3,
     explanation: 'The Lightning Component framework provides a component-based architecture for building reusable UI components, event-driven communication between components, and cross-device compatibility (works in Lightning Experience, mobile, and communities). It supports both client-side and server-side rendering.'
   },
   {
@@ -489,12 +485,12 @@ export const examQuestions = [
     topic: 'PD1-405',
     question: 'What is the difference between an Aura component and a Lightning Web Component (LWC)?',
     options: [
-      'Aura uses JavaScript and LWC uses Java',
-      'Aura is proprietary; LWC is based on standard web technologies',
       'They are exactly the same',
-      'LWC can only be used in mobile apps'
+      'LWC can only be used in mobile apps',
+      'Aura is proprietary; LWC is based on standard web technologies',
+      'Aura uses JavaScript and LWC uses Java'
     ],
-    correct: 1,
+    correct: 2,
     explanation: 'Aura uses a proprietary framework with its own component model, while Lightning Web Components (LWC) is built on standard web technologies (ES6+, custom elements, shadow DOM). LWC is the modern approach recommended by Salesforce for new development.'
   },
   {
@@ -503,12 +499,12 @@ export const examQuestions = [
     topic: 'PD1-406',
     question: 'What is the best way to prevent SOQL injection in Visualforce?',
     options: [
-      'Use bind variables in dynamic SOQL',
-      'Use string concatenation',
       'Disable user input',
+      'Use string concatenation',
+      'Use bind variables in dynamic SOQL',
       'Use SOSL instead of SOQL'
     ],
-    correct: 0,
+    correct: 2,
     explanation: 'Using bind variables in dynamic SOQL is the best way to prevent SOQL injection. Bind variables automatically escape user input, preventing malicious SOQL from being injected. String concatenation with user input creates a SOQL injection vulnerability.'
   },
   {
@@ -517,12 +513,12 @@ export const examQuestions = [
     topic: 'PD1-406',
     question: 'Which sharing setting should be used to ensure users can only see records they own or are shared with them?',
     options: [
+      'Controlled by Parent',
       'Public Read/Write',
-      'Private',
       'Public Read Only',
-      'Controlled by Parent'
+      'Private'
     ],
-    correct: 1,
+    correct: 3,
     explanation: 'Setting an object\'s sharing model to "Private" ensures that users can only see records they own or that are explicitly shared with them through sharing rules, manual sharing, or Apex managed sharing. This provides the most restrictive access level.'
   },
   {
@@ -532,8 +528,8 @@ export const examQuestions = [
     question: 'What is the purpose of the @AuraEnabled annotation in Apex?',
     options: [
       'To make an Apex method accessible from Lightning components',
-      'To enable Lightning Experience in an org',
       'To create a new Lightning component',
+      'To enable Lightning Experience in an org',
       'To configure Lightning pages'
     ],
     correct: 0,
@@ -546,11 +542,11 @@ export const examQuestions = [
     question: 'How does data flow in Lightning Web Components?',
     options: [
       'Parent to child only',
-      'Child to parent only',
       'Parent to child via properties; child to parent via events',
-      'Data cannot flow between components'
+      'Data cannot flow between components',
+      'Child to parent only'
     ],
-    correct: 2,
+    correct: 1,
     explanation: 'In LWC, data flows from parent to child through properties (decorated with @api). Child components communicate with parents by dispatching custom events. This one-way data flow makes the application predictable and easier to debug.'
   },
   {
@@ -560,11 +556,11 @@ export const examQuestions = [
     question: 'Which event type should be used for communication between sibling components in LWC?',
     options: [
       'Custom events',
+      'Apex events',
       'DOM events',
-      'Lightning message service or a shared parent component',
-      'Apex events'
+      'Lightning message service or a shared parent component'
     ],
-    correct: 2,
+    correct: 3,
     explanation: 'For sibling component communication in LWC, you should use Lightning Message Service (LMS) for cross-DOM communication, or have the parent component manage state and pass data between siblings through properties and events.'
   },
   {
@@ -573,12 +569,12 @@ export const examQuestions = [
     topic: 'PD1-409',
     question: 'How can an Apex controller be used with a Lightning component?',
     options: [
-      'By using the @AuraEnabled annotation on methods',
       'By extending the Controller class',
+      'By using the @AuraEnabled annotation on methods',
       'By implementing the LightningController interface',
       'By using the controller="ApexClassName" attribute'
     ],
-    correct: 0,
+    correct: 1,
     explanation: 'Apex methods are made available to Lightning components using the @AuraEnabled annotation. For LWC, these methods are imported using the @salesforce/apex module. For Aura components, they are called using the "c.methodName" syntax.'
   },
   {
@@ -587,26 +583,24 @@ export const examQuestions = [
     topic: 'PD1-409',
     question: 'What is the purpose of a Lightning Data Service (LDS) in LWC?',
     options: [
+      'To deploy components to production',
       'To create database tables',
       'To provide a way to work with Salesforce data without Apex code',
-      'To manage user authentication',
-      'To deploy components to production'
+      'To manage user authentication'
     ],
-    correct: 1,
+    correct: 2,
     explanation: 'Lightning Data Service (LDS) allows LWC to create, read, update, and delete Salesforce records without writing Apex code. It provides built-in data caching, record sharing, and data synchronization across components that use the same record.'
   },
-
-  // Chapter 4.1: Testing (501)
   {
     id: 43,
     chapter: 'testingDebugging',
     topic: 'PD1-501',
     question: 'What is the minimum code coverage required for deploying Apex to production?',
     options: [
-      '50%',
+      '100%',
       '75%',
       '80%',
-      '100%'
+      '50%'
     ],
     correct: 1,
     explanation: 'Salesforce requires a minimum of 75% cumulative code coverage across all Apex classes and triggers for deployment to production. However, the best practice is to aim for 100% coverage with meaningful test scenarios, not just line coverage.'
@@ -617,9 +611,9 @@ export const examQuestions = [
     topic: 'PD1-501',
     question: 'Which annotation is used to define a test method in Apex?',
     options: [
-      '@Test',
-      '@isTest',
       '@TestMethod',
+      '@isTest',
+      '@Test',
       '@TestCase'
     ],
     correct: 1,
@@ -631,12 +625,12 @@ export const examQuestions = [
     topic: 'PD1-501',
     question: 'What is the purpose of System.assertEquals() in Apex tests?',
     options: [
-      'To create test data',
       'To verify that two values are equal',
+      'To create test data',
       'To stop test execution',
       'To log test results'
     ],
-    correct: 1,
+    correct: 0,
     explanation: 'System.assertEquals() verifies that two values are equal. If they are not equal, the test fails. It is used to validate that code produces expected results. There is also System.assertNotEquals() and System.assert() for other validation scenarios.'
   },
   {
@@ -660,11 +654,11 @@ export const examQuestions = [
     question: 'Which approach is best for creating test data in Apex tests?',
     options: [
       'Using SeeAllData=true to access existing org data',
-      'Creating test data within the test class using @testSetup or data factory methods',
+      'Using production data in sandbox',
       'Importing data before running tests',
-      'Using production data in sandbox'
+      'Creating test data within the test class using @testSetup or data factory methods'
     ],
-    correct: 1,
+    correct: 3,
     explanation: 'Best practice is to create test data within the test class using @testSetup methods or data factory methods. This makes tests self-contained, repeatable, and not dependent on org data. Using SeeAllData=true is discouraged because it makes tests brittle and environment-dependent.'
   },
   {
@@ -673,28 +667,26 @@ export const examQuestions = [
     topic: 'PD1-501',
     question: 'What does the @testSetup annotation do?',
     options: [
-      'Marks a method as a test method',
       'Creates test data that is available to all test methods in the class',
-      'Sets up the test environment before deployment',
-      'Configures test coverage reporting'
+      'Configures test coverage reporting',
+      'Marks a method as a test method',
+      'Sets up the test environment before deployment'
     ],
-    correct: 1,
+    correct: 0,
     explanation: 'The @testSetup annotation defines a method that creates test data available to all test methods in the class. This data is rolled back after each test method, ensuring test isolation. It is an efficient way to share common test data setup across multiple test methods.'
   },
-
-  // Chapter 4.2: Debug & Deployment (502-509)
   {
     id: 49,
     chapter: 'testingDebugging',
     topic: 'PD1-502',
     question: 'Which tool should be used to view debug logs in Salesforce?',
     options: [
-      'Developer Console',
       'Setup Audit Trail',
-      'Debug Log panel in Setup',
-      'Both A and C'
+      'Developer Console',
+      'Both A and C',
+      'Debug Log panel in Setup'
     ],
-    correct: 3,
+    correct: 2,
     explanation: 'Both the Developer Console and the Debug Log panel in Setup can be used to view debug logs. The Developer Console provides a more interactive experience with filtering and searching, while the Debug Log panel in Setup allows configuring which users generate logs.'
   },
   {
@@ -703,10 +695,10 @@ export const examQuestions = [
     topic: 'PD1-502',
     question: 'What is the maximum size of a debug log in Salesforce?',
     options: [
+      '50 MB',
       '1 MB',
-      '5 MB',
       '20 MB',
-      '50 MB'
+      '5 MB'
     ],
     correct: 2,
     explanation: 'The maximum size of a debug log is 20 MB. If the log exceeds this size, it will be truncated. The log levels and categories can be adjusted to reduce log size and focus on relevant information.'
@@ -717,12 +709,12 @@ export const examQuestions = [
     topic: 'PD1-505',
     question: 'What is Salesforce DX (SFDX)?',
     options: [
-      'A deployment tool for production only',
-      'A set of tools and features for modern Salesforce development with source-driven development',
       'A data export tool',
-      'A testing framework'
+      'A deployment tool for production only',
+      'A testing framework',
+      'A set of tools and features for modern Salesforce development with source-driven development'
     ],
-    correct: 1,
+    correct: 3,
     explanation: 'Salesforce DX (SFDX) is a set of tools and features that enables source-driven development, team collaboration, and continuous integration/continuous delivery (CI/CD). It includes the CLI, scratch orgs, and integration with version control systems.'
   },
   {
@@ -731,10 +723,10 @@ export const examQuestions = [
     topic: 'PD1-505',
     question: 'What is a scratch org in Salesforce DX?',
     options: [
-      'A permanent development environment',
+      'A type of sandbox',
       'A disposable, configurable, short-term Salesforce environment',
       'A production org with debugging enabled',
-      'A type of sandbox'
+      'A permanent development environment'
     ],
     correct: 1,
     explanation: 'A scratch org is a disposable, configurable, short-term Salesforce environment used for development and testing. It is defined by a configuration file and can be quickly created and deleted. Scratch orgs support source-driven development workflows.'
@@ -746,11 +738,11 @@ export const examQuestions = [
     question: 'What is the correct order for deploying changes to production?',
     options: [
       'Deploy directly to production',
+      'Develop in scratch org → Deploy to production',
       'Develop in sandbox → Test in sandbox → Deploy to production',
-      'Develop in production → Test in sandbox',
-      'Develop in scratch org → Deploy to production'
+      'Develop in production → Test in sandbox'
     ],
-    correct: 1,
+    correct: 2,
     explanation: 'Best practice is to develop in a development sandbox, test thoroughly in a testing/staging sandbox, and then deploy to production. This ensures changes are validated before affecting production users and data.'
   },
   {
@@ -759,12 +751,12 @@ export const examQuestions = [
     topic: 'PD1-509',
     question: 'Which deployment tool uses a package.xml manifest file?',
     options: [
-      'Change Sets',
-      'Metadata API (ANT Migration Tool)',
+      'Salesforce CLI',
       'Data Loader',
-      'Salesforce CLI'
+      'Metadata API (ANT Migration Tool)',
+      'Change Sets'
     ],
-    correct: 1,
+    correct: 2,
     explanation: 'The Metadata API, used through tools like the ANT Migration Tool, uses a package.xml manifest file to specify which metadata components to retrieve or deploy. Change Sets use a point-and-click interface, while the Salesforce CLI uses source format.'
   },
   {
@@ -773,28 +765,26 @@ export const examQuestions = [
     topic: 'PD1-509',
     question: 'What is a change set in Salesforce?',
     options: [
-      'A version control system',
       'A declarative deployment tool for moving metadata between connected orgs',
       'A code compilation tool',
-      'A testing framework'
+      'A testing framework',
+      'A version control system'
     ],
-    correct: 1,
+    correct: 0,
     explanation: 'A change set is a declarative deployment tool that allows you to send customizations from one Salesforce org to another connected org (typically from sandbox to production). It uses a point-and-click interface to select components for deployment.'
   },
-  // Additional comprehensive questions from PDF materials
-  // Chapter 1 Additional Questions
   {
     id: 56,
     chapter: 'devFundamentals',
     topic: 'PD1-601',
     question: 'What are the key considerations for developers new to the Salesforce platform?',
     options: [
-      'Governor limits are enforced on shared resources and code cannot be deployed without 75% test coverage',
-      'Salesforce uses a single-tenant architecture with dedicated servers',
       'There are no limits on database queries or API calls',
-      'All customizations must be done through code only'
+      'All customizations must be done through code only',
+      'Salesforce uses a single-tenant architecture with dedicated servers',
+      'Governor limits are enforced on shared resources and code cannot be deployed without 75% test coverage'
     ],
-    correct: 0,
+    correct: 3,
     explanation: 'Key considerations for Salesforce developers include: Governor limits are enforced on shared resources in the multi-tenant environment, and code cannot be deployed to production without achieving at least 75% test code coverage.'
   },
   {
@@ -803,12 +793,12 @@ export const examQuestions = [
     topic: 'PD1-601',
     question: 'Which tool can be used to add custom Lightning components to a page in Lightning Experience?',
     options: [
+      'Developer Console',
       'Setup Menu',
       'Lightning App Builder',
-      'Developer Console',
       'Visualforce Editor'
     ],
-    correct: 1,
+    correct: 2,
     explanation: 'Lightning App Builder provides a drag-and-drop interface for adding custom Lightning components to Lightning pages, record pages, and app pages.'
   },
   {
@@ -817,12 +807,12 @@ export const examQuestions = [
     topic: 'PD1-602',
     question: 'Which annotation should be used for an Apex method that needs to be invoked by a process?',
     options: [
-      '@AuraEnabled',
-      '@InvocableMethod',
+      '@future',
       '@RemoteAction',
-      '@future'
+      '@InvocableMethod',
+      '@AuraEnabled'
     ],
-    correct: 1,
+    correct: 2,
     explanation: 'The @InvocableMethod annotation makes an Apex method callable from Flow and Process Builder. This allows declarative automation tools to invoke custom Apex logic.'
   },
   {
@@ -831,12 +821,12 @@ export const examQuestions = [
     topic: 'PD1-603',
     question: 'Which type of relationship ensures that the child record is deleted when the parent record is deleted?',
     options: [
-      'Lookup relationship',
-      'Master-detail relationship',
       'External relationship',
-      'Hierarchical relationship'
+      'Hierarchical relationship',
+      'Master-detail relationship',
+      'Lookup relationship'
     ],
-    correct: 1,
+    correct: 2,
     explanation: 'In a master-detail relationship, the detail (child) record is automatically deleted when the master (parent) record is deleted. This is called cascade delete.'
   },
   {
@@ -845,12 +835,12 @@ export const examQuestions = [
     topic: 'PD1-603',
     question: 'Which function returns the conversion rate to the corporate currency for a given ISO code?',
     options: [
-      'CURRENCYCONVERT()',
       'CURRENCYRATE()',
+      'CURRENCYCONVERT()',
       'EXCHANGERATE()',
       'CONVERTCURRENCY()'
     ],
-    correct: 1,
+    correct: 0,
     explanation: 'The CURRENCYRATE(isoCode) function returns the conversion rate for the specified currency ISO code to the corporate currency.'
   },
   {
@@ -861,8 +851,8 @@ export const examQuestions = [
     options: [
       'isUpdateable()',
       'isCreateable()',
-      'isAccessible()',
-      'isDeletable()'
+      'isDeletable()',
+      'isAccessible()'
     ],
     correct: 1,
     explanation: 'The isCreateable() method on DescribeSObjectResult checks whether the current user has permission to create records of that object type.'
@@ -873,12 +863,12 @@ export const examQuestions = [
     topic: 'PD1-604',
     question: 'What are limitations of the Data Import Wizard?',
     options: [
-      'Cannot import more than 50,000 records and does not support all standard objects',
-      'Only works with custom objects',
       'Requires Data Loader to be installed',
-      'Cannot handle CSV files'
+      'Cannot import more than 50,000 records and does not support all standard objects',
+      'Cannot handle CSV files',
+      'Only works with custom objects'
     ],
-    correct: 0,
+    correct: 1,
     explanation: 'The Data Import Wizard has limitations including: cannot import more than 50,000 records, does not support all standard objects, cannot save field mappings, and cannot export data.'
   },
   {
@@ -887,25 +877,24 @@ export const examQuestions = [
     topic: 'PD1-603',
     question: 'What functions are available for roll-up summary fields?',
     options: [
-      'Count, Sum, Average, Max, Min',
-      'Count, Sum, Max, Min',
       'Count, Sum, Average',
+      'Count, Sum, Max, Min',
+      'Count, Sum, Average, Max, Min',
       'Count, Sum, Max'
     ],
     correct: 1,
     explanation: 'Roll-up summary fields support four functions: Count (number of records), Sum (total of a field), Max (highest value), and Min (lowest value).'
   },
-  // Chapter 2 Additional Questions
   {
     id: 64,
     chapter: 'processAutomation',
     topic: 'PD1-301',
     question: 'Which declarative automation tool can display a custom user interface?',
     options: [
-      'Workflow Rule',
       'Process Builder',
+      'Approval Process',
       'Flow (Screen Flow)',
-      'Approval Process'
+      'Workflow Rule'
     ],
     correct: 2,
     explanation: 'Flow (specifically Screen Flows) is the only declarative automation tool that can display a custom user interface with input fields, choices, and other screen elements.'
@@ -917,11 +906,11 @@ export const examQuestions = [
     question: 'Which access modifier makes a method accessible only within the defining class?',
     options: [
       'public',
+      'global',
       'private',
-      'protected',
-      'global'
+      'protected'
     ],
-    correct: 1,
+    correct: 2,
     explanation: 'The private access modifier restricts access to only the defining class. Public allows access within the namespace, protected allows access in subclasses, and global allows access across the entire organization.'
   },
   {
@@ -930,12 +919,12 @@ export const examQuestions = [
     topic: 'PD1-303',
     question: 'What does the "continue" statement do in a loop?',
     options: [
+      'Restarts the loop from the beginning',
       'Exits the loop completely',
       'Skips to the next iteration of the loop',
-      'Pauses the loop execution',
-      'Restarts the loop from the beginning'
+      'Pauses the loop execution'
     ],
-    correct: 1,
+    correct: 2,
     explanation: 'The "continue" statement skips the remaining code in the current iteration and jumps to the next iteration of the loop.'
   },
   {
@@ -944,12 +933,12 @@ export const examQuestions = [
     topic: 'PD1-305',
     question: 'Which SOQL clause is used to sort query results?',
     options: [
-      'SORT BY',
-      'ORDER BY',
       'GROUP BY',
-      'ARRANGE BY'
+      'ARRANGE BY',
+      'ORDER BY',
+      'SORT BY'
     ],
-    correct: 1,
+    correct: 2,
     explanation: 'The ORDER BY clause is used to sort SOQL query results by one or more fields. Use ASC for ascending (default) or DESC for descending order.'
   },
   {
@@ -958,12 +947,12 @@ export const examQuestions = [
     topic: 'PD1-305',
     question: 'What is the purpose of the UPSERT DML operation?',
     options: [
-      'To delete and recreate records',
-      'To insert new records or update existing records based on an external ID',
       'To merge duplicate records',
-      'To convert leads'
+      'To delete and recreate records',
+      'To convert leads',
+      'To insert new records or update existing records based on an external ID'
     ],
-    correct: 1,
+    correct: 3,
     explanation: 'UPSERT inserts new records and updates existing records. It matches records using an external ID field or the record ID to determine whether to insert or update.'
   },
   {
@@ -972,12 +961,12 @@ export const examQuestions = [
     topic: 'PD1-306',
     question: 'What is the recommended pattern for organizing trigger logic?',
     options: [
+      'Use only before triggers',
       'Put all logic directly in the trigger',
       'Use a trigger handler class to separate logic from the trigger',
-      'Create multiple triggers per object',
-      'Use only before triggers'
+      'Create multiple triggers per object'
     ],
-    correct: 1,
+    correct: 2,
     explanation: 'Best practice is to use a trigger handler pattern where the trigger delegates all logic to a separate handler class. This improves maintainability, testability, and follows separation of concerns.'
   },
   {
@@ -986,10 +975,10 @@ export const examQuestions = [
     topic: 'PD1-308',
     question: 'What is the governor limit for DML statements in a single Apex transaction?',
     options: [
-      '50',
       '100',
+      '200',
       '150',
-      '200'
+      '50'
     ],
     correct: 2,
     explanation: 'The governor limit for total DML statements (insert, update, delete, undelete) in a single Apex transaction is 150.'
@@ -1000,12 +989,12 @@ export const examQuestions = [
     topic: 'PD1-309',
     question: 'In the save order of execution, when do validation rules fire?',
     options: [
+      'At the very end of the process',
       'Before before triggers',
       'After before triggers but before after triggers',
-      'After after triggers',
-      'At the very end of the process'
+      'After after triggers'
     ],
-    correct: 1,
+    correct: 2,
     explanation: 'In the save order of execution, validation rules fire after before triggers but before after triggers. This means before triggers can modify field values that validation rules will evaluate.'
   },
   {
@@ -1016,8 +1005,8 @@ export const examQuestions = [
     options: [
       'Always use try-catch to handle QueryException',
       'Use a list variable and check if it is empty',
-      'Use LIMIT 1 to ensure exactly one result',
-      'Ignore the possibility of no results'
+      'Ignore the possibility of no results',
+      'Use LIMIT 1 to ensure exactly one result'
     ],
     correct: 1,
     explanation: 'Best practice is to query into a list and check if the list is empty before accessing elements. This avoids QueryException from single-record queries that return no results.'
@@ -1028,27 +1017,26 @@ export const examQuestions = [
     topic: 'PD1-312',
     question: 'What is the purpose of the @InvocableVariable annotation?',
     options: [
+      'To define a constant',
       'To make a variable accessible from Lightning components',
       'To define input/output variables for @InvocableMethod',
-      'To create a static variable',
-      'To define a constant'
+      'To create a static variable'
     ],
-    correct: 1,
+    correct: 2,
     explanation: '@InvocableVariable defines input and output variables for methods annotated with @InvocableMethod. This allows Flow and Process Builder to pass data to and from Apex methods.'
   },
-  // Chapter 3 Additional Questions
   {
     id: 74,
     chapter: 'userInterface',
     topic: 'PD1-401',
     question: 'Which Visualforce component creates a styled table with column headers?',
     options: [
-      '<apex:dataTable>',
       '<apex:pageBlockTable>',
+      '<apex:dataTable>',
       '<apex:repeat>',
       '<apex:outputPanel>'
     ],
-    correct: 1,
+    correct: 0,
     explanation: '<apex:pageBlockTable> creates a table with Salesforce styling and column headers. <apex:dataTable> creates a standard HTML table, while <apex:repeat> provides custom iteration without table structure.'
   },
   {
@@ -1057,12 +1045,12 @@ export const examQuestions = [
     topic: 'PD1-401',
     question: 'Which attribute of apex:page associates a standard controller?',
     options: [
-      'controller',
-      'standardController',
       'extensions',
-      'name'
+      'name',
+      'standardController',
+      'controller'
     ],
-    correct: 1,
+    correct: 2,
     explanation: 'The standardController attribute associates a standard or custom object with the Visualforce page, providing built-in CRUD operations and field access.'
   },
   {
@@ -1071,12 +1059,12 @@ export const examQuestions = [
     topic: 'PD1-405',
     question: 'Where can Lightning components be used?',
     options: [
-      'Only in Lightning Experience',
-      'Salesforce Mobile App, Lightning Experience, and Communities',
+      'Only in Communities',
       'Only in Salesforce Mobile App',
-      'Only in Communities'
+      'Salesforce Mobile App, Lightning Experience, and Communities',
+      'Only in Lightning Experience'
     ],
-    correct: 1,
+    correct: 2,
     explanation: 'Lightning components can be used in Salesforce Mobile App, Lightning Experience, and Communities (formerly known as Community Cloud).'
   },
   {
@@ -1099,12 +1087,12 @@ export const examQuestions = [
     topic: 'PD1-406',
     question: 'Which function is used to prevent XSS in Visualforce?',
     options: [
-      'JSENCODE()',
-      'HTMLENCODE()',
+      'All of the above depending on context',
       'URLENCODE()',
-      'All of the above depending on context'
+      'JSENCODE()',
+      'HTMLENCODE()'
     ],
-    correct: 3,
+    correct: 0,
     explanation: 'Different encoding functions are used based on context: JSENCODE() for JavaScript, HTMLENCODE() for HTML content, and URLENCODE() for URLs. Using the appropriate encoder prevents XSS vulnerabilities.'
   },
   {
@@ -1113,12 +1101,12 @@ export const examQuestions = [
     topic: 'PD1-407',
     question: 'What does the cacheable=true parameter do in @AuraEnabled?',
     options: [
-      'Enables server-side caching only',
-      'Enables client-side caching for read-only data',
       'Enables database caching',
-      'Disables caching completely'
+      'Disables caching completely',
+      'Enables client-side caching for read-only data',
+      'Enables server-side caching only'
     ],
-    correct: 1,
+    correct: 2,
     explanation: 'cacheable=true enables client-side caching for read-only data, improving performance by reducing server calls. It should not be used for methods that perform DML operations.'
   },
   {
@@ -1127,10 +1115,10 @@ export const examQuestions = [
     topic: 'PD1-408',
     question: 'What is the recommended way for sibling components to communicate in LWC?',
     options: [
-      'Direct method calls between components',
+      'Shared JavaScript variables',
       'Lightning Message Service (LMS)',
-      'Global events',
-      'Shared JavaScript variables'
+      'Direct method calls between components',
+      'Global events'
     ],
     correct: 1,
     explanation: 'Lightning Message Service (LMS) is the recommended way for sibling components or components in different DOM trees to communicate. It uses a publish-subscribe pattern.'
@@ -1141,15 +1129,14 @@ export const examQuestions = [
     topic: 'PD1-409',
     question: 'Which decorator is used to expose Apex methods to LWC?',
     options: [
-      '@AuraEnabled',
       '@RemoteAction',
+      '@AuraEnabled',
       '@InvocableMethod',
       '@WebService'
     ],
-    correct: 0,
+    correct: 1,
     explanation: 'The @AuraEnabled annotation makes Apex methods accessible from Lightning Web Components and Aura components. It is the bridge between server-side Apex and client-side JavaScript.'
   },
-  // Chapter 4 Additional Questions
   {
     id: 82,
     chapter: 'testingDebugging',
@@ -1157,11 +1144,11 @@ export const examQuestions = [
     question: 'What is the purpose of @testSetup annotation?',
     options: [
       'To mark a class as a test class',
+      'To configure test coverage reporting',
       'To create test data available to all test methods in the class',
-      'To set up the testing environment',
-      'To configure test coverage reporting'
+      'To set up the testing environment'
     ],
-    correct: 1,
+    correct: 2,
     explanation: '@testSetup defines a method that creates test data available to ALL test methods in the class. The data is rolled back after each test method, ensuring test isolation and efficiency.'
   },
   {
@@ -1170,12 +1157,12 @@ export const examQuestions = [
     topic: 'PD1-501',
     question: 'What happens to test data after a test method completes?',
     options: [
-      'It is permanently saved to the database',
       'It is rolled back and not persisted',
       'It is moved to a test data table',
+      'It is permanently saved to the database',
       'It depends on the test annotation'
     ],
-    correct: 1,
+    correct: 0,
     explanation: 'Test data is automatically rolled back after each test method completes. This ensures test isolation - each test method starts with a clean data state.'
   },
   {
@@ -1184,12 +1171,12 @@ export const examQuestions = [
     topic: 'PD1-502',
     question: 'What is the maximum size of a debug log in Salesforce?',
     options: [
-      '5 MB',
-      '10 MB',
       '20 MB',
-      '50 MB'
+      '5 MB',
+      '50 MB',
+      '10 MB'
     ],
-    correct: 2,
+    correct: 0,
     explanation: 'The maximum size of a debug log is 20 MB. If the log exceeds this size, it will be truncated. Adjusting log levels can help reduce log size.'
   },
   {
@@ -1198,12 +1185,12 @@ export const examQuestions = [
     topic: 'PD1-502',
     question: 'Which tool provides a Query Editor for executing SOQL and SOSL queries?',
     options: [
-      'Setup Menu',
       'Developer Console',
       'Data Loader',
+      'Setup Menu',
       'Workbench'
     ],
-    correct: 1,
+    correct: 0,
     explanation: 'Developer Console includes a Query Editor that allows executing SOQL and SOSL queries directly against the org. It also provides Execute Anonymous for running Apex code.'
   },
   {
@@ -1212,12 +1199,12 @@ export const examQuestions = [
     topic: 'PD1-505',
     question: 'What is the source of truth in Salesforce DX?',
     options: [
+      'Developer Console',
       'The Salesforce org',
       'Version Control System',
-      'Developer Console',
       'The metadata API'
     ],
-    correct: 1,
+    correct: 2,
     explanation: 'In Salesforce DX, the Version Control System (VCS) is the source of truth. Code and metadata are stored in VCS, and scratch orgs are created from the source.'
   },
   {
@@ -1226,12 +1213,12 @@ export const examQuestions = [
     topic: 'PD1-505',
     question: 'What is the difference between Developer and Developer Pro sandboxes?',
     options: [
+      'They are identical',
       'Developer Pro has more storage and can copy data',
       'Developer Pro has less storage',
-      'They are identical',
       'Developer Pro can only be refreshed monthly'
     ],
-    correct: 0,
+    correct: 1,
     explanation: 'Developer Pro sandbox has a higher storage limit than Developer sandbox. Both copy production configuration (not data) and can be refreshed once daily.'
   },
   {
@@ -1240,12 +1227,12 @@ export const examQuestions = [
     topic: 'PD1-509',
     question: 'What is required to use change sets between two orgs?',
     options: [
-      'Both orgs must be on the same Salesforce edition',
       'A deployment connection must be established between the orgs',
       'The orgs must be in the same geographic region',
+      'Both orgs must be on the same Salesforce edition',
       'Both orgs must have the same admin user'
     ],
-    correct: 1,
+    correct: 0,
     explanation: 'To use change sets, a deployment connection must be established between the source and target orgs. Each org must explicitly authorize the other for deployment.'
   },
   {
@@ -1256,8 +1243,8 @@ export const examQuestions = [
     options: [
       'package.xml',
       'destructiveChanges.xml',
-      'build.xml',
-      'deploy.xml'
+      'deploy.xml',
+      'build.xml'
     ],
     correct: 1,
     explanation: 'The destructiveChanges.xml file specifies metadata components to be deleted during deployment. It is used with the Metadata API or ANT Migration Tool.'
@@ -1282,12 +1269,12 @@ export const examQuestions = [
     topic: 'PD1-305',
     question: 'What is the difference between SOQL and SOSL?',
     options: [
-      'SOQL searches across multiple objects; SOSL searches within a single object',
-      'SOQL searches within specific objects; SOSL searches across multiple objects using text search',
+      'SOQL is for metadata; SOSL is for data',
       'They are identical in functionality',
-      'SOQL is for metadata; SOSL is for data'
+      'SOQL searches across multiple objects; SOSL searches within a single object',
+      'SOQL searches within specific objects; SOSL searches across multiple objects using text search'
     ],
-    correct: 1,
+    correct: 3,
     explanation: 'SOQL (Salesforce Object Query Language) queries specific objects and returns structured records. SOSL (Salesforce Object Search Language) performs text searches across multiple objects and returns results grouped by object type.'
   },
   {
@@ -1297,11 +1284,11 @@ export const examQuestions = [
     question: 'What is the best practice for bulkifying Apex triggers?',
     options: [
       'Use SOQL queries inside for loops',
+      'Use Database.query() for each record',
       'Collect all record IDs first, then perform one SOQL query outside the loop',
-      'Process records one at a time',
-      'Use Database.query() for each record'
+      'Process records one at a time'
     ],
-    correct: 1,
+    correct: 2,
     explanation: 'The best practice for bulkifying triggers is to collect all needed record IDs first (from Trigger.new), then perform a single SOQL query outside any loop to retrieve all related data.'
   },
   {
@@ -1310,12 +1297,12 @@ export const examQuestions = [
     topic: 'PD1-308',
     question: 'What is the governor limit for CPU time in synchronous Apex?',
     options: [
-      '5,000 ms',
-      '10,000 ms',
       '30,000 ms',
-      '60,000 ms'
+      '60,000 ms',
+      '5,000 ms',
+      '10,000 ms'
     ],
-    correct: 1,
+    correct: 3,
     explanation: 'The governor limit for CPU time in synchronous Apex is 10,000 ms (10 seconds). For asynchronous Apex, it is 60,000 ms (60 seconds).'
   },
   {
@@ -1324,12 +1311,12 @@ export const examQuestions = [
     topic: 'PD1-401',
     question: 'What is a Visualforce controller?',
     options: [
-      'A database table',
       'An Apex class that provides data and logic to a Visualforce page',
-      'A CSS stylesheet',
-      'A JavaScript library'
+      'A database table',
+      'A JavaScript library',
+      'A CSS stylesheet'
     ],
-    correct: 1,
+    correct: 0,
     explanation: 'A Visualforce controller is an Apex class that provides data and logic to a Visualforce page. It can be a standard controller (built-in), custom controller, or controller extension.'
   },
   {
@@ -1338,12 +1325,12 @@ export const examQuestions = [
     topic: 'PD1-405',
     question: 'What is the difference between Aura and LWC?',
     options: [
+      'LWC can only be used in mobile apps',
       'Aura uses standard web technologies; LWC uses proprietary framework',
       'Aura is proprietary; LWC is based on standard web technologies',
-      'They are exactly the same',
-      'LWC can only be used in mobile apps'
+      'They are exactly the same'
     ],
-    correct: 1,
+    correct: 2,
     explanation: 'Aura uses a proprietary framework with its own component model, while Lightning Web Components (LWC) is built on standard web technologies (ES6+, custom elements, shadow DOM).'
   },
   {
@@ -1353,11 +1340,11 @@ export const examQuestions = [
     question: 'What is the minimum code coverage required for deploying Apex to production?',
     options: [
       '50%',
-      '75%',
+      '100%',
       '80%',
-      '100%'
+      '75%'
     ],
-    correct: 1,
+    correct: 3,
     explanation: 'Salesforce requires a minimum of 75% cumulative code coverage across all Apex classes and triggers for deployment to production.'
   },
   {
@@ -1366,12 +1353,12 @@ export const examQuestions = [
     topic: 'PD1-302',
     question: 'What is the correct way to declare a constant in Apex?',
     options: [
-      'const Integer MAX = 10;',
       'static final Integer MAX = 10;',
+      'Both B and C are correct',
       'final static Integer MAX = 10;',
-      'Both B and C are correct'
+      'const Integer MAX = 10;'
     ],
-    correct: 3,
+    correct: 1,
     explanation: 'Both "static final Integer MAX = 10;" and "final static Integer MAX = 10;" are valid ways to declare a constant in Apex. The "static" keyword makes it a class-level constant, and "final" prevents reassignment.'
   },
   {
@@ -1380,12 +1367,12 @@ export const examQuestions = [
     topic: 'PD1-603',
     question: 'How is a many-to-many relationship created in Salesforce?',
     options: [
-      'Using a junction object with two master-detail relationships',
       'Using two lookup relationships',
       'Using a single master-detail relationship',
+      'Using a junction object with two master-detail relationships',
       'Using a formula field'
     ],
-    correct: 0,
+    correct: 2,
     explanation: 'A many-to-many relationship is created using a junction object that has two master-detail relationships. This junction object sits between the two objects and allows records on both sides to be related to multiple records on the other side.'
   },
   {
@@ -1395,8 +1382,8 @@ export const examQuestions = [
     question: 'How can recursion be prevented in Apex triggers?',
     options: [
       'By using the "static" keyword on a Boolean variable to track execution',
-      'By using the "final" keyword',
       'By adding more governor limits',
+      'By using the "final" keyword',
       'Recursion cannot be prevented'
     ],
     correct: 0,
@@ -1408,12 +1395,12 @@ export const examQuestions = [
     topic: 'PD1-406',
     question: 'What is the best way to prevent SOQL injection in Visualforce?',
     options: [
-      'Use bind variables in dynamic SOQL',
       'Use string concatenation',
+      'Use bind variables in dynamic SOQL',
       'Disable user input',
       'Use SOSL instead of SOQL'
     ],
-    correct: 0,
+    correct: 1,
     explanation: 'Using bind variables in dynamic SOQL is the best way to prevent SOQL injection. Bind variables automatically escape user input, preventing malicious SOQL from being injected.'
   },
   {
@@ -1421,25 +1408,40 @@ export const examQuestions = [
     chapter: 'devFundamentals',
     topic: 'PD1-601',
     question: 'Pages and components are part of which component of the MVC?',
-    options: ["View", "Controller", "Model", "Neither - Pages are separate from MVC"],
-    correct: 0,
-    explanation: 'View'
+    options: [
+      'Neither - Pages are separate from MVC',
+      'View',
+      'Model',
+      'Controller'
+    ],
+    correct: 1,
+    explanation: 'View. View This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 102,
     chapter: 'devFundamentals',
     topic: 'PD1-601',
     question: 'What part of the MVC do Salesforce Objects map to?',
-    options: ["Model", "View", "Controller", "Neither - Objects are separate from MVC"],
+    options: [
+      'Model',
+      'Neither - Objects are separate from MVC',
+      'Controller',
+      'View'
+    ],
     correct: 0,
-    explanation: 'Model'
+    explanation: 'Model. Model This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 103,
     chapter: 'devFundamentals',
     topic: 'PD1-603',
     question: 'What can be created to update a custom field on an unrelated custom object whenever a new account is created in Salesforce?',
-    options: ["A record-triggered flow", "A Visualforce page", "A Lightning component", "A formula field"],
+    options: [
+      'A record-triggered flow',
+      'A Visualforce page',
+      'A Lightning component',
+      'A formula field'
+    ],
     correct: 0,
     explanation: 'A flow for simpler scenarios. An Apex trigger for more complex scenarios.'
   },
@@ -1448,8 +1450,13 @@ export const examQuestions = [
     chapter: 'devFundamentals',
     topic: 'PD1-601',
     question: 'Which two programming models are available for building Lightning components?',
-    options: ["Aura Components and Lightning Web Components (LWC)", "Visualforce and Aura", "Lightning Web Components and Visualforce", "Apex and Lightning Web Components"],
-    correct: 0,
+    options: [
+      'Visualforce and Aura',
+      'Lightning Web Components and Visualforce',
+      'Apex and Lightning Web Components',
+      'Aura Components and Lightning Web Components (LWC)'
+    ],
+    correct: 3,
     explanation: 'Aura Components and Lightning Web Components (LWC)'
   },
   {
@@ -1457,44 +1464,69 @@ export const examQuestions = [
     chapter: 'devFundamentals',
     topic: 'PD1-601',
     question: 'Which tool can be used to add custom Lightning components to a page in Lightning Experience?',
-    options: ["Lightning App Builder", "Setup Menu", "Developer Console", "Visualforce Editor"],
-    correct: 0,
-    explanation: 'Lightning App Builder'
+    options: [
+      'Visualforce Editor',
+      'Lightning App Builder',
+      'Developer Console',
+      'Setup Menu'
+    ],
+    correct: 1,
+    explanation: 'Lightning App Builder. Lightning App Builder This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 106,
     chapter: 'devFundamentals',
     topic: 'PD1-601',
     question: 'What namespace is used by Lightning components that exist in two versions (Aura component and Lightning web component)?',
-    options: ["c:", "lightning:", "force:", "ui:"],
-    correct: 0,
-    explanation: '‘lightning’ namespace'
+    options: [
+      'lightning:',
+      'c:',
+      'force:',
+      'ui:'
+    ],
+    correct: 1,
+    explanation: 'c:. ‘lightning’ namespace This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 107,
     chapter: 'devFundamentals',
     topic: 'PD1-603',
     question: 'Which property of an object or field can be changed when it is referenced in Apex code?',
-    options: ["The label", "The API name", "The data type", "The field length"],
+    options: [
+      'The label',
+      'The API name',
+      'The data type',
+      'The field length'
+    ],
     correct: 0,
-    explanation: 'Label Name'
+    explanation: 'The label. Label Name This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 108,
     chapter: 'devFundamentals',
     topic: 'PD1-603',
     question: 'What does the user interface display when a user tries to change the data type of a field that is referenced in Apex code?',
-    options: ["A warning that the field is referenced in code and the data type cannot be changed", "The change is automatically applied", "The field is automatically deleted", "An error message with no option to proceed"],
-    correct: 0,
-    explanation: 'Validation Error'
+    options: [
+      'The field is automatically deleted',
+      'An error message with no option to proceed',
+      'A warning that the field is referenced in code and the data type cannot be changed',
+      'The change is automatically applied'
+    ],
+    correct: 2,
+    explanation: 'A warning that the field is referenced in code and the data type cannot be changed. Validation Error'
   },
   {
     id: 109,
     chapter: 'devFundamentals',
     topic: 'PD1-603',
     question: 'Can relationship types be changed?',
-    options: ["Yes, with conditions: master-detail can convert to lookup if not used in roll-up summary fields", "No, relationship types cannot be changed", "Yes, but only lookup to master-detail", "Yes, but only with Salesforce support approval"],
-    correct: 0,
+    options: [
+      'Yes, but only lookup to master-detail',
+      'Yes, with conditions: master-detail can convert to lookup if not used in roll-up summary fields',
+      'No, relationship types cannot be changed',
+      'Yes, but only with Salesforce support approval'
+    ],
+    correct: 1,
     explanation: 'If a master-detail relationship is not used in a roll-up summary field, it can be converted to a lookup relationship, and also vice versa as long as the lookup relationship field contains values in all of its records.'
   },
   {
@@ -1502,26 +1534,41 @@ export const examQuestions = [
     chapter: 'devFundamentals',
     topic: 'PD1-603',
     question: 'Which relationship can be used on the User object to associate one user with another?',
-    options: ["Lookup relationship to User", "Master-detail relationship", "Junction object", "Hierarchical relationship"],
-    correct: 0,
-    explanation: 'Hierarchical relationship'
+    options: [
+      'Hierarchical relationship',
+      'Master-detail relationship',
+      'Lookup relationship to User',
+      'Junction object'
+    ],
+    correct: 2,
+    explanation: 'Lookup relationship to User. Hierarchical relationship'
   },
   {
     id: 111,
     chapter: 'devFundamentals',
     topic: 'PD1-603',
     question: 'Which type of custom object should be created for a many-to-many relationship in Salesforce?',
-    options: ["Junction object with two master-detail relationships", "Two lookup relationships", "A single master-detail relationship", "A formula field"],
-    correct: 0,
-    explanation: 'Junction object'
+    options: [
+      'A single master-detail relationship',
+      'Junction object with two master-detail relationships',
+      'Two lookup relationships',
+      'A formula field'
+    ],
+    correct: 1,
+    explanation: 'Junction object with two master-detail relationships. Junction object'
   },
   {
     id: 112,
     chapter: 'devFundamentals',
     topic: 'PD1-603',
     question: 'What is an external ID?',
-    options: ["A field containing a unique identifier from an external system", "A field that auto-generates IDs", "A field that links to external databases", "A field that stores API names"],
-    correct: 0,
+    options: [
+      'A field that auto-generates IDs',
+      'A field containing a unique identifier from an external system',
+      'A field that stores API names',
+      'A field that links to external databases'
+    ],
+    correct: 1,
     explanation: 'An external ID is a field that contains a unique identifier from a system outside of Salesforce.'
   },
   {
@@ -1529,8 +1576,13 @@ export const examQuestions = [
     chapter: 'devFundamentals',
     topic: 'PD1-603',
     question: 'What are some limitations of roll-up summary fields?',
-    options: ["Max number per object, does not work for lookups, cannot roll up formula fields referencing other objects", "Works with all relationship types", "Can roll up any field type", "No limitations exist"],
-    correct: 0,
+    options: [
+      'Works with all relationship types',
+      'Max number per object, does not work for lookups, cannot roll up formula fields referencing other objects',
+      'Can roll up any field type',
+      'No limitations exist'
+    ],
+    correct: 1,
     explanation: 'There is a max number of roll-up summary fields per object. Does not work for lookups. Cannot rollup a formula field that references a field on another object or contains dynamic date function.'
   },
   {
@@ -1538,8 +1590,13 @@ export const examQuestions = [
     chapter: 'devFundamentals',
     topic: 'PD1-603',
     question: 'Which two options are available to access the token for an object in Apex?',
-    options: ["getSObjectType() method and sObjectType static member variable", "getObjectToken() and Token.get()", "Schema.getToken() and Object.type()", "getType() and SObject.class"],
-    correct: 0,
+    options: [
+      'getObjectToken() and Token.get()',
+      'getSObjectType() method and sObjectType static member variable',
+      'getType() and SObject.class',
+      'Schema.getToken() and Object.type()'
+    ],
+    correct: 1,
     explanation: 'The getSObjectType method and the sObjectType static member variable'
   },
   {
@@ -1547,8 +1604,13 @@ export const examQuestions = [
     chapter: 'devFundamentals',
     topic: 'PD1-601',
     question: 'What platform features are part of the control layer in the MVC model?',
-    options: ["Declarative (workflow rules) or programmatic (Apex classes) business logic", "Only Visualforce pages", "Only Lightning components", "Database tables and fields"],
-    correct: 0,
+    options: [
+      'Only Lightning components',
+      'Declarative (workflow rules) or programmatic (Apex classes) business logic',
+      'Only Visualforce pages',
+      'Database tables and fields'
+    ],
+    correct: 1,
     explanation: 'Declarative (e.g. workflow and escalation rules) or programmatic (e.g. Visualforce controllers or Apex classes) business logic'
   },
   {
@@ -1556,8 +1618,13 @@ export const examQuestions = [
     chapter: 'devFundamentals',
     topic: 'PD1-601',
     question: 'What are 2 considerations that a developer new to Salesforce should be aware of?',
-    options: ["Governor limits on shared resources and 75% test coverage required for deployment", "No limits on queries or API calls", "Single-tenant architecture with dedicated servers", "All customizations must be done through code"],
-    correct: 0,
+    options: [
+      'All customizations must be done through code',
+      'Governor limits on shared resources and 75% test coverage required for deployment',
+      'Single-tenant architecture with dedicated servers',
+      'No limits on queries or API calls'
+    ],
+    correct: 1,
     explanation: 'Limits are enforced on shared resources (Governor Limits). Code cannot be deployed into production unless test code coverage is achieved.'
   },
   {
@@ -1565,17 +1632,27 @@ export const examQuestions = [
     chapter: 'devFundamentals',
     topic: 'PD1-601',
     question: 'Which platform is best to use if you want to create user interfaces without writing code?',
-    options: ["App Cloud (Salesforce Platform)", "Salesforce DX", "Visual Studio Code", "Developer Console"],
+    options: [
+      'App Cloud (Salesforce Platform)',
+      'Visual Studio Code',
+      'Salesforce DX',
+      'Developer Console'
+    ],
     correct: 0,
-    explanation: 'App Cloud (Salesforce Platform)'
+    explanation: 'App Cloud (Salesforce Platform). App Cloud (Salesforce Platform) This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 118,
     chapter: 'devFundamentals',
     topic: 'PD1-601',
     question: 'What can be done to display a custom user interface that allows users to update several related records simultaneously on the opportunity page in Lightning Experience?',
-    options: ["Develop a custom Lightning Component and add it using Lightning App Builder", "Use a standard Visualforce page", "Create a formula field", "Use Process Builder"],
-    correct: 0,
+    options: [
+      'Use Process Builder',
+      'Create a formula field',
+      'Develop a custom Lightning Component and add it using Lightning App Builder',
+      'Use a standard Visualforce page'
+    ],
+    correct: 2,
     explanation: 'A custom Lightning Component can be developed and added to the record page using Lightning App Builder.'
   },
   {
@@ -1583,8 +1660,13 @@ export const examQuestions = [
     chapter: 'devFundamentals',
     topic: 'PD1-602',
     question: 'Which declarative automation tools can be used to perform automated actions for an app in Salesforce?',
-    options: ["Process Builder, Flow Builder, Approval Process, and Workflow Rule", "Only Apex triggers", "Only Visualforce pages", "Only Lightning components"],
-    correct: 0,
+    options: [
+      'Only Apex triggers',
+      'Process Builder, Flow Builder, Approval Process, and Workflow Rule',
+      'Only Visualforce pages',
+      'Only Lightning components'
+    ],
+    correct: 1,
     explanation: 'Process Builder, Flow Builder, Approval Process, and Workflow Rule'
   },
   {
@@ -1592,17 +1674,27 @@ export const examQuestions = [
     chapter: 'devFundamentals',
     topic: 'PD1-602',
     question: 'Which annotation should be used for an Apex method that needs to be invoked by a process?',
-    options: ["@InvocableMethod", "@AuraEnabled", "@RemoteAction", "@future"],
-    correct: 0,
-    explanation: '@InvocableMethod'
+    options: [
+      '@AuraEnabled',
+      '@InvocableMethod',
+      '@RemoteAction',
+      '@future'
+    ],
+    correct: 1,
+    explanation: '@InvocableMethod. @InvocableMethod This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 121,
     chapter: 'devFundamentals',
     topic: 'PD1-603',
     question: 'What happens when a field whose value is not specified for an object in an Apex class is made required?',
-    options: ["The Apex code throws an exception", "The field is automatically set to null", "A default value is assigned", "The record is not saved but no error occurs"],
-    correct: 0,
+    options: [
+      'The field is automatically set to null',
+      'A default value is assigned',
+      'The record is not saved but no error occurs',
+      'The Apex code throws an exception'
+    ],
+    correct: 3,
     explanation: 'The Apex code throws an exception when it is executed.'
   },
   {
@@ -1610,7 +1702,12 @@ export const examQuestions = [
     chapter: 'devFundamentals',
     topic: 'PD1-604',
     question: 'What are some options for exporting data from a development environment?',
-    options: ["Data Loader, Workbench, Reports, dataloader.io, and ETL tools", "Only Data Loader", "Only Reports", "Only the Data Export feature"],
+    options: [
+      'Data Loader, Workbench, Reports, dataloader.io, and ETL tools',
+      'Only Data Loader',
+      'Only Reports',
+      'Only the Data Export feature'
+    ],
     correct: 0,
     explanation: 'Data Loader, Workbench, Reports, dataloader.io, ETL tools'
   },
@@ -1619,8 +1716,13 @@ export const examQuestions = [
     chapter: 'devFundamentals',
     topic: 'PD1-604',
     question: 'What are some limitations of the Data Import Wizard?',
-    options: ["Cannot import more than 50,000 records, does not support all standard objects, cannot save mappings", "Only works with custom objects", "Requires Data Loader to be installed", "Cannot handle CSV files"],
-    correct: 0,
+    options: [
+      'Requires Data Loader to be installed',
+      'Cannot import more than 50,000 records, does not support all standard objects, cannot save mappings',
+      'Only works with custom objects',
+      'Cannot handle CSV files'
+    ],
+    correct: 1,
     explanation: 'Does not support all standard objects, cannot load more than 50K records, cannot save mappings, cannot export data'
   },
   {
@@ -1628,8 +1730,13 @@ export const examQuestions = [
     chapter: 'devFundamentals',
     topic: 'PD1-603',
     question: 'How is a many-to-many relationship created?',
-    options: ["Junction object with two master-detail relationships", "Two lookup relationships", "A single master-detail relationship", "A formula field"],
-    correct: 0,
+    options: [
+      'A formula field',
+      'A single master-detail relationship',
+      'Junction object with two master-detail relationships',
+      'Two lookup relationships'
+    ],
+    correct: 2,
     explanation: 'Using a junction object. This object sits between the two objects in the many-to-many relationship and has two master-detail fields, one for each of the objects to be related.'
   },
   {
@@ -1637,17 +1744,27 @@ export const examQuestions = [
     chapter: 'devFundamentals',
     topic: 'PD1-603',
     question: 'Which type of relationship field should be created to ensure that the value of the field related to the parent record is required on child records?',
-    options: ["Master-detail relationship", "Lookup relationship", "External relationship", "Formula field"],
-    correct: 0,
-    explanation: 'Master-detail relationship'
+    options: [
+      'External relationship',
+      'Lookup relationship',
+      'Master-detail relationship',
+      'Formula field'
+    ],
+    correct: 2,
+    explanation: 'Master-detail relationship. Master-detail relationship'
   },
   {
     id: 126,
     chapter: 'devFundamentals',
     topic: 'PD1-603',
     question: 'When would creating a formula field be appropriate?',
-    options: ["When a read-only field is needed calculated from field values", "When users need to edit the value", "When the value changes frequently", "When the value comes from an external system"],
-    correct: 0,
+    options: [
+      'When users need to edit the value',
+      'When the value changes frequently',
+      'When a read-only field is needed calculated from field values',
+      'When the value comes from an external system'
+    ],
+    correct: 2,
     explanation: 'When a read-only field is required that is calculated based on values of fields (including fields in related objects) or based on a defined formula'
   },
   {
@@ -1655,79 +1772,124 @@ export const examQuestions = [
     chapter: 'devFundamentals',
     topic: 'PD1-603',
     question: 'What functions are available for roll-up summary fields?',
-    options: ["Count, Sum, Max, Min", "Count, Sum, Average, Max, Min", "Count, Sum, Average", "Count, Sum, Max"],
-    correct: 0,
-    explanation: 'Count, Sum, Max, Min'
+    options: [
+      'Count, Sum, Max',
+      'Count, Sum, Max, Min',
+      'Count, Sum, Average',
+      'Count, Sum, Average, Max, Min'
+    ],
+    correct: 1,
+    explanation: 'Count, Sum, Max, Min. Count, Sum, Max, Min This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 128,
     chapter: 'devFundamentals',
     topic: 'PD1-603',
     question: 'Which formula would need to be defined in a formula field to add 6 months to a custom field named \'Contract_Start_Date__c\'?',
-    options: ["ADDMONTHS(Contract_Start_Date__c, 6)", "DATEADD(Contract_Start_Date__c, 6, MONTH)", "Contract_Start_Date__c + 180", "DATE(Contract_Start_Date__c, 6)"],
+    options: [
+      'ADDMONTHS(Contract_Start_Date__c, 6)',
+      'Contract_Start_Date__c + 180',
+      'DATE(Contract_Start_Date__c, 6)',
+      'DATEADD(Contract_Start_Date__c, 6, MONTH)'
+    ],
     correct: 0,
-    explanation: 'ADDMONTHS(Contract_Start_Date__c, 6)'
+    explanation: 'ADDMONTHS(Contract_Start_Date__c, 6). ADDMONTHS(Contract_Start_Date__c, 6) This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 129,
     chapter: 'userInterface',
     topic: 'PD1-401',
     question: 'Which component can be used to display individual fields on a record in a Visualforce page?',
-    options: ["<apex:outputField>", "<apex:inputField>", "<apex:detail>", "<apex:pageBlockTable>"],
-    correct: 0,
-    explanation: '<apex:outputField>'
+    options: [
+      '<apex:pageBlockTable>',
+      '<apex:outputField>',
+      '<apex:detail>',
+      '<apex:inputField>'
+    ],
+    correct: 1,
+    explanation: '<apex:outputField>. <apex:outputField> This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 130,
     chapter: 'userInterface',
     topic: 'PD1-401',
     question: 'Which coarse grained component can be used to display the detail page of an object in a Visualforce page?',
-    options: ["<apex:detail>", "<apex:outputField>", "<apex:pageBlock>", "<apex:form>"],
+    options: [
+      '<apex:detail>',
+      '<apex:outputField>',
+      '<apex:pageBlock>',
+      '<apex:form>'
+    ],
     correct: 0,
-    explanation: '<apex:detail>'
+    explanation: '<apex:detail>. <apex:detail> This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 131,
     chapter: 'userInterface',
     topic: 'PD1-401',
     question: 'Which iteration component can be used to generate a table of data with platform styling?',
-    options: ["<apex:pageBlockTable>", "<apex:dataTable>", "<apex:repeat>", "All of the above"],
-    correct: 3,
-    explanation: '<apex:pageBlockTable>'
+    options: [
+      '<apex:repeat>',
+      'All of the above',
+      '<apex:dataTable>',
+      '<apex:pageBlockTable>'
+    ],
+    correct: 1,
+    explanation: 'All of the above. <apex:pageBlockTable> This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 132,
     chapter: 'userInterface',
     topic: 'PD1-405',
     question: 'What type of code can be defined inline in HTML tags?',
-    options: ["CSS code", "JavaScript code", "Apex code", "SQL code"],
-    correct: 0,
-    explanation: 'CSS code'
+    options: [
+      'JavaScript code',
+      'CSS code',
+      'Apex code',
+      'SQL code'
+    ],
+    correct: 1,
+    explanation: 'CSS code. CSS code This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 133,
     chapter: 'userInterface',
     topic: 'PD1-401',
     question: 'Which tag is used to add CSS to a Visualforce page?',
-    options: ["<apex:stylesheet>", "<apex:style>", "<apex:css>", "<style>"],
-    correct: 0,
-    explanation: '<apex:stylesheet>'
+    options: [
+      '<apex:css>',
+      '<style>',
+      '<apex:style>',
+      '<apex:stylesheet>'
+    ],
+    correct: 3,
+    explanation: '<apex:stylesheet>. <apex:stylesheet> This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 134,
     chapter: 'userInterface',
     topic: 'PD1-401',
     question: 'Which component can be used to display an external website in an inline frame within a Visualforce page?',
-    options: ["<apex:iframe>", "<apex:include>", "<apex:embed>", "<apex:external>"],
-    correct: 0,
-    explanation: '<apex:iframe>'
+    options: [
+      '<apex:external>',
+      '<apex:iframe>',
+      '<apex:include>',
+      '<apex:embed>'
+    ],
+    correct: 1,
+    explanation: '<apex:iframe>. <apex:iframe> This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 135,
     chapter: 'userInterface',
     topic: 'PD1-401',
     question: 'What is required to override a tab home page with a Visualforce page?',
-    options: ["The page must use the standard list controller, a custom controller, or no controller", "The page must use a standard controller", "The page must be a Lightning component", "The page must use an extension controller"],
+    options: [
+      'The page must use the standard list controller, a custom controller, or no controller',
+      'The page must use a standard controller',
+      'The page must be a Lightning component',
+      'The page must use an extension controller'
+    ],
     correct: 0,
     explanation: 'The Visualforce page must use the standard list controller for that tab, a custom controller, or no controller.'
   },
@@ -1736,26 +1898,41 @@ export const examQuestions = [
     chapter: 'userInterface',
     topic: 'PD1-401',
     question: 'What can be added to a console to display a Visualforce page?',
-    options: ["Custom console component to the sidebar or footer", "A Lightning component", "A formula field", "A workflow rule"],
-    correct: 0,
-    explanation: 'Custom console component to the sidebar or footer'
+    options: [
+      'A workflow rule',
+      'A formula field',
+      'Custom console component to the sidebar or footer',
+      'A Lightning component'
+    ],
+    correct: 2,
+    explanation: 'Custom console component to the sidebar or footer. Custom console component to the sidebar or footer'
   },
   {
     id: 137,
     chapter: 'userInterface',
     topic: 'PD1-405',
     question: 'Which communication model is used by the Lightning Component Framework?',
-    options: ["Event-driven model", "Request-response model", "Polling model", "Direct method call model"],
+    options: [
+      'Event-driven model',
+      'Direct method call model',
+      'Request-response model',
+      'Polling model'
+    ],
     correct: 0,
-    explanation: 'Event-driven model'
+    explanation: 'Event-driven model. Event-driven model This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 138,
     chapter: 'userInterface',
     topic: 'PD1-405',
     question: 'Where can Lightning components be made available?',
-    options: ["Salesforce Mobile App, Lightning Experience, and Communities", "Only Lightning Experience", "Only Salesforce Mobile App", "Only Communities"],
-    correct: 0,
+    options: [
+      'Only Salesforce Mobile App',
+      'Salesforce Mobile App, Lightning Experience, and Communities',
+      'Only Lightning Experience',
+      'Only Communities'
+    ],
+    correct: 1,
     explanation: 'Salesforce Mobile App, Lightning Experience, and Communities'
   },
   {
@@ -1763,26 +1940,41 @@ export const examQuestions = [
     chapter: 'userInterface',
     topic: 'PD1-405',
     question: 'Which design supported by the Lightning Component Framework ensures compatibility with different devices?',
-    options: ["Responsive design", "Fixed-width design", "Desktop-first design", "Mobile-only design"],
-    correct: 0,
-    explanation: 'Responsive design'
+    options: [
+      'Mobile-only design',
+      'Responsive design',
+      'Fixed-width design',
+      'Desktop-first design'
+    ],
+    correct: 1,
+    explanation: 'Responsive design. Responsive design This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 140,
     chapter: 'userInterface',
     topic: 'PD1-405',
     question: 'In an Aura component bundle, which resource contains the markup definition for reusable units of an app?',
-    options: ["Component (.cmp)", "Controller", "Helper", "Style"],
-    correct: 0,
-    explanation: 'Component'
+    options: [
+      'Style',
+      'Controller',
+      'Helper',
+      'Component (.cmp)'
+    ],
+    correct: 3,
+    explanation: 'Component (.cmp). Component This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 141,
     chapter: 'userInterface',
     topic: 'PD1-401',
     question: 'How can CSS be added to an Aura component bundle in the Developer Console?',
-    options: ["By clicking on the STYLE button", "By creating a CSS file", "By using the @css annotation", "By adding a link tag"],
-    correct: 0,
+    options: [
+      'By using the @css annotation',
+      'By clicking on the STYLE button',
+      'By adding a link tag',
+      'By creating a CSS file'
+    ],
+    correct: 1,
     explanation: 'By clicking on the STYLE button in the Developer Console sidebar'
   },
   {
@@ -1790,26 +1982,41 @@ export const examQuestions = [
     chapter: 'userInterface',
     topic: 'PD1-405',
     question: 'Which component in an Aura component bundle is used to expose attributes to the Lightning App Builder?',
-    options: ["Design resource", "Controller resource", "Helper resource", "Style resource"],
-    correct: 0,
-    explanation: 'Design'
+    options: [
+      'Controller resource',
+      'Design resource',
+      'Helper resource',
+      'Style resource'
+    ],
+    correct: 1,
+    explanation: 'Design resource. Design This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 143,
     chapter: 'userInterface',
     topic: 'PD1-405',
     question: 'Which tag can be used to reference a JavaScript library uploaded as a static resource in .cmp markup?',
-    options: ["<ltng:require>", "<script>", "<aura:import>", "<c:require>"],
-    correct: 0,
-    explanation: '<ltng:require>'
+    options: [
+      '<c:require>',
+      '<ltng:require>',
+      '<aura:import>',
+      '<script>'
+    ],
+    correct: 1,
+    explanation: '<ltng:require>. <ltng:require> This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 144,
     chapter: 'userInterface',
     topic: 'PD1-401',
     question: 'Which Visualforce overrides are available for Lightning console apps?',
-    options: ["Custom console component to the sidebar or footer", "A Lightning component", "A formula field", "A workflow rule"],
-    correct: 0,
+    options: [
+      'A workflow rule',
+      'A formula field',
+      'Custom console component to the sidebar or footer',
+      'A Lightning component'
+    ],
+    correct: 2,
     explanation: 'Visualforce overrides are supported for new, edit, view, tab, list, and clone in Lightning console apps.'
   },
   {
@@ -1817,89 +2024,139 @@ export const examQuestions = [
     chapter: 'userInterface',
     topic: 'PD1-401',
     question: 'Which attribute of the < apex:page > component is used to associate a standard controller with a Visualforce page?',
-    options: ["standardController", "controller", "extensions", "name"],
+    options: [
+      'standardController',
+      'name',
+      'extensions',
+      'controller'
+    ],
     correct: 0,
-    explanation: 'standardController'
+    explanation: 'standardController. standardController This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 146,
     chapter: 'userInterface',
     topic: 'PD1-401',
     question: 'Which method can be used in a custom controller to respond to user input on a Visualforce page?',
-    options: ["Action method", "Getter method", "Setter method", "Constructor method"],
-    correct: 0,
-    explanation: 'Action method'
+    options: [
+      'Setter method',
+      'Action method',
+      'Getter method',
+      'Constructor method'
+    ],
+    correct: 1,
+    explanation: 'Action method. Action method This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 147,
     chapter: 'userInterface',
     topic: 'PD1-401',
     question: 'Which UI framework allows building single-page web apps with dynamic and responsive user interfaces in Salesforce?',
-    options: ["Lightning Component Framework", "Visualforce", "Classic UI", "Service Cloud"],
-    correct: 0,
-    explanation: 'Lightning Component Framework'
+    options: [
+      'Classic UI',
+      'Visualforce',
+      'Lightning Component Framework',
+      'Service Cloud'
+    ],
+    correct: 2,
+    explanation: 'Lightning Component Framework. Lightning Component Framework'
   },
   {
     id: 148,
     chapter: 'userInterface',
     topic: 'PD1-405',
     question: 'What should be used instead of dynamic SOQL to prevent SOQL injection?',
-    options: ["Static query with a bind variable", "String concatenation", "SOSL query", "No alternative exists"],
-    correct: 0,
-    explanation: 'Static query with a bind variable'
+    options: [
+      'No alternative exists',
+      'SOSL query',
+      'Static query with a bind variable',
+      'String concatenation'
+    ],
+    correct: 2,
+    explanation: 'Static query with a bind variable. Static query with a bind variable This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 149,
     chapter: 'userInterface',
     topic: 'PD1-401',
     question: 'What can prevent a Visualforce page from using an anti-CSRF token?',
-    options: ["An action handler in apex:page", "A standard controller", "A Lightning component", "A custom object"],
-    correct: 0,
-    explanation: 'An action handler in apex:page'
+    options: [
+      'A custom object',
+      'A Lightning component',
+      'A standard controller',
+      'An action handler in apex:page'
+    ],
+    correct: 3,
+    explanation: 'An action handler in apex:page. An action handler in apex:page This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 150,
     chapter: 'userInterface',
     topic: 'PD1-405',
     question: 'Which tag can be utilized in an Aura component to register to an event?',
-    options: ["<aura:registerEvent>", "<aura:handler>", "<aura:event>", "<aura:listener>"],
-    correct: 0,
-    explanation: '<aura:registerEvent>'
+    options: [
+      '<aura:event>',
+      '<aura:handler>',
+      '<aura:registerEvent>',
+      '<aura:listener>'
+    ],
+    correct: 2,
+    explanation: '<aura:registerEvent>. <aura:registerEvent> This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 151,
     chapter: 'userInterface',
     topic: 'PD1-405',
     question: 'Which tag can be utilized in an Aura component to handle an event?',
-    options: ["<aura:handler>", "<aura:registerEvent>", "<aura:listener>", "<aura:event>"],
+    options: [
+      '<aura:handler>',
+      '<aura:event>',
+      '<aura:listener>',
+      '<aura:registerEvent>'
+    ],
     correct: 0,
-    explanation: '<aura:handler>'
+    explanation: '<aura:handler>. <aura:handler> This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 152,
     chapter: 'userInterface',
     topic: 'PD1-405',
     question: 'Which type of event is not subject to the component\'s hierarchical setup?',
-    options: ["Application Event", "Component Event", "System Event", "Custom Event"],
+    options: [
+      'Application Event',
+      'Component Event',
+      'System Event',
+      'Custom Event'
+    ],
     correct: 0,
-    explanation: 'Application Event'
+    explanation: 'Application Event. Application Event This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 153,
     chapter: 'userInterface',
     topic: 'PD1-405',
     question: 'Which type of event is more efficient and should be preferred when an event needs to be handled within the containment hierarchy?',
-    options: ["Component Event", "Application Event", "System Event", "Platform Event"],
+    options: [
+      'Component Event',
+      'System Event',
+      'Platform Event',
+      'Application Event'
+    ],
     correct: 0,
-    explanation: 'Component Event'
+    explanation: 'Component Event. Component Event This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 154,
     chapter: 'userInterface',
     topic: 'PD1-405',
     question: 'What are the different types of Lightning Components',
-    options: ["Standard, Custom, and AppExchange Components", "Only Standard Components", "Only Custom Components", "Aura and LWC only"],
-    correct: 0,
+    options: [
+      'Only Custom Components',
+      'Only Standard Components',
+      'Standard, Custom, and AppExchange Components',
+      'Aura and LWC only'
+    ],
+    correct: 2,
     explanation: 'Standard Components, Custom Components and AppExchange Components'
   },
   {
@@ -1907,8 +2164,13 @@ export const examQuestions = [
     chapter: 'userInterface',
     topic: 'PD1-401',
     question: 'How can flow hide unnecessary fields on a screen?',
-    options: ["Component visibility settings on a screen component", "A formula field", "A validation rule", "A workflow rule"],
-    correct: 0,
+    options: [
+      'A formula field',
+      'A validation rule',
+      'Component visibility settings on a screen component',
+      'A workflow rule'
+    ],
+    correct: 2,
     explanation: 'By using the component visibility settings on a screen component'
   },
   {
@@ -1916,7 +2178,12 @@ export const examQuestions = [
     chapter: 'userInterface',
     topic: 'PD1-401',
     question: 'In what ways can Visualforce page be embedded?',
-    options: ["In page layout and on Lightning pages using the Visualforce component", "Only in page layouts", "Only in Lightning pages", "Only in iframes"],
+    options: [
+      'In page layout and on Lightning pages using the Visualforce component',
+      'Only in iframes',
+      'Only in page layouts',
+      'Only in Lightning pages'
+    ],
     correct: 0,
     explanation: 'In page layout and on Lightning pages using the Visualforce component'
   },
@@ -1925,26 +2192,41 @@ export const examQuestions = [
     chapter: 'userInterface',
     topic: 'PD1-401',
     question: 'What Salesforce feature should be used to build dynamic PDF documents?',
-    options: ["Visualforce Page with renderAs=\"pdf\"", "Lightning Component", "Flow", "Process Builder"],
+    options: [
+      'Visualforce Page with renderAs="pdf"',
+      'Lightning Component',
+      'Flow',
+      'Process Builder'
+    ],
     correct: 0,
-    explanation: 'Visualforce Page'
+    explanation: 'Visualforce Page with renderAs="pdf". Visualforce Page'
   },
   {
     id: 158,
     chapter: 'userInterface',
     topic: 'PD1-401',
     question: 'Which function can be used to securely retrieve third-party images on a Visualforce page?',
-    options: ["IMAGEPROXYURL()", "IMAGEURL()", "PROXYIMAGE()", "GETIMAGE()"],
-    correct: 0,
-    explanation: 'IMAGEPROXYURL'
+    options: [
+      'PROXYIMAGE()',
+      'GETIMAGE()',
+      'IMAGEPROXYURL()',
+      'IMAGEURL()'
+    ],
+    correct: 2,
+    explanation: 'IMAGEPROXYURL(). IMAGEPROXYURL This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 159,
     chapter: 'userInterface',
     topic: 'PD1-401',
     question: 'What does Einstein Next Best Action rely on?',
-    options: ["Flows, recommendations, strategies, and components", "Only Apex code", "Only Lightning components", "Only Visualforce pages"],
-    correct: 0,
+    options: [
+      'Only Lightning components',
+      'Only Apex code',
+      'Flows, recommendations, strategies, and components',
+      'Only Visualforce pages'
+    ],
+    correct: 2,
     explanation: 'flows, recommendations, strategies, and components'
   },
   {
@@ -1952,7 +2234,12 @@ export const examQuestions = [
     chapter: 'userInterface',
     topic: 'PD1-405',
     question: 'What can be used to isolate a static HTML file on a separate domain?',
-    options: ["Lightning Web Component (LWC)", "Visualforce page", "Aura component", "Static Resource"],
+    options: [
+      'Lightning Web Component (LWC)',
+      'Static Resource',
+      'Aura component',
+      'Visualforce page'
+    ],
     correct: 0,
     explanation: '$IFrameResource.<resource_name>, where \'resource_name\' is the name of the static resource'
   },
@@ -1961,16 +2248,26 @@ export const examQuestions = [
     chapter: 'userInterface',
     topic: 'PD1-501',
     question: 'What can be used to create test data once and access it throughout the test class?',
-    options: ["@testSetup method", "@isTest method", "Test.loadData method", "Static resource"],
-    correct: 0,
-    explanation: 'Test setup method'
+    options: [
+      '@isTest method',
+      'Static resource',
+      '@testSetup method',
+      'Test.loadData method'
+    ],
+    correct: 2,
+    explanation: '@testSetup method. Test setup method This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 162,
     chapter: 'testingDebugging',
     topic: 'PD1-501',
     question: 'Which class can contain reusable code for test data creation?',
-    options: ["Public test utility class (Test Data Factory)", "Standard controller", "Custom metadata type", "Static resource"],
+    options: [
+      'Public test utility class (Test Data Factory)',
+      'Static resource',
+      'Custom metadata type',
+      'Standard controller'
+    ],
     correct: 0,
     explanation: 'Public test utility class, also known as Test Data Factory'
   },
@@ -1979,88 +2276,138 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-501',
     question: 'What can be created and executed using the Salesforce testing framework to ensure error-free code?',
-    options: ["Unit tests", "Apex classes", "Triggers", "Flows"],
-    correct: 0,
-    explanation: 'Unit tests'
+    options: [
+      'Triggers',
+      'Apex classes',
+      'Flows',
+      'Unit tests'
+    ],
+    correct: 3,
+    explanation: 'Unit tests. Unit tests This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 164,
     chapter: 'testingDebugging',
     topic: 'PD1-501',
     question: 'Which tests are run by default for deployment to production?',
-    options: ["All local tests", "Only @isTest methods", "Only system tests", "No tests by default"],
-    correct: 0,
-    explanation: 'All local tests'
+    options: [
+      'No tests by default',
+      'All local tests',
+      'Only system tests',
+      'Only @isTest methods'
+    ],
+    correct: 1,
+    explanation: 'All local tests. All local tests This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 165,
     chapter: 'testingDebugging',
     topic: 'PD1-501',
     question: 'Which annotation should be used for a unit test method?',
-    options: ["@isTest", "@Test", "@TestMethod", "@TestCase"],
-    correct: 0,
-    explanation: '@isTest'
+    options: [
+      '@TestCase',
+      '@TestMethod',
+      '@isTest',
+      '@Test'
+    ],
+    correct: 2,
+    explanation: '@isTest. @isTest This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 166,
     chapter: 'testingDebugging',
     topic: 'PD1-501',
     question: 'Which method can be used to verify whether a test achieves expected results?',
-    options: ["System.assertEquals()", "System.assert()", "System.debug()", "System.verify()"],
+    options: [
+      'System.assertEquals()',
+      'System.debug()',
+      'System.verify()',
+      'System.assert()'
+    ],
     correct: 0,
-    explanation: 'System.assert()'
+    explanation: 'System.assertEquals(). System.assert() This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 167,
     chapter: 'testingDebugging',
     topic: 'PD1-501',
     question: 'Which two static methods are used to assign a new set of governor limits?',
-    options: ["Test.startTest() and Test.stopTest()", "Test.begin() and Test.end()", "Limits.reset() and Limits.restore()", "Test.init() and Test.finish()"],
+    options: [
+      'Test.startTest() and Test.stopTest()',
+      'Test.init() and Test.finish()',
+      'Test.begin() and Test.end()',
+      'Limits.reset() and Limits.restore()'
+    ],
     correct: 0,
-    explanation: 'startTest() and stopTest()'
+    explanation: 'Test.startTest() and Test.stopTest(). startTest() and stopTest()'
   },
   {
     id: 168,
     chapter: 'testingDebugging',
     topic: 'PD1-501',
     question: 'Which page on the Salesforce user interface allows unit class testing?',
-    options: ["Apex Test Execution page in Setup", "Developer Console", "Workbench", "App Builder"],
-    correct: 0,
-    explanation: 'Apex Test Execution'
+    options: [
+      'Workbench',
+      'Apex Test Execution page in Setup',
+      'App Builder',
+      'Developer Console'
+    ],
+    correct: 1,
+    explanation: 'Apex Test Execution page in Setup. Apex Test Execution'
   },
   {
     id: 169,
     chapter: 'testingDebugging',
     topic: 'PD1-501',
     question: 'What can be used to create or delete tests that can be run together?',
-    options: ["Suite Manager in Developer Console", "Test Manager in Setup", "Apex Test Execution", "Developer Console"],
+    options: [
+      'Suite Manager in Developer Console',
+      'Apex Test Execution',
+      'Test Manager in Setup',
+      'Developer Console'
+    ],
     correct: 0,
-    explanation: 'Suite Manager in Developer Console'
+    explanation: 'Suite Manager in Developer Console. Suite Manager in Developer Console This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 170,
     chapter: 'testingDebugging',
     topic: 'PD1-501',
     question: 'What does not affect actual data after successful code execution?',
-    options: ["Unit Tests", "Apex Classes", "Triggers", "Batch Jobs"],
+    options: [
+      'Unit Tests',
+      'Apex Classes',
+      'Batch Jobs',
+      'Triggers'
+    ],
     correct: 0,
-    explanation: 'Unit Tests'
+    explanation: 'Unit Tests. Unit Tests This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 171,
     chapter: 'testingDebugging',
     topic: 'PD1-501',
     question: 'Which default sharing mode is used for anonymous block execution?',
-    options: ["User mode with sharing", "System mode without sharing", "No sharing mode", "Global sharing mode"],
-    correct: 0,
-    explanation: 'User mode with sharing'
+    options: [
+      'System mode without sharing',
+      'No sharing mode',
+      'Global sharing mode',
+      'User mode with sharing'
+    ],
+    correct: 3,
+    explanation: 'User mode with sharing. User mode with sharing This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 172,
     chapter: 'testingDebugging',
     topic: 'PD1-509',
     question: 'What are unmanaged packages typically used for?',
-    options: ["Distributing free software, templates, and open source components", "Selling on AppExchange", "Upgrading existing packages", "Protecting intellectual property"],
+    options: [
+      'Distributing free software, templates, and open source components',
+      'Upgrading existing packages',
+      'Protecting intellectual property',
+      'Selling on AppExchange'
+    ],
     correct: 0,
     explanation: 'Distributing free software, templates, and open source components'
   },
@@ -2069,8 +2416,13 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-509',
     question: 'What is the difference between a managed package and unmanaged package?',
-    options: ["Managed: protected, upgradeable, sold on AppExchange. Unmanaged: not protected, cannot be upgraded", "They are identical in functionality", "Managed is for free distribution, unmanaged is for sale", "Unmanaged can be upgraded, managed cannot"],
-    correct: 0,
+    options: [
+      'They are identical in functionality',
+      'Managed is for free distribution, unmanaged is for sale',
+      'Unmanaged can be upgraded, managed cannot',
+      'Managed: protected, upgradeable, sold on AppExchange. Unmanaged: not protected, cannot be upgraded'
+    ],
+    correct: 3,
     explanation: 'A managed package is protected, upgradeable and is typically sold on the AppExchange. Unmanaged packages are not protected and can be used for distribution to others and can be modified once installed.'
   },
   {
@@ -2078,7 +2430,12 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-509',
     question: 'What can a change set be used for?',
-    options: ["Moving metadata between related orgs (sandbox to production)", "Moving data between orgs", "Creating new objects", "Writing Apex code"],
+    options: [
+      'Moving metadata between related orgs (sandbox to production)',
+      'Moving data between orgs',
+      'Writing Apex code',
+      'Creating new objects'
+    ],
     correct: 0,
     explanation: 'Moving meta data between related orgs, e.g. from a sandbox to production. It cannot be used for moving data.'
   },
@@ -2087,7 +2444,12 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-509',
     question: 'What is required to use change sets in 2 orgs?',
-    options: ["A deployment connection between the orgs", "Both orgs on the same edition", "Same geographic region", "Same admin user"],
+    options: [
+      'A deployment connection between the orgs',
+      'Both orgs on the same edition',
+      'Same geographic region',
+      'Same admin user'
+    ],
     correct: 0,
     explanation: 'A deployment connection between the orgs and each org must explicitly authorize the other org to send change sets to it.'
   },
@@ -2096,8 +2458,13 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-509',
     question: 'What are some restrictions of change sets?',
-    options: ["75% test coverage required, not all metadata supported, cannot specify deploy order", "No restrictions exist", "Can only deploy code, not configuration", "Requires Data Loader"],
-    correct: 0,
+    options: [
+      'Can only deploy code, not configuration',
+      'Requires Data Loader',
+      'No restrictions exist',
+      '75% test coverage required, not all metadata supported, cannot specify deploy order'
+    ],
+    correct: 3,
     explanation: 'Code must have 75% test coverage. Not all metadata types are supported. The order of components deployed cannot be specified. Cannot be used to rename or delete components.'
   },
   {
@@ -2105,8 +2472,13 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-509',
     question: 'What option can be used for distributing metadata to multiple unrelated orgs?',
-    options: ["Unmanaged packages", "Change sets", "Data Loader", "Metadata API"],
-    correct: 0,
+    options: [
+      'Change sets',
+      'Data Loader',
+      'Metadata API',
+      'Unmanaged packages'
+    ],
+    correct: 3,
     explanation: 'Unmanaged packages can be used to distribute metadata to unrelated orgs.'
   },
   {
@@ -2114,8 +2486,13 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-509',
     question: 'What option would you choose to move metadata in a scripted manner to multiple environments?',
-    options: ["Force.com Migration Tool (ANT)", "Change Sets", "Data Loader", "Workbench"],
-    correct: 0,
+    options: [
+      'Workbench',
+      'Data Loader',
+      'Force.com Migration Tool (ANT)',
+      'Change Sets'
+    ],
+    correct: 2,
     explanation: 'Force.com migration tool can be used to script deployments to multiple environments.'
   },
   {
@@ -2123,7 +2500,12 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-502',
     question: 'What are the different log levels available in Apex?',
-    options: ["NONE, ERROR, WARN, INFO, DEBUG, FINE, FINER, FINEST", "ERROR, WARNING, INFO, DEBUG", "LOW, MEDIUM, HIGH, CRITICAL", "BASIC, DETAILED, VERBOSE"],
+    options: [
+      'NONE, ERROR, WARN, INFO, DEBUG, FINE, FINER, FINEST',
+      'BASIC, DETAILED, VERBOSE',
+      'LOW, MEDIUM, HIGH, CRITICAL',
+      'ERROR, WARNING, INFO, DEBUG'
+    ],
     correct: 0,
     explanation: 'NONE, ERROR, WARN, INFO, DEBUG, FINE, FINER, FINEST'
   },
@@ -2132,8 +2514,13 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-509',
     question: 'What are the options for moving metadata between environments?',
-    options: ["Change Sets, Force.com Migration Tool, VS Code, Workbench, Unmanaged Packages", "Only Change Sets", "Only Data Loader", "Only Metadata API"],
-    correct: 0,
+    options: [
+      'Only Change Sets',
+      'Change Sets, Force.com Migration Tool, VS Code, Workbench, Unmanaged Packages',
+      'Only Metadata API',
+      'Only Data Loader'
+    ],
+    correct: 1,
     explanation: 'Change Sets, Force.com Migration Tool, Visual Studio Code, Workbench, Unmanaged Packages'
   },
   {
@@ -2141,116 +2528,181 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-502',
     question: 'Where can debug logs be viewed, downloaded and deleted?',
-    options: ["Developer Console and Setup (Debug Logs panel)", "Only Developer Console", "Only Setup", "Workbench"],
-    correct: 0,
-    explanation: 'Developer Console and Setup'
+    options: [
+      'Only Setup',
+      'Developer Console and Setup (Debug Logs panel)',
+      'Only Developer Console',
+      'Workbench'
+    ],
+    correct: 1,
+    explanation: 'Developer Console and Setup (Debug Logs panel). Developer Console and Setup'
   },
   {
     id: 182,
     chapter: 'testingDebugging',
     topic: 'PD1-502',
     question: 'Which suite of tools can be used to query, update, delete and insert data in Salesforce via the Force.com APIs?',
-    options: ["Workbench", "Data Loader", "Developer Console", "VS Code"],
-    correct: 0,
-    explanation: 'Workbench'
+    options: [
+      'VS Code',
+      'Workbench',
+      'Data Loader',
+      'Developer Console'
+    ],
+    correct: 1,
+    explanation: 'Workbench. Workbench This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 183,
     chapter: 'testingDebugging',
     topic: 'PD1-502',
     question: 'Which Salesforce feature provides a Query Editor for executing SOQL and SOSL queries?',
-    options: ["Developer Console", "Setup Menu", "Data Loader", "Workbench"],
-    correct: 0,
-    explanation: 'Developer Console'
+    options: [
+      'Setup Menu',
+      'Developer Console',
+      'Workbench',
+      'Data Loader'
+    ],
+    correct: 1,
+    explanation: 'Developer Console. Developer Console This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 184,
     chapter: 'testingDebugging',
     topic: 'PD1-502',
     question: 'Which environment is used for migrating and combining changes from different development environments?',
-    options: ["Integration environment", "Development environment", "Production environment", "Staging environment"],
-    correct: 0,
-    explanation: 'Integration environment'
+    options: [
+      'Development environment',
+      'Integration environment',
+      'Staging environment',
+      'Production environment'
+    ],
+    correct: 1,
+    explanation: 'Integration environment. Integration environment This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 185,
     chapter: 'testingDebugging',
     topic: 'PD1-509',
     question: 'Which environment can be used for a test deployment before changes are migrated to production?',
-    options: ["Staging environment", "Development environment", "Integration environment", "UAT environment"],
-    correct: 0,
-    explanation: 'Staging environment'
+    options: [
+      'Development environment',
+      'UAT environment',
+      'Staging environment',
+      'Integration environment'
+    ],
+    correct: 2,
+    explanation: 'Staging environment. Staging environment This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 186,
     chapter: 'testingDebugging',
     topic: 'PD1-502',
     question: 'Which type of tests are conducted in a UAT environment?',
-    options: ["User acceptance tests", "Unit tests", "Integration tests", "Performance tests"],
-    correct: 0,
-    explanation: 'User acceptance tests'
+    options: [
+      'Unit tests',
+      'Performance tests',
+      'User acceptance tests',
+      'Integration tests'
+    ],
+    correct: 2,
+    explanation: 'User acceptance tests. User acceptance tests This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 187,
     chapter: 'testingDebugging',
     topic: 'PD1-502',
     question: 'How many checkpoints can be set in Apex code at a time?',
-    options: ["Five", "Three", "Ten", "Unlimited"],
+    options: [
+      'Five',
+      'Ten',
+      'Three',
+      'Unlimited'
+    ],
     correct: 0,
-    explanation: 'Five'
+    explanation: 'Five. Five This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 188,
     chapter: 'testingDebugging',
     topic: 'PD1-502',
     question: 'What can be used to investigate the objects in memory at a specific checkpoint and see the other objects with references to them?',
-    options: ["Checkpoint Inspector", "Debug Log", "Developer Console", "System.debug()"],
+    options: [
+      'Checkpoint Inspector',
+      'Developer Console',
+      'Debug Log',
+      'System.debug()'
+    ],
     correct: 0,
-    explanation: 'Checkpoint Inspector'
+    explanation: 'Checkpoint Inspector. Checkpoint Inspector This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 189,
     chapter: 'testingDebugging',
     topic: 'PD1-509',
     question: 'Which file must be created in order to delete metadata components?',
-    options: ["destructiveChanges.xml", "package.xml", "build.xml", "deploy.xml"],
-    correct: 0,
-    explanation: 'destructiveChanges.xml'
+    options: [
+      'package.xml',
+      'build.xml',
+      'destructiveChanges.xml',
+      'deploy.xml'
+    ],
+    correct: 2,
+    explanation: 'destructiveChanges.xml. destructiveChanges.xml This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 190,
     chapter: 'testingDebugging',
     topic: 'PD1-505',
     question: 'Which API provides fine-grained access to an org’s metadata by retrieving smaller pieces of metadata?',
-    options: ["Tooling API", "Metadata API", "REST API", "SOAP API"],
+    options: [
+      'Tooling API',
+      'REST API',
+      'Metadata API',
+      'SOAP API'
+    ],
     correct: 0,
-    explanation: 'Tooling API'
+    explanation: 'Tooling API. Tooling API This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 191,
     chapter: 'testingDebugging',
     topic: 'PD1-505',
     question: 'Which tools are available to access functionality provided by Metadata API?',
-    options: ["Visual Studio Code and Ant Migration Tool", "Only Developer Console", "Only Workbench", "Only Data Loader"],
-    correct: 0,
-    explanation: 'Visual Studio Code and Ant Migration Tool'
+    options: [
+      'Only Data Loader',
+      'Visual Studio Code and Ant Migration Tool',
+      'Only Workbench',
+      'Only Developer Console'
+    ],
+    correct: 1,
+    explanation: 'Visual Studio Code and Ant Migration Tool. Visual Studio Code and Ant Migration Tool'
   },
   {
     id: 192,
     chapter: 'testingDebugging',
     topic: 'PD1-502',
     question: 'Where can debug mode be enabled for Lightning components?',
-    options: ["Debug Mode setting in Setup", "Developer Console", "VS Code", "Lightning App Builder"],
-    correct: 0,
-    explanation: '\'Debug Mode\' in Setup'
+    options: [
+      'Developer Console',
+      'Debug Mode setting in Setup',
+      'Lightning App Builder',
+      'VS Code'
+    ],
+    correct: 1,
+    explanation: 'Debug Mode setting in Setup. \'Debug Mode\' in Setup'
   },
   {
     id: 193,
     chapter: 'testingDebugging',
     topic: 'PD1-505',
     question: 'What are the key milestones in an Application lifecycle when a sandbox is involved?',
-    options: ["Manage Requirements, Develop in Sandbox, Test Changes, Deploy to Production, Notify Users", "Develop, Test, Deploy", "Plan, Code, Test, Release", "Design, Build, Test, Deploy"],
-    correct: 0,
+    options: [
+      'Design, Build, Test, Deploy',
+      'Plan, Code, Test, Release',
+      'Develop, Test, Deploy',
+      'Manage Requirements, Develop in Sandbox, Test Changes, Deploy to Production, Notify Users'
+    ],
+    correct: 3,
     explanation: 'Manage Requirements, Develop Changes in Sandbox, Test Changes, Deploy Changes to Production, Notify End Users of Changes'
   },
   {
@@ -2258,8 +2710,13 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-505',
     question: 'What is the difference between a Developer and Developer Pro sandbox?',
-    options: ["Developer Pro has higher storage limit. Both copy production config (not data)", "Developer Pro copies data", "They are identical", "Developer Pro can only be refreshed monthly"],
-    correct: 0,
+    options: [
+      'Developer Pro copies data',
+      'They are identical',
+      'Developer Pro has higher storage limit. Both copy production config (not data)',
+      'Developer Pro can only be refreshed monthly'
+    ],
+    correct: 2,
     explanation: 'Developer Pro has a higher storage limit. Both contain a copy of production configuration and not data. Both can be refreshed once a day.'
   },
   {
@@ -2267,8 +2724,13 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-505',
     question: 'Why would a Partial Copy sandbox be used instead of a Full Copy sandbox?',
-    options: ["Partial Copy is cheaper, refreshes more frequently, uses templates for selective data", "Partial Copy has more data", "They are identical", "Full Copy refreshes more frequently"],
-    correct: 0,
+    options: [
+      'They are identical',
+      'Partial Copy has more data',
+      'Partial Copy is cheaper, refreshes more frequently, uses templates for selective data',
+      'Full Copy refreshes more frequently'
+    ],
+    correct: 2,
     explanation: 'A Partial Copy sandbox is cheaper and can be refreshed more frequently (5 days). It has a data and file storage limit of 5 GB, so a template can be used to define the data copied (up to 10,000 records).'
   },
   {
@@ -2276,8 +2738,13 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-505',
     question: 'What is a full copy sandbox usually used for?',
-    options: ["When identical-to-production environment is needed for testing", "For daily development", "For code reviews", "For documentation"],
-    correct: 0,
+    options: [
+      'For documentation',
+      'For daily development',
+      'For code reviews',
+      'When identical-to-production environment is needed for testing'
+    ],
+    correct: 3,
     explanation: 'When an environment that is identical to production is required for performance, load, regression or user acceptance testing.'
   },
   {
@@ -2285,26 +2752,41 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-502',
     question: 'Which type of user can be traced using a debug log to track data that is synchronized using the Salesforce Integration Cloud?',
-    options: ["Any user with a trace flag configured", "Only administrators", "Only developers", "Only system administrators"],
+    options: [
+      'Any user with a trace flag configured',
+      'Only developers',
+      'Only system administrators',
+      'Only administrators'
+    ],
     correct: 0,
-    explanation: 'Platform Integration User'
+    explanation: 'Any user with a trace flag configured. Platform Integration User'
   },
   {
     id: 198,
     chapter: 'testingDebugging',
     topic: 'PD1-505',
     question: 'When creating a new sandbox, what can a developer do to copy data and metadata from an existing sandbox?',
-    options: ["Clone the existing sandbox", "Use Data Loader", "Export and import manually", "Create from production"],
-    correct: 0,
-    explanation: 'Clone the existing sandbox'
+    options: [
+      'Create from production',
+      'Export and import manually',
+      'Clone the existing sandbox',
+      'Use Data Loader'
+    ],
+    correct: 2,
+    explanation: 'Clone the existing sandbox. Clone the existing sandbox'
   },
   {
     id: 199,
     chapter: 'testingDebugging',
     topic: 'PD1-505',
     question: 'When a new sandbox is created, what happens to the users\' email addresses?',
-    options: ["Salesforce appends .invalid to email addresses", "Emails are deleted", "Emails are forwarded to admins", "No change to emails"],
-    correct: 0,
+    options: [
+      'Emails are forwarded to admins',
+      'Salesforce appends .invalid to email addresses',
+      'Emails are deleted',
+      'No change to emails'
+    ],
+    correct: 1,
     explanation: 'Salesforce appends .invalid to the email addresses. For example, name@email.com becomes name@email.com.invalid.'
   },
   {
@@ -2312,26 +2794,41 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-505',
     question: 'Which IDE (Integrated Development Environment) should be used to create and edit Apex code, manage development projects, and migrate metadata components from one org to another?',
-    options: ["Visual Studio Code with Salesforce Extension Pack", "Eclipse", "Notepad++", "Sublime Text"],
+    options: [
+      'Visual Studio Code with Salesforce Extension Pack',
+      'Notepad++',
+      'Eclipse',
+      'Sublime Text'
+    ],
     correct: 0,
-    explanation: 'Visual Studio Code'
+    explanation: 'Visual Studio Code with Salesforce Extension Pack. Visual Studio Code'
   },
   {
     id: 201,
     chapter: 'testingDebugging',
     topic: 'PD1-502',
     question: 'What needs to be set up to generate debug logs when a user performs an action in Salesforce, such as updating an account record?',
-    options: ["User trace flag", "Debug level", "Log category", "System.debug()"],
-    correct: 0,
-    explanation: 'User trace flag'
+    options: [
+      'Debug level',
+      'User trace flag',
+      'Log category',
+      'System.debug()'
+    ],
+    correct: 1,
+    explanation: 'User trace flag. User trace flag This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 202,
     chapter: 'testingDebugging',
     topic: 'PD1-502',
     question: 'What does each debug log contain?',
-    options: ["Header, execution units, code units, log lines", "Only error messages", "Only system.debug outputs", "Only SOQL queries"],
-    correct: 0,
+    options: [
+      'Only error messages',
+      'Header, execution units, code units, log lines',
+      'Only SOQL queries',
+      'Only system.debug outputs'
+    ],
+    correct: 1,
     explanation: 'Each debug log consists of a header, execution units, code units, log lines, and other log data.'
   },
   {
@@ -2339,17 +2836,27 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-502',
     question: 'Which panel of the Log Inspector shows information in a top-down manner from the initiating calls to the next level down?',
-    options: ["Stack Tree panel", "Execution Overview panel", "Timeline panel", "Filter panel"],
+    options: [
+      'Stack Tree panel',
+      'Timeline panel',
+      'Execution Overview panel',
+      'Filter panel'
+    ],
     correct: 0,
-    explanation: 'Stack Tree'
+    explanation: 'Stack Tree panel. Stack Tree This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 204,
     chapter: 'testingDebugging',
     topic: 'PD1-502',
     question: 'When troubleshooting processes, what is the significance of myVariable_current and myVariable_old?',
-    options: ["myVariable_current = current field value, myVariable_old = most recent previous value", "Both are the same value", "myVariable_current is always null", "myVariable_old is the original value from creation"],
-    correct: 0,
+    options: [
+      'myVariable_current is always null',
+      'Both are the same value',
+      'myVariable_current = current field value, myVariable_old = most recent previous value',
+      'myVariable_old is the original value from creation'
+    ],
+    correct: 2,
     explanation: '‘myVariable_current’ refers to the field value when the process was executed. On the other hand, ‘myVariable_old’ refers to the most recent previous value.'
   },
   {
@@ -2357,8 +2864,13 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-505',
     question: 'What is a Scratch Org?',
-    options: ["A disposable, configurable, short-term Salesforce environment", "A permanent development environment", "A production org with debugging", "A type of sandbox"],
-    correct: 0,
+    options: [
+      'A production org with debugging',
+      'A disposable, configurable, short-term Salesforce environment',
+      'A type of sandbox',
+      'A permanent development environment'
+    ],
+    correct: 1,
     explanation: 'A Scratch Org is a dedicated, configurable, and short-term Salesforce environment'
   },
   {
@@ -2366,26 +2878,41 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-502',
     question: 'What developer tool can be used to make code changes effective immediately in an org without installing any software?',
-    options: ["Developer Console", "VS Code", "Data Loader", "Workbench"],
+    options: [
+      'Developer Console',
+      'Workbench',
+      'VS Code',
+      'Data Loader'
+    ],
     correct: 0,
-    explanation: 'Developer Console'
+    explanation: 'Developer Console. Developer Console This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 207,
     chapter: 'testingDebugging',
     topic: 'PD1-502',
     question: 'What external web-based platform can be used to query, insert, update and delete Salesforce data?',
-    options: ["Workbench", "Data Loader", "Developer Console", "VS Code"],
-    correct: 0,
-    explanation: 'Workbench'
+    options: [
+      'Developer Console',
+      'VS Code',
+      'Workbench',
+      'Data Loader'
+    ],
+    correct: 2,
+    explanation: 'Workbench. Workbench This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 208,
     chapter: 'processAutomation',
     topic: 'PD1-301',
     question: 'Which declarative automation feature can send an outbound message without code?',
-    options: ["Workflow Rules","Process Builder","Approval Processes","Flow Builder"],
-    correct: 0,
+    options: [
+      'Flow Builder',
+      'Approval Processes',
+      'Workflow Rules',
+      'Process Builder'
+    ],
+    correct: 2,
     explanation: 'Workflow Rules can send outbound messages as one of their action types.'
   },
   {
@@ -2393,8 +2920,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-301',
     question: 'Which automation tool can display a custom user interface?',
-    options: ["Flow (Screen Flow)","Process Builder","Workflow Rule","Approval Process"],
-    correct: 0,
+    options: [
+      'Workflow Rule',
+      'Flow (Screen Flow)',
+      'Approval Process',
+      'Process Builder'
+    ],
+    correct: 1,
     explanation: 'Screen Flows are the only declarative tool that can display a custom UI.'
   },
   {
@@ -2402,8 +2934,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-302',
     question: 'Which access modifier makes a variable available to all classes in the org?',
-    options: ["global","public","private","protected"],
-    correct: 0,
+    options: [
+      'private',
+      'public',
+      'global',
+      'protected'
+    ],
+    correct: 2,
     explanation: 'The global modifier makes a variable available to all classes in the organization.'
   },
   {
@@ -2411,8 +2948,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-303',
     question: 'Which loop type always executes at least once?',
-    options: ["do-while loop","for loop","while loop","for-each loop"],
-    correct: 0,
+    options: [
+      'for loop',
+      'for-each loop',
+      'do-while loop',
+      'while loop'
+    ],
+    correct: 2,
     explanation: 'The do-while loop always executes at least once because the condition is checked after the body.'
   },
   {
@@ -2420,8 +2962,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-303',
     question: 'What does the break statement do in a loop?',
-    options: ["Terminates the loop","Skips to next iteration","Pauses execution","Restarts the loop"],
-    correct: 0,
+    options: [
+      'Skips to next iteration',
+      'Terminates the loop',
+      'Pauses execution',
+      'Restarts the loop'
+    ],
+    correct: 1,
     explanation: 'The break statement immediately terminates the loop.'
   },
   {
@@ -2429,17 +2976,27 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-305',
     question: 'Which SOQL clause sorts query results?',
-    options: ["ORDER BY","SORT BY","GROUP BY","ARRANGE BY"],
-    correct: 0,
-    explanation: 'The ORDER BY clause sorts SOQL query results.'
+    options: [
+      'SORT BY',
+      'ARRANGE BY',
+      'GROUP BY',
+      'ORDER BY'
+    ],
+    correct: 3,
+    explanation: 'ORDER BY. The ORDER BY clause sorts SOQL query results. This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 214,
     chapter: 'processAutomation',
     topic: 'PD1-305',
     question: 'What does the UPSERT DML operation do?',
-    options: ["Inserts new or updates existing records","Deletes and recreates records","Merges duplicates","Converts leads"],
-    correct: 0,
+    options: [
+      'Merges duplicates',
+      'Deletes and recreates records',
+      'Converts leads',
+      'Inserts new or updates existing records'
+    ],
+    correct: 3,
     explanation: 'UPSERT inserts new records or updates existing ones based on an external ID.'
   },
   {
@@ -2447,8 +3004,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-305',
     question: 'What is the purpose of bind variables in dynamic SOQL?',
-    options: ["Prevent SOQL injection","Improve performance","Reduce governor limits","Enable bulk queries"],
-    correct: 0,
+    options: [
+      'Enable bulk queries',
+      'Prevent SOQL injection',
+      'Reduce governor limits',
+      'Improve performance'
+    ],
+    correct: 1,
     explanation: 'Bind variables escape user input to prevent SOQL injection.'
   },
   {
@@ -2456,7 +3018,12 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-306',
     question: 'What is the recommended pattern for trigger logic?',
-    options: ["One trigger per object with handler class","Multiple triggers per object","All logic in trigger","Only before triggers"],
+    options: [
+      'One trigger per object with handler class',
+      'All logic in trigger',
+      'Only before triggers',
+      'Multiple triggers per object'
+    ],
     correct: 0,
     explanation: 'Use one trigger per object with a handler class for separation of concerns.'
   },
@@ -2465,8 +3032,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-306',
     question: 'Why should SOQL not be inside for loops?',
-    options: ["Exceeds 100 SOQL query governor limit","Causes syntax errors","Makes code unreadable","Slows the loop"],
-    correct: 0,
+    options: [
+      'Causes syntax errors',
+      'Slows the loop',
+      'Exceeds 100 SOQL query governor limit',
+      'Makes code unreadable'
+    ],
+    correct: 2,
     explanation: 'SOQL in loops can exceed the 100 SOQL queries per transaction governor limit.'
   },
   {
@@ -2474,35 +3046,55 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-308',
     question: 'What is the governor limit for SOQL queries per transaction?',
-    options: ["100","50","150","200"],
-    correct: 0,
-    explanation: 'The limit is 100 SOQL queries per transaction.'
+    options: [
+      '50',
+      '200',
+      '150',
+      '100'
+    ],
+    correct: 3,
+    explanation: '100. The limit is 100 SOQL queries per transaction. This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 219,
     chapter: 'processAutomation',
     topic: 'PD1-308',
     question: 'What is the governor limit for DML statements per transaction?',
-    options: ["150","50","100","200"],
-    correct: 0,
-    explanation: 'The limit is 150 DML statements per transaction.'
+    options: [
+      '50',
+      '150',
+      '100',
+      '200'
+    ],
+    correct: 1,
+    explanation: '150. The limit is 150 DML statements per transaction. This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 220,
     chapter: 'processAutomation',
     topic: 'PD1-308',
     question: 'What is the CPU time limit for synchronous Apex?',
-    options: ["10,000 ms","5,000 ms","30,000 ms","60,000 ms"],
-    correct: 0,
-    explanation: 'Synchronous Apex has a 10,000 ms CPU time limit.'
+    options: [
+      '30,000 ms',
+      '5,000 ms',
+      '60,000 ms',
+      '10,000 ms'
+    ],
+    correct: 3,
+    explanation: '10,000 ms. Synchronous Apex has a 10,000 ms CPU time limit. This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 221,
     chapter: 'processAutomation',
     topic: 'PD1-309',
     question: 'What is the first step in save order of execution?',
-    options: ["Before triggers","Validation rules","After triggers","Assignment rules"],
-    correct: 0,
+    options: [
+      'Assignment rules',
+      'After triggers',
+      'Validation rules',
+      'Before triggers'
+    ],
+    correct: 3,
     explanation: 'Before triggers fire first in the save order of execution.'
   },
   {
@@ -2510,7 +3102,12 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-309',
     question: 'How can recursion be prevented in triggers?',
-    options: ["Static Boolean variable","Final keyword","More governor limits","Cannot be prevented"],
+    options: [
+      'Static Boolean variable',
+      'Final keyword',
+      'More governor limits',
+      'Cannot be prevented'
+    ],
     correct: 0,
     explanation: 'A static Boolean flag prevents re-entry of the trigger.'
   },
@@ -2519,7 +3116,12 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-310',
     question: 'Which exception is thrown when a single-record SOQL returns no results?',
-    options: ["QueryException","DmlException","NullPointerException","LimitException"],
+    options: [
+      'QueryException',
+      'DmlException',
+      'LimitException',
+      'NullPointerException'
+    ],
     correct: 0,
     explanation: 'QueryException is thrown when a single-record query returns no results.'
   },
@@ -2528,8 +3130,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-312',
     question: 'What annotation makes Apex callable from Flow?',
-    options: ["@InvocableMethod","@AuraEnabled","@RemoteAction","@future"],
-    correct: 0,
+    options: [
+      '@future',
+      '@RemoteAction',
+      '@AuraEnabled',
+      '@InvocableMethod'
+    ],
+    correct: 3,
     explanation: '@InvocableMethod makes an Apex method callable from Flow and Process Builder.'
   },
   {
@@ -2537,8 +3144,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-302',
     question: 'What does the static keyword do for a variable?',
-    options: ["Makes it class-level and shared across all instances","Makes it a constant","Makes it private","Makes it global"],
-    correct: 0,
+    options: [
+      'Makes it global',
+      'Makes it private',
+      'Makes it class-level and shared across all instances',
+      'Makes it a constant'
+    ],
+    correct: 2,
     explanation: 'Static makes a variable class-level, shared across all instances of the class.'
   },
   {
@@ -2546,8 +3158,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-305',
     question: 'What does Database.insert(records, false) do?',
-    options: ["Allows partial success with allOrNone=false","Inserts all records atomically","Deletes records first","Validates only without inserting"],
-    correct: 0,
+    options: [
+      'Deletes records first',
+      'Inserts all records atomically',
+      'Validates only without inserting',
+      'Allows partial success with allOrNone=false'
+    ],
+    correct: 3,
     explanation: 'Database.insert with allOrNone=false allows partial success - some records can succeed while others fail.'
   },
   {
@@ -2555,7 +3172,12 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-306',
     question: 'Which trigger context variable contains the old field values?',
-    options: ["Trigger.old","Trigger.new","Trigger.oldMap","Trigger.newMap"],
+    options: [
+      'Trigger.old',
+      'Trigger.new',
+      'Trigger.oldMap',
+      'Trigger.newMap'
+    ],
     correct: 0,
     explanation: 'Trigger.old contains the old versions of the records before the update.'
   },
@@ -2564,8 +3186,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-308',
     question: 'What happens when a governor limit is exceeded?',
-    options: ["Exception thrown, DML rolled back","Code continues with warning","Limit increased automatically","Only current operation fails"],
-    correct: 0,
+    options: [
+      'Only current operation fails',
+      'Exception thrown, DML rolled back',
+      'Limit increased automatically',
+      'Code continues with warning'
+    ],
+    correct: 1,
     explanation: 'An unhandled exception is thrown and all DML operations in the transaction are rolled back.'
   },
   {
@@ -2573,8 +3200,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-310',
     question: 'What is the purpose of the finally block?',
-    options: ["Always executes for cleanup","Catches exceptions","Stops execution","Creates test data"],
-    correct: 0,
+    options: [
+      'Stops execution',
+      'Creates test data',
+      'Always executes for cleanup',
+      'Catches exceptions'
+    ],
+    correct: 2,
     explanation: 'The finally block always executes regardless of whether an exception occurred, useful for cleanup.'
   },
   {
@@ -2582,7 +3214,12 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-301',
     question: 'Which tool can send outbound messages declaratively?',
-    options: ["Workflow Rules","Flow Builder","Process Builder","Approval Processes"],
+    options: [
+      'Workflow Rules',
+      'Process Builder',
+      'Flow Builder',
+      'Approval Processes'
+    ],
     correct: 0,
     explanation: 'Workflow Rules are the declarative tool specifically designed for sending outbound messages.'
   },
@@ -2591,8 +3228,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-302',
     question: 'Can a class implement multiple interfaces in Apex?',
-    options: ["Yes, but extend only one class","No, only one interface","Yes, and extend multiple classes","No interfaces are supported"],
-    correct: 0,
+    options: [
+      'No, only one interface',
+      'Yes, but extend only one class',
+      'Yes, and extend multiple classes',
+      'No interfaces are supported'
+    ],
+    correct: 1,
     explanation: 'A class can implement multiple interfaces but can only extend one class.'
   },
   {
@@ -2600,7 +3242,12 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-305',
     question: 'Which method allows partial DML success?',
-    options: ["Database.insert(records, false)","insert records","Database.upsert(records)","System.dml(records)"],
+    options: [
+      'Database.insert(records, false)',
+      'System.dml(records)',
+      'Database.upsert(records)',
+      'insert records'
+    ],
     correct: 0,
     explanation: 'Database methods with allOrNone=false allow partial success.'
   },
@@ -2609,17 +3256,27 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-308',
     question: 'What is the heap size limit for synchronous Apex?',
-    options: ["6 MB","3 MB","12 MB","24 MB"],
-    correct: 0,
-    explanation: 'The heap size limit for synchronous Apex is 6 MB.'
+    options: [
+      '24 MB',
+      '12 MB',
+      '3 MB',
+      '6 MB'
+    ],
+    correct: 3,
+    explanation: '6 MB. The heap size limit for synchronous Apex is 6 MB. This is the correct answer based on Salesforce platform documentation and best practices.'
   },
   {
     id: 234,
     chapter: 'processAutomation',
     topic: 'PD1-309',
     question: 'When do validation rules fire in the save order?',
-    options: ["After before triggers, before after triggers","Before before triggers","After after triggers","At the very end"],
-    correct: 0,
+    options: [
+      'After after triggers',
+      'After before triggers, before after triggers',
+      'At the very end',
+      'Before before triggers'
+    ],
+    correct: 1,
     explanation: 'Validation rules fire after before triggers but before after triggers.'
   },
   {
@@ -2627,8 +3284,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-310',
     question: 'Should you catch generic Exception or specific exceptions?',
-    options: ["Catch specific exceptions first","Always catch generic Exception","Never use try-catch","Only use finally"],
-    correct: 0,
+    options: [
+      'Always catch generic Exception',
+      'Catch specific exceptions first',
+      'Never use try-catch',
+      'Only use finally'
+    ],
+    correct: 1,
     explanation: 'Best practice is to catch specific exceptions first for targeted error handling.'
   },
   {
@@ -2636,7 +3298,12 @@ export const examQuestions = [
     chapter: 'devFundamentals',
     topic: 'PD1-601',
     question: 'What is the correct order of the publish-subscribe messaging pattern for Platform Events?',
-    options: ["Publisher \u2192 Event Message \u2192 Event Bus \u2192 Event Subscription", "Event Bus \u2192 Publisher \u2192 Subscription \u2192 Event Message", "Subscription \u2192 Event Bus \u2192 Publisher \u2192 Event Message", "Event Message \u2192 Publisher \u2192 Subscription \u2192 Event Bus"],
+    options: [
+      'Publisher → Event Message → Event Bus → Event Subscription',
+      'Event Bus → Publisher → Subscription → Event Message',
+      'Event Message → Publisher → Subscription → Event Bus',
+      'Subscription → Event Bus → Publisher → Event Message'
+    ],
     correct: 0,
     explanation: 'The publish-subscribe pattern follows: Publisher creates event message → Event Bus receives and stores → Event Subscription processes the event.'
   },
@@ -2645,8 +3312,13 @@ export const examQuestions = [
     chapter: 'devFundamentals',
     topic: 'PD1-601',
     question: 'What are the three key components of the publish-subscribe messaging pattern for Platform Events?',
-    options: ["Event Message, Event Bus, Event Subscription", "Event Publisher, Event Consumer, Event Store", "Event Creator, Event Handler, Event Logger", "Event Source, Event Target, Event Channel"],
-    correct: 0,
+    options: [
+      'Event Creator, Event Handler, Event Logger',
+      'Event Message, Event Bus, Event Subscription',
+      'Event Source, Event Target, Event Channel',
+      'Event Publisher, Event Consumer, Event Store'
+    ],
+    correct: 1,
     explanation: 'The three key components are: Event Message (the data), Event Bus (routing mechanism), and Event Subscription (the consumer).'
   },
   {
@@ -2654,7 +3326,12 @@ export const examQuestions = [
     chapter: 'devFundamentals',
     topic: 'PD1-601',
     question: 'What is Event-Driven Software Architecture?',
-    options: ["A design pattern where decoupled components communicate through events", "A pattern where all components must be tightly coupled", "A pattern that only works with Salesforce Lightning", "A pattern that requires synchronous processing"],
+    options: [
+      'A design pattern where decoupled components communicate through events',
+      'A pattern that requires synchronous processing',
+      'A pattern where all components must be tightly coupled',
+      'A pattern that only works with Salesforce Lightning'
+    ],
     correct: 0,
     explanation: 'Event-Driven Architecture is a design pattern where decoupled components communicate through events, allowing for asynchronous and loosely coupled systems.'
   },
@@ -2663,8 +3340,13 @@ export const examQuestions = [
     chapter: 'devFundamentals',
     topic: 'PD1-601',
     question: 'Which of the following is a benefit of Event-Driven Architecture?',
-    options: ["Loose coupling between components", "Tight integration between all systems", "Synchronous-only processing", "No need for error handling"],
-    correct: 0,
+    options: [
+      'Synchronous-only processing',
+      'No need for error handling',
+      'Tight integration between all systems',
+      'Loose coupling between components'
+    ],
+    correct: 3,
     explanation: 'Event-Driven Architecture provides loose coupling between components, allowing them to evolve independently and communicate asynchronously.'
   },
   {
@@ -2672,8 +3354,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-301',
     question: 'Which asynchronous Apex type supports job chaining and non-primitive data types?',
-    options: ["Queueable Apex", "Future Methods", "Batch Apex", "Scheduled Apex"],
-    correct: 0,
+    options: [
+      'Scheduled Apex',
+      'Batch Apex',
+      'Queueable Apex',
+      'Future Methods'
+    ],
+    correct: 2,
     explanation: 'Queueable Apex supports job chaining and non-primitive data types, making it more flexible than future methods.'
   },
   {
@@ -2681,7 +3368,12 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-301',
     question: 'What is the maximum number of future calls allowed per Apex invocation?',
-    options: ["50", "100", "200", "Unlimited"],
+    options: [
+      '50',
+      'Unlimited',
+      '100',
+      '200'
+    ],
     correct: 0,
     explanation: 'The governor limit for future methods is 50 calls per Apex invocation.'
   },
@@ -2690,7 +3382,12 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-301',
     question: 'What is the correct syntax for a future method that makes a callout?',
-    options: ["@Future(callout=true)", "@Future(callouts=true)", "@Async(callout=true)", "@RemoteAction(callout=true)"],
+    options: [
+      '@Future(callout=true)',
+      '@Async(callout=true)',
+      '@Future(callouts=true)',
+      '@RemoteAction(callout=true)'
+    ],
     correct: 0,
     explanation: 'The @Future(callout=true) annotation is used for future methods that need to make web service callouts.'
   },
@@ -2699,7 +3396,12 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-301',
     question: 'Which method in the Database.Batchable interface is called once at the beginning of a batch job?',
-    options: ["start()", "execute()", "finish()", "init()"],
+    options: [
+      'start()',
+      'execute()',
+      'finish()',
+      'init()'
+    ],
     correct: 0,
     explanation: 'The start() method is called once at the beginning of a batch job and returns either a Database.QueryLocator or an Iterable.'
   },
@@ -2708,8 +3410,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-301',
     question: 'What is the default batch size for Batch Apex?',
-    options: ["200 records", "100 records", "500 records", "1000 records"],
-    correct: 0,
+    options: [
+      '1000 records',
+      '200 records',
+      '500 records',
+      '100 records'
+    ],
+    correct: 1,
     explanation: 'The default batch size for Batch Apex is 200 records, though this can be customized.'
   },
   {
@@ -2717,8 +3424,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-301',
     question: 'Which interface allows batch Apex to maintain state across transactions?',
-    options: ["Database.Stateful", "Database.Batchable", "Database.QueryLocator", "Database.Iterable"],
-    correct: 0,
+    options: [
+      'Database.Iterable',
+      'Database.QueryLocator',
+      'Database.Stateful',
+      'Database.Batchable'
+    ],
+    correct: 2,
     explanation: 'Implementing Database.Stateful allows instance member variables to retain values across batch transactions.'
   },
   {
@@ -2726,8 +3438,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-301',
     question: 'What is the maximum number of scheduled Apex jobs allowed at one time?',
-    options: ["100", "50", "200", "Unlimited"],
-    correct: 0,
+    options: [
+      '200',
+      '50',
+      '100',
+      'Unlimited'
+    ],
+    correct: 2,
     explanation: 'The governor limit for scheduled Apex jobs is 100 at one time.'
   },
   {
@@ -2735,7 +3452,12 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-301',
     question: 'What is the CRON expression format for Scheduled Apex?',
-    options: ["Seconds Minutes Hours Day_of_month Month Day_of_week optional_year", "Minutes Hours Day Month Year", "Hours Day Month Day_of_week", "Day Month Year Hours Minutes"],
+    options: [
+      'Seconds Minutes Hours Day_of_month Month Day_of_week optional_year',
+      'Day Month Year Hours Minutes',
+      'Minutes Hours Day Month Year',
+      'Hours Day Month Day_of_week'
+    ],
     correct: 0,
     explanation: 'The CRON expression format is: \'Seconds Minutes Hours Day_of_month Month Day_of_week optional_year\'.'
   },
@@ -2744,8 +3466,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-306',
     question: 'What does the WITH USER_MODE keyword do in a SOQL query?',
-    options: ["Enforces field-level security and sharing rules for the current user", "Bypasses all security checks", "Runs the query as a system administrator", "Enables bulk API mode"],
-    correct: 0,
+    options: [
+      'Enables bulk API mode',
+      'Enforces field-level security and sharing rules for the current user',
+      'Runs the query as a system administrator',
+      'Bypasses all security checks'
+    ],
+    correct: 1,
     explanation: 'WITH USER_MODE enforces field-level security and sharing rules for the current user during the query.'
   },
   {
@@ -2753,8 +3480,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-306',
     question: 'Which method is used to check if a user has create access to an object?',
-    options: ["isCreateable()", "isAccessible()", "isUpdateable()", "isDeleteable()"],
-    correct: 0,
+    options: [
+      'isUpdateable()',
+      'isDeleteable()',
+      'isAccessible()',
+      'isCreateable()'
+    ],
+    correct: 3,
     explanation: 'isCreateable() checks if the current user has create access to the object and its fields.'
   },
   {
@@ -2762,7 +3494,12 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-306',
     question: 'What does the Security.stripInaccessible() method do?',
-    options: ["Removes fields the user cannot access from query results", "Adds security checks to queries", "Creates new security policies", "Deletes inaccessible records"],
+    options: [
+      'Removes fields the user cannot access from query results',
+      'Adds security checks to queries',
+      'Deletes inaccessible records',
+      'Creates new security policies'
+    ],
     correct: 0,
     explanation: 'Security.stripInaccessible() removes fields and relationship fields from query results that the user cannot access.'
   },
@@ -2771,8 +3508,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-306',
     question: 'What is the recommended approach for enforcing sharing rules in Apex?',
-    options: ["Use the 'with sharing' keyword", "Use the 'without sharing' keyword", "Do not use any sharing keyword", "Use the 'global sharing' keyword"],
-    correct: 0,
+    options: [
+      'Use the \'global sharing\' keyword',
+      'Use the \'with sharing\' keyword',
+      'Do not use any sharing keyword',
+      'Use the \'without sharing\' keyword'
+    ],
+    correct: 1,
     explanation: 'The \'with sharing\' keyword enforces sharing rules for the current user, ensuring data visibility is respected.'
   },
   {
@@ -2780,8 +3522,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-306',
     question: 'What does the \'inherited sharing\' keyword do?',
-    options: ["Runs in the sharing mode of the calling class", "Always runs with sharing rules", "Always runs without sharing rules", "Disables sharing for the class"],
-    correct: 0,
+    options: [
+      'Always runs with sharing rules',
+      'Always runs without sharing rules',
+      'Disables sharing for the class',
+      'Runs in the sharing mode of the calling class'
+    ],
+    correct: 3,
     explanation: 'Inherited sharing runs in the sharing mode of the calling class, or as \'with sharing\' when used as an Aura controller, Visualforce controller, or Apex REST service.'
   },
   {
@@ -2789,7 +3536,12 @@ export const examQuestions = [
     chapter: 'userInterface',
     topic: 'PD1-401',
     question: 'In Lightning Experience, what happens to Visualforce pages?',
-    options: ["They run inside an iframe within the single-page application", "They replace the Lightning Experience entirely", "They cannot be used at all", "They run as native Lightning components"],
+    options: [
+      'They run inside an iframe within the single-page application',
+      'They cannot be used at all',
+      'They replace the Lightning Experience entirely',
+      'They run as native Lightning components'
+    ],
     correct: 0,
     explanation: 'In Lightning Experience, Visualforce pages run inside an iframe within the SPA, which affects DOM access and JavaScript scope.'
   },
@@ -2798,8 +3550,13 @@ export const examQuestions = [
     chapter: 'userInterface',
     topic: 'PD1-401',
     question: 'Which object is auto-injected in Lightning Experience for navigation?',
-    options: ["sforce.one", "sforce.navigation", "lightning.navigation", "visualforce.navigation"],
-    correct: 0,
+    options: [
+      'visualforce.navigation',
+      'sforce.one',
+      'lightning.navigation',
+      'sforce.navigation'
+    ],
+    correct: 1,
     explanation: 'The sforce.one object is auto-injected in Lightning Experience for navigation functions like navigateToSObject and navigateToURL.'
   },
   {
@@ -2807,8 +3564,13 @@ export const examQuestions = [
     chapter: 'userInterface',
     topic: 'PD1-401',
     question: 'What should you NEVER do in Lightning Experience for navigation?',
-    options: ["Set window.location directly", "Use sforce.one", "Use PageReference", "Use navigateToURL"],
-    correct: 0,
+    options: [
+      'Use navigateToURL',
+      'Use PageReference',
+      'Set window.location directly',
+      'Use sforce.one'
+    ],
+    correct: 2,
     explanation: 'Never set window.location directly in Lightning Experience as it can break the single-page application architecture.'
   },
   {
@@ -2816,8 +3578,13 @@ export const examQuestions = [
     chapter: 'userInterface',
     topic: 'PD1-401',
     question: 'What is the purpose of the $User.UIThemeDisplayed variable?',
-    options: ["To detect what UI theme the user is actually seeing", "To set the UI theme", "To change the color scheme", "To enable dark mode"],
-    correct: 0,
+    options: [
+      'To change the color scheme',
+      'To detect what UI theme the user is actually seeing',
+      'To set the UI theme',
+      'To enable dark mode'
+    ],
+    correct: 1,
     explanation: '$User.UIThemeDisplayed detects what UI theme the user is actually seeing, which is preferred over $User.UITheme.'
   },
   {
@@ -2825,7 +3592,12 @@ export const examQuestions = [
     chapter: 'userInterface',
     topic: 'PD1-405',
     question: 'What is the recommended approach for lazy instantiation in LWC?',
-    options: ["Use standard tab components, Lightning Component Actions, or utility bar", "Load all components at startup", "Use only static rendering", "Avoid using components at all"],
+    options: [
+      'Use standard tab components, Lightning Component Actions, or utility bar',
+      'Load all components at startup',
+      'Avoid using components at all',
+      'Use only static rendering'
+    ],
     correct: 0,
     explanation: 'Lazy instantiation approaches include standard tab components, Lightning Component Actions, utility bar, and lightning-tabset/lightning-tab.'
   },
@@ -2834,8 +3606,13 @@ export const examQuestions = [
     chapter: 'userInterface',
     topic: 'PD1-405',
     question: 'What is the difference between CSS slds-show/slds-hide and lwc:if directives?',
-    options: ["CSS preserves state; lwc:if destroys and recreates", "They are identical", "lwc:if preserves state; CSS destroys", "Neither preserves state"],
-    correct: 0,
+    options: [
+      'lwc:if preserves state; CSS destroys',
+      'CSS preserves state; lwc:if destroys and recreates',
+      'Neither preserves state',
+      'They are identical'
+    ],
+    correct: 1,
     explanation: 'CSS slds-show/slds-hide preserves component state while lwc:if destroys and recreates the component, losing state.'
   },
   {
@@ -2843,8 +3620,13 @@ export const examQuestions = [
     chapter: 'userInterface',
     topic: 'PD1-405',
     question: 'What is the recommended priority for conditional rendering in LWC?',
-    options: ["Lightning App Builder Dynamic Component Visibility > lwc:if > CSS", "CSS > lwc:if > App Builder", "lwc:if > CSS > App Builder", "All are equally recommended"],
-    correct: 0,
+    options: [
+      'CSS > lwc:if > App Builder',
+      'Lightning App Builder Dynamic Component Visibility > lwc:if > CSS',
+      'All are equally recommended',
+      'lwc:if > CSS > App Builder'
+    ],
+    correct: 1,
     explanation: 'The recommended priority is: Lightning App Builder Dynamic Component Visibility (declarative), then lwc:if/elseif/else directives, then CSS slds-show/slds-hide.'
   },
   {
@@ -2852,8 +3634,13 @@ export const examQuestions = [
     chapter: 'userInterface',
     topic: 'PD1-405',
     question: 'Why should you avoid using jQuery in LWC?',
-    options: ["LWC uses shadow DOM which encapsulates styles and DOM", "jQuery is too slow", "jQuery doesn't work with JavaScript", "LWC has its own jQuery equivalent"],
-    correct: 0,
+    options: [
+      'LWC has its own jQuery equivalent',
+      'jQuery is too slow',
+      'jQuery doesn\'t work with JavaScript',
+      'LWC uses shadow DOM which encapsulates styles and DOM'
+    ],
+    correct: 3,
     explanation: 'LWC uses shadow DOM for encapsulation, making jQuery largely unnecessary and potentially problematic.'
   },
   {
@@ -2861,8 +3648,13 @@ export const examQuestions = [
     chapter: 'userInterface',
     topic: 'PD1-405',
     question: 'What are the benefits of base Lightning components?',
-    options: ["Native styles, pre-loaded, responsive, actively developed, accessible", "Only visual consistency", "Only performance improvements", "Only accessibility features"],
-    correct: 0,
+    options: [
+      'Only performance improvements',
+      'Only visual consistency',
+      'Native styles, pre-loaded, responsive, actively developed, accessible',
+      'Only accessibility features'
+    ],
+    correct: 2,
     explanation: 'Base Lightning components provide: native styles, pre-loaded (no download), responsive, actively developed, accessible, and client-side validation.'
   },
   {
@@ -2870,8 +3662,13 @@ export const examQuestions = [
     chapter: 'userInterface',
     topic: 'PD1-405',
     question: 'Can Aura components contain LWC?',
-    options: ["Yes, Aura can contain LWC", "No, they cannot be mixed", "Only in Lightning Experience", "Only in Salesforce Mobile"],
-    correct: 0,
+    options: [
+      'Only in Lightning Experience',
+      'Yes, Aura can contain LWC',
+      'Only in Salesforce Mobile',
+      'No, they cannot be mixed'
+    ],
+    correct: 1,
     explanation: 'Aura components CAN contain LWC, but LWC CANNOT contain Aura components.'
   },
   {
@@ -2879,8 +3676,13 @@ export const examQuestions = [
     chapter: 'userInterface',
     topic: 'PD1-405',
     question: 'What is the LWC equivalent of Aura\'s <aura:handler name=\'init\'>?',
-    options: ["connectedCallback()", "renderedCallback()", "disconnectedCallback()", "constructor()"],
-    correct: 0,
+    options: [
+      'renderedCallback()',
+      'disconnectedCallback()',
+      'constructor()',
+      'connectedCallback()'
+    ],
+    correct: 3,
     explanation: 'The connectedCallback() lifecycle hook in LWC is equivalent to Aura\'s <aura:handler name=\'init\'>.'
   },
   {
@@ -2888,8 +3690,13 @@ export const examQuestions = [
     chapter: 'userInterface',
     topic: 'PD1-405',
     question: 'What is the LWC equivalent of Aura\'s <aura:iteration>?',
-    options: ["<template for:each>", "<template iterate>", "<for-each>", "<repeat>"],
-    correct: 0,
+    options: [
+      '<template iterate>',
+      '<repeat>',
+      '<for-each>',
+      '<template for:each>'
+    ],
+    correct: 3,
     explanation: 'The <template for:each={...} for:item=\'...\'> directive is the LWC equivalent of Aura\'s <aura:iteration>.'
   },
   {
@@ -2897,7 +3704,12 @@ export const examQuestions = [
     chapter: 'userInterface',
     topic: 'PD1-405',
     question: 'What type of data binding does LWC use?',
-    options: ["One-way data binding only", "Two-way data binding", "No data binding", "Three-way data binding"],
+    options: [
+      'One-way data binding only',
+      'Two-way data binding',
+      'Three-way data binding',
+      'No data binding'
+    ],
     correct: 0,
     explanation: 'LWC uses one-way data binding only. Changes propagate from owner to child, and child fires events to modify owner data.'
   },
@@ -2906,7 +3718,12 @@ export const examQuestions = [
     chapter: 'userInterface',
     topic: 'PD1-405',
     question: 'What replaces Aura\'s facets in LWC?',
-    options: ["HTML <slot> elements", "Component attributes", "Event handlers", "CSS classes"],
+    options: [
+      'HTML <slot> elements',
+      'CSS classes',
+      'Component attributes',
+      'Event handlers'
+    ],
     correct: 0,
     explanation: 'HTML <slot> elements replace Aura\'s facets. Named slots replace named facets, and unnamed slots replace the body facet.'
   },
@@ -2915,7 +3732,12 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-501',
     question: 'What is the minimum code coverage required for deploying Apex to production?',
-    options: ["75%", "50%", "80%", "100%"],
+    options: [
+      '75%',
+      '100%',
+      '80%',
+      '50%'
+    ],
     correct: 0,
     explanation: 'At least 75% of Apex code must be covered by tests, and all tests must pass before deployment.'
   },
@@ -2924,8 +3746,13 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-501',
     question: 'What does Test.startTest() do?',
-    options: ["Resets governor limits for the test", "Starts the test execution", "Creates test data", "Enables debug logging"],
-    correct: 0,
+    options: [
+      'Starts the test execution',
+      'Creates test data',
+      'Enables debug logging',
+      'Resets governor limits for the test'
+    ],
+    correct: 3,
     explanation: 'Test.startTest() resets governor limits, isolating data setup limit usage from test execution.'
   },
   {
@@ -2933,8 +3760,13 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-501',
     question: 'What is the purpose of the @TestSetup annotation?',
-    options: ["To create test data once that is available to all test methods", "To mark a class as a test class", "To enable debugging", "To set up the test environment"],
-    correct: 0,
+    options: [
+      'To enable debugging',
+      'To create test data once that is available to all test methods',
+      'To mark a class as a test class',
+      'To set up the test environment'
+    ],
+    correct: 1,
     explanation: '@TestSetup creates test data once that is available to all test methods in the class, and data rolls back after each test.'
   },
   {
@@ -2942,7 +3774,12 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-501',
     question: 'What interface must be implemented to mock HTTP callouts in tests?',
-    options: ["HttpCalloutMock", "HttpResponseMock", "CalloutMock", "WebServiceMock"],
+    options: [
+      'HttpCalloutMock',
+      'CalloutMock',
+      'WebServiceMock',
+      'HttpResponseMock'
+    ],
     correct: 0,
     explanation: 'The HttpCalloutMock interface must be implemented to mock HTTP callouts during testing.'
   },
@@ -2951,7 +3788,12 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-502',
     question: 'Can LWC be developed in the Developer Console?',
-    options: ["No, LWC cannot be developed in Developer Console", "Yes, fully supported", "Only basic LWC", "Only with extensions"],
+    options: [
+      'No, LWC cannot be developed in Developer Console',
+      'Only basic LWC',
+      'Only with extensions',
+      'Yes, fully supported'
+    ],
     correct: 0,
     explanation: 'LWC cannot be developed in the Developer Console. Use Salesforce Extensions for VS Code instead.'
   },
@@ -2960,7 +3802,12 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-502',
     question: 'What are the two main tools for Salesforce development?',
-    options: ["Developer Console and Salesforce Extensions for VS Code", "Notepad and Sublime Text", "Eclipse and IntelliJ", "Visual Studio and Xcode"],
+    options: [
+      'Developer Console and Salesforce Extensions for VS Code',
+      'Eclipse and IntelliJ',
+      'Notepad and Sublime Text',
+      'Visual Studio and Xcode'
+    ],
     correct: 0,
     explanation: 'The two main tools are Developer Console (browser-based) and Salesforce Extensions for VS Code (desktop-based with version control).'
   },
@@ -2969,8 +3816,13 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-502',
     question: 'What is the purpose of checkpoints in Developer Console?',
-    options: ["To take snapshots of Apex code at particular execution points", "To pause code execution", "To set breakpoints for debugging", "To mark code for deletion"],
-    correct: 0,
+    options: [
+      'To mark code for deletion',
+      'To set breakpoints for debugging',
+      'To pause code execution',
+      'To take snapshots of Apex code at particular execution points'
+    ],
+    correct: 3,
     explanation: 'Checkpoints provide snapshots of Apex code at particular execution points, showing objects in memory.'
   },
   {
@@ -2978,8 +3830,13 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-502',
     question: 'What is the maximum number of checkpoints allowed per Apex class?',
-    options: ["5", "10", "Unlimited", "1"],
-    correct: 0,
+    options: [
+      'Unlimited',
+      '5',
+      '1',
+      '10'
+    ],
+    correct: 1,
     explanation: 'The maximum number of checkpoints per Apex class is 5.'
   },
   {
@@ -2987,7 +3844,12 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-505',
     question: 'What is the source of truth in the org development model?',
-    options: ["Version control repository (Git)", "The Salesforce org", "Developer Console", "VS Code"],
+    options: [
+      'Version control repository (Git)',
+      'VS Code',
+      'Developer Console',
+      'The Salesforce org'
+    ],
     correct: 0,
     explanation: 'In the org development model, the version control repository (Git) is the source of truth for all release changes.'
   },
@@ -2996,8 +3858,13 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-505',
     question: 'What is the correct order of the release environment lifecycle?',
-    options: ["Develop & Test \u2192 Build Release \u2192 Test Release \u2192 Release \u2192 Production", "Production \u2192 Release \u2192 Test \u2192 Build \u2192 Develop", "Build \u2192 Develop \u2192 Test \u2192 Release \u2192 Production", "Test \u2192 Develop \u2192 Build \u2192 Release \u2192 Production"],
-    correct: 0,
+    options: [
+      'Build → Develop → Test → Release → Production',
+      'Test → Develop → Build → Release → Production',
+      'Develop & Test → Build Release → Test Release → Release → Production',
+      'Production → Release → Test → Build → Develop'
+    ],
+    correct: 2,
     explanation: 'The release lifecycle is: Develop & Test (developer sandboxes) → Build Release (integration) → Test Release (UAT) → Release (training) → Production.'
   },
   {
@@ -3005,8 +3872,13 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-505',
     question: 'What command retrieves metadata from a Salesforce org to a local project?',
-    options: ["sf project retrieve start", "sf project deploy start", "sf org retrieve", "sf metadata pull"],
-    correct: 0,
+    options: [
+      'sf metadata pull',
+      'sf project retrieve start',
+      'sf org retrieve',
+      'sf project deploy start'
+    ],
+    correct: 1,
     explanation: 'The sf project retrieve start command retrieves metadata from a Salesforce org to the local SFDX project.'
   },
   {
@@ -3014,7 +3886,12 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-505',
     question: 'What is a package.xml manifest?',
-    options: ["A file listing metadata components to deploy", "A package of actual code", "A configuration file", "A documentation file"],
+    options: [
+      'A file listing metadata components to deploy',
+      'A package of actual code',
+      'A configuration file',
+      'A documentation file'
+    ],
     correct: 0,
     explanation: 'A package.xml manifest lists metadata components to deploy but does not contain the actual code.'
   },
@@ -3023,7 +3900,12 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-505',
     question: 'What is Quick Deploy in Salesforce CLI?',
-    options: ["Deploys using a job ID from a successful validation", "Deploys without validation", "Deploys only changed files", "Deploys to multiple orgs simultaneously"],
+    options: [
+      'Deploys using a job ID from a successful validation',
+      'Deploys only changed files',
+      'Deploys to multiple orgs simultaneously',
+      'Deploys without validation'
+    ],
     correct: 0,
     explanation: 'Quick Deploy uses a job ID from a successful validation to deploy without re-running all tests.'
   },
@@ -3032,8 +3914,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-305',
     question: 'What is the most recommended way to prevent SOQL injection?',
-    options: ["Use static queries with bind variables", "Use String.escapeSingleQuotes()", "Use typecasting", "Use allowlisting"],
-    correct: 0,
+    options: [
+      'Use typecasting',
+      'Use String.escapeSingleQuotes()',
+      'Use allowlisting',
+      'Use static queries with bind variables'
+    ],
+    correct: 3,
     explanation: 'Static queries with bind variables are the most recommended way to prevent SOQL injection.'
   },
   {
@@ -3041,8 +3928,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-305',
     question: 'What does String.escapeSingleQuotes() do?',
-    options: ["Escapes single quote characters with a backslash", "Removes all quotes from a string", "Converts quotes to double quotes", "Adds quotes around a string"],
-    correct: 0,
+    options: [
+      'Removes all quotes from a string',
+      'Adds quotes around a string',
+      'Escapes single quote characters with a backslash',
+      'Converts quotes to double quotes'
+    ],
+    correct: 2,
     explanation: 'String.escapeSingleQuotes() escapes single quote characters with a backslash, preventing attackers from breaking out of string boundaries.'
   },
   {
@@ -3050,8 +3942,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-305',
     question: 'What is the limitation of String.escapeSingleQuotes() for preventing SOQL injection?',
-    options: ["It only works for strings, not numeric values", "It works for all data types", "It's the strongest defense", "It prevents all injection types"],
-    correct: 0,
+    options: [
+      'It prevents all injection types',
+      'It only works for strings, not numeric values',
+      'It works for all data types',
+      'It\'s the strongest defense'
+    ],
+    correct: 1,
     explanation: 'String.escapeSingleQuotes() only works for strings and doesn\'t prevent injections that don\'t rely on single quote characters (e.g., numeric injection).'
   },
   {
@@ -3059,8 +3956,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-305',
     question: 'Why is blocklisting (removing bad characters) weaker than allowlisting?',
-    options: ["It's easier to predict good inputs than all possible bad inputs", "Blocklisting is actually stronger", "They are equally strong", "Allowlisting doesn't work for SOQL"],
-    correct: 0,
+    options: [
+      'They are equally strong',
+      'It\'s easier to predict good inputs than all possible bad inputs',
+      'Blocklisting is actually stronger',
+      'Allowlisting doesn\'t work for SOQL'
+    ],
+    correct: 1,
     explanation: 'Blocklisting is weaker because it\'s easier to predict a few good inputs than to predict all possible bad inputs.'
   },
   {
@@ -3068,8 +3970,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-306',
     question: 'What is the default execution mode for Apex classes?',
-    options: ["System mode", "User mode", "Guest mode", "Admin mode"],
-    correct: 0,
+    options: [
+      'Admin mode',
+      'System mode',
+      'User mode',
+      'Guest mode'
+    ],
+    correct: 1,
     explanation: 'Apex classes execute in system mode by default, where object permissions, field-level security, and sharing rules aren\'t applied.'
   },
   {
@@ -3077,8 +3984,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-306',
     question: 'When was User Mode introduced for database operations?',
-    options: ["Spring 2023", "Winter 2022", "Summer 2021", "Spring 2020"],
-    correct: 0,
+    options: [
+      'Winter 2022',
+      'Spring 2023',
+      'Spring 2020',
+      'Summer 2021'
+    ],
+    correct: 1,
     explanation: 'User Mode for database operations was introduced in Spring 2023.'
   },
   {
@@ -3086,8 +3998,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-306',
     question: 'What is the syntax for SOQL with User Mode?',
-    options: ["SELECT Id FROM Account WITH USER_MODE", "SELECT Id FROM Account IN USER_MODE", "SELECT Id FROM Account AS USER", "SELECT Id FROM Account USER_MODE"],
-    correct: 0,
+    options: [
+      'SELECT Id FROM Account USER_MODE',
+      'SELECT Id FROM Account WITH USER_MODE',
+      'SELECT Id FROM Account IN USER_MODE',
+      'SELECT Id FROM Account AS USER'
+    ],
+    correct: 1,
     explanation: 'The syntax for SOQL with User Mode is: SELECT Id FROM Account WITH USER_MODE.'
   },
   {
@@ -3095,7 +4012,12 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-306',
     question: 'What is the syntax for DML with User Mode?',
-    options: ["insert as user o;", "insert user o;", "insert with user o;", "insert asUser o;"],
+    options: [
+      'insert as user o;',
+      'insert asUser o;',
+      'insert user o;',
+      'insert with user o;'
+    ],
     correct: 0,
     explanation: 'The syntax for DML with User Mode is: insert as user o; (or database.insert(o, AccessLevel.USER_MODE)).'
   },
@@ -3104,7 +4026,12 @@ export const examQuestions = [
     chapter: 'userInterface',
     topic: 'PD1-401',
     question: 'What happens to showHeader and sidebar in Lightning Experience?',
-    options: ["They are forced to false", "They work normally", "They are ignored", "They cause errors"],
+    options: [
+      'They are forced to false',
+      'They work normally',
+      'They cause errors',
+      'They are ignored'
+    ],
     correct: 0,
     explanation: 'In Lightning Experience, showHeader and sidebar are always forced to false.'
   },
@@ -3113,7 +4040,12 @@ export const examQuestions = [
     chapter: 'userInterface',
     topic: 'PD1-401',
     question: 'What is the purpose of the <apex:slds> component?',
-    options: ["Loads Lightning Design System without static resource upload", "Creates a new Lightning component", "Enables Lightning Experience", "Adds SLDS to static resources"],
+    options: [
+      'Loads Lightning Design System without static resource upload',
+      'Adds SLDS to static resources',
+      'Enables Lightning Experience',
+      'Creates a new Lightning component'
+    ],
     correct: 0,
     explanation: 'The <apex:slds> component loads the Lightning Design System without requiring static resource upload.'
   },
@@ -3122,8 +4054,13 @@ export const examQuestions = [
     chapter: 'userInterface',
     topic: 'PD1-401',
     question: 'Which Visualforce features don\'t work in Lightning Experience?',
-    options: ["showHeader, sidebar, certain related lists, and <apex:iframe>", "All Visualforce features work", "Only JavaScript features", "Only CSS features"],
-    correct: 0,
+    options: [
+      'Only CSS features',
+      'showHeader, sidebar, certain related lists, and <apex:iframe>',
+      'All Visualforce features work',
+      'Only JavaScript features'
+    ],
+    correct: 1,
     explanation: 'Features that don\'t work include showHeader, sidebar, certain related lists, and <apex:iframe> (VF already in an iframe).'
   },
   {
@@ -3131,8 +4068,13 @@ export const examQuestions = [
     chapter: 'userInterface',
     topic: 'PD1-408',
     question: 'What should you do with non-lifecycle event listeners in LWC?',
-    options: ["Remove them in disconnectedCallback()", "Keep them always", "Add them in constructor", "Never use them"],
-    correct: 0,
+    options: [
+      'Add them in constructor',
+      'Keep them always',
+      'Never use them',
+      'Remove them in disconnectedCallback()'
+    ],
+    correct: 3,
     explanation: 'Non-lifecycle event listeners should be removed in disconnectedCallback() to prevent memory leaks.'
   },
   {
@@ -3140,7 +4082,12 @@ export const examQuestions = [
     chapter: 'userInterface',
     topic: 'PD1-408',
     question: 'What is event delegation in LWC?',
-    options: ["A technique to reduce the number of event listeners", "A way to delegate events to parent components", "A method to prevent event propagation", "A way to create custom events"],
+    options: [
+      'A technique to reduce the number of event listeners',
+      'A way to delegate events to parent components',
+      'A way to create custom events',
+      'A method to prevent event propagation'
+    ],
     correct: 0,
     explanation: 'Event delegation is a technique that reduces the number of event listeners by handling events at a higher level in the DOM.'
   },
@@ -3149,8 +4096,13 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-501',
     question: 'What happens when an assertion fails in a test?',
-    options: ["An uncatchable AssertException is thrown", "The test continues", "A warning is logged", "The test is skipped"],
-    correct: 0,
+    options: [
+      'The test continues',
+      'A warning is logged',
+      'The test is skipped',
+      'An uncatchable AssertException is thrown'
+    ],
+    correct: 3,
     explanation: 'Failed assertions throw an AssertException that is fatal and uncatchable, stopping the test.'
   },
   {
@@ -3158,7 +4110,12 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-501',
     question: 'What is a test suite?',
-    options: ["A collection of test classes run together", "A single test method", "A test configuration file", "A test data factory"],
+    options: [
+      'A collection of test classes run together',
+      'A test data factory',
+      'A test configuration file',
+      'A single test method'
+    ],
     correct: 0,
     explanation: 'A test suite is a collection of test classes that can be run together for regression testing.'
   },
@@ -3167,8 +4124,13 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-501',
     question: 'Do test methods have access to pre-existing org data?',
-    options: ["No, except setup/metadata objects like User and Profile", "Yes, full access", "Only with @seeAllData", "Only custom objects"],
-    correct: 0,
+    options: [
+      'Only custom objects',
+      'No, except setup/metadata objects like User and Profile',
+      'Only with @seeAllData',
+      'Yes, full access'
+    ],
+    correct: 1,
     explanation: 'Test methods don\'t have access to pre-existing org data, except setup/metadata objects like User, Profile, and Organization.'
   },
   {
@@ -3176,8 +4138,13 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-501',
     question: 'What does @IsTest(seeAllData=true) do?',
-    options: ["Grants access to all org data in the test", "Makes the test run faster", "Enables debugging", "Creates test data automatically"],
-    correct: 0,
+    options: [
+      'Enables debugging',
+      'Grants access to all org data in the test',
+      'Makes the test run faster',
+      'Creates test data automatically'
+    ],
+    correct: 1,
     explanation: '@IsTest(seeAllData=true) grants the test method access to all data in the organization, which is not a best practice.'
   },
   {
@@ -3185,7 +4152,12 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-302',
     question: 'What is the difference between instance and static methods?',
-    options: ["Instance methods require an object; static methods belong to the class", "They are identical", "Static methods are faster", "Instance methods can't be overridden"],
+    options: [
+      'Instance methods require an object; static methods belong to the class',
+      'They are identical',
+      'Instance methods can\'t be overridden',
+      'Static methods are faster'
+    ],
     correct: 0,
     explanation: 'Instance methods require an object to be called; static methods belong to the class and can be called without an object.'
   },
@@ -3194,8 +4166,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-302',
     question: 'What are the access modifiers available in Apex?',
-    options: ["private, protected, public, global", "private, public, internal, external", "local, global, public, protected", "private, public, shared, global"],
-    correct: 0,
+    options: [
+      'private, public, shared, global',
+      'private, public, internal, external',
+      'private, protected, public, global',
+      'local, global, public, protected'
+    ],
+    correct: 2,
     explanation: 'The four access modifiers in Apex are: private, protected, public, and global.'
   },
   {
@@ -3203,7 +4180,12 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-302',
     question: 'What data types are available in Apex?',
-    options: ["Primitives, sObject, Collections, Enums, user-defined classes, system-supplied classes", "Only primitives and objects", "Only strings and numbers", "Only collections"],
+    options: [
+      'Primitives, sObject, Collections, Enums, user-defined classes, system-supplied classes',
+      'Only collections',
+      'Only primitives and objects',
+      'Only strings and numbers'
+    ],
     correct: 0,
     explanation: 'Apex supports: primitives (Integer, Double, Long, Date, Datetime, String, ID, Boolean), sObject, collections (Sets, Maps, Lists), enums, user-defined classes, and system-supplied classes.'
   },
@@ -3212,8 +4194,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-302',
     question: 'What is the relationship between sObjects and Salesforce records?',
-    options: ["Every Salesforce record is natively represented as an sObject in Apex", "sObjects are only for custom objects", "Records and sObjects are different things", "sObjects are only for API calls"],
-    correct: 0,
+    options: [
+      'sObjects are only for custom objects',
+      'sObjects are only for API calls',
+      'Every Salesforce record is natively represented as an sObject in Apex',
+      'Records and sObjects are different things'
+    ],
+    correct: 2,
     explanation: 'Every Salesforce record is natively represented as an sObject in Apex, whether it\'s a standard or custom object.'
   },
   {
@@ -3221,8 +4208,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-302',
     question: 'What is the API name convention for custom objects and fields?',
-    options: ["Custom objects end with __c, custom relationship fields end with __r", "All end with __c", "All end with __r", "No suffix is needed"],
-    correct: 0,
+    options: [
+      'All end with __c',
+      'All end with __r',
+      'No suffix is needed',
+      'Custom objects end with __c, custom relationship fields end with __r'
+    ],
+    correct: 3,
     explanation: 'Custom objects and fields end with __c, and custom relationship fields end with __r.'
   },
   {
@@ -3230,8 +4222,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-305',
     question: 'What are the six DML statements in Apex?',
-    options: ["insert, update, upsert, delete, undelete, merge", "insert, update, delete, save, load, merge", "create, update, delete, upsert, undelete, merge", "insert, modify, upsert, delete, undelete, merge"],
-    correct: 0,
+    options: [
+      'insert, modify, upsert, delete, undelete, merge',
+      'create, update, delete, upsert, undelete, merge',
+      'insert, update, upsert, delete, undelete, merge',
+      'insert, update, delete, save, load, merge'
+    ],
+    correct: 2,
     explanation: 'The six DML statements are: insert, update, upsert, delete, undelete, and merge.'
   },
   {
@@ -3239,8 +4236,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-305',
     question: 'What happens when upsert finds multiple matches?',
-    options: ["It throws an error", "It updates the first match", "It creates a new record", "It deletes all matches"],
-    correct: 0,
+    options: [
+      'It updates the first match',
+      'It throws an error',
+      'It deletes all matches',
+      'It creates a new record'
+    ],
+    correct: 1,
     explanation: 'When upsert finds multiple matches for a key, it throws an error.'
   },
   {
@@ -3248,7 +4250,12 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-305',
     question: 'What is the allOrNone parameter in Database methods?',
-    options: ["When false, allows partial success of DML operations", "When true, allows partial success", "Controls batch size", "Controls error handling"],
+    options: [
+      'When false, allows partial success of DML operations',
+      'When true, allows partial success',
+      'Controls error handling',
+      'Controls batch size'
+    ],
     correct: 0,
     explanation: 'When allOrNone is set to false, partial success is allowed - some records can succeed while others fail.'
   },
@@ -3257,7 +4264,12 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-305',
     question: 'What is the purpose of SOQL for loops?',
-    options: ["To process records in chunks of 200 to avoid heap size limits", "To make queries faster", "To reduce governor limits", "To enable bulk processing"],
+    options: [
+      'To process records in chunks of 200 to avoid heap size limits',
+      'To make queries faster',
+      'To reduce governor limits',
+      'To enable bulk processing'
+    ],
     correct: 0,
     explanation: 'SOQL for loops process records in chunks of 200, helping to avoid heap size limits when processing large result sets.'
   },
@@ -3266,8 +4278,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-305',
     question: 'What is the difference between SOQL and SOSL?',
-    options: ["SOQL queries one object; SOSL can search multiple objects simultaneously", "They are identical", "SOQL is faster", "SOSL is for text only"],
-    correct: 0,
+    options: [
+      'They are identical',
+      'SOQL queries one object; SOSL can search multiple objects simultaneously',
+      'SOSL is for text only',
+      'SOQL is faster'
+    ],
+    correct: 1,
     explanation: 'SOQL queries one object at a time with exact matching; SOSL can search multiple objects simultaneously with word matching.'
   },
   {
@@ -3275,7 +4292,12 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-305',
     question: 'What wildcards does SOSL support?',
-    options: ["* (zero or more characters) and ? (exactly one character)", "Only * (any characters)", "Only % (any characters)", "No wildcards"],
+    options: [
+      '* (zero or more characters) and ? (exactly one character)',
+      'Only % (any characters)',
+      'No wildcards',
+      'Only * (any characters)'
+    ],
     correct: 0,
     explanation: 'SOSL supports * wildcard (matches zero or more characters) and ? wildcard (matches exactly one character).'
   },
@@ -3284,8 +4306,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-306',
     question: 'What are the seven possible trigger events?',
-    options: ["before insert, before update, before delete, after insert, after update, after delete, after undelete", "before and after for insert, update, delete", "insert, update, delete, undelete", "before save, after save, before delete, after delete"],
-    correct: 0,
+    options: [
+      'before and after for insert, update, delete',
+      'before insert, before update, before delete, after insert, after update, after delete, after undelete',
+      'insert, update, delete, undelete',
+      'before save, after save, before delete, after delete'
+    ],
+    correct: 1,
     explanation: 'The seven trigger events are: before insert, before update, before delete, after insert, after update, after delete, and after undelete.'
   },
   {
@@ -3293,8 +4320,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-306',
     question: 'What is the purpose of the addError() method in triggers?',
-    options: ["To throw a fatal error that rolls back the operation", "To log an error message", "To skip the current record", "To continue processing"],
-    correct: 0,
+    options: [
+      'To skip the current record',
+      'To log an error message',
+      'To throw a fatal error that rolls back the operation',
+      'To continue processing'
+    ],
+    correct: 2,
     explanation: 'addError() throws a fatal error that displays the message in the UI and rolls back the entire operation.'
   },
   {
@@ -3302,7 +4334,12 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-306',
     question: 'What is the Trigger.operationType context variable?',
-    options: ["Returns the System.TriggerOperation enum for the current event", "Returns the trigger name", "Returns the object type", "Returns the number of records"],
+    options: [
+      'Returns the System.TriggerOperation enum for the current event',
+      'Returns the trigger name',
+      'Returns the object type',
+      'Returns the number of records'
+    ],
     correct: 0,
     explanation: 'Trigger.operationType returns the System.TriggerOperation enum, which can be used in switch statements to handle different events.'
   },
@@ -3311,8 +4348,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-301',
     question: 'What does the start() method return in Batch Apex?',
-    options: ["A Database.QueryLocator or an Iterable", "A list of records", "A single record", "Nothing (void)"],
-    correct: 0,
+    options: [
+      'Nothing (void)',
+      'A single record',
+      'A Database.QueryLocator or an Iterable',
+      'A list of records'
+    ],
+    correct: 2,
     explanation: 'The start() method returns either a Database.QueryLocator object or an Iterable for processing records.'
   },
   {
@@ -3320,8 +4362,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-301',
     question: 'What is the advantage of using Database.QueryLocator in Batch Apex?',
-    options: ["Bypasses the governor limit for SOQL records (up to 50 million)", "Makes the batch run faster", "Reduces memory usage", "Enables parallel processing"],
-    correct: 0,
+    options: [
+      'Reduces memory usage',
+      'Makes the batch run faster',
+      'Bypasses the governor limit for SOQL records (up to 50 million)',
+      'Enables parallel processing'
+    ],
+    correct: 2,
     explanation: 'With Database.QueryLocator, the governor limit for SOQL records is bypassed, allowing up to 50 million records to be processed.'
   },
   {
@@ -3329,8 +4376,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-301',
     question: 'What happens if one batch fails in Batch Apex?',
-    options: ["Other successful batch transactions are not rolled back", "All batches are rolled back", "The entire job fails", "The failed batch is retried"],
-    correct: 0,
+    options: [
+      'The entire job fails',
+      'Other successful batch transactions are not rolled back',
+      'All batches are rolled back',
+      'The failed batch is retried'
+    ],
+    correct: 1,
     explanation: 'If one batch fails, other successful batch transactions are not rolled back, providing fault isolation.'
   },
   {
@@ -3338,8 +4390,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-301',
     question: 'What is the maximum number of jobs that can be added to the queue with System.enqueueJob?',
-    options: ["50", "100", "200", "Unlimited"],
-    correct: 0,
+    options: [
+      '100',
+      '200',
+      '50',
+      'Unlimited'
+    ],
+    correct: 2,
     explanation: 'Up to 50 jobs can be added to the queue with System.enqueueJob in a single transaction.'
   },
   {
@@ -3347,8 +4404,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-301',
     question: 'What is job chaining in Queueable Apex?',
-    options: ["Submitting a second job from within the execute() method", "Running multiple jobs simultaneously", "Linking jobs to a schedule", "Connecting jobs to external systems"],
-    correct: 0,
+    options: [
+      'Running multiple jobs simultaneously',
+      'Submitting a second job from within the execute() method',
+      'Connecting jobs to external systems',
+      'Linking jobs to a schedule'
+    ],
+    correct: 1,
     explanation: 'Job chaining is submitting a second job from within the execute() method of a Queueable job for sequential processing.'
   },
   {
@@ -3356,7 +4418,12 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-301',
     question: 'What interface must a class implement to be schedulable?',
-    options: ["Schedulable", "Scheduleable", "Cronable", "Timeable"],
+    options: [
+      'Schedulable',
+      'Scheduleable',
+      'Cronable',
+      'Timeable'
+    ],
     correct: 0,
     explanation: 'A class must implement the Schedulable interface and its required execute() method to be scheduled.'
   },
@@ -3365,7 +4432,12 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-301',
     question: 'What is the workaround for making callouts from scheduled Apex?',
-    options: ["Use @Future(callout=true) from scheduled Apex, or call a batch job", "Direct callouts work fine", "Use Queueable Apex instead", "Callouts are not possible"],
+    options: [
+      'Use @Future(callout=true) from scheduled Apex, or call a batch job',
+      'Use Queueable Apex instead',
+      'Direct callouts work fine',
+      'Callouts are not possible'
+    ],
     correct: 0,
     explanation: 'Synchronous callouts are not supported from scheduled Apex. Use @Future(callout=true) or execute a batch job that supports callouts.'
   },
@@ -3374,8 +4446,13 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-502',
     question: 'What is the Apex Flex Queue?',
-    options: ["Holds up to 100 batch jobs in holding status", "A queue for future methods", "A queue for scheduled jobs", "A queue for Queueable jobs"],
-    correct: 0,
+    options: [
+      'A queue for future methods',
+      'A queue for scheduled jobs',
+      'A queue for Queueable jobs',
+      'Holds up to 100 batch jobs in holding status'
+    ],
+    correct: 3,
     explanation: 'The Apex Flex Queue holds up to 100 batch jobs in holding status, processing them first-in, first-out.'
   },
   {
@@ -3383,8 +4460,13 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-502',
     question: 'How many batch jobs can process simultaneously per org?',
-    options: ["5", "10", "50", "100"],
-    correct: 0,
+    options: [
+      '100',
+      '50',
+      '10',
+      '5'
+    ],
+    correct: 3,
     explanation: 'Up to 5 queued or active batch jobs can process simultaneously per org.'
   },
   {
@@ -3392,8 +4474,13 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-505',
     question: 'What are the three main parts of a CLI command structure?',
-    options: ["Command, Flags/Options, Arguments", "Action, Parameters, Output", "Input, Process, Output", "Command, Subcommand, Parameter"],
-    correct: 0,
+    options: [
+      'Input, Process, Output',
+      'Command, Flags/Options, Arguments',
+      'Action, Parameters, Output',
+      'Command, Subcommand, Parameter'
+    ],
+    correct: 1,
     explanation: 'The three main parts are: Command/Utility (what action), Flags/Options (identified by hyphens), and Arguments (what to process).'
   },
   {
@@ -3401,8 +4488,13 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-505',
     question: 'What is the difference between flags and switches in CLI?',
-    options: ["Flags require values; switches don't require arguments", "They are identical", "Switches are faster", "Flags are for Windows only"],
-    correct: 0,
+    options: [
+      'Flags are for Windows only',
+      'Switches are faster',
+      'They are identical',
+      'Flags require values; switches don\'t require arguments'
+    ],
+    correct: 3,
     explanation: 'Flags require values (e.g., -n ProjectName), while switches don\'t require arguments (e.g., -d for set-default).'
   },
   {
@@ -3410,7 +4502,12 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-509',
     question: 'What command validates a deployment without committing?',
-    options: ["sf project deploy validate", "sf project deploy start", "sf project deploy check", "sf project deploy test"],
+    options: [
+      'sf project deploy validate',
+      'sf project deploy check',
+      'sf project deploy test',
+      'sf project deploy start'
+    ],
     correct: 0,
     explanation: 'sf project deploy validate verifies test results without committing the deployment.'
   },
@@ -3419,7 +4516,12 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-509',
     question: 'What is a destructive changes manifest?',
-    options: ["A file that specifies components to delete during deployment", "A file that deletes the entire org", "A backup file", "A rollback file"],
+    options: [
+      'A file that specifies components to delete during deployment',
+      'A rollback file',
+      'A file that deletes the entire org',
+      'A backup file'
+    ],
     correct: 0,
     explanation: 'A destructive changes manifest specifies metadata components to delete during deployment.'
   },
@@ -3428,7 +4530,12 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-509',
     question: 'What is the time window for Quick Deploy after a successful validation?',
-    options: ["10 days", "24 hours", "7 days", "30 days"],
+    options: [
+      '10 days',
+      '7 days',
+      '24 hours',
+      '30 days'
+    ],
     correct: 0,
     explanation: 'Quick Deploy can use a job ID from a successful validation within a 10-day window.'
   },
@@ -3437,8 +4544,13 @@ export const examQuestions = [
     chapter: 'userInterface',
     topic: 'PD1-405',
     question: 'Why should you lock image dimensions in LWC?',
-    options: ["To avoid reflows and improve performance", "To make images load faster", "To reduce file size", "To enable lazy loading"],
-    correct: 0,
+    options: [
+      'To enable lazy loading',
+      'To reduce file size',
+      'To make images load faster',
+      'To avoid reflows and improve performance'
+    ],
+    correct: 3,
     explanation: 'Locking image dimensions avoids reflows, which improves rendering performance.'
   },
   {
@@ -3446,8 +4558,13 @@ export const examQuestions = [
     chapter: 'userInterface',
     topic: 'PD1-405',
     question: 'What is the recommended approach for third-party JavaScript libraries in LWC?',
-    options: ["Upload as static resource and use loadScript/loadStyle", "Include directly in HTML", "Use npm install", "Import from CDN"],
-    correct: 0,
+    options: [
+      'Use npm install',
+      'Upload as static resource and use loadScript/loadStyle',
+      'Import from CDN',
+      'Include directly in HTML'
+    ],
+    correct: 1,
     explanation: 'Third-party libraries must be uploaded as static resources and loaded using loadScript/loadStyle from @salesforce/resourceUrl.'
   },
   {
@@ -3455,8 +4572,13 @@ export const examQuestions = [
     chapter: 'userInterface',
     topic: 'PD1-405',
     question: 'What is the difference between Aura and LWC data binding?',
-    options: ["Aura has two-way binding; LWC has one-way binding only", "They are identical", "LWC has two-way binding; Aura has one-way", "Neither has data binding"],
-    correct: 0,
+    options: [
+      'They are identical',
+      'Neither has data binding',
+      'LWC has two-way binding; Aura has one-way',
+      'Aura has two-way binding; LWC has one-way binding only'
+    ],
+    correct: 3,
     explanation: 'Aura supports two-way data binding, while LWC uses one-way data binding only (child fires events to modify owner data).'
   },
   {
@@ -3464,8 +4586,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-302',
     question: 'Which of the following is NOT a characteristic of Apex?',
-    options: ["Client-side execution", "Strongly typed", "Multitenant-aware", "Integrated with the database"],
-    correct: 0,
+    options: [
+      'Multitenant-aware',
+      'Integrated with the database',
+      'Strongly typed',
+      'Client-side execution'
+    ],
+    correct: 3,
     explanation: 'Apex is server-side, not client-side. It is strongly typed, multitenant-aware, and integrated with the database.'
   },
   {
@@ -3473,8 +4600,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-302',
     question: 'What is Anonymous Apex used for?',
-    options: ["Running code on the fly for testing via Developer Console", "Creating permanent classes", "Deploying to production", "Writing triggers"],
-    correct: 0,
+    options: [
+      'Writing triggers',
+      'Deploying to production',
+      'Running code on the fly for testing via Developer Console',
+      'Creating permanent classes'
+    ],
+    correct: 2,
     explanation: 'Anonymous Apex is used for running code on the fly for testing via the Developer Console\'s Execute Anonymous window.'
   },
   {
@@ -3482,7 +4614,12 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-302',
     question: 'What is the syntax for declaring a List in Apex?',
-    options: ["List<String> myList = new List<String>();", "Array<String> myList = new Array<String>();", "String[] myList = new String[]();", "ArrayList<String> myList = new ArrayList<String>();"],
+    options: [
+      'List<String> myList = new List<String>();',
+      'String[] myList = new String[]();',
+      'Array<String> myList = new Array<String>();',
+      'ArrayList<String> myList = new ArrayList<String>();'
+    ],
     correct: 0,
     explanation: 'The syntax for declaring a List in Apex is: List<String> myList = new List<String>(); (or String[] syntax).'
   },
@@ -3491,8 +4628,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-302',
     question: 'What are the three types of collections in Apex?',
-    options: ["Lists, Maps, and Sets", "Arrays, Objects, and Lists", "Vectors, Hashes, and Queues", "Collections, Arrays, and Dictionaries"],
-    correct: 0,
+    options: [
+      'Vectors, Hashes, and Queues',
+      'Lists, Maps, and Sets',
+      'Collections, Arrays, and Dictionaries',
+      'Arrays, Objects, and Lists'
+    ],
+    correct: 1,
     explanation: 'The three types of collections in Apex are: Lists (ordered), Maps (key-value pairs), and Sets (unique values).'
   },
   {
@@ -3500,8 +4642,13 @@ export const examQuestions = [
     chapter: 'userInterface',
     topic: 'PD1-401',
     question: 'Which sforce.one function navigates to a specific record?',
-    options: ["navigateToSObject(recordId)", "navigateToURL(url)", "navigateToList(listViewId)", "createRecord(entityName)"],
-    correct: 0,
+    options: [
+      'createRecord(entityName)',
+      'navigateToList(listViewId)',
+      'navigateToURL(url)',
+      'navigateToSObject(recordId)'
+    ],
+    correct: 3,
     explanation: 'sforce.one.navigateToSObject(recordId) navigates to a specific record in Lightning Experience.'
   },
   {
@@ -3509,8 +4656,13 @@ export const examQuestions = [
     chapter: 'userInterface',
     topic: 'PD1-401',
     question: 'Which sforce.one function opens the record creation page?',
-    options: ["createRecord(entityName)", "editRecord(recordId)", "navigateToSObject(recordId)", "navigateToURL(url)"],
-    correct: 0,
+    options: [
+      'editRecord(recordId)',
+      'navigateToURL(url)',
+      'navigateToSObject(recordId)',
+      'createRecord(entityName)'
+    ],
+    correct: 3,
     explanation: 'sforce.one.createRecord(entityName) opens the record creation page in Lightning Experience.'
   },
   {
@@ -3518,8 +4670,13 @@ export const examQuestions = [
     chapter: 'userInterface',
     topic: 'PD1-407',
     question: 'What resources are included in an Aura component bundle?',
-    options: ["Component, Controller, Helper, Style, Design, Documentation, Renderer", "Only Component and Controller", "Component, CSS, and JavaScript", "HTML, CSS, and JavaScript"],
-    correct: 0,
+    options: [
+      'Component, CSS, and JavaScript',
+      'Component, Controller, Helper, Style, Design, Documentation, Renderer',
+      'Only Component and Controller',
+      'HTML, CSS, and JavaScript'
+    ],
+    correct: 1,
     explanation: 'An Aura component bundle includes: Component (.cmp), Controller (.js), Helper (.js), Style (.css), Design (.design), Documentation, and Renderer.'
   },
   {
@@ -3527,8 +4684,13 @@ export const examQuestions = [
     chapter: 'userInterface',
     topic: 'PD1-407',
     question: 'What is the purpose of the Design resource in an Aura component?',
-    options: ["Exposes attributes to Lightning App Builder", "Defines the component's visual design", "Creates documentation", "Handles events"],
-    correct: 0,
+    options: [
+      'Creates documentation',
+      'Exposes attributes to Lightning App Builder',
+      'Defines the component\'s visual design',
+      'Handles events'
+    ],
+    correct: 1,
     explanation: 'The Design resource exposes component attributes to Lightning App Builder for configuration.'
   },
   {
@@ -3536,8 +4698,13 @@ export const examQuestions = [
     chapter: 'userInterface',
     topic: 'PD1-405',
     question: 'When is connectedCallback() called in LWC?',
-    options: ["When the component is inserted into the DOM", "When the component is removed from the DOM", "When the component is rendered", "When the component is created"],
-    correct: 0,
+    options: [
+      'When the component is rendered',
+      'When the component is created',
+      'When the component is removed from the DOM',
+      'When the component is inserted into the DOM'
+    ],
+    correct: 3,
     explanation: 'connectedCallback() is called when the component is inserted into the DOM, similar to Aura\'s init event.'
   },
   {
@@ -3545,8 +4712,13 @@ export const examQuestions = [
     chapter: 'userInterface',
     topic: 'PD1-405',
     question: 'When should you use disconnectedCallback()?',
-    options: ["To clean up resources when the component is removed from the DOM", "To initialize the component", "To handle errors", "To render the component"],
-    correct: 0,
+    options: [
+      'To render the component',
+      'To initialize the component',
+      'To handle errors',
+      'To clean up resources when the component is removed from the DOM'
+    ],
+    correct: 3,
     explanation: 'disconnectedCallback() is used to clean up resources (like event listeners) when the component is removed from the DOM.'
   },
   {
@@ -3554,8 +4726,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-306',
     question: 'What does WITH SECURITY_ENFORCED do in a SOQL query?',
-    options: ["Validates field- and object-level security automatically", "Enables encryption", "Forces user mode", "Bypasses sharing rules"],
-    correct: 0,
+    options: [
+      'Enables encryption',
+      'Validates field- and object-level security automatically',
+      'Forces user mode',
+      'Bypasses sharing rules'
+    ],
+    correct: 1,
     explanation: 'WITH SECURITY_ENFORCED validates field- and object-level security in SOQL queries automatically.'
   },
   {
@@ -3563,8 +4740,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-306',
     question: 'What API version is required for WITH SECURITY_ENFORCED?',
-    options: ["48.0+", "40.0+", "50.0+", "45.0+"],
-    correct: 0,
+    options: [
+      '45.0+',
+      '48.0+',
+      '50.0+',
+      '40.0+'
+    ],
+    correct: 1,
     explanation: 'WITH SECURITY_ENFORCED requires API version 48.0 or higher.'
   },
   {
@@ -3572,8 +4754,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-306',
     question: 'What does the isDeleteable() method check?',
-    options: ["Delete access on the object (no field check needed)", "Delete access on each field", "Read access on the object", "Create access on the object"],
-    correct: 0,
+    options: [
+      'Delete access on each field',
+      'Delete access on the object (no field check needed)',
+      'Create access on the object',
+      'Read access on the object'
+    ],
+    correct: 1,
     explanation: 'isDeleteable() checks delete access on the object. No field-level check is needed since you delete entire records.'
   },
   {
@@ -3581,8 +4768,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-306',
     question: 'When is Trigger.newMap available?',
-    options: ["Before update, after insert, after update, after undelete", "All trigger events", "Only before insert", "Only after delete"],
-    correct: 0,
+    options: [
+      'Only before insert',
+      'All trigger events',
+      'Before update, after insert, after update, after undelete',
+      'Only after delete'
+    ],
+    correct: 2,
     explanation: 'Trigger.newMap is available in: before update, after insert, after update, and after undelete.'
   },
   {
@@ -3590,8 +4782,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-306',
     question: 'When is Trigger.oldMap available?',
-    options: ["Update and delete triggers", "All trigger events", "Only insert triggers", "Only undelete triggers"],
-    correct: 0,
+    options: [
+      'Only insert triggers',
+      'Only undelete triggers',
+      'All trigger events',
+      'Update and delete triggers'
+    ],
+    correct: 3,
     explanation: 'Trigger.oldMap is available in update and delete triggers.'
   },
   {
@@ -3599,8 +4796,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-306',
     question: 'Can you perform DML on Trigger.new in a before trigger?',
-    options: ["No, performing DML on Trigger.new in a before trigger causes an error", "Yes, it's the recommended approach", "Only for insert triggers", "Only for update triggers"],
-    correct: 0,
+    options: [
+      'Only for update triggers',
+      'No, performing DML on Trigger.new in a before trigger causes an error',
+      'Only for insert triggers',
+      'Yes, it\'s the recommended approach'
+    ],
+    correct: 1,
     explanation: 'Performing DML on Trigger.new records in a before trigger causes an error. Records are saved automatically after the trigger finishes.'
   },
   {
@@ -3608,8 +4810,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-306',
     question: 'What is the recommended pattern for handling multiple trigger events?',
-    options: ["Use a switch statement on Trigger.operationType", "Use if-else statements", "Create separate triggers for each event", "Use a single trigger without a handler"],
-    correct: 0,
+    options: [
+      'Use if-else statements',
+      'Create separate triggers for each event',
+      'Use a single trigger without a handler',
+      'Use a switch statement on Trigger.operationType'
+    ],
+    correct: 3,
     explanation: 'Using a switch statement on Trigger.operationType is the recommended pattern for handling multiple trigger events.'
   },
   {
@@ -3617,8 +4824,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-306',
     question: 'How should triggers handle callouts to external services?',
-    options: ["Use @future(callout=true) for asynchronous callouts", "Make synchronous callouts directly", "Use Queueable Apex", "Callouts are not allowed in triggers"],
-    correct: 0,
+    options: [
+      'Callouts are not allowed in triggers',
+      'Make synchronous callouts directly',
+      'Use @future(callout=true) for asynchronous callouts',
+      'Use Queueable Apex'
+    ],
+    correct: 2,
     explanation: 'External web service calls from triggers must be asynchronous. Use @future(callout=true) annotation.'
   },
   {
@@ -3626,7 +4838,12 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-306',
     question: 'What is the governor limit for SOQL queries in synchronous Apex?',
-    options: ["100", "50", "200", "Unlimited"],
+    options: [
+      '100',
+      '50',
+      '200',
+      'Unlimited'
+    ],
     correct: 0,
     explanation: 'The governor limit for SOQL queries in synchronous Apex is 100 (200 for asynchronous).'
   },
@@ -3635,7 +4852,12 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-306',
     question: 'What is the governor limit for DML statements per transaction?',
-    options: ["150", "100", "200", "Unlimited"],
+    options: [
+      '150',
+      '100',
+      'Unlimited',
+      '200'
+    ],
     correct: 0,
     explanation: 'The governor limit for DML statements per transaction is 150.'
   },
@@ -3644,8 +4866,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-306',
     question: 'What is the recommended approach for querying related records in triggers?',
-    options: ["Use subqueries (inner queries) or IN clause with Trigger.new binding", "Query inside the for loop", "Use SOSL instead", "Query each record individually"],
-    correct: 0,
+    options: [
+      'Query inside the for loop',
+      'Use SOSL instead',
+      'Use subqueries (inner queries) or IN clause with Trigger.new binding',
+      'Query each record individually'
+    ],
+    correct: 2,
     explanation: 'Use subqueries or IN clause with Trigger.new binding to efficiently query related records without hitting governor limits.'
   },
   {
@@ -3653,8 +4880,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-306',
     question: 'What is the AddRelatedRecord trigger pattern?',
-    options: ["A pattern that creates child records when parent records are inserted or updated", "A pattern that deletes related records", "A pattern that updates related records", "A pattern that queries related records"],
-    correct: 0,
+    options: [
+      'A pattern that updates related records',
+      'A pattern that deletes related records',
+      'A pattern that queries related records',
+      'A pattern that creates child records when parent records are inserted or updated'
+    ],
+    correct: 3,
     explanation: 'The AddRelatedRecord pattern creates child records (like Opportunities) when parent records (like Accounts) are inserted or updated.'
   },
   {
@@ -3662,8 +4894,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-306',
     question: 'What is the best practice for adding related records in a trigger?',
-    options: ["Query related child records using SOQL with subquery, build a list, then insert at the end", "Insert records one at a time inside the loop", "Use DML inside the for loop", "Query each record individually"],
-    correct: 0,
+    options: [
+      'Query each record individually',
+      'Query related child records using SOQL with subquery, build a list, then insert at the end',
+      'Use DML inside the for loop',
+      'Insert records one at a time inside the loop'
+    ],
+    correct: 1,
     explanation: 'The bulkified pattern is: query related child records using SOQL with subquery, build a list of new records, then insert at the end.'
   },
   {
@@ -3671,8 +4908,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-310',
     question: 'What is a DmlException?',
-    options: ["An exception thrown when a DML operation fails", "A database connection error", "A syntax error", "A governor limit error"],
-    correct: 0,
+    options: [
+      'A governor limit error',
+      'An exception thrown when a DML operation fails',
+      'A database connection error',
+      'A syntax error'
+    ],
+    correct: 1,
     explanation: 'A DmlException is thrown when a DML operation fails, such as when a required field is missing or a validation rule fails.'
   },
   {
@@ -3680,8 +4922,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-310',
     question: 'What is the purpose of try-catch blocks in Apex?',
-    options: ["To handle exceptions gracefully and prevent unhandled errors", "To improve performance", "To enable debugging", "To create test methods"],
-    correct: 0,
+    options: [
+      'To create test methods',
+      'To enable debugging',
+      'To improve performance',
+      'To handle exceptions gracefully and prevent unhandled errors'
+    ],
+    correct: 3,
     explanation: 'Try-catch blocks handle exceptions gracefully, allowing the code to respond to errors without crashing.'
   },
   {
@@ -3689,8 +4936,13 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-501',
     question: 'What should tests cover besides positive cases?',
-    options: ["Negative cases, bulk processing, and single-record processing", "Only positive cases", "Only edge cases", "Only bulk processing"],
-    correct: 0,
+    options: [
+      'Only edge cases',
+      'Negative cases, bulk processing, and single-record processing',
+      'Only positive cases',
+      'Only bulk processing'
+    ],
+    correct: 1,
     explanation: 'Tests should cover: positive cases, negative cases, bulk processing, and single-record processing.'
   },
   {
@@ -3698,8 +4950,13 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-501',
     question: 'What is a TestDataFactory?',
-    options: ["A public static class with reusable methods for creating test data", "A built-in Salesforce class", "A third-party library", "A testing framework"],
-    correct: 0,
+    options: [
+      'A built-in Salesforce class',
+      'A third-party library',
+      'A public static class with reusable methods for creating test data',
+      'A testing framework'
+    ],
+    correct: 2,
     explanation: 'A TestDataFactory is a recommended pattern - a public static class annotated with @IsTest that centralizes test-data creation for reuse.'
   },
   {
@@ -3707,8 +4964,13 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-501',
     question: 'What does Test.setFixedSearchResults() do?',
-    options: ["Sets fixed search results for SOSL queries in tests", "Sets fixed SOQL results", "Enables search indexing", "Creates test data"],
-    correct: 0,
+    options: [
+      'Sets fixed SOQL results',
+      'Sets fixed search results for SOSL queries in tests',
+      'Enables search indexing',
+      'Creates test data'
+    ],
+    correct: 1,
     explanation: 'Test.setFixedSearchResults() sets fixed search results for SOSL queries in tests, since SOSL returns empty results by default in test context.'
   },
   {
@@ -3716,7 +4978,12 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-502',
     question: 'What can you do in the Developer Console?',
-    options: ["Create/edit Apex classes, triggers, Aura components, VF pages; run queries; analyze logs", "Only write Apex code", "Only run queries", "Only debug"],
+    options: [
+      'Create/edit Apex classes, triggers, Aura components, VF pages; run queries; analyze logs',
+      'Only run queries',
+      'Only debug',
+      'Only write Apex code'
+    ],
     correct: 0,
     explanation: 'Developer Console can: create/edit Apex, triggers, Aura, VF; run SOQL/SOSL; analyze debug logs; set checkpoints; test code.'
   },
@@ -3725,8 +4992,13 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-502',
     question: 'What are the Log Inspector panels?',
-    options: ["Stack Tree, Execution Stack, Execution Log, Source, Source List, Variables, Execution Overview", "Only Log and Variables", "Only Stack Tree and Source", "Only Execution Log"],
-    correct: 0,
+    options: [
+      'Only Execution Log',
+      'Only Log and Variables',
+      'Stack Tree, Execution Stack, Execution Log, Source, Source List, Variables, Execution Overview',
+      'Only Stack Tree and Source'
+    ],
+    correct: 2,
     explanation: 'The Log Inspector has: Stack Tree, Execution Stack, Execution Log, Source, Source List, Variables, and Execution Overview panels.'
   },
   {
@@ -3734,8 +5006,13 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-502',
     question: 'What are the log levels from least to most detail?',
-    options: ["NONE, ERROR, WARN, INFO, DEBUG, FINE, FINER, FINEST", "LOW, MEDIUM, HIGH", "BASIC, DETAILED, VERBOSE", "1, 2, 3, 4, 5"],
-    correct: 0,
+    options: [
+      'LOW, MEDIUM, HIGH',
+      'NONE, ERROR, WARN, INFO, DEBUG, FINE, FINER, FINEST',
+      'BASIC, DETAILED, VERBOSE',
+      '1, 2, 3, 4, 5'
+    ],
+    correct: 1,
     explanation: 'Log levels from least to most detail: NONE, ERROR, WARN, INFO, DEBUG, FINE, FINER, FINEST.'
   },
   {
@@ -3743,8 +5020,13 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-502',
     question: 'What is the Perspective Manager in Developer Console?',
-    options: ["A tool for managing predefined and custom Debug and Analysis perspectives", "A code formatting tool", "A query builder", "A deployment tool"],
-    correct: 0,
+    options: [
+      'A code formatting tool',
+      'A deployment tool',
+      'A tool for managing predefined and custom Debug and Analysis perspectives',
+      'A query builder'
+    ],
+    correct: 2,
     explanation: 'The Perspective Manager manages predefined Debug and Analysis perspectives and allows creating custom perspectives.'
   },
   {
@@ -3752,7 +5034,12 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-505',
     question: 'What is the successor to the Force.com IDE plug-in?',
-    options: ["Salesforce Extensions for VS Code", "Developer Console", "Salesforce CLI", "Eclipse IDE"],
+    options: [
+      'Salesforce Extensions for VS Code',
+      'Developer Console',
+      'Salesforce CLI',
+      'Eclipse IDE'
+    ],
     correct: 0,
     explanation: 'Salesforce Extensions for VS Code is the successor to the Force.com IDE plug-in.'
   },
@@ -3761,8 +5048,13 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-505',
     question: 'What is npm used for in Salesforce development?',
-    options: ["Installing packages for LWC development", "Deploying to production", "Creating scratch orgs", "Writing Apex code"],
-    correct: 0,
+    options: [
+      'Deploying to production',
+      'Installing packages for LWC development',
+      'Writing Apex code',
+      'Creating scratch orgs'
+    ],
+    correct: 1,
     explanation: 'npm is used to install packages quickly, particularly for LWC development.'
   },
   {
@@ -3770,8 +5062,13 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-505',
     question: 'What is the Salesforce CLI command to create a new SFDX project?',
-    options: ["sf project generate", "sf org create", "sf project create", "sf new project"],
-    correct: 0,
+    options: [
+      'sf new project',
+      'sf project generate',
+      'sf project create',
+      'sf org create'
+    ],
+    correct: 1,
     explanation: 'The command sf project generate creates a new SFDX project with the -n flag for the project name.'
   },
   {
@@ -3779,7 +5076,12 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-505',
     question: 'What is a change list in the org development model?',
-    options: ["A list tracking individual developer changes", "A deployment manifest", "A test suite", "A configuration file"],
+    options: [
+      'A list tracking individual developer changes',
+      'A test suite',
+      'A configuration file',
+      'A deployment manifest'
+    ],
     correct: 0,
     explanation: 'A change list tracks individual developer changes that need to be committed to source control.'
   },
@@ -3788,8 +5090,13 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-505',
     question: 'What is a deployment run list?',
-    options: ["Manual pre/post-deployment steps documented for deployment", "A list of test classes", "A list of metadata components", "A list of orgs to deploy to"],
-    correct: 0,
+    options: [
+      'A list of metadata components',
+      'Manual pre/post-deployment steps documented for deployment',
+      'A list of orgs to deploy to',
+      'A list of test classes'
+    ],
+    correct: 1,
     explanation: 'A deployment run list documents manual pre/post-deployment steps that need to be executed during deployment.'
   },
   {
@@ -3797,7 +5104,12 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-302',
     question: 'What does the \'global\' access modifier do in Apex?',
-    options: ["Makes a variable or method available to all classes in the organization", "Makes it private to the class", "Makes it public within the namespace", "Makes it protected"],
+    options: [
+      'Makes a variable or method available to all classes in the organization',
+      'Makes it private to the class',
+      'Makes it public within the namespace',
+      'Makes it protected'
+    ],
     correct: 0,
     explanation: 'The \'global\' access modifier makes a variable or method available to all classes in the organization, including managed packages.'
   },
@@ -3806,7 +5118,12 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-302',
     question: 'What is the purpose of the \'static\' keyword in Apex?',
-    options: ["Makes a variable or method belong to the class rather than an instance", "Makes a variable constant", "Makes a variable private", "Makes a variable global"],
+    options: [
+      'Makes a variable or method belong to the class rather than an instance',
+      'Makes a variable constant',
+      'Makes a variable global',
+      'Makes a variable private'
+    ],
     correct: 0,
     explanation: 'The \'static\' keyword makes a variable or method belong to the class itself rather than to any specific instance.'
   },
@@ -3815,8 +5132,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-302',
     question: 'What is the purpose of the \'final\' keyword in Apex?',
-    options: ["Makes a variable a constant that cannot be changed after initialization", "Makes a variable static", "Makes a variable global", "Makes a variable private"],
-    correct: 0,
+    options: [
+      'Makes a variable private',
+      'Makes a variable static',
+      'Makes a variable a constant that cannot be changed after initialization',
+      'Makes a variable global'
+    ],
+    correct: 2,
     explanation: 'The \'final\' keyword makes a variable a constant that cannot be changed after initialization.'
   },
   {
@@ -3824,8 +5146,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-302',
     question: 'Which of the following is NOT a primitive data type in Apex?',
-    options: ["Array", "Integer", "String", "Boolean"],
-    correct: 0,
+    options: [
+      'Boolean',
+      'Integer',
+      'String',
+      'Array'
+    ],
+    correct: 3,
     explanation: 'Array is not a primitive data type. Apex primitives include: Integer, Double, Long, Date, Datetime, String, ID, and Boolean.'
   },
   {
@@ -3833,8 +5160,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-302',
     question: 'What is an sObject in Apex?',
-    options: ["A data type that represents a Salesforce record", "A string object", "A system object", "A static object"],
-    correct: 0,
+    options: [
+      'A static object',
+      'A string object',
+      'A system object',
+      'A data type that represents a Salesforce record'
+    ],
+    correct: 3,
     explanation: 'An sObject is a data type that represents a Salesforce record, either generic or specific to an object type.'
   },
   {
@@ -3842,7 +5174,12 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-302',
     question: 'How do you access fields on a generic sObject?',
-    options: ["Using put() and get() methods", "Using dot notation", "Using square brackets", "Using parentheses"],
+    options: [
+      'Using put() and get() methods',
+      'Using square brackets',
+      'Using dot notation',
+      'Using parentheses'
+    ],
     correct: 0,
     explanation: 'Generic sObject fields are accessible only through put() and get() methods, not dot notation.'
   },
@@ -3851,8 +5188,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-302',
     question: 'What is the purpose of Apex classes?',
-    options: ["Code reuse and encapsulation of business logic", "Only for creating triggers", "Only for Visualforce controllers", "Only for API calls"],
-    correct: 0,
+    options: [
+      'Only for Visualforce controllers',
+      'Only for creating triggers',
+      'Only for API calls',
+      'Code reuse and encapsulation of business logic'
+    ],
+    correct: 3,
     explanation: 'Apex classes provide code reuse and encapsulation of business logic through OOP principles.'
   },
   {
@@ -3860,8 +5202,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-302',
     question: 'What is the difference between public and private methods in Apex?',
-    options: ["Public methods are accessible outside the class; private methods are not", "They are identical", "Private methods are faster", "Public methods are for triggers only"],
-    correct: 0,
+    options: [
+      'Public methods are for triggers only',
+      'They are identical',
+      'Public methods are accessible outside the class; private methods are not',
+      'Private methods are faster'
+    ],
+    correct: 2,
     explanation: 'Public methods are accessible from other classes; private methods are only accessible within the defining class.'
   },
   {
@@ -3869,7 +5216,12 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-302',
     question: 'How do you run Anonymous Apex?',
-    options: ["Through the Developer Console's Execute Anonymous window", "By creating a class", "Through the API", "By writing a trigger"],
+    options: [
+      'Through the Developer Console\'s Execute Anonymous window',
+      'By creating a class',
+      'By writing a trigger',
+      'Through the API'
+    ],
     correct: 0,
     explanation: 'Anonymous Apex is run through the Developer Console\'s Debug > Open Execute Anonymous window.'
   },
@@ -3878,8 +5230,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-302',
     question: 'Does Anonymous Apex affect the org?',
-    options: ["Yes, all code affects the org", "No, it's sandboxed", "Only for reads", "Only for custom objects"],
-    correct: 0,
+    options: [
+      'Only for custom objects',
+      'Only for reads',
+      'Yes, all code affects the org',
+      'No, it\'s sandboxed'
+    ],
+    correct: 2,
     explanation: 'All Anonymous Apex code affects the org - it\'s not sandboxed. Be careful with DML operations.'
   },
   {
@@ -3887,8 +5244,13 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-502',
     question: 'What is System.debug() used for?',
-    options: ["Writing custom messages to debug logs", "Pausing code execution", "Setting breakpoints", "Creating test data"],
-    correct: 0,
+    options: [
+      'Pausing code execution',
+      'Creating test data',
+      'Setting breakpoints',
+      'Writing custom messages to debug logs'
+    ],
+    correct: 3,
     explanation: 'System.debug() writes custom messages to debug logs for debugging purposes.'
   },
   {
@@ -3896,7 +5258,12 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-502',
     question: 'Where can you view debug logs?',
-    options: ["In the Developer Console Logs tab", "Only in VS Code", "Only in the API", "Only in Setup"],
+    options: [
+      'In the Developer Console Logs tab',
+      'Only in the API',
+      'Only in Setup',
+      'Only in VS Code'
+    ],
     correct: 0,
     explanation: 'Debug logs can be viewed in the Developer Console Logs tab, with filtering and different perspectives.'
   },
@@ -3905,8 +5272,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-302',
     question: 'Which of the following IS a characteristic of Apex?',
-    options: ["Case-insensitive", "Client-side execution", "Loosely typed", "No governor limits"],
-    correct: 0,
+    options: [
+      'Loosely typed',
+      'Case-insensitive',
+      'Client-side execution',
+      'No governor limits'
+    ],
+    correct: 1,
     explanation: 'Apex is case-insensitive. It is server-side, strongly typed, and has governor limits.'
   },
   {
@@ -3914,7 +5286,12 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-302',
     question: 'What language is Apex based on?',
-    options: ["Java idioms", "Python", "JavaScript", "C#"],
+    options: [
+      'Java idioms',
+      'Python',
+      'JavaScript',
+      'C#'
+    ],
     correct: 0,
     explanation: 'Apex is based on Java idioms, making it familiar to Java developers.'
   },
@@ -3923,8 +5300,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-302',
     question: 'What does API versioning do in Apex?',
-    options: ["Controls which features and behaviors are available based on the version", "Makes code run faster", "Enables debugging", "Creates backups"],
-    correct: 0,
+    options: [
+      'Enables debugging',
+      'Controls which features and behaviors are available based on the version',
+      'Makes code run faster',
+      'Creates backups'
+    ],
+    correct: 1,
     explanation: 'API versioning controls which features and behaviors are available, ensuring backward compatibility.'
   },
   {
@@ -3932,8 +5314,13 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-501',
     question: 'What are the key benefits of Apex unit tests?',
-    options: ["Ensuring classes and triggers work as expected, providing regression tests, meeting code coverage requirements", "Only code coverage", "Only debugging", "Only performance testing"],
-    correct: 0,
+    options: [
+      'Only performance testing',
+      'Ensuring classes and triggers work as expected, providing regression tests, meeting code coverage requirements',
+      'Only code coverage',
+      'Only debugging'
+    ],
+    correct: 1,
     explanation: 'Key benefits: ensuring code works as expected, providing regression test suites, and meeting code coverage requirements for deployment.'
   },
   {
@@ -3941,8 +5328,13 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-501',
     question: 'What is the recommended visibility for test classes?',
-    options: ["Private", "Public", "Global", "Protected"],
-    correct: 0,
+    options: [
+      'Protected',
+      'Private',
+      'Public',
+      'Global'
+    ],
+    correct: 1,
     explanation: 'Private visibility is recommended for test classes that are only used for unit testing.'
   },
   {
@@ -3950,8 +5342,13 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-501',
     question: 'Do @IsTest classes count toward the 6 MB Apex code storage limit?',
-    options: ["No, they are excluded", "Yes, they count", "Only if they have errors", "Only in production"],
-    correct: 0,
+    options: [
+      'Yes, they count',
+      'Only if they have errors',
+      'Only in production',
+      'No, they are excluded'
+    ],
+    correct: 3,
     explanation: '@IsTest classes don\'t count toward the 6 MB Apex code storage limit.'
   },
   {
@@ -3959,8 +5356,13 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-501',
     question: 'Do test methods send emails?',
-    options: ["No, test methods don't send emails", "Yes, always", "Only with @seeAllData", "Only in production"],
-    correct: 0,
+    options: [
+      'Yes, always',
+      'No, test methods don\'t send emails',
+      'Only in production',
+      'Only with @seeAllData'
+    ],
+    correct: 1,
     explanation: 'Test methods don\'t send emails, preventing accidental email delivery during testing.'
   },
   {
@@ -3968,8 +5370,13 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-501',
     question: 'Can test methods make callouts?',
-    options: ["No, callouts must be mocked using HttpCalloutMock", "Yes, always", "Only with @seeAllData", "Only in sandbox"],
-    correct: 0,
+    options: [
+      'Yes, always',
+      'No, callouts must be mocked using HttpCalloutMock',
+      'Only in sandbox',
+      'Only with @seeAllData'
+    ],
+    correct: 1,
     explanation: 'Test methods can\'t make callouts. Use the HttpCalloutMock interface to mock callouts.'
   },
   {
@@ -3977,7 +5384,12 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-501',
     question: 'How do you create a test suite?',
-    options: ["Through Test > New Suite in Developer Console", "By writing code", "Through Setup", "Through the API"],
+    options: [
+      'Through Test > New Suite in Developer Console',
+      'Through Setup',
+      'Through the API',
+      'By writing code'
+    ],
     correct: 0,
     explanation: 'Test suites are created through Test > New Suite in the Developer Console.'
   },
@@ -3986,8 +5398,13 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-501',
     question: 'What is the purpose of Database.DeleteResult in testing?',
-    options: ["Contains information about a delete operation for assertions", "Deletes test data", "Creates test records", "Enables debugging"],
-    correct: 0,
+    options: [
+      'Enables debugging',
+      'Creates test records',
+      'Contains information about a delete operation for assertions',
+      'Deletes test data'
+    ],
+    correct: 2,
     explanation: 'Database.DeleteResult contains information about a delete operation, used for making assertions in tests.'
   },
   {
@@ -3995,7 +5412,12 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-501',
     question: 'What is the recommended pattern for creating test data?',
-    options: ["Use a TestDataFactory with reusable methods", "Hardcode test data in each test", "Use @seeAllData", "Query existing data"],
+    options: [
+      'Use a TestDataFactory with reusable methods',
+      'Use @seeAllData',
+      'Hardcode test data in each test',
+      'Query existing data'
+    ],
     correct: 0,
     explanation: 'The TestDataFactory pattern creates a public static class with reusable methods for creating test data.'
   },
@@ -4004,8 +5426,13 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-501',
     question: 'Why is bulk DML efficient in test data creation?',
-    options: ["All records in a single insert statement counts as one DML", "It's not efficient", "It reduces memory usage", "It enables parallel processing"],
-    correct: 0,
+    options: [
+      'It enables parallel processing',
+      'It reduces memory usage',
+      'All records in a single insert statement counts as one DML',
+      'It\'s not efficient'
+    ],
+    correct: 2,
     explanation: 'Bulk DML is efficient because all records in a single insert statement count as one DML statement.'
   },
   {
@@ -4013,8 +5440,13 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-501',
     question: 'What does Test.startTest() do in trigger testing?',
-    options: ["Resets governor limits to isolate data setup from test execution", "Starts the trigger", "Creates test data", "Enables debugging"],
-    correct: 0,
+    options: [
+      'Enables debugging',
+      'Creates test data',
+      'Starts the trigger',
+      'Resets governor limits to isolate data setup from test execution'
+    ],
+    correct: 3,
     explanation: 'Test.startTest() resets governor limits, isolating data setup limit usage from test execution.'
   },
   {
@@ -4022,7 +5454,12 @@ export const examQuestions = [
     chapter: 'testingDebugging',
     topic: 'PD1-501',
     question: 'What is the purpose of a test utility class?',
-    options: ["Centralizes test-data creation for reuse across multiple test methods", "Runs tests automatically", "Generates test reports", "Debugs test failures"],
+    options: [
+      'Centralizes test-data creation for reuse across multiple test methods',
+      'Generates test reports',
+      'Debugs test failures',
+      'Runs tests automatically'
+    ],
     correct: 0,
     explanation: 'A test utility class centralizes test-data creation for reuse across multiple test methods.'
   },
@@ -4031,7 +5468,12 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-306',
     question: 'What happens in bulk DML with partial success when addError() is used?',
-    options: ["Bad records are set aside; remaining records are partially saved", "All records fail", "The error is ignored", "The trigger stops"],
+    options: [
+      'Bad records are set aside; remaining records are partially saved',
+      'The error is ignored',
+      'The trigger stops',
+      'All records fail'
+    ],
     correct: 0,
     explanation: 'In bulk DML with partial success via API, bad records are set aside and remaining records are partially saved.'
   },
@@ -4040,8 +5482,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-306',
     question: 'What happens in Apex-initiated DML when an error occurs?',
-    options: ["Any error rolls back the entire operation", "Only the failed record is rolled back", "The error is ignored", "The trigger continues"],
-    correct: 0,
+    options: [
+      'The error is ignored',
+      'Any error rolls back the entire operation',
+      'Only the failed record is rolled back',
+      'The trigger continues'
+    ],
+    correct: 1,
     explanation: 'In Apex-initiated DML, any error rolls back the entire operation, unlike API partial success.'
   },
   {
@@ -4049,8 +5496,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-306',
     question: 'What does Trigger.size return?',
-    options: ["The number of records in the current batch", "The total number of records", "The trigger name", "The object type"],
-    correct: 0,
+    options: [
+      'The total number of records',
+      'The object type',
+      'The number of records in the current batch',
+      'The trigger name'
+    ],
+    correct: 2,
     explanation: 'Trigger.size returns the number of records in the current batch (batches of 200+).'
   },
   {
@@ -4058,8 +5510,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-306',
     question: 'What does Trigger.isExecuting return?',
-    options: ["True if the context is a trigger", "True if the trigger is running", "The trigger name", "The execution time"],
-    correct: 0,
+    options: [
+      'The execution time',
+      'True if the context is a trigger',
+      'True if the trigger is running',
+      'The trigger name'
+    ],
+    correct: 1,
     explanation: 'Trigger.isExecuting returns true if the current context is a trigger execution.'
   },
   {
@@ -4067,7 +5524,12 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-306',
     question: 'What is the difference between before and after triggers?',
-    options: ["Before triggers modify values before save; after triggers access system-set values", "They are identical", "Before triggers are faster", "After triggers are for deletes only"],
+    options: [
+      'Before triggers modify values before save; after triggers access system-set values',
+      'After triggers are for deletes only',
+      'Before triggers are faster',
+      'They are identical'
+    ],
     correct: 0,
     explanation: 'Before triggers modify or validate record values before database save; after triggers access system-set field values (Id, LastModifiedDate).'
   },
@@ -4076,8 +5538,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-306',
     question: 'Are records in after triggers read-only?',
-    options: ["Yes, records are read-only in after triggers", "No, they can be modified", "Only for insert triggers", "Only for update triggers"],
-    correct: 0,
+    options: [
+      'Only for update triggers',
+      'Only for insert triggers',
+      'No, they can be modified',
+      'Yes, records are read-only in after triggers'
+    ],
+    correct: 3,
     explanation: 'Records in after triggers are read-only. Use before triggers to modify record values.'
   },
   {
@@ -4085,8 +5552,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-306',
     question: 'What is the recommended approach for trigger logic?',
-    options: ["Delegate to a handler class for code reuse and OOP design", "Put all logic in the trigger", "Use multiple triggers per object", "Use only before triggers"],
-    correct: 0,
+    options: [
+      'Use only before triggers',
+      'Use multiple triggers per object',
+      'Delegate to a handler class for code reuse and OOP design',
+      'Put all logic in the trigger'
+    ],
+    correct: 2,
     explanation: 'The recommended approach is to delegate trigger logic to a handler class for code reuse and OOP design.'
   },
   {
@@ -4094,8 +5566,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-306',
     question: 'Why should you avoid SOQL queries inside for loops?',
-    options: ["It can exceed the governor limit of 100 SOQL queries per transaction", "It makes code slower", "It's not a best practice", "It causes syntax errors"],
-    correct: 0,
+    options: [
+      'It makes code slower',
+      'It causes syntax errors',
+      'It can exceed the governor limit of 100 SOQL queries per transaction',
+      'It\'s not a best practice'
+    ],
+    correct: 2,
     explanation: 'SOQL queries inside for loops can quickly exceed the governor limit of 100 SOQL queries per transaction.'
   },
   {
@@ -4103,8 +5580,13 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-306',
     question: 'Why should you avoid DML statements inside for loops?',
-    options: ["It can exceed the governor limit of 150 DML statements per transaction", "It makes code slower", "It's not a best practice", "It causes syntax errors"],
-    correct: 0,
+    options: [
+      'It makes code slower',
+      'It\'s not a best practice',
+      'It can exceed the governor limit of 150 DML statements per transaction',
+      'It causes syntax errors'
+    ],
+    correct: 2,
     explanation: 'DML statements inside for loops can quickly exceed the governor limit of 150 DML statements per transaction.'
   },
   {
@@ -4112,46 +5594,2006 @@ export const examQuestions = [
     chapter: 'processAutomation',
     topic: 'PD1-306',
     question: 'What is the bulk design pattern for adding related records?',
-    options: ["Query with subquery, build list, single DML insert at end", "Insert one at a time in loop", "Use DML in for loop", "Query each record individually"],
+    options: [
+      'Query with subquery, build list, single DML insert at end',
+      'Use DML in for loop',
+      'Insert one at a time in loop',
+      'Query each record individually'
+    ],
     correct: 0,
     explanation: 'The bulk design pattern: query with subquery, build list of records, then perform a single bulk DML insert at the end.'
+  },
+  {
+    id: 401,
+    chapter: 'devFundamentals',
+    topic: 'PD1-605',
+    question: 'What is the publish-subscribe pattern used for in Salesforce?',
+    options: [
+      'Database replication',
+      'Event-driven architecture with Platform Events',
+      'Data backup',
+      'User authentication'
+    ],
+    correct: 1,
+    explanation: 'Platform Events use the publish-subscribe pattern to enable event-driven architecture, where publishers send events and subscribers receive them.'
+  },
+  {
+    id: 402,
+    chapter: 'devFundamentals',
+    topic: 'PD1-605',
+    question: 'What trigger events are supported for Platform Events?',
+    options: [
+      'AFTER INSERT only',
+      'All trigger events',
+      'BEFORE INSERT, AFTER INSERT',
+      'BEFORE INSERT, AFTER INSERT, BEFORE UPDATE'
+    ],
+    correct: 0,
+    explanation: 'Platform Event triggers only support the AFTER INSERT event. Unlike sObject triggers, they cannot use BEFORE INSERT or other events.'
+  },
+  {
+    id: 403,
+    chapter: 'devFundamentals',
+    topic: 'PD1-605',
+    question: 'How long are Platform Events stored in the Event Bus?',
+    options: [
+      '72 hours',
+      '48 hours',
+      '24 hours',
+      '96 hours'
+    ],
+    correct: 0,
+    explanation: 'Platform Events are stored in the Event Bus for 72 hours. After that, they are automatically deleted.'
+  },
+  {
+    id: 404,
+    chapter: 'devFundamentals',
+    topic: 'PD1-605',
+    question: 'What is the API name suffix for Platform Events?',
+    options: [
+      '__c',
+      '__e',
+      '__x',
+      '__p'
+    ],
+    correct: 1,
+    explanation: 'Platform Events use the __e suffix for their API names, similar to how custom objects use __c.'
+  },
+  {
+    id: 405,
+    chapter: 'devFundamentals',
+    topic: 'PD1-605',
+    question: 'How do you publish a Platform Event from Apex?',
+    options: [
+      'insert',
+      'Database.publish()',
+      'EventBus.publish()',
+      'System.publish()'
+    ],
+    correct: 2,
+    explanation: 'Use EventBus.publish() to publish Platform Events from Apex. Unlike sObjects, you cannot use DML statements like insert.'
+  },
+  {
+    id: 406,
+    chapter: 'devFundamentals',
+    topic: 'PD1-605',
+    question: 'What is the difference between Platform Events and Change Data Capture?',
+    options: [
+      'There is no difference',
+      'Platform Events for custom events, CDC for tracking data changes',
+      'Platform Events are faster',
+      'CDC supports more fields'
+    ],
+    correct: 1,
+    explanation: 'Platform Events are for custom business events, while Change Data Capture (CDC) automatically tracks data changes on standard and custom objects.'
+  },
+  {
+    id: 407,
+    chapter: 'devFundamentals',
+    topic: 'PD1-605',
+    question: 'What Lightning component is used to subscribe to Platform Events in LWC?',
+    options: [
+      'eventBus',
+      'lightning/subscribe',
+      'empApi',
+      'lightning/platformEvent'
+    ],
+    correct: 2,
+    explanation: 'The empApi Lightning component is used to subscribe to Platform Events in LWC and Aura components.'
+  },
+  {
+    id: 408,
+    chapter: 'devFundamentals',
+    topic: 'PD1-605',
+    question: 'What is the ReplayId used for in Platform Events?',
+    options: [
+      'To encrypt events',
+      'To replay events from a specific point',
+      'To update events',
+      'To delete events'
+    ],
+    correct: 1,
+    explanation: 'ReplayId is a unique sequential ID for each event that allows subscribers to replay events from a specific point in the stream.'
+  },
+  {
+    id: 409,
+    chapter: 'devFundamentals',
+    topic: 'PD1-605',
+    question: 'Can Platform Events be queried like sObjects?',
+    options: [
+      'Yes, using SOSL',
+      'No, they cannot be queried',
+      'Yes, using SOQL',
+      'Only in triggers'
+    ],
+    correct: 1,
+    explanation: 'Platform Events cannot be queried like sObjects using SOQL. They are accessed through triggers, empApi, or CometD subscription.'
+  },
+  {
+    id: 410,
+    chapter: 'devFundamentals',
+    topic: 'PD1-605',
+    question: 'What is the governor limit for Platform Event publish calls per transaction?',
+    options: [
+      '100',
+      '50',
+      '200',
+      '150'
+    ],
+    correct: 0,
+    explanation: 'The governor limit for Platform Event publish calls is 100 per transaction.'
+  },
+  {
+    id: 411,
+    chapter: 'devFundamentals',
+    topic: 'PD1-606',
+    question: 'What is SOSL used for in Salesforce?',
+    options: [
+      'Querying a single object',
+      'Text search across multiple objects',
+      'Schema definition',
+      'Data manipulation'
+    ],
+    correct: 1,
+    explanation: 'SOSL (Salesforce Object Search Language) is used for text-based searches across multiple objects simultaneously.'
+  },
+  {
+    id: 412,
+    chapter: 'devFundamentals',
+    topic: 'PD1-606',
+    question: 'What is the syntax for a basic SOSL search?',
+    options: [
+      'SELECT fields FROM object WHERE condition',
+      'LOOKUP {term} ON object',
+      'SEARCH {term} IN object',
+      'FIND {search term} IN ALL FIELDS RETURNING object(fields)'
+    ],
+    correct: 3,
+    explanation: 'The basic SOSL syntax is FIND {search term} IN ALL FIELDS RETURNING object(fields).'
+  },
+  {
+    id: 413,
+    chapter: 'devFundamentals',
+    topic: 'PD1-606',
+    question: 'What wildcard characters are used in SOSL?',
+    options: [
+      'No wildcards supported',
+      '* for multiple characters, ? for single character',
+      '+ for multiple characters, - for single character',
+      '% for multiple characters, _ for single character'
+    ],
+    correct: 1,
+    explanation: 'SOSL uses * for multiple characters and ? for a single character wildcard in search terms.'
+  },
+  {
+    id: 414,
+    chapter: 'devFundamentals',
+    topic: 'PD1-606',
+    question: 'What is the governor limit for SOSL queries per transaction?',
+    options: [
+      '50',
+      '150',
+      '100',
+      '20'
+    ],
+    correct: 3,
+    explanation: 'The governor limit for SOSL queries is 20 per transaction, compared to 100 for SOQL queries.'
+  },
+  {
+    id: 415,
+    chapter: 'devFundamentals',
+    topic: 'PD1-606',
+    question: 'Can SOSL be used directly in Apex triggers?',
+    options: [
+      'No, SOSL cannot be used in triggers',
+      'Only in after triggers',
+      'Yes, SOSL can be used in triggers',
+      'Only in before triggers'
+    ],
+    correct: 0,
+    explanation: 'SOSL cannot be used directly in Apex triggers. Only SOQL queries are allowed in triggers.'
+  },
+  {
+    id: 416,
+    chapter: 'devFundamentals',
+    topic: 'PD1-606',
+    question: 'What does SOSL return compared to SOQL?',
+    options: [
+      'SOSL returns grouped results by object type, SOQL returns flat records',
+      'Both return the same format',
+      'SOSL returns flat records, SOQL returns grouped results',
+      'SOSL returns XML, SOQL returns JSON'
+    ],
+    correct: 0,
+    explanation: 'SOSL returns grouped results by object type (List<List<SObject>>), while SOQL returns a flat list of records (List<SObject>).'
+  },
+  {
+    id: 417,
+    chapter: 'devFundamentals',
+    topic: 'PD1-606',
+    question: 'Which SOSL search context searches all text fields?',
+    options: [
+      'IN ALL FIELDS',
+      'IN SIDEBAR FIELDS',
+      'IN NAME FIELDS',
+      'IN EMAIL FIELDS'
+    ],
+    correct: 0,
+    explanation: 'IN ALL FIELDS searches all text fields on the specified objects.'
+  },
+  {
+    id: 418,
+    chapter: 'devFundamentals',
+    topic: 'PD1-606',
+    question: 'Does SOSL provide relevance ranking for search results?',
+    options: [
+      'Yes, SOSL results are relevance-ranked',
+      'No, SOSL returns results in insertion order',
+      'Only for Account objects',
+      'Only when using IN ALL FIELDS'
+    ],
+    correct: 0,
+    explanation: 'SOSL provides relevance ranking for search results, returning the most relevant results first.'
+  },
+  {
+    id: 419,
+    chapter: 'devFundamentals',
+    topic: 'PD1-606',
+    question: 'How do you access results from a SOSL query that returns Account and Contact?',
+    options: [
+      'results.get(\'Account\'), results.get(\'Contact\')',
+      'All results are in a single list',
+      'results[0] for Account, results[1] for Contact',
+      'results.Account, results.Contact'
+    ],
+    correct: 2,
+    explanation: 'SOSL returns List<List<SObject>>. Access each object type by index: results[0] for the first object type, results[1] for the second.'
+  },
+  {
+    id: 420,
+    chapter: 'devFundamentals',
+    topic: 'PD1-606',
+    question: 'Can you use LIMIT in SOSL queries?',
+    options: [
+      'Yes, LIMIT restricts results per object',
+      'Only for Account objects',
+      'Only up to 100 records',
+      'No, LIMIT is only for SOQL'
+    ],
+    correct: 0,
+    explanation: 'Yes, you can use LIMIT in SOSL queries to restrict the number of results returned per object type.'
+  },
+  {
+    id: 421,
+    chapter: 'processAutomation',
+    topic: 'PD1-313',
+    question: 'What are the restrictions on @Future methods?',
+    options: [
+      'No restrictions',
+      'Must be static, return void, primitive parameters only, 50 calls per invocation',
+      'Must return a value',
+      'Can accept any parameter type'
+    ],
+    correct: 1,
+    explanation: '@Future methods must be static, return void, accept only primitive data types or collections, and are limited to 50 calls per invocation.'
+  },
+  {
+    id: 422,
+    chapter: 'processAutomation',
+    topic: 'PD1-313',
+    question: 'What is the advantage of Queueable Apex over @Future?',
+    options: [
+      'Is faster',
+      'Supports non-primitive types, job IDs, and job chaining',
+      'Has no limits',
+      'Uses less memory'
+    ],
+    correct: 1,
+    explanation: 'Queueable Apex supports non-primitive types, returns job IDs for monitoring, and supports job chaining - advantages over @Future methods.'
+  },
+  {
+    id: 423,
+    chapter: 'processAutomation',
+    topic: 'PD1-313',
+    question: 'What interface must a Batch Apex class implement?',
+    options: [
+      'Database.Batchable<SObject>',
+      'Database.Executable',
+      'System.Batchable',
+      'Database.Asyncable'
+    ],
+    correct: 0,
+    explanation: 'Batch Apex classes must implement the Database.Batchable<SObject> interface with start, execute, and finish methods.'
+  },
+  {
+    id: 424,
+    chapter: 'processAutomation',
+    topic: 'PD1-313',
+    question: 'What is the default scope size for Batch Apex?',
+    options: [
+      '500',
+      '100',
+      '200',
+      '1000'
+    ],
+    correct: 2,
+    explanation: 'The default scope size for Batch Apex is 200 records. The maximum is 2000.'
+  },
+  {
+    id: 425,
+    chapter: 'processAutomation',
+    topic: 'PD1-313',
+    question: 'What does Database.Stateful do in Batch Apex?',
+    options: [
+      'Preserves state across batch transactions',
+      'Reduces governor limits',
+      'Enables callouts',
+      'Makes the batch run faster'
+    ],
+    correct: 0,
+    explanation: 'Database.Stateful preserves the state of instance variables across batch transactions, allowing you to track progress.'
+  },
+  {
+    id: 426,
+    chapter: 'processAutomation',
+    topic: 'PD1-313',
+    question: 'How do you enqueue a Queueable Apex job?',
+    options: [
+      'Database.executeBatch()',
+      'System.enqueueJob()',
+      'System.schedule()',
+      'EventBus.publish()'
+    ],
+    correct: 1,
+    explanation: 'Use System.enqueueJob() to enqueue a Queueable Apex job for asynchronous execution.'
+  },
+  {
+    id: 427,
+    chapter: 'processAutomation',
+    topic: 'PD1-313',
+    question: 'What is the format of a cron expression for Scheduled Apex?',
+    options: [
+      'seconds minutes hours day month weekday year',
+      'hours day month weekday year',
+      'day month weekday year',
+      'minutes hours day month weekday'
+    ],
+    correct: 0,
+    explanation: 'Cron expressions in Salesforce use the format: seconds minutes hours day month weekday year.'
+  },
+  {
+    id: 428,
+    chapter: 'processAutomation',
+    topic: 'PD1-313',
+    question: 'Can Scheduled Apex make HTTP callouts directly?',
+    options: [
+      'No, must use @Future(callout=true) or Batch Apex',
+      'Yes, directly',
+      'Only with special permission',
+      'Only to whitelisted endpoints'
+    ],
+    correct: 0,
+    explanation: 'Scheduled Apex cannot make HTTP callouts directly. Use @Future(callout=true) or execute a batch job that supports callouts.'
+  },
+  {
+    id: 429,
+    chapter: 'processAutomation',
+    topic: 'PD1-313',
+    question: 'How many batch jobs can be in the Flex Queue?',
+    options: [
+      '500',
+      '200',
+      '100',
+      '50'
+    ],
+    correct: 2,
+    explanation: 'The Flex Queue can hold up to 100 batch jobs waiting to be processed.'
+  },
+  {
+    id: 430,
+    chapter: 'processAutomation',
+    topic: 'PD1-313',
+    question: 'How many batch jobs can run simultaneously?',
+    options: [
+      '50',
+      '10',
+      '5',
+      '100'
+    ],
+    correct: 2,
+    explanation: 'Up to 5 batch jobs can run simultaneously in a Salesforce org.'
+  },
+  {
+    id: 431,
+    chapter: 'processAutomation',
+    topic: 'PD1-313',
+    question: 'What method does Batch Apex use to define the records to process?',
+    options: [
+      'start()',
+      'init()',
+      'finish()',
+      'execute()'
+    ],
+    correct: 0,
+    explanation: 'The start() method in Batch Apex defines the records to process using Database.getQueryLocator() or an iterable.'
+  },
+  {
+    id: 432,
+    chapter: 'processAutomation',
+    topic: 'PD1-313',
+    question: 'What is the maximum number of @Future calls per transaction?',
+    options: [
+      '150',
+      '100',
+      '200',
+      '50'
+    ],
+    correct: 3,
+    explanation: 'The governor limit for @Future method calls is 50 per transaction.'
+  },
+  {
+    id: 433,
+    chapter: 'processAutomation',
+    topic: 'PD1-313',
+    question: 'Can Queueable Apex chain jobs?',
+    options: [
+      'Only for the same job type',
+      'Yes, by calling System.enqueueJob() in execute()',
+      'Only with special permission',
+      'No, job chaining is not supported'
+    ],
+    correct: 1,
+    explanation: 'Queueable Apex supports job chaining by calling System.enqueueJob() from within the execute() method.'
+  },
+  {
+    id: 434,
+    chapter: 'processAutomation',
+    topic: 'PD1-313',
+    question: 'What is the maximum lifetime of a scratch org?',
+    options: [
+      '7 days',
+      '30 days',
+      '60 days',
+      '14 days'
+    ],
+    correct: 1,
+    explanation: 'Scratch orgs have a maximum lifetime of 30 days. After that, they are automatically deleted.'
+  },
+  {
+    id: 435,
+    chapter: 'processAutomation',
+    topic: 'PD1-313',
+    question: 'What interface must a Scheduled Apex class implement?',
+    options: [
+      'Batchable',
+      'Asyncable',
+      'Executable',
+      'Schedulable'
+    ],
+    correct: 3,
+    explanation: 'Scheduled Apex classes must implement the Schedulable interface with an execute() method.'
+  },
+  {
+    id: 436,
+    chapter: 'processAutomation',
+    topic: 'PD1-314',
+    question: 'What mode does Apex run in by default?',
+    options: [
+      'Admin mode',
+      'Guest mode',
+      'User mode',
+      'System mode'
+    ],
+    correct: 3,
+    explanation: 'Apex runs in system mode by default, meaning object permissions, field-level security, and sharing rules are not enforced.'
+  },
+  {
+    id: 437,
+    chapter: 'processAutomation',
+    topic: 'PD1-314',
+    question: 'What SOQL clause enforces CRUD and FLS?',
+    options: [
+      'WITH CRUD_CHECK',
+      'WITH USER_MODE',
+      'WITH FLS_CHECK',
+      'WITH SECURITY_ENFORCED'
+    ],
+    correct: 3,
+    explanation: 'The WITH SECURITY_ENFORCED clause in SOQL enforces object permissions and field-level security at query time.'
+  },
+  {
+    id: 438,
+    chapter: 'processAutomation',
+    topic: 'PD1-314',
+    question: 'What does the stripInaccessible() method do?',
+    options: [
+      'Disables triggers',
+      'Removes fields the current user cannot access',
+      'Deletes records',
+      'Removes sharing rules'
+    ],
+    correct: 1,
+    explanation: 'Security.stripInaccessible() removes fields that the current user cannot access from query results.'
+  },
+  {
+    id: 439,
+    chapter: 'processAutomation',
+    topic: 'PD1-314',
+    question: 'What does the with sharing keyword do?',
+    options: [
+      'Makes the class global',
+      'Enables FLS',
+      'Enables CRUD',
+      'Enforces sharing rules for the class'
+    ],
+    correct: 3,
+    explanation: 'The with sharing keyword enforces sharing rules for the class, ensuring users can only access records they have permission to see.'
+  },
+  {
+    id: 440,
+    chapter: 'processAutomation',
+    topic: 'PD1-314',
+    question: 'What is the difference between with sharing and without sharing?',
+    options: [
+      'with sharing enforces sharing rules; without sharing bypasses them',
+      'There is no difference',
+      'with sharing is faster; without sharing is slower',
+      'with sharing enables CRUD; without sharing disables it'
+    ],
+    correct: 0,
+    explanation: 'with sharing enforces sharing rules (users see only their records), while without sharing bypasses sharing rules (users see all records).'
+  },
+  {
+    id: 441,
+    chapter: 'processAutomation',
+    topic: 'PD1-314',
+    question: 'What is User Mode in SOQL?',
+    options: [
+      'A deprecated feature',
+      'WITH USER_MODE enforces CRUD/FLS like the current user',
+      'A mode for administrators',
+      'A mode for guest users'
+    ],
+    correct: 1,
+    explanation: 'WITH USER_MODE (introduced Spring 2023) enforces CRUD and FLS in SOQL queries, running as the current user.'
+  },
+  {
+    id: 442,
+    chapter: 'processAutomation',
+    topic: 'PD1-314',
+    question: 'How do you prevent SOQL injection?',
+    options: [
+      'Disable user input',
+      'Use bind variables instead of string concatenation',
+      'Use SOSL instead',
+      'Use string concatenation'
+    ],
+    correct: 1,
+    explanation: 'Use bind variables (:) in dynamic SOQL to prevent SOQL injection. Bind variables automatically escape user input.'
+  },
+  {
+    id: 443,
+    chapter: 'processAutomation',
+    topic: 'PD1-314',
+    question: 'What function prevents XSS in JavaScript context?',
+    options: [
+      'JSENCODE()',
+      'URLENCODE()',
+      'HTMLENCODE()',
+      'JSINHTMLENCODE()'
+    ],
+    correct: 0,
+    explanation: 'JSENCODE() escapes characters for safe use in JavaScript context, preventing cross-site scripting (XSS) attacks.'
+  },
+  {
+    id: 444,
+    chapter: 'processAutomation',
+    topic: 'PD1-314',
+    question: 'What method checks if the current user can create a record?',
+    options: [
+      'Schema.sObjectType.ObjectName.isUpdateable()',
+      'Schema.sObjectType.ObjectName.isAccessible()',
+      'Schema.sObjectType.ObjectName.isDeletable()',
+      'Schema.sObjectType.ObjectName.isCreateable()'
+    ],
+    correct: 3,
+    explanation: 'Schema.sObjectType.ObjectName.isCreateable() checks if the current user has create permission for the object.'
+  },
+  {
+    id: 445,
+    chapter: 'processAutomation',
+    topic: 'PD1-314',
+    question: 'What is inherited sharing?',
+    options: [
+      'Inherits CRUD permissions',
+      'Uses the sharing context of the calling class',
+      'Disables all sharing rules',
+      'Enables all sharing rules'
+    ],
+    correct: 1,
+    explanation: 'inherited sharing uses the sharing context of the class that calls it, allowing utility classes to adapt to different contexts.'
+  },
+  {
+    id: 446,
+    chapter: 'devFundamentals',
+    topic: 'PD1-607',
+    question: 'What is Einstein for Developers?',
+    options: [
+      'An AI-powered coding assistant for Apex',
+      'A deployment tool',
+      'A database management tool',
+      'A testing framework'
+    ],
+    correct: 0,
+    explanation: 'Einstein for Developers is an AI-powered coding assistant that generates Apex code from natural language descriptions.'
+  },
+  {
+    id: 447,
+    chapter: 'devFundamentals',
+    topic: 'PD1-607',
+    question: 'What can Einstein for Developers generate?',
+    options: [
+      'Only Apex classes',
+      'Apex code, test classes, and code explanations',
+      'Only test classes',
+      'Only Visualforce pages'
+    ],
+    correct: 1,
+    explanation: 'Einstein for Developers can generate Apex code from natural language, create test classes for existing code, and explain code in natural language.'
+  },
+  {
+    id: 448,
+    chapter: 'devFundamentals',
+    topic: 'PD1-607',
+    question: 'Where can Einstein for Developers be used?',
+    options: [
+      'VS Code and Developer Console',
+      'Only in VS Code',
+      'Only in Developer Console',
+      'Only in Salesforce CLI'
+    ],
+    correct: 0,
+    explanation: 'Einstein for Developers works in both VS Code with Salesforce Extensions and in the Developer Console.'
+  },
+  {
+    id: 449,
+    chapter: 'devFundamentals',
+    topic: 'PD1-607',
+    question: 'Does Einstein for Developers replace developer understanding?',
+    options: [
+      'Yes, it completely replaces developers',
+      'Only for simple code',
+      'No, developers must review and understand generated code',
+      'Only for test classes'
+    ],
+    correct: 2,
+    explanation: 'Einstein for Developers does not replace developer understanding. Developers must review and customize generated code.'
+  },
+  {
+    id: 450,
+    chapter: 'devFundamentals',
+    topic: 'PD1-607',
+    question: 'What training data does Einstein for Developers use?',
+    options: [
+      'Generic programming data',
+      'Only Salesforce documentation',
+      'Salesforce-specific code and documentation',
+      'Only open-source code'
+    ],
+    correct: 2,
+    explanation: 'Einstein for Developers uses Salesforce-specific training data, including Apex code and Salesforce documentation.'
+  },
+  {
+    id: 451,
+    chapter: 'devFundamentals',
+    topic: 'PD1-607',
+    question: 'Can Einstein for Developers generate test classes?',
+    options: [
+      'Yes, it can generate test classes for existing Apex code',
+      'Only for utility classes',
+      'No, test generation is not supported',
+      'Only for trigger classes'
+    ],
+    correct: 0,
+    explanation: 'Einstein for Developers can generate test classes for existing Apex code, helping developers meet the 75% code coverage requirement.'
+  },
+  {
+    id: 452,
+    chapter: 'devFundamentals',
+    topic: 'PD1-608',
+    question: 'What annotation makes an Apex method callable from agents?',
+    options: [
+      '@RemoteAction',
+      '@InvocableMethod',
+      '@Future',
+      '@AuraEnabled'
+    ],
+    correct: 1,
+    explanation: 'The @InvocableMethod annotation makes an Apex method callable from agents, flows, and other declarative tools.'
+  },
+  {
+    id: 453,
+    chapter: 'devFundamentals',
+    topic: 'PD1-608',
+    question: 'What annotation defines input/output parameters for agent actions?',
+    options: [
+      '@InvocableMethod',
+      '@InvocableVariable',
+      '@RemoteAction',
+      '@AuraEnabled'
+    ],
+    correct: 1,
+    explanation: 'The @InvocableVariable annotation defines input and output parameters for invocable methods used by agents.'
+  },
+  {
+    id: 454,
+    chapter: 'devFundamentals',
+    topic: 'PD1-608',
+    question: 'What is the recommended way to handle errors in agent Apex actions?',
+    options: [
+      'Throw unhandled exceptions',
+      'Log errors only',
+      'Use try-catch and return meaningful error messages',
+      'Ignore errors'
+    ],
+    correct: 2,
+    explanation: 'Agent Apex actions should use try-catch blocks and return meaningful error messages to the agent for proper error handling.'
+  },
+  {
+    id: 455,
+    chapter: 'devFundamentals',
+    topic: 'PD1-608',
+    question: 'Can agents invoke Flows that call Apex?',
+    options: [
+      'Only autolaunched flows',
+      'Yes, agents can invoke Flows that use @InvocableMethod',
+      'No, agents cannot invoke Flows',
+      'Only screen flows'
+    ],
+    correct: 1,
+    explanation: 'Agents can invoke Flows, and those Flows can call Apex methods annotated with @InvocableMethod.'
+  },
+  {
+    id: 456,
+    chapter: 'devFundamentals',
+    topic: 'PD1-608',
+    question: 'What is the purpose of the label parameter in @InvocableMethod?',
+    options: [
+      'Provides a display name for the method in declarative tools',
+      'Defines the return type',
+      'Sets the method name',
+      'Specifies the class name'
+    ],
+    correct: 0,
+    explanation: 'The label parameter in @InvocableMethod provides a human-readable display name for the method in tools like Flow Builder and Agent Builder.'
+  },
+  {
+    id: 457,
+    chapter: 'processAutomation',
+    topic: 'PD1-313',
+    question: 'What happens to @Future method calls when the governor limit is exceeded?',
+    options: [
+      'The call is queued for later',
+      'The transaction is rolled back',
+      'The call is silently ignored',
+      'An exception is thrown'
+    ],
+    correct: 3,
+    explanation: 'When the @Future governor limit (50 calls per transaction) is exceeded, an exception is thrown.'
+  },
+  {
+    id: 458,
+    chapter: 'processAutomation',
+    topic: 'PD1-313',
+    question: 'Can @Future methods accept sObject parameters?',
+    options: [
+      'Yes, any sObject',
+      'Only custom objects',
+      'Only Account and Contact',
+      'No, only primitive types and collections'
+    ],
+    correct: 3,
+    explanation: '@Future methods can only accept primitive data types (String, Integer, Id, etc.) and collections of primitives, not sObjects.'
+  },
+  {
+    id: 459,
+    chapter: 'processAutomation',
+    topic: 'PD1-313',
+    question: 'What is the maximum number of Queueable jobs per transaction?',
+    options: [
+      '200',
+      '100',
+      '150',
+      '50'
+    ],
+    correct: 3,
+    explanation: 'The governor limit for Queueable Apex jobs is 50 per transaction.'
+  },
+  {
+    id: 460,
+    chapter: 'processAutomation',
+    topic: 'PD1-313',
+    question: 'What is the maximum number of scheduled jobs per org?',
+    options: [
+      '100',
+      '50',
+      '200',
+      '500'
+    ],
+    correct: 0,
+    explanation: 'The limit for scheduled Apex jobs is 100 per org.'
+  },
+  {
+    id: 461,
+    chapter: 'processAutomation',
+    topic: 'PD1-313',
+    question: 'What method is called when a Batch Apex job completes?',
+    options: [
+      'finish()',
+      'start()',
+      'execute()',
+      'complete()'
+    ],
+    correct: 0,
+    explanation: 'The finish() method is called after all batch transactions are complete. It is used for final operations like sending emails.'
+  },
+  {
+    id: 462,
+    chapter: 'processAutomation',
+    topic: 'PD1-313',
+    question: 'What does Database.executeBatch() return?',
+    options: [
+      'Batch ID',
+      'Job Name',
+      'Status',
+      'AsyncApexJob ID'
+    ],
+    correct: 3,
+    explanation: 'Database.executeBatch() returns an AsyncApexJob ID that can be used to monitor the batch job status.'
+  },
+  {
+    id: 463,
+    chapter: 'processAutomation',
+    topic: 'PD1-313',
+    question: 'Can you test @Future methods directly?',
+    options: [
+      'Only with SeeAllData=true',
+      'Only in production',
+      'Yes, call them directly',
+      'No, use Test.startTest() and Test.stopTest()'
+    ],
+    correct: 3,
+    explanation: 'To test @Future methods, use Test.startTest() before calling the method and Test.stopTest() after to ensure execution within the test context.'
+  },
+  {
+    id: 464,
+    chapter: 'processAutomation',
+    topic: 'PD1-314',
+    question: 'What is the default behavior of Apex regarding CRUD?',
+    options: [
+      'Apex ignores CRUD by default',
+      'CRUD is not applicable to Apex',
+      'Apex partially enforces CRUD',
+      'Apex enforces CRUD by default'
+    ],
+    correct: 0,
+    explanation: 'Apex runs in system mode by default and does not enforce CRUD (Create, Read, Update, Delete) permissions.'
+  },
+  {
+    id: 465,
+    chapter: 'processAutomation',
+    topic: 'PD1-314',
+    question: 'How do you enforce FLS in a SOQL query?',
+    options: [
+      'ENFORCE FLS',
+      'CHECK FLS',
+      'WITH SECURITY_ENFORCED',
+      'WITH FLS_CHECK'
+    ],
+    correct: 2,
+    explanation: 'Use WITH SECURITY_ENFORCED in a SOQL query to enforce field-level security (FLS) at query time.'
+  },
+  {
+    id: 466,
+    chapter: 'processAutomation',
+    topic: 'PD1-314',
+    question: 'What does Security.stripInaccessible(AccessType.READABLE, records) do?',
+    options: [
+      'Deletes the records',
+      'Disables sharing',
+      'Removes fields the user cannot read',
+      'Makes all fields readable'
+    ],
+    correct: 2,
+    explanation: 'Security.stripInaccessible(AccessType.READABLE, records) removes fields that the current user does not have read access to.'
+  },
+  {
+    id: 467,
+    chapter: 'processAutomation',
+    topic: 'PD1-314',
+    question: 'What is the difference between User Mode and System Mode?',
+    options: [
+      'User Mode enforces CRUD/FLS; System Mode ignores them',
+      'There is no difference',
+      'System Mode is for administrators',
+      'User Mode is faster'
+    ],
+    correct: 0,
+    explanation: 'User Mode (WITH USER_MODE) enforces CRUD and FLS, while System Mode (default Apex) ignores these permissions.'
+  },
+  {
+    id: 468,
+    chapter: 'processAutomation',
+    topic: 'PD1-314',
+    question: 'What encoding function prevents XSS in HTML context?',
+    options: [
+      'URLENCODE()',
+      'JSINHTMLENCODE()',
+      'JSENCODE()',
+      'HTMLENCODE()'
+    ],
+    correct: 3,
+    explanation: 'HTMLENCODE() escapes characters for safe use in HTML context, preventing cross-site scripting (XSS) attacks.'
+  },
+  {
+    id: 469,
+    chapter: 'processAutomation',
+    topic: 'PD1-314',
+    question: 'What encoding function prevents XSS in URL context?',
+    options: [
+      'URLENCODE()',
+      'JSINHTMLENCODE()',
+      'JSENCODE()',
+      'HTMLENCODE()'
+    ],
+    correct: 0,
+    explanation: 'URLENCODE() escapes characters for safe use in URL context, preventing injection attacks.'
+  },
+  {
+    id: 470,
+    chapter: 'processAutomation',
+    topic: 'PD1-314',
+    question: 'What is the AccessType enum used for in stripInaccessible()?',
+    options: [
+      'Specifies the user type',
+      'Specifies the field type',
+      'Specifies the type of access to check (READABLE, CREATABLE, UPDATABLE)',
+      'Specifies the object type'
+    ],
+    correct: 2,
+    explanation: 'The AccessType enum in stripInaccessible() specifies what type of access to check: READABLE, CREATABLE, or UPDATABLE.'
+  },
+  {
+    id: 471,
+    chapter: 'devFundamentals',
+    topic: 'PD1-605',
+    question: 'What protocol do external systems use to subscribe to Platform Events?',
+    options: [
+      'HTTP',
+      'WebSocket',
+      'CometD',
+      'SOAP'
+    ],
+    correct: 2,
+    explanation: 'External systems use the CometD protocol (Bayeux) to subscribe to Platform Events for real-time streaming.'
+  },
+  {
+    id: 472,
+    chapter: 'devFundamentals',
+    topic: 'PD1-605',
+    question: 'Can Platform Events have custom fields?',
+    options: [
+      'Yes, you define custom fields on the event',
+      'Only date fields',
+      'Only text fields',
+      'No, only standard fields'
+    ],
+    correct: 0,
+    explanation: 'Platform Events support custom fields that you define when creating the event. They can include text, number, date, and other field types.'
+  },
+  {
+    id: 473,
+    chapter: 'devFundamentals',
+    topic: 'PD1-605',
+    question: 'What is the maximum number of Platform Event types per org?',
+    options: [
+      '50',
+      '200',
+      '500',
+      '100'
+    ],
+    correct: 3,
+    explanation: 'The limit for Platform Event types is 100 per Salesforce org.'
+  },
+  {
+    id: 474,
+    chapter: 'devFundamentals',
+    topic: 'PD1-605',
+    question: 'What is the maximum number of fields per Platform Event type?',
+    options: [
+      '1000',
+      '100',
+      '200',
+      '500'
+    ],
+    correct: 2,
+    explanation: 'The limit for fields per Platform Event type is 200.'
+  },
+  {
+    id: 475,
+    chapter: 'devFundamentals',
+    topic: 'PD1-605',
+    question: 'What happens if a Platform Event publish fails?',
+    options: [
+      'An exception is thrown',
+      'The event is silently dropped',
+      'Database.SaveResult contains the error',
+      'The transaction is rolled back'
+    ],
+    correct: 2,
+    explanation: 'EventBus.publish() returns a Database.SaveResult that contains success/failure information, but does not throw exceptions.'
+  },
+  {
+    id: 476,
+    chapter: 'devFundamentals',
+    topic: 'PD1-606',
+    question: 'What is the difference between SOQL and SOSL?',
+    options: [
+      'SOQL is faster than SOSL',
+      'There is no difference',
+      'SOQL queries specific objects; SOSL searches across multiple objects',
+      'SOSL is for text; SOQL is for numbers'
+    ],
+    correct: 2,
+    explanation: 'SOQL queries specific objects with conditions, while SOSL performs full-text searches across multiple objects simultaneously.'
+  },
+  {
+    id: 477,
+    chapter: 'devFundamentals',
+    topic: 'PD1-606',
+    question: 'What search context is used to search name fields only?',
+    options: [
+      'IN NAME FIELDS',
+      'IN SIDEBAR FIELDS',
+      'IN ALL FIELDS',
+      'IN EMAIL FIELDS'
+    ],
+    correct: 0,
+    explanation: 'IN NAME FIELDS restricts the SOSL search to name fields only on the specified objects.'
+  },
+  {
+    id: 478,
+    chapter: 'devFundamentals',
+    topic: 'PD1-606',
+    question: 'Can SOSL search across different object types?',
+    options: [
+      'Only related objects',
+      'Only custom objects',
+      'Yes, SOSL can search Account, Contact, and other objects simultaneously',
+      'No, SOSL can only search one object'
+    ],
+    correct: 2,
+    explanation: 'SOSL can search across multiple object types in a single query, returning grouped results for each object type.'
+  },
+  {
+    id: 479,
+    chapter: 'devFundamentals',
+    topic: 'PD1-606',
+    question: 'What does the RETURNING clause specify in SOSL?',
+    options: [
+      'Which objects and fields to return in results',
+      'The sort order',
+      'The search term',
+      'The search context'
+    ],
+    correct: 0,
+    explanation: 'The RETURNING clause in SOSL specifies which objects and fields to include in the search results.'
+  },
+  {
+    id: 480,
+    chapter: 'devFundamentals',
+    topic: 'PD1-606',
+    question: 'Is SOSL case-sensitive?',
+    options: [
+      'Yes, SOSL searches are case-sensitive',
+      'No, SOSL searches are case-insensitive',
+      'Only in specific contexts',
+      'Only for custom objects'
+    ],
+    correct: 1,
+    explanation: 'SOSL searches are case-insensitive, so searching for "acme" will find "Acme", "ACME", etc.'
+  },
+  {
+    id: 481,
+    chapter: 'processAutomation',
+    topic: 'PD1-313',
+    question: 'What is the purpose of the Database.getQueryLocator() in Batch Apex?',
+    options: [
+      'Finishes the batch',
+      'Returns an iterable for the start() method',
+      'Executes the batch',
+      'Enqueues the batch'
+    ],
+    correct: 1,
+    explanation: 'Database.getQueryLocator() in the start() method returns an iterable that defines the records to process in the batch.'
+  },
+  {
+    id: 482,
+    chapter: 'processAutomation',
+    topic: 'PD1-313',
+    question: 'Can you call System.enqueueJob() from a batch execute() method?',
+    options: [
+      'Only in the finish() method',
+      'Only with special permission',
+      'Yes, to chain Queueable jobs',
+      'No, it is not allowed'
+    ],
+    correct: 2,
+    explanation: 'You can call System.enqueueJob() from a batch execute() method to chain additional asynchronous processing.'
+  },
+  {
+    id: 483,
+    chapter: 'processAutomation',
+    topic: 'PD1-313',
+    question: 'What is the maximum CPU time for asynchronous Apex?',
+    options: [
+      '120,000ms',
+      '10,000ms',
+      '30,000ms',
+      '60,000ms'
+    ],
+    correct: 3,
+    explanation: 'The CPU time governor limit for asynchronous Apex (including @Future, Batch, Queueable) is 60,000ms.'
+  },
+  {
+    id: 484,
+    chapter: 'processAutomation',
+    topic: 'PD1-313',
+    question: 'What is the heap size limit for asynchronous Apex?',
+    options: [
+      '48MB',
+      '6MB',
+      '24MB',
+      '12MB'
+    ],
+    correct: 3,
+    explanation: 'The heap size governor limit for asynchronous Apex is 12MB, double the 6MB limit for synchronous Apex.'
+  },
+  {
+    id: 485,
+    chapter: 'processAutomation',
+    topic: 'PD1-313',
+    question: 'Can you schedule a Batch Apex job?',
+    options: [
+      'No, batch jobs cannot be scheduled',
+      'Only with System.schedule()',
+      'Only with cron expressions',
+      'Yes, by implementing Schedulable and calling Database.executeBatch()'
+    ],
+    correct: 3,
+    explanation: 'You can schedule a Batch Apex job by implementing the Schedulable interface and calling Database.executeBatch() in the execute() method.'
+  },
+  {
+    id: 486,
+    chapter: 'processAutomation',
+    topic: 'PD1-314',
+    question: 'What is the purpose of the isAccessible() method?',
+    options: [
+      'Checks if the current user can read the field',
+      'Checks if the field is required',
+      'Checks if the field exists',
+      'Checks if the field is unique'
+    ],
+    correct: 0,
+    explanation: 'Schema.sObjectType.ObjectName.fields.FieldName.isAccessible() checks if the current user has read access to the field.'
+  },
+  {
+    id: 487,
+    chapter: 'processAutomation',
+    topic: 'PD1-314',
+    question: 'What is the AccessLevel parameter in DML operations?',
+    options: [
+      'Specifies the sharing mode',
+      'Specifies the field access level',
+      'Specifies the object access level',
+      'Specifies whether to run in User Mode or System Mode'
+    ],
+    correct: 3,
+    explanation: 'The AccessLevel parameter (AccessLevel.USER_MODE or AccessLevel.SYSTEM_MODE) specifies whether DML enforces CRUD/FLS.'
+  },
+  {
+    id: 488,
+    chapter: 'processAutomation',
+    topic: 'PD1-314',
+    question: 'What does the isCreateable() method check?',
+    options: [
+      'If the object has required fields',
+      'If the object exists',
+      'If the field is createable',
+      'If the current user can create records of this object'
+    ],
+    correct: 3,
+    explanation: 'Schema.sObjectType.ObjectName.isCreateable() checks if the current user has create permission for the object.'
+  },
+  {
+    id: 489,
+    chapter: 'processAutomation',
+    topic: 'PD1-314',
+    question: 'What is the purpose of the isUpdateable() method?',
+    options: [
+      'Checks if the object exists',
+      'Checks if the current user can update records',
+      'Checks if the field is updatable',
+      'Checks if the record is locked'
+    ],
+    correct: 1,
+    explanation: 'Schema.sObjectType.ObjectName.isUpdateable() checks if the current user has update permission for the object.'
+  },
+  {
+    id: 490,
+    chapter: 'processAutomation',
+    topic: 'PD1-314',
+    question: 'What is the purpose of the isDeletable() method?',
+    options: [
+      'Checks if the record is deleted',
+      'Checks if the current user can delete records',
+      'Checks if the field is deletable',
+      'Checks if the object can be deleted'
+    ],
+    correct: 1,
+    explanation: 'Schema.sObjectType.ObjectName.isDeletable() checks if the current user has delete permission for the object.'
+  },
+  {
+    id: 491,
+    chapter: 'devFundamentals',
+    topic: 'PD1-607',
+    question: 'Does Einstein for Developers follow Salesforce best practices?',
+    options: [
+      'Yes, generated code follows Salesforce best practices',
+      'No, it generates generic code',
+      'Only for test classes',
+      'Only for simple code'
+    ],
+    correct: 0,
+    explanation: 'Einstein for Developers generates code that follows Salesforce best practices, as it is trained on Salesforce-specific code.'
+  },
+  {
+    id: 492,
+    chapter: 'devFundamentals',
+    topic: 'PD1-607',
+    question: 'What is required to use Einstein for Developers?',
+    options: [
+      'Developer sandbox',
+      'Special license',
+      'Salesforce DX setup',
+      'Admin permissions'
+    ],
+    correct: 2,
+    explanation: 'Einstein for Developers requires Salesforce DX setup with VS Code and Salesforce Extensions installed.'
+  },
+  {
+    id: 493,
+    chapter: 'devFundamentals',
+    topic: 'PD1-608',
+    question: 'What is the purpose of the description parameter in @InvocableMethod?',
+    options: [
+      'Provides documentation for the method in declarative tools',
+      'Specifies the class name',
+      'Sets the method name',
+      'Defines the return type'
+    ],
+    correct: 0,
+    explanation: 'The description parameter in @InvocableMethod provides documentation that appears in Flow Builder and Agent Builder.'
+  },
+  {
+    id: 494,
+    chapter: 'devFundamentals',
+    topic: 'PD1-608',
+    question: 'Can an @InvocableMethod return multiple values?',
+    options: [
+      'Yes, by returning a list of response objects with @InvocableVariable',
+      'Only with special configuration',
+      'No, it can only return one value',
+      'Only in Apex triggers'
+    ],
+    correct: 0,
+    explanation: '@InvocableMethod can return multiple values by returning a list of response objects, each with @InvocableVariable fields.'
+  },
+  {
+    id: 495,
+    chapter: 'devFundamentals',
+    topic: 'PD1-608',
+    question: 'What naming convention should invocable classes follow?',
+    options: [
+      'Numbers only',
+      'Generic names like Action1',
+      'Descriptive names indicating the action purpose',
+      'Random names'
+    ],
+    correct: 2,
+    explanation: 'Invocable classes should follow descriptive naming conventions that clearly indicate the purpose of the action.'
+  },
+  {
+    id: 496,
+    chapter: 'processAutomation',
+    topic: 'PD1-313',
+    question: 'What is the difference between @Future and Queueable Apex?',
+    options: [
+      '@Future is faster',
+      'Queueable has no limits',
+      'Queueable supports non-primitive types and job chaining; @Future does not',
+      'There is no difference'
+    ],
+    correct: 2,
+    explanation: 'Queueable Apex supports non-primitive types, job IDs, and job chaining, while @Future only accepts primitive types.'
+  },
+  {
+    id: 497,
+    chapter: 'processAutomation',
+    topic: 'PD1-313',
+    question: 'When should you use Batch Apex instead of @Future?',
+    options: [
+      'For large data volumes that exceed governor limits',
+      'For UI updates',
+      'For real-time processing',
+      'For small data sets'
+    ],
+    correct: 0,
+    explanation: 'Batch Apex is used for large data volumes that would exceed governor limits in synchronous or @Future processing.'
+  },
+  {
+    id: 498,
+    chapter: 'processAutomation',
+    topic: 'PD1-313',
+    question: 'What happens to batch job state between transactions without Database.Stateful?',
+    options: [
+      'State is reset to initial values',
+      'An exception is thrown',
+      'The job fails',
+      'State is preserved'
+    ],
+    correct: 0,
+    explanation: 'Without Database.Stateful, instance variables are reset to their initial values between batch transactions.'
+  },
+  {
+    id: 499,
+    chapter: 'processAutomation',
+    topic: 'PD1-314',
+    question: 'What is the purpose of the with sharing keyword?',
+    options: [
+      'Makes the class accessible to all users',
+      'Enforces sharing rules so users see only their records',
+      'Enables CRUD permissions',
+      'Enables FLS'
+    ],
+    correct: 1,
+    explanation: 'The with sharing keyword enforces sharing rules, ensuring that users can only access records they have permission to see.'
+  },
+  {
+    id: 500,
+    chapter: 'processAutomation',
+    topic: 'PD1-314',
+    question: 'What is the purpose of the without sharing keyword?',
+    options: [
+      'Makes the class inaccessible',
+      'Bypasses sharing rules for system-level operations',
+      'Disables FLS',
+      'Disables CRUD permissions'
+    ],
+    correct: 1,
+    explanation: 'The without sharing keyword bypasses sharing rules, allowing the class to access all records regardless of sharing settings.'
+  },
+  {
+    id: 501,
+    chapter: 'devFundamentals',
+    topic: 'PD1-609',
+    question: 'What is Agentforce Vibes Extension?',
+    options: [
+      'A debugging tool',
+      'A VS Code extension for AI-assisted Salesforce development',
+      'A Salesforce CLI plugin',
+      'A testing framework'
+    ],
+    correct: 1,
+    explanation: 'Agentforce Vibes is a VS Code extension that helps developers write, deploy, and manage Salesforce code faster using AI-assisted development.'
+  },
+  {
+    id: 502,
+    chapter: 'devFundamentals',
+    topic: 'PD1-609',
+    question: 'What can Agentforce Vibes generate?',
+    options: [
+      'Only Apex classes',
+      'Apex, LWC, and Visualforce code from natural language',
+      'Only test classes',
+      'Only Visualforce pages'
+    ],
+    correct: 1,
+    explanation: 'Agentforce Vibes can generate Apex, Lightning Web Components, and Visualforce code from natural language descriptions.'
+  },
+  {
+    id: 503,
+    chapter: 'devFundamentals',
+    topic: 'PD1-609',
+    question: 'Does Agentforce Vibes integrate with Salesforce CLI?',
+    options: [
+      'Only for metadata retrieval',
+      'Yes, it integrates with Salesforce CLI',
+      'No, it works independently',
+      'Only for deployments'
+    ],
+    correct: 1,
+    explanation: 'Agentforce Vibes integrates with Salesforce CLI for deployment and metadata management operations.'
+  },
+  {
+    id: 504,
+    chapter: 'devFundamentals',
+    topic: 'PD1-610',
+    question: 'What is Einstein Generative AI?',
+    options: [
+      'AI-powered features in Salesforce for generating content',
+      'A database management tool',
+      'A testing framework',
+      'A deployment tool'
+    ],
+    correct: 0,
+    explanation: 'Einstein Generative AI provides AI-powered capabilities in Salesforce for generating content, automating tasks, and building intelligent applications.'
+  },
+  {
+    id: 505,
+    chapter: 'devFundamentals',
+    topic: 'PD1-610',
+    question: 'What is Prompt Builder used for?',
+    options: [
+      'Designing Lightning components',
+      'Creating prompts for AI-generated content',
+      'Creating Apex classes',
+      'Building Visualforce pages'
+    ],
+    correct: 1,
+    explanation: 'Prompt Builder is used to create and manage prompts that generate AI-powered content using Salesforce data.'
+  },
+  {
+    id: 506,
+    chapter: 'devFundamentals',
+    topic: 'PD1-610',
+    question: 'What is grounding in Einstein Generative AI?',
+    options: [
+      'Validating AI output',
+      'Connecting prompts to Salesforce data for context',
+      'Training AI models',
+      'Securing AI responses'
+    ],
+    correct: 1,
+    explanation: 'Grounding connects prompts to Salesforce data, providing context for more accurate and relevant AI-generated content.'
+  },
+  {
+    id: 507,
+    chapter: 'devFundamentals',
+    topic: 'PD1-610',
+    question: 'What is the Einstein Trust Layer?',
+    options: [
+      'A data storage layer',
+      'A deployment tool',
+      'Security and privacy framework for AI interactions',
+      'A caching mechanism'
+    ],
+    correct: 2,
+    explanation: 'The Einstein Trust Layer ensures security and privacy for AI interactions in Salesforce, protecting sensitive data.'
+  },
+  {
+    id: 508,
+    chapter: 'devFundamentals',
+    topic: 'PD1-611',
+    question: 'What is Agentforce DX?',
+    options: [
+      'A testing framework',
+      'Tools for building custom AI agents in Salesforce',
+      'A debugging tool',
+      'A deployment tool'
+    ],
+    correct: 1,
+    explanation: 'Agentforce DX provides tools and frameworks for building custom AI agents in Salesforce, including Agent Builder and agent actions.'
+  },
+  {
+    id: 509,
+    chapter: 'devFundamentals',
+    topic: 'PD1-611',
+    question: 'What is Agent Builder?',
+    options: [
+      'A visual tool for creating and configuring agents',
+      'A deployment tool',
+      'A code editor',
+      'A testing framework'
+    ],
+    correct: 0,
+    explanation: 'Agent Builder is a visual tool in Agentforce DX for creating and configuring custom AI agents.'
+  },
+  {
+    id: 510,
+    chapter: 'devFundamentals',
+    topic: 'PD1-611',
+    question: 'What can Agent Actions use?',
+    options: [
+      'Only Flow',
+      'Only Visualforce',
+      'Apex and Flow for agent capabilities',
+      'Only Apex'
+    ],
+    correct: 2,
+    explanation: 'Agent Actions can use both Apex classes and Flows to provide capabilities to AI agents.'
+  },
+  {
+    id: 511,
+    chapter: 'processAutomation',
+    topic: 'PD1-315',
+    question: 'When do record-triggered flows run?',
+    options: [
+      'Only on creation',
+      'Only on deletion',
+      'Only on update',
+      'When records are created, updated, or deleted'
+    ],
+    correct: 3,
+    explanation: 'Record-triggered flows automatically run when records are created, updated, or deleted based on the configured entry conditions.'
+  },
+  {
+    id: 512,
+    chapter: 'processAutomation',
+    topic: 'PD1-315',
+    question: 'What is the difference between before-save and after-save flows?',
+    options: [
+      'There is no difference',
+      'Before-save runs before DML (fast); after-save runs after DML (can perform DML)',
+      'After-save cannot perform DML',
+      'Before-save is slower'
+    ],
+    correct: 1,
+    explanation: 'Before-save flows run before the record is saved and cannot perform DML. After-save flows run after the record is saved and can perform DML on other records.'
+  },
+  {
+    id: 513,
+    chapter: 'processAutomation',
+    topic: 'PD1-315',
+    question: 'What is the governor limit for flow elements per execution?',
+    options: [
+      '5000',
+      '1000',
+      '10000',
+      '2000'
+    ],
+    correct: 3,
+    explanation: 'The governor limit for flow elements is 2000 per flow execution.'
+  },
+  {
+    id: 514,
+    chapter: 'processAutomation',
+    topic: 'PD1-315',
+    question: 'What are scheduled paths in record-triggered flows?',
+    options: [
+      'Error handling paths',
+      'Decision branches',
+      'Delayed actions that run after a specified time',
+      'Immediate actions'
+    ],
+    correct: 2,
+    explanation: 'Scheduled paths allow you to delay actions in a record-triggered flow, running them after a specified time delay.'
+  },
+  {
+    id: 515,
+    chapter: 'processAutomation',
+    topic: 'PD1-315',
+    question: 'What flow element is used to query records?',
+    options: [
+      'Create Records',
+      'Get Records',
+      'Update Records',
+      'Delete Records'
+    ],
+    correct: 1,
+    explanation: 'The Get Records element is used to query records from the database in a flow.'
+  },
+  {
+    id: 516,
+    chapter: 'processAutomation',
+    topic: 'PD1-316',
+    question: 'How is SOQL similar to SQL?',
+    options: [
+      'SOQL is only for updates',
+      'SOQL SELECT is similar to SQL SELECT for querying data',
+      'SOQL is only for deletes',
+      'SOQL is completely different from SQL'
+    ],
+    correct: 1,
+    explanation: 'SOQL SELECT statements are similar to SQL SELECT statements, both used to query data from databases.'
+  },
+  {
+    id: 517,
+    chapter: 'processAutomation',
+    topic: 'PD1-316',
+    question: 'What does Database.insert(records, false) do?',
+    options: [
+      'Allows partial success - some records can succeed while others fail',
+      'Skips duplicates',
+      'Inserts only valid records',
+      'Inserts all records or none'
+    ],
+    correct: 0,
+    explanation: 'Database.insert(records, false) allows partial success, meaning some records can be inserted successfully while others fail without rolling back the entire transaction.'
+  },
+  {
+    id: 518,
+    chapter: 'processAutomation',
+    topic: 'PD1-316',
+    question: 'What are SOQL aggregate functions?',
+    options: [
+      'Only COUNT',
+      'COUNT, SUM, AVG, MIN, MAX for summarizing data',
+      'Only SUM',
+      'Only AVG'
+    ],
+    correct: 1,
+    explanation: 'SOQL supports aggregate functions: COUNT, SUM, AVG, MIN, and MAX for summarizing data in queries.'
+  },
+  {
+    id: 519,
+    chapter: 'processAutomation',
+    topic: 'PD1-316',
+    question: 'How do you query parent-to-child relationships in SOQL?',
+    options: [
+      'Use a subquery: SELECT Id, (SELECT Id FROM Contacts) FROM Account',
+      'Use JOIN keyword',
+      'Use dot notation: Contact.Account.Name',
+      'Use relationship queries are not supported'
+    ],
+    correct: 0,
+    explanation: 'Parent-to-child relationships use subqueries: SELECT Id, (SELECT Id FROM Contacts) FROM Account.'
+  },
+  {
+    id: 520,
+    chapter: 'processAutomation',
+    topic: 'PD1-316',
+    question: 'What are SOQL date literals?',
+    options: [
+      'Custom date formats',
+      'Date functions',
+      'Predefined date values like TODAY, LAST_N_DAYS, THIS_MONTH',
+      'Date variables'
+    ],
+    correct: 2,
+    explanation: 'SOQL date literals are predefined values like TODAY, LAST_N_DAYS, THIS_MONTH that simplify date filtering in queries.'
+  },
+  {
+    id: 521,
+    chapter: 'processAutomation',
+    topic: 'PD1-317',
+    question: 'What is an approval process?',
+    options: [
+      'A deployment process',
+      'A data validation tool',
+      'A testing framework',
+      'A multi-step workflow for approving records'
+    ],
+    correct: 3,
+    explanation: 'An approval process is a multi-step workflow that automates the approval of records in Salesforce.'
+  },
+  {
+    id: 522,
+    chapter: 'processAutomation',
+    topic: 'PD1-317',
+    question: 'What actions can be configured in an approval process?',
+    options: [
+      'Only rejection actions',
+      'Only approval actions',
+      'Only submission actions',
+      'Initial submission, approval, rejection, and recall actions'
+    ],
+    correct: 3,
+    explanation: 'Approval processes can configure initial submission, approval, rejection, and recall actions.'
+  },
+  {
+    id: 523,
+    chapter: 'processAutomation',
+    topic: 'PD1-317',
+    question: 'Can records be locked during an approval process?',
+    options: [
+      'Only in production',
+      'No, records are always editable',
+      'Only with special permission',
+      'Yes, records can be locked to prevent editing during approval'
+    ],
+    correct: 3,
+    explanation: 'Records can be locked during an approval process to prevent editing while the approval is in progress.'
+  },
+  {
+    id: 524,
+    chapter: 'processAutomation',
+    topic: 'PD1-317',
+    question: 'What are approval steps?',
+    options: [
+      'Individual actions',
+      'Sequential stages in the approval process',
+      'Entry criteria',
+      'Rejection handlers'
+    ],
+    correct: 1,
+    explanation: 'Approval steps are sequential stages in an approval process, each with its own approval criteria and actions.'
+  },
+  {
+    id: 525,
+    chapter: 'processAutomation',
+    topic: 'PD1-317',
+    question: 'What happens when an approval process reaches final approval?',
+    options: [
+      'Final approval actions are executed',
+      'The process restarts',
+      'The record is deleted',
+      'Nothing happens'
+    ],
+    correct: 0,
+    explanation: 'When all approval steps are completed, the final approval actions are executed, such as updating status or sending notifications.'
+  },
+  {
+    id: 526,
+    chapter: 'userInterface',
+    topic: 'PD1-410',
+    question: 'What framework do Aura components use?',
+    options: [
+      'Standard web components',
+      'React framework',
+      'Proprietary Salesforce framework',
+      'Angular framework'
+    ],
+    correct: 2,
+    explanation: 'Aura components use a proprietary Salesforce framework, unlike LWC which uses standard web components.'
+  },
+  {
+    id: 527,
+    chapter: 'userInterface',
+    topic: 'PD1-410',
+    question: 'What file extension do Aura components use for markup?',
+    options: [
+      '.cmp',
+      '.vue',
+      '.html',
+      '.jsx'
+    ],
+    correct: 0,
+    explanation: 'Aura components use .cmp files for component markup, unlike LWC which uses .html files.'
+  },
+  {
+    id: 528,
+    chapter: 'userInterface',
+    topic: 'PD1-410',
+    question: 'What is the difference between component and application events in Aura?',
+    options: [
+      'Component events bubble up through parent-child; application events fire across the entire app',
+      'There is no difference',
+      'Component events are faster',
+      'Application events are deprecated'
+    ],
+    correct: 0,
+    explanation: 'Component events propagate through the parent-child hierarchy, while application events can be handled by any component in the application.'
+  },
+  {
+    id: 529,
+    chapter: 'userInterface',
+    topic: 'PD1-410',
+    question: 'What expression syntax do Aura components use?',
+    options: [
+      '{{attribute}} for attributes',
+      '${attribute} for attributes',
+      '{!v.attribute} for attributes and {!c.method} for controllers',
+      '@attribute for attributes'
+    ],
+    correct: 2,
+    explanation: 'Aura components use {!v.attribute} for attributes and {!c.method} for controller methods.'
+  },
+  {
+    id: 530,
+    chapter: 'userInterface',
+    topic: 'PD1-410',
+    question: 'Should you use Aura or LWC for new development?',
+    options: [
+      'Neither is recommended',
+      'Aura is recommended for new development',
+      'Both are equally recommended',
+      'LWC is recommended for new development'
+    ],
+    correct: 3,
+    explanation: 'LWC (Lightning Web Components) is recommended for new development as it uses modern web standards and provides better performance.'
+  },
+  {
+    id: 531,
+    chapter: 'testingDebugging',
+    topic: 'PD1-510',
+    question: 'What is Salesforce CLI?',
+    options: [
+      'A testing framework',
+      'A command-line interface for Salesforce development',
+      'A web-based IDE',
+      'A debugging tool'
+    ],
+    correct: 1,
+    explanation: 'Salesforce CLI (sf) is a command-line interface tool for Salesforce development, deployment, and metadata management.'
+  },
+  {
+    id: 532,
+    chapter: 'testingDebugging',
+    topic: 'PD1-510',
+    question: 'What command creates a new SFDX project?',
+    options: [
+      'sf project create',
+      'sf deploy start',
+      'sf metadata create',
+      'sf org create'
+    ],
+    correct: 0,
+    explanation: 'The sf project create command creates a new Salesforce DX project with the standard directory structure.'
+  },
+  {
+    id: 533,
+    chapter: 'testingDebugging',
+    topic: 'PD1-510',
+    question: 'What command creates a scratch org?',
+    options: [
+      'sf scratch create',
+      'sf org create',
+      'sf project create scratch',
+      'sf org create scratch'
+    ],
+    correct: 3,
+    explanation: 'The sf org create scratch command creates a new scratch org based on the project-scratch-def.json configuration.'
+  },
+  {
+    id: 534,
+    chapter: 'testingDebugging',
+    topic: 'PD1-510',
+    question: 'What is project-scratch-def.json?',
+    options: [
+      'Test configuration',
+      'Deployment configuration',
+      'Project configuration file',
+      'Configuration file that defines scratch org settings'
+    ],
+    correct: 3,
+    explanation: 'project-scratch-def.json is the configuration file that defines the settings and features for a scratch org.'
+  },
+  {
+    id: 535,
+    chapter: 'testingDebugging',
+    topic: 'PD1-510',
+    question: 'What is source format in Salesforce DX?',
+    options: [
+      'Version-control friendly metadata format',
+      'Legacy format',
+      'Compressed format',
+      'Binary format'
+    ],
+    correct: 0,
+    explanation: 'Source format is a version-control friendly metadata format used in Salesforce DX for modern development workflows.'
+  },
+  {
+    id: 536,
+    chapter: 'testingDebugging',
+    topic: 'PD1-511',
+    question: 'What is Apex Replay Debugger?',
+    options: [
+      'A tool to replay debug logs and step through Apex code',
+      'A code editor',
+      'A deployment tool',
+      'A testing framework'
+    ],
+    correct: 0,
+    explanation: 'Apex Replay Debugger allows developers to replay debug logs in VS Code, stepping through Apex code execution to identify issues.'
+  },
+  {
+    id: 537,
+    chapter: 'testingDebugging',
+    topic: 'PD1-511',
+    question: 'Where does Apex Replay Debugger work?',
+    options: [
+      'In Salesforce CLI',
+      'In a web browser',
+      'In VS Code with Salesforce Extensions',
+      'In Developer Console'
+    ],
+    correct: 2,
+    explanation: 'Apex Replay Debugger works in VS Code with the Salesforce Extensions installed.'
+  },
+  {
+    id: 538,
+    chapter: 'testingDebugging',
+    topic: 'PD1-511',
+    question: 'What is required to use Apex Replay Debugger?',
+    options: [
+      'A deployment connection',
+      'A special license',
+      'A captured debug log file',
+      'A scratch org'
+    ],
+    correct: 2,
+    explanation: 'Apex Replay Debugger requires a captured debug log file to replay and step through the code execution.'
+  },
+  {
+    id: 539,
+    chapter: 'testingDebugging',
+    topic: 'PD1-511',
+    question: 'What can you do with Apex Replay Debugger?',
+    options: [
+      'Only view logs',
+      'Only edit code',
+      'Only deploy code',
+      'Set breakpoints, step through code, and inspect variables'
+    ],
+    correct: 3,
+    explanation: 'Apex Replay Debugger allows you to set breakpoints, step through code execution, and inspect variable values during replay.'
+  },
+  {
+    id: 540,
+    chapter: 'testingDebugging',
+    topic: 'PD1-511',
+    question: 'What debug log level provides the most detailed information?',
+    options: [
+      'INFO',
+      'DEBUG',
+      'FINE',
+      'FINEST'
+    ],
+    correct: 3,
+    explanation: 'FINEST provides the most detailed debug log information, capturing all possible debug messages.'
   }
 ];
 
 export const examConfig = {
   fullExam: {
     name: 'Full Practice Exam',
-    description: '60 questions following official PD1 exam format and marking ratios',
-    timeLimit: 105,
-    passingScore: 68,
-    questions: 'all'
+    questions: 'all',
+    timeLimit: 110,
+    passingScore: 68
   },
   devFundamentals: {
-    name: 'Developer Fundamentals (27%)',
-    description: 'Multi-tenant architecture, MVC, data model, relationships, and data import/export',
-    timeLimit: 25,
-    passingScore: 68,
-    questions: 'devFundamentals'
+    name: 'Developer Fundamentals',
+    questions: 'devFundamentals',
+    timeLimit: 45,
+    passingScore: 68
   },
   processAutomation: {
-    name: 'Process Automation and Logic (28%)',
-    description: 'Declarative automation, Apex programming, SOQL, DML, triggers, and governor limits',
-    timeLimit: 35,
-    passingScore: 68,
-    questions: 'processAutomation'
+    name: 'Process Automation and Logic',
+    questions: 'processAutomation',
+    timeLimit: 45,
+    passingScore: 68
   },
   userInterface: {
-    name: 'User Interface (25%)',
-    description: 'Visualforce, Lightning Components, LWC, events, and UI security',
-    timeLimit: 30,
-    passingScore: 68,
-    questions: 'userInterface'
+    name: 'User Interface',
+    questions: 'userInterface',
+    timeLimit: 35,
+    passingScore: 68
   },
   testingDebugging: {
-    name: 'Testing, Debugging, and Deployment (20%)',
-    description: 'Test classes, debugging, developer tools, and deployment processes',
-    timeLimit: 20,
-    passingScore: 68,
-    questions: 'testingDebugging'
+    name: 'Testing, Debugging, and Deployment',
+    questions: 'testingDebugging',
+    timeLimit: 30,
+    passingScore: 68
   }
 };

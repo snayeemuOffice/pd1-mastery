@@ -248,6 +248,341 @@ export const chapters = [
           { type: 'heading', text: 'Key Exam Scenario' },
           { type: 'paragraph', text: 'A developer needs to import 100,000 Account records with relationships to Contacts. They should use Data Loader (not Data Import Wizard which is limited to 50,000 records) and ensure parent Account records are imported before child Contact records.' }
         ]
+      },
+      {
+        id: 'pd1-605',
+        code: 'PD1-605',
+        title: 'Platform Events',
+        description: 'Describe the capabilities and use cases of platform events for event-driven architecture',
+        weight: '5%',
+        keyPoints: [
+          'Platform Events enable event-driven architecture using publish-subscribe pattern',
+          'Event Bus: Handles event delivery and storage',
+          'Events are published via Apex, APIs, or declarative tools',
+          'Apex triggers on platform events: AFTER INSERT only',
+          'empApi Lightning component for subscribing in LWC/Aura',
+          'CometD protocol for external subscribers',
+          'Event retention: 72 hours (replay from specific event)',
+          'ReplayId: Unique ID for each event, used for replay',
+          '__e suffix for platform event API names',
+          'Publish events using EventBus.publish()',
+          'Platform events cannot be queried like sObjects',
+          'Platform events support defined fields (not arbitrary)',
+          'Difference from Change Data Capture: CDC tracks data changes, PE for custom events',
+          'Difference from Streaming API: Streaming for generic push, PE for structured events',
+          'Governor limits: 100 publish calls per transaction'
+        ],
+        examTips: [
+          'Platform events use publish-subscribe pattern',
+          'Triggers on platform events are AFTER INSERT only',
+          'Events are stored for 72 hours for replay',
+          '__e suffix for platform event API names',
+          'EventBus.publish() to publish from Apex',
+          'empApi for Lightning component subscription',
+          'Cannot query platform events like sObjects'
+        ],
+        detailedContent: [
+          { type: 'heading', text: 'Platform Events Overview' },
+          { type: 'paragraph', text: 'Platform Events enable event-driven architecture in Salesforce using a publish-subscribe pattern. They allow Salesforce and external systems to communicate through events.' },
+          { type: 'heading', text: 'Key Concepts' },
+          { type: 'list', items: [
+            'Event Bus: Handles event delivery and storage (similar to message queue)',
+            'Event Definition: Defines the event structure with custom fields',
+            'Event Instance: A specific occurrence of an event with field values',
+            'Publisher: Entity that sends events (Apex, API, Flow)',
+            'Subscriber: Entity that receives events (Apex trigger, empApi, CometD)',
+            'ReplayId: Unique sequential ID for each event instance'
+          ]},
+          { type: 'heading', text: 'Publishing Platform Events' },
+          { type: 'code', language: 'java', code: '// Publish from Apex\nAccount_Update__e event = new Account_Update__e(\n    Account_Id__c = accId,\n    Status__c = \'Updated\'\n);\nDatabase.SaveResult result = EventBus.publish(event);\n\n// Publish from API (REST)\n// POST /services/data/vXX.0/sobjects/Account_Update__e\n// { "Account_Id__c": "001xxx", "Status__c": "Updated" }' },
+          { type: 'heading', text: 'Subscribing to Platform Events' },
+          { type: 'code', language: 'java', code: '// Apex Trigger (AFTER INSERT only)\ntrigger AccountUpdateTrigger on Account_Update__e (after insert) {\n    for (Account_Update__e event : Trigger.new) {\n        String accId = event.Account_Id__c;\n        String status = event.Status__c;\n        // Process the event\n    }\n}' },
+          { type: 'heading', text: 'Platform Events vs Other Event Types' },
+          { type: 'table', headers: ['Feature', 'Platform Events', 'Change Data Capture', 'Streaming API'], rows: [
+            ['Purpose', 'Custom business events', 'Track data changes', 'Generic push notifications'],
+            ['Trigger', 'AFTER INSERT only', 'AFTER INSERT only', 'N/A (CometD)'],
+            ['Storage', '72 hours', '72 hours', '24 hours'],
+            ['API Name Suffix', '__e', '__e (ChangeEvents)', 'N/A'],
+            ['Query Support', 'No', 'No', 'No']
+          ]},
+          { type: 'heading', text: 'Governor Limits' },
+          { type: 'list', items: [
+            '100 publish calls per transaction',
+            'Event retention: 72 hours',
+            'Maximum 100 event types per org',
+            'Maximum 200 fields per event type'
+          ]},
+          { type: 'heading', text: 'Key Exam Scenario' },
+          { type: 'paragraph', text: 'An external system needs to notify Salesforce when an order is shipped. Use Platform Events to publish an event from the external system, and an Apex trigger to process the event in Salesforce.' }
+        ]
+      },
+      {
+        id: 'pd1-606',
+        code: 'PD1-606',
+        title: 'Search Solution Basics',
+        description: 'Describe the capabilities and use cases of SOSL and search solutions',
+        weight: '5%',
+        keyPoints: [
+          'SOSL: Salesforce Object Search Language for text search',
+          'FIND {search term} IN ALL FIELDS RETURNING object(fields)',
+          'Searches across multiple objects simultaneously',
+          'Full-text search with relevance ranking',
+          'Returns grouped results by object type',
+          'Governor limit: 20 SOSL queries per transaction',
+          'Wildcards: * for multiple characters, ? for single character',
+          'IN ALL FIELDS, IN NAME FIELDS, IN EMAIL FIELDS, etc.',
+          'SOSL cannot be used in triggers directly',
+          'Search results are relevance-ranked',
+          'Limit clause restricts results per object',
+          'SOSL supports FIND in multiple objects'
+        ],
+        examTips: [
+          'SOSL for text search across multiple objects',
+          'SOQL for specific object queries with conditions',
+          'SOSL returns grouped results by object type',
+          'Wildcards: * (multiple chars), ? (single char)',
+          '20 SOSL queries per transaction limit',
+          'Cannot use SOSL directly in triggers'
+        ],
+        detailedContent: [
+          { type: 'heading', text: 'SOSL Overview' },
+          { type: 'paragraph', text: 'Salesforce Object Search Language (SOSL) enables text-based searches across multiple objects. Unlike SOQL which queries specific objects, SOSL performs full-text searches.' },
+          { type: 'heading', text: 'SOSL Syntax' },
+          { type: 'code', language: 'java', code: '// Basic SOSL search\nList<List<SObject>> results = [FIND \'Acme\' IN ALL FIELDS RETURNING Account(Name, Industry), Contact(Name, Email)];\n\n// Access results by object type\nList<Account> accounts = (List<Account>)results[0];\nList<Contact> contacts = (List<Contact>)results[1];\n\n// Search with wildcards\nList<List<SObject>> results = [FIND \'Ac*\' IN NAME FIELDS RETURNING Account(Name)];\n\n// Search with limits\nList<List<SObject>> results = [FIND \'Technology\' IN ALL FIELDS RETURNING Account(Name, Industry LIMIT 10), Contact(Name LIMIT 20)];' },
+          { type: 'heading', text: 'SOQL vs SOSL' },
+          { type: 'table', headers: ['Feature', 'SOQL', 'SOSL'], rows: [
+            ['Purpose', 'Query specific objects', 'Text search across objects'],
+            ['Syntax', 'SELECT fields FROM object', 'FIND {term} RETURNING object'],
+            ['Returns', 'List<SObject>', 'List<List<SObject>>'],
+            ['Full-text search', 'No', 'Yes'],
+            ['Relevance ranking', 'No', 'Yes'],
+            ['Governor limit', '100 per transaction', '20 per transaction'],
+            ['In triggers', 'Yes', 'No']
+          ]},
+          { type: 'heading', text: 'Search Contexts' },
+          { type: 'list', items: [
+            'IN ALL FIELDS: Search all text fields',
+            'IN NAME FIELDS: Search name fields only',
+            'IN EMAIL FIELDS: Search email fields only',
+            'IN PHONE FIELDS: Search phone fields only',
+            'IN SIDEBAR FIELDS: Search sidebar fields'
+          ]},
+          { type: 'heading', text: 'Key Exam Scenario' },
+          { type: 'paragraph', text: 'A developer needs to search for accounts and contacts containing the word "Acme" across all fields. Use SOSL with FIND \'Acme\' IN ALL FIELDS RETURNING Account(Name), Contact(Name).' }
+        ]
+      },
+      {
+        id: 'pd1-607',
+        code: 'PD1-607',
+        title: 'Einstein for Developers',
+        description: 'Describe the capabilities and use cases of Einstein for Developers',
+        weight: '5%',
+        keyPoints: [
+          'Einstein for Developers: AI-powered coding assistant',
+          'Generates Apex code from natural language prompts',
+          'Generates test classes for existing Apex code',
+          'Explains existing Apex code in natural language',
+          'Works in VS Code with Salesforce Extensions',
+          'Uses large language models trained on Salesforce code',
+          'Generates code following Salesforce best practices',
+          'Can generate boilerplate code, triggers, classes',
+          'Does not replace developer understanding',
+          'Requires Salesforce DX setup',
+          'Available in Developer Console and VS Code',
+          'Generates code suggestions inline'
+        ],
+        examTips: [
+          'Einstein generates Apex code from natural language',
+          'Can generate test classes for existing code',
+          'Works in VS Code and Developer Console',
+          'Does not replace developer understanding',
+          'Uses Salesforce-specific training data',
+          'Follows Salesforce best practices'
+        ],
+        detailedContent: [
+          { type: 'heading', text: 'Einstein for Developers Overview' },
+          { type: 'paragraph', text: 'Einstein for Developers is an AI-powered coding assistant that helps developers write Apex code faster by generating code from natural language descriptions.' },
+          { type: 'heading', text: 'Capabilities' },
+          { type: 'list', items: [
+            'Code Generation: Generate Apex code from natural language prompts',
+            'Test Generation: Create test classes for existing Apex code',
+            'Code Explanation: Explain existing Apex code in natural language',
+            'Code Completion: Inline code suggestions while typing',
+            'Best Practices: Generated code follows Salesforce best practices'
+          ]},
+          { type: 'heading', text: 'Where to Use' },
+          { type: 'table', headers: ['Tool', 'Features'], rows: [
+            ['VS Code', 'Full code generation, explanation, inline suggestions'],
+            ['Developer Console', 'Code generation and explanation'],
+            ['Salesforce Extensions', 'Integrated Einstein features']
+          ]},
+          { type: 'heading', text: 'Key Exam Scenario' },
+          { type: 'paragraph', text: 'A developer needs to quickly create a trigger for the Account object. They can use Einstein for Developers to generate the trigger code from a natural language description, then review and customize it.' }
+        ]
+      },
+      {
+        id: 'pd1-608',
+        code: 'PD1-608',
+        title: 'Agent Customization with Apex',
+        description: 'Describe how to customize Salesforce agents using Apex',
+        weight: '5%',
+        keyPoints: [
+          'Agents in Salesforce (formerly Einstein Bots)',
+          'Apex invocable classes for agent actions',
+          '@InvocableMethod annotation for agent-callable methods',
+          '@InvocableVariable for input/output parameters',
+          'Agent actions can call Apex for complex logic',
+          'Agents can invoke Flows that call Apex',
+          'Error handling in agent Apex actions',
+          'Agent context and conversation management',
+          'Testing agent Apex actions',
+          'Best practices for agent customization'
+        ],
+        examTips: [
+          '@InvocableMethod makes Apex callable from agents',
+          '@InvocableVariable defines input/output parameters',
+          'Agents can invoke Flows that call Apex',
+          'Error handling is important for agent actions',
+          'Test agent actions thoroughly',
+          'Follow naming conventions for invocable classes'
+        ],
+        detailedContent: [
+          { type: 'heading', text: 'Agent Customization Overview' },
+          { type: 'paragraph', text: 'Salesforce agents (formerly Einstein Bots) can be customized using Apex to handle complex business logic that declarative tools cannot manage.' },
+          { type: 'heading', text: '@InvocableMethod for Agents' },
+          { type: 'code', language: 'java', code: 'public class AgentAction {\n    @InvocableMethod(label=\'Process Agent Action\' description=\'Handles agent requests\')\n    public static List<Response> processAction(List<Request> requests) {\n        List<Response> responses = new List<Response>();\n        for (Request req : requests) {\n            Response res = new Response();\n            // Process request\n            res.output = \'Processed: \' + req.input;\n            responses.add(res);\n        }\n        return responses;\n    }\n    \n    public class Request {\n        @InvocableVariable(required=true)\n        public String input;\n    }\n    \n    public class Response {\n        @InvocableVariable\n        public String output;\n    }\n}' },
+          { type: 'heading', text: 'Best Practices' },
+          { type: 'list', items: [
+            'Use @InvocableMethod with clear labels and descriptions',
+            'Handle errors gracefully with try-catch',
+            'Return meaningful error messages to the agent',
+            'Test with various input scenarios',
+            'Follow naming conventions',
+            'Keep methods focused on single responsibility'
+          ]},
+          { type: 'heading', text: 'Key Exam Scenario' },
+          { type: 'paragraph', text: 'An agent needs to check order status from an external system. Create an @InvocableMethod Apex class that makes an HTTP callout to the external system and returns the order status.' }
+        ]
+      },
+      {
+        id: 'pd1-609',
+        code: 'PD1-609',
+        title: 'Agentforce Vibes Extension',
+        description: 'Use Agentforce Vibes to write, deploy, and manage code faster in VS Code',
+        weight: '3%',
+        keyPoints: [
+          'Agentforce Vibes is a VS Code extension for AI-assisted development',
+          'Generates Apex code from natural language prompts',
+          'Deploys code directly from VS Code',
+          'Manages Salesforce metadata',
+          'Integrates with Salesforce CLI',
+          'Supports Apex, LWC, and Visualforce',
+          'Provides code suggestions and completions',
+          'Helps with code refactoring',
+          'Works with Salesforce DX projects',
+          'Requires Salesforce Extensions for VS Code'
+        ],
+        examTips: [
+          'Agentforce Vibes is a VS Code extension',
+          'Generates Apex code from natural language',
+          'Deploys code directly from VS Code',
+          'Integrates with Salesforce CLI',
+          'Supports Apex, LWC, and Visualforce'
+        ],
+        detailedContent: [
+          { type: 'heading', text: 'Agentforce Vibes Overview' },
+          { type: 'paragraph', text: 'Agentforce Vibes is a VS Code extension that helps developers write, deploy, and manage Salesforce code faster using AI-assisted development.' },
+          { type: 'heading', text: 'Key Features' },
+          { type: 'list', items: [
+            'Code Generation: Generate Apex, LWC, and Visualforce from natural language',
+            'Code Deployment: Deploy code directly from VS Code to Salesforce',
+            'Metadata Management: Manage Salesforce metadata',
+            'CLI Integration: Works with Salesforce CLI',
+            'Code Suggestions: AI-powered code completions'
+          ]},
+          { type: 'heading', text: 'Key Exam Scenario' },
+          { type: 'paragraph', text: 'A developer wants to quickly generate an Apex class from a description. They can use Agentforce Vibes in VS Code to generate the code from a natural language prompt.' }
+        ]
+      },
+      {
+        id: 'pd1-610',
+        code: 'PD1-610',
+        title: 'Einstein Generative AI',
+        description: 'Understand Einstein Generative AI capabilities in Salesforce',
+        weight: '3%',
+        keyPoints: [
+          'Einstein Generative AI provides AI-powered features in Salesforce',
+          'Prompt Builder: Create prompts for AI-generated content',
+          'Einstein Copilot: AI assistant for Salesforce',
+          'Grounding: Connect prompts to Salesforce data',
+          'Trust Layer: Security and privacy for AI',
+          'Prompt Templates: Reusable prompt patterns',
+          'Einstein Trust Layer ensures data privacy',
+          'AI-generated content can be reviewed and edited',
+          'Integration with Flow and Apex',
+          'Einstein GPT for developers'
+        ],
+        examTips: [
+          'Einstein Generative AI provides AI features in Salesforce',
+          'Prompt Builder creates prompts for AI content',
+          'Einstein Copilot is the AI assistant',
+          'Grounding connects prompts to Salesforce data',
+          'Trust Layer ensures security and privacy'
+        ],
+        detailedContent: [
+          { type: 'heading', text: 'Einstein Generative AI Overview' },
+          { type: 'paragraph', text: 'Einstein Generative AI brings AI-powered capabilities to Salesforce, enabling developers to build intelligent applications.' },
+          { type: 'heading', text: 'Key Components' },
+          { type: 'list', items: [
+            'Prompt Builder: Create and manage prompts for AI-generated content',
+            'Einstein Copilot: AI assistant that helps users with tasks',
+            'Grounding: Connect prompts to Salesforce data for context',
+            'Trust Layer: Ensures security and privacy for AI interactions',
+            'Prompt Templates: Reusable patterns for common AI tasks'
+          ]},
+          { type: 'heading', text: 'Key Exam Scenario' },
+          { type: 'paragraph', text: 'A developer needs to create an AI-generated email response based on customer data. They can use Prompt Builder to create a grounded prompt that uses Salesforce data.' }
+        ]
+      },
+      {
+        id: 'pd1-611',
+        code: 'PD1-611',
+        title: 'Agentforce DX',
+        description: 'Use Agentforce DX tools to create custom AI agents',
+        weight: '3%',
+        keyPoints: [
+          'Agentforce DX: Tools for building custom AI agents',
+          'Agent Builder: Visual tool for creating agents',
+          'Agent Actions: Apex and Flow actions for agents',
+          'Agent Topics: Organize agent capabilities',
+          'Agent Testing: Test agent behavior',
+          'Integration with Salesforce CLI',
+          'Agent deployment and management',
+          'Custom agent instructions',
+          'Agent security and permissions',
+          'Agent analytics and monitoring'
+        ],
+        examTips: [
+          'Agentforce DX provides tools for building AI agents',
+          'Agent Builder is the visual tool',
+          'Agent Actions use Apex and Flow',
+          'Topics organize agent capabilities',
+          'Integration with Salesforce CLI'
+        ],
+        detailedContent: [
+          { type: 'heading', text: 'Agentforce DX Overview' },
+          { type: 'paragraph', text: 'Agentforce DX provides tools and frameworks for building custom AI agents in Salesforce.' },
+          { type: 'heading', text: 'Key Components' },
+          { type: 'list', items: [
+            'Agent Builder: Visual tool for creating and configuring agents',
+            'Agent Actions: Apex and Flow actions that agents can execute',
+            'Agent Topics: Organize agent capabilities into logical groups',
+            'Agent Testing: Test agent behavior and responses',
+            'Salesforce CLI: Command-line tools for agent deployment'
+          ]},
+          { type: 'heading', text: 'Key Exam Scenario' },
+          { type: 'paragraph', text: 'A developer needs to create a custom AI agent for customer service. They can use Agentforce DX to build the agent with custom Apex actions and deploy it using Salesforce CLI.' }
+        ]
       }
     ]
   },
@@ -703,6 +1038,269 @@ export const chapters = [
           { type: 'heading', text: 'Key Exam Scenario' },
           { type: 'paragraph', text: 'A Flow needs to call an external API to process data. Flow cannot make HTTP callouts directly. Solution: Create an @InvocableMethod Apex class that makes the callout, and call it from the Flow.' }
         ]
+      },
+      {
+        id: 'pd1-313',
+        code: 'PD1-313',
+        title: 'Asynchronous Apex',
+        description: 'Given a scenario, identify the appropriate asynchronous Apex method and implement it',
+        weight: '10%',
+        keyPoints: [
+          '@Future methods: Asynchronous execution, void return, primitive params only',
+          '@Future(callout=true) for HTTP callouts',
+          '50 @Future calls per transaction limit',
+          'Batch Apex: Database.Batchable interface (start, execute, finish)',
+          'Batch scope size: Default 200, max 2000',
+          'Database.Stateful for preserving state across batches',
+          'Queueable Apex: Enhanced @Future with non-primitive types',
+          'Queueable supports job chaining and job IDs',
+          'Queueable implements Queueable interface',
+          'System.enqueueJob() to enqueue',
+          'Scheduled Apex: Schedulable interface, System.schedule()',
+          'Cron expression: seconds minutes hours day month weekday year',
+          'Scheduled Apex cannot make callouts directly',
+          'Flex Queue: Holds up to 100 batch jobs',
+          'Async limits: 50 future, 50 queueable, 100 batch per transaction'
+        ],
+        examTips: [
+          '@Future: void return, primitive params, 50 calls per txn',
+          'Queueable: Non-primitive types, job chaining, job IDs',
+          'Batch: Large data volumes, scope 200-2000',
+          'Scheduled: Cron expressions, cannot make callouts directly',
+          'Database.Stateful preserves state across batch transactions',
+          'Flex Queue holds up to 100 batch jobs'
+        ],
+        detailedContent: [
+          { type: 'heading', text: 'Asynchronous Apex Methods' },
+          { type: 'table', headers: ['Method', 'Use Case', 'Key Features'], rows: [
+            ['@Future', 'Long-running operations', 'Void return, primitive params only'],
+            ['Batch Apex', 'Large data volumes', 'Database.Batchable, scope 200-2000'],
+            ['Queueable Apex', 'Complex async jobs', 'Non-primitive types, job chaining'],
+            ['Scheduled Apex', 'Time-based execution', 'Schedulable, cron expressions']
+          ]},
+          { type: 'heading', text: '@Future Methods' },
+          { type: 'code', language: 'java', code: 'public class AccountService {\n    @Future(callout=true)\n    public static void updateAccountsAsync(Set<Id> accountIds) {\n        // Runs asynchronously\n        List<Account> accounts = [SELECT Id, Name FROM Account WHERE Id IN :accountIds];\n        for (Account acc : accounts) {\n            acc.Status__c = \'Processed\';\n        }\n        update accounts;\n    }\n}' },
+          { type: 'heading', text: 'Batch Apex' },
+          { type: 'code', language: 'java', code: 'public class AccountBatch implements Database.Batchable<SObject>, Database.Stateful {\n    public Integer totalProcessed = 0; // Preserved across batches\n    \n    public Database.QueryLocator start(Database.BatchableContext bc) {\n        return Database.getQueryLocator([SELECT Id, Name FROM Account]);\n    }\n    \n    public void execute(Database.BatchableContext bc, List<Account> scope) {\n        for (Account acc : scope) {\n            acc.Status__c = \'Processed\';\n            totalProcessed++;\n        }\n        update scope;\n    }\n    \n    public void finish(Database.BatchableContext bc) {\n        System.debug(\'Total processed: \' + totalProcessed);\n    }\n}\n\n// Execute batch\nAccountBatch batch = new AccountBatch();\nDatabase.executeBatch(batch, 200); // Scope size 200' },
+          { type: 'heading', text: 'Queueable Apex' },
+          { type: 'code', language: 'java', code: 'public class AccountQueueable implements Queueable {\n    private List<Account> accounts;\n    \n    public AccountQueueable(List<Account> accounts) {\n        this.accounts = accounts;\n    }\n    \n    public void execute(QueueableContext context) {\n        // Process accounts\n        for (Account acc : accounts) {\n            acc.Status__c = \'Processed\';\n        }\n        update accounts;\n        \n        // Chain another job\n        System.enqueueJob(new AnotherQueueable());\n    }\n}\n\n// Enqueue job\nId jobId = System.enqueueJob(new AccountQueueable(accounts));' },
+          { type: 'heading', text: 'Scheduled Apex' },
+          { type: 'code', language: 'java', code: 'public class DailyAccountCleanup implements Schedulable {\n    public void execute(SchedulableContext context) {\n        // Process accounts\n        List<Account> oldAccounts = [SELECT Id FROM Account WHERE CreatedDate < LAST_N_DAYS:30];\n        delete oldAccounts;\n    }\n}\n\n// Schedule the job\nString cronExp = \'0 0 2 * * ?\'; // 2 AM daily\nSystem.schedule(\'Daily Cleanup\', cronExp, new DailyAccountCleanup());' },
+          { type: 'heading', text: 'Cron Expression Format' },
+          { type: 'table', headers: ['Field', 'Values', 'Special Characters'], rows: [
+            ['Seconds', '0-59', ' , - * /'],
+            ['Minutes', '0-59', ' , - * /'],
+            ['Hours', '0-23', ' , - * /'],
+            ['Day of Month', '1-31', ' , - * ? / L W'],
+            ['Month', '1-12 or JAN-DEC', ' , - * /'],
+            ['Day of Week', '1-7 or SUN-SAT', ' , - * ? L #'],
+            ['Year', '1970-2099', ' , - * /']
+          ]},
+          { type: 'heading', text: 'Governor Limits for Async Apex' },
+          { type: 'table', headers: ['Type', 'Limit'], rows: [
+            ['@Future calls per transaction', '50'],
+            ['Queueable jobs per transaction', '50'],
+            ['Batch jobs in Flex Queue', '100'],
+            ['Batch jobs running simultaneously', '5'],
+            ['Scheduled jobs per org', '100']
+          ]},
+          { type: 'heading', text: 'Key Exam Scenario' },
+          { type: 'paragraph', text: 'A developer needs to process 1 million records. Batch Apex is the best choice because it processes records in chunks (default 200) and can handle large data volumes. Use Database.Stateful to track progress across batches.' }
+        ]
+      },
+      {
+        id: 'pd1-314',
+        code: 'PD1-314',
+        title: 'Secure Server-Side Development',
+        description: 'Given a scenario, implement security in Apex classes and enforce CRUD/FLS',
+        weight: '5%',
+        keyPoints: [
+          'Apex runs in system mode by default (ignores CRUD/FLS)',
+          'WITH SECURITY_ENFORCED clause in SOQL',
+          'stripInaccessible() method for removing inaccessible fields',
+          'Schema.describeSObjectResult: isCreateable(), isUpdateable(), isAccessible()',
+          'User Mode: WITH USER_MODE in SOQL (Spring 2023+)',
+          'DML with User Mode: insert as user o;',
+          'with sharing: Enforces sharing rules',
+          'without sharing: Bypasses sharing rules',
+          'inherited sharing: Uses caller\'s sharing context',
+          'SOQL injection: Use bind variables',
+          'XSS prevention: JSENCODE(), HTMLENCODE(), URLENCODE()',
+          'Always validate user input at system boundaries'
+        ],
+        examTips: [
+          'Apex runs in system mode by default',
+          'WITH SECURITY_ENFORCED enforces CRUD/FLS in SOQL',
+          'stripInaccessible() removes inaccessible fields',
+          'with sharing enforces sharing rules',
+          'User Mode introduced Spring 2023',
+          'Always use bind variables for SOQL injection prevention'
+        ],
+        detailedContent: [
+          { type: 'heading', text: 'Security in Apex' },
+          { type: 'paragraph', text: 'Apex runs in system mode by default, meaning object permissions, field-level security, and sharing rules are not enforced. Developers must explicitly enforce security.' },
+          { type: 'heading', text: 'CRUD/FLS Enforcement Methods' },
+          { type: 'table', headers: ['Method', 'Purpose', 'Example'], rows: [
+            ['isCreateable()', 'Check create permission', 'Schema.sObjectType.Account.isCreateable()'],
+            ['isUpdateable()', 'Check update permission', 'Schema.sObjectType.Account.isUpdateable()'],
+            ['isAccessible()', 'Check read permission', 'Schema.sObjectType.Account.isAccessible()'],
+            ['isDeletable()', 'Check delete permission', 'Schema.sObjectType.Account.isDeletable()'],
+            ['Field.isAccessible()', 'Check field read', 'Schema.sObjectType.Account.fields.Name.isAccessible()']
+          ]},
+          { type: 'heading', text: 'WITH SECURITY_ENFORCED' },
+          { type: 'code', language: 'java', code: '// Enforces CRUD/FLS at query level\nList<Account> accounts = [\n    SELECT Id, Name, Industry\n    FROM Account\n    WITH SECURITY_ENFORCED\n    WHERE Industry = \'Technology\'\n];\n\n// Throws QueryException if user lacks access' },
+          { type: 'heading', text: 'stripInaccessible()' },
+          { type: 'code', language: 'java', code: '// Remove inaccessible fields from query results\nList<Account> accounts = [SELECT Id, Name, Industry FROM Account];\nSObjectAccessDecision decision = Security.stripInaccessible(\n    AccessType.READABLE,\n    accounts\n);\nList<Account> cleanAccounts = (List<Account>)decision.getRecords();' },
+          { type: 'heading', text: 'User Mode (Spring 2023+)' },
+          { type: 'code', language: 'java', code: '// SOQL with User Mode\nList<Account> accounts = [SELECT Id, Name FROM Account WITH USER_MODE];\n\n// DML with User Mode\ninsert as user newAccount;\ndatabase.insert(newAccount, AccessLevel.USER_MODE);' },
+          { type: 'heading', text: 'Sharing Modes' },
+          { type: 'table', headers: ['Mode', 'Effect', 'Use Case'], rows: [
+            ['with sharing', 'Enforces sharing rules', 'User-facing operations'],
+            ['without sharing', 'Bypasses sharing rules', 'System-level operations'],
+            ['inherited sharing', 'Uses caller\'s context', 'Utility classes']
+          ]},
+          { type: 'heading', text: 'Key Exam Scenario' },
+          { type: 'paragraph', text: 'A developer is writing a class that queries accounts for display to users. They should use WITH SECURITY_ENFORCED in the SOQL query to enforce CRUD/FLS, and declare the class with sharing to enforce sharing rules.' }
+        ]
+      },
+      {
+        id: 'pd1-315',
+        code: 'PD1-315',
+        title: 'Record-Triggered Flows',
+        description: 'Build and use record-triggered flows for automated processes',
+        weight: '10%',
+        keyPoints: [
+          'Record-Triggered Flows run when records are created, updated, or deleted',
+          'Before-save flows: Run before the record is saved (fast, no DML)',
+          'After-save flows: Run after the record is saved (can perform DML)',
+          'Entry conditions: Define which records trigger the flow',
+          'Scheduled paths: Delay actions after trigger',
+          'Flow elements: Assignment, Decision, Get Records, Create Records, Update Records',
+          'Subflows: Call other flows for reusability',
+          'Fault paths: Handle errors in flow elements',
+          'Flow debugging: Test flows with debug logs',
+          'Governor limits: 2000 elements per flow execution'
+        ],
+        examTips: [
+          'Before-save flows are faster (no DML needed)',
+          'After-save flows can perform DML on other records',
+          'Entry conditions filter which records trigger the flow',
+          'Scheduled paths delay actions',
+          'Use subflows for reusable logic',
+          '2000 elements per flow execution limit'
+        ],
+        detailedContent: [
+          { type: 'heading', text: 'Record-Triggered Flow Overview' },
+          { type: 'paragraph', text: 'Record-Triggered Flows automatically run when records are created, updated, or deleted. They are the recommended declarative tool for automation.' },
+          { type: 'heading', text: 'Flow Types' },
+          { type: 'table', headers: ['Type', 'When It Runs', 'DML Support'], rows: [
+            ['Before-save', 'Before record is saved', 'No (fast field updates)'],
+            ['After-save', 'After record is saved', 'Yes (create/update other records)'],
+            ['Scheduled path', 'After delay', 'Yes']
+          ]},
+          { type: 'heading', text: 'Flow Elements' },
+          { type: 'list', items: [
+            'Assignment: Set or change variable values',
+            'Decision: Branch logic based on conditions',
+            'Get Records: Query records from database',
+            'Create Records: Insert new records',
+            'Update Records: Modify existing records',
+            'Delete Records: Remove records',
+            'Subflow: Call another flow',
+            'Action: Call Apex, send email, post to Chatter'
+          ]},
+          { type: 'heading', text: 'Key Exam Scenario' },
+          { type: 'paragraph', text: 'When an Opportunity is won, create a Contract record and update the Account status. Use an after-save record-triggered flow on Opportunity with entry condition: IsWon = true.' }
+        ]
+      },
+      {
+        id: 'pd1-316',
+        code: 'PD1-316',
+        title: 'Database & .NET Basics',
+        description: 'Apply SQL knowledge to SOQL, SOSL, and DML in Apex',
+        weight: '5%',
+        keyPoints: [
+          'SOQL similar to SQL SELECT statements',
+          'SOSL similar to full-text search',
+          'DML operations: insert, update, upsert, delete, undelete',
+          'Database methods: More options than DML statements',
+          'Database.insert(records, false) allows partial success',
+          'SOQL relationship queries: Parent-child and child-parent',
+          'SOQL aggregate functions: COUNT, SUM, AVG, MIN, MAX',
+          'SOQL date literals: TODAY, LAST_N_DAYS, THIS_MONTH',
+          'SOSL FIND syntax for text search',
+          'Bind variables prevent SOQL injection'
+        ],
+        examTips: [
+          'SOQL is similar to SQL SELECT',
+          'SOSL is for full-text search across objects',
+          'Database methods allow partial success',
+          'Relationship queries traverse object relationships',
+          'Aggregate functions: COUNT, SUM, AVG, MIN, MAX',
+          'Date literals simplify date filtering'
+        ],
+        detailedContent: [
+          { type: 'heading', text: 'SQL to SOQL Translation' },
+          { type: 'table', headers: ['SQL', 'SOQL', 'Notes'], rows: [
+            ['SELECT', 'SELECT', 'Same concept'],
+            ['FROM', 'FROM', 'Object name instead of table'],
+            ['WHERE', 'WHERE', 'Similar conditions'],
+            ['JOIN', 'Relationship queries', 'Dot notation'],
+            ['GROUP BY', 'GROUP BY', 'For aggregation'],
+            ['ORDER BY', 'ORDER BY', 'Sort results']
+          ]},
+          { type: 'heading', text: 'DML Operations' },
+          { type: 'code', language: 'java', code: '// DML statements\ninsert accounts;\nupdate accounts;\ndelete accounts;\nupsert accounts; // Insert or update\nundelete accounts; // Restore deleted\n\n// Database methods (more options)\nDatabase.insert(accounts, false); // Allow partial success\nDatabase.SaveResult[] results = Database.insert(accounts, false);\nfor (Database.SaveResult sr : results) {\n    if (sr.isSuccess()) {\n        // Handle success\n    } else {\n        // Handle error\n    }\n}' },
+          { type: 'heading', text: 'Relationship Queries' },
+          { type: 'code', language: 'java', code: '// Parent-to-child (subquery)\nList<Account> accounts = [\n    SELECT Id, Name, (SELECT Id, Name FROM Contacts)\n    FROM Account\n];\n\n// Child-to-parent (dot notation)\nList<Contact> contacts = [\n    SELECT Id, Name, Account.Name, Account.Industry\n    FROM Contact\n];' },
+          { type: 'heading', text: 'Key Exam Scenario' },
+          { type: 'paragraph', text: 'A developer needs to query accounts with their related contacts. Use a parent-to-child subquery: SELECT Id, Name, (SELECT Id, Name FROM Contacts) FROM Account.' }
+        ]
+      },
+      {
+        id: 'pd1-317',
+        code: 'PD1-317',
+        title: 'Approval Processes',
+        description: 'Configure and use approval processes for record approval',
+        weight: '5%',
+        keyPoints: [
+          'Approval Processes: Multi-step approval workflows',
+          'Approval steps: Sequential approval stages',
+          'Approval actions: What happens when approved/rejected',
+          'Rejection actions: What happens when rejected',
+          'Recall actions: What happens when recalled',
+          'Approval assignment: Who approves',
+          'Approval criteria: Which records enter approval',
+          'Initial submission actions: When submitted',
+          'Final approval actions: When all steps approved',
+          'Lock/unlock records during approval'
+        ],
+        examTips: [
+          'Approval processes have multiple steps',
+          'Each step can have approval/rejection actions',
+          'Records can be locked during approval',
+          'Initial submission actions run when submitted',
+          'Final approval actions run when all steps complete',
+          'Rejection actions run when rejected'
+        ],
+        detailedContent: [
+          { type: 'heading', text: 'Approval Process Overview' },
+          { type: 'paragraph', text: 'Approval Processes automate the approval of records in Salesforce. They define the steps, criteria, and actions for approving records.' },
+          { type: 'heading', text: 'Approval Process Components' },
+          { type: 'list', items: [
+            'Entry Criteria: Which records enter the approval process',
+            'Approval Steps: Sequential stages of approval',
+            'Approval Actions: What happens at each step',
+            'Rejection Actions: What happens when rejected',
+            'Recall Actions: What happens when recalled',
+            'Initial Submission: Actions when first submitted',
+            'Final Approval: Actions when all steps complete'
+          ]},
+          { type: 'heading', text: 'Approval Process Example' },
+          { type: 'code', language: 'text', code: 'Approval Process: Expense Report Approval\n\n1. Entry Criteria: Amount > $1000\n2. Step 1: Manager Approval\n   - Approve: Update status to "Manager Approved"\n   - Reject: Update status to "Rejected"\n3. Step 2: Finance Approval\n   - Approve: Update status to "Approved"\n   - Reject: Update status to "Rejected"\n4. Final Approval: Update status to "Approved", send email' },
+          { type: 'heading', text: 'Key Exam Scenario' },
+          { type: 'paragraph', text: 'An expense report over $1000 needs manager and finance approval. Create an approval process with entry criteria Amount > $1000, two approval steps (Manager, Finance), and appropriate approval/rejection actions.' }
+        ]
       }
     ]
   },
@@ -1016,6 +1614,51 @@ export const chapters = [
           { type: 'heading', text: 'Key Exam Scenario' },
           { type: 'paragraph', text: 'A Lightning component needs to call Apex to update a record. Use @AuraEnabled (without cacheable=true) for DML operations. The method should handle errors with AuraHandledException.' }
         ]
+      },
+      {
+        id: 'pd1-410',
+        code: 'PD1-410',
+        title: 'Aura Components',
+        description: 'Build and customize Aura components for Lightning Experience',
+        weight: '5%',
+        keyPoints: [
+          'Aura components use proprietary framework',
+          'Component markup in .cmp files',
+          'Controller handles events in .js files',
+          'Helper for reusable functions',
+          'Style (.css) for component styling',
+          'Design (.design) exposes attributes to App Builder',
+          'Component events: Fire between parent-child',
+          'Application events: Fire across the app',
+          '<ltng:require> loads JavaScript libraries',
+          'Aura and LWC can coexist',
+          'Aura uses expression syntax {!v.attribute}',
+          'Recommended to use LWC for new development'
+        ],
+        examTips: [
+          'Aura uses .cmp files for markup',
+          'Component events for parent-child communication',
+          'Application events for app-wide communication',
+          'Expression syntax: {!v.attribute}',
+          'Use LWC for new development',
+          'Aura and LWC can coexist in the same page'
+        ],
+        detailedContent: [
+          { type: 'heading', text: 'Aura Component Structure' },
+          { type: 'code', language: 'xml', code: '<aura:component>\n    <!-- Attributes -->\n    <aura:attribute name="accountName" type="String"/>\n    <aura:attribute name="recordId" type="Id"/>\n    \n    <!-- Handler -->\n    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>\n    \n    <!-- Markup -->\n    <div class="slds-box">\n        <h1>{!v.accountName}</h1>\n        <lightning:button label="Click" onclick="{!c.handleClick}"/>\n    </div>\n</aura:component>' },
+          { type: 'heading', text: 'Aura Controller' },
+          { type: 'code', language: 'javascript', code: '({\n    doInit: function(component, event, helper) {\n        // Initialize component\n        var recordId = component.get("v.recordId");\n        helper.loadAccount(component, recordId);\n    },\n    \n    handleClick: function(component, event, helper) {\n        // Handle button click\n        var accountName = component.get("v.accountName");\n        console.log("Clicked: " + accountName);\n    }\n})' },
+          { type: 'heading', text: 'Component vs Application Events' },
+          { type: 'table', headers: ['Feature', 'Component Event', 'Application Event'], rows: [
+            ['Scope', 'Parent-child hierarchy', 'Entire application'],
+            ['Propagation', 'Bubbles up through components', 'All registered handlers'],
+            ['Declaration', 'aura:registerEvent', 'aura:event'],
+            ['Firing', 'component.fire()', 'e.fire()'],
+            ['Use Case', 'Component communication', 'Cross-app notifications']
+          ]},
+          { type: 'heading', text: 'Key Exam Scenario' },
+          { type: 'paragraph', text: 'A component needs to notify its parent when a record is selected. Use a component event that the child fires and the parent handles. The event carries the selected record ID in its attributes.' }
+        ]
       }
     ]
   },
@@ -1274,6 +1917,106 @@ export const chapters = [
           { type: 'code', language: 'xml', code: '<!-- destructiveChanges.xml -->\n<Package xmlns="http://soap.sforce.com/2006/04/metadata">\n    <types>\n        <members>MyOldClass</members>\n        <name>ApexClass</name>\n    </types>\n    <version>60.0</version>\n</Package>' },
           { type: 'heading', text: 'Key Exam Scenario' },
           { type: 'paragraph', text: 'A developer needs to deploy changes from a sandbox to production. They should use Change Sets for simple deployments, or Salesforce CLI for automated deployments with more control over the process.' }
+        ]
+      },
+      {
+        id: 'pd1-510',
+        code: 'PD1-510',
+        title: 'Salesforce DX Quick Start',
+        description: 'Use Salesforce CLI to create, convert, and deploy apps',
+        weight: '5%',
+        keyPoints: [
+          'Salesforce CLI: Command-line interface for Salesforce development',
+          'sf project create: Create new SFDX project',
+          'sf org create scratch: Create scratch org',
+          'sf project deploy start: Deploy metadata',
+          'sf project retrieve start: Retrieve metadata',
+          'sf apex run: Execute Apex code',
+          'sf data import: Import data',
+          'sf org open: Open org in browser',
+          'project-scratch-def.json: Scratch org definition',
+          'sfdx-project.json: Project configuration',
+          'Source format: Version-control friendly',
+          'Metadata format: Traditional format'
+        ],
+        examTips: [
+          'sf command is the modern Salesforce CLI',
+          'sf project create creates SFDX project',
+          'sf org create scratch creates scratch org',
+          'sf project deploy start deploys metadata',
+          'project-scratch-def.json defines scratch org',
+          'Source format is version-control friendly'
+        ],
+        detailedContent: [
+          { type: 'heading', text: 'Salesforce CLI Commands' },
+          { type: 'table', headers: ['Command', 'Purpose'], rows: [
+            ['sf project create', 'Create new SFDX project'],
+            ['sf org create scratch', 'Create scratch org'],
+            ['sf project deploy start', 'Deploy metadata to org'],
+            ['sf project retrieve start', 'Retrieve metadata from org'],
+            ['sf apex run', 'Execute Apex anonymous code'],
+            ['sf data import tree', 'Import data from JSON'],
+            ['sf org open', 'Open org in browser'],
+            ['sf org list', 'List all authorized orgs']
+          ]},
+          { type: 'heading', text: 'Project Structure' },
+          { type: 'code', language: 'text', code: 'my-project/\n├── sfdx-project.json          # Project config\n├── project-scratch-def.json   # Scratch org definition\n├── force-app/\n│   └── main/\n│       └── default/\n│           ├── classes/       # Apex classes\n│           ├── triggers/      # Apex triggers\n│           ├── lwc/           # Lightning Web Components\n│           ├── objects/       # Custom objects\n│           └── layouts/       # Page layouts\n└── .gitignore' },
+          { type: 'heading', text: 'Key Exam Scenario' },
+          { type: 'paragraph', text: 'A developer needs to create a scratch org and deploy metadata. Use sf org create scratch to create the org, then sf project deploy start to deploy the metadata from the local project.' }
+        ]
+      },
+      {
+        id: 'pd1-511',
+        code: 'PD1-511',
+        title: 'Apex Replay Debugger',
+        description: 'Use Apex Replay Debugger to debug Apex code in VS Code',
+        weight: '5%',
+        keyPoints: [
+          'Apex Replay Debugger: Debug Apex using debug logs',
+          'Works in VS Code with Salesforce Extensions',
+          'Replays debug logs to step through code',
+          'Set breakpoints in Apex code',
+          'Inspect variables during replay',
+          'Step through code execution',
+          'View call stack and variable values',
+          'Requires debug logs to be captured',
+          'Supports checkpoints for variable inspection',
+          'Helps identify root cause of errors'
+        ],
+        examTips: [
+          'Apex Replay Debugger works in VS Code',
+          'Replays debug logs to step through code',
+          'Set breakpoints to pause execution',
+          'Inspect variables during replay',
+          'Requires captured debug logs',
+          'Helps identify root cause of errors'
+        ],
+        detailedContent: [
+          { type: 'heading', text: 'Apex Replay Debugger Overview' },
+          { type: 'paragraph', text: 'Apex Replay Debugger allows developers to replay Apex debug logs in VS Code, stepping through code execution to identify issues.' },
+          { type: 'heading', text: 'How to Use' },
+          { type: 'list', items: [
+            '1. Capture a debug log (Setup > Debug Logs)',
+            '2. Download the log file',
+            '3. Open in VS Code with Salesforce Extensions',
+            '4. Set breakpoints in Apex code',
+            '5. Start replay debugger',
+            '6. Step through code execution',
+            '7. Inspect variables at each breakpoint'
+          ]},
+          { type: 'heading', text: 'Debug Log Levels' },
+          { type: 'table', headers: ['Level', 'Description', 'Use Case'], rows: [
+            ['NONE', 'No logging', 'Disable logging'],
+            ['ERROR', 'Errors only', 'Production monitoring'],
+            ['WARN', 'Warnings and errors', 'Basic debugging'],
+            ['INFO', 'Informational messages', 'General debugging'],
+            ['DEBUG', 'Debug messages', 'Detailed debugging'],
+            ['FINE', 'Fine-grained messages', 'Deep debugging'],
+            ['FINER', 'More detailed', 'Very deep debugging'],
+            ['FINEST', 'Most detailed', 'Maximum logging']
+          ]},
+          { type: 'heading', text: 'Key Exam Scenario' },
+          { type: 'paragraph', text: 'A developer needs to debug an Apex trigger that is failing. They can capture a debug log, download it, and use Apex Replay Debugger in VS Code to step through the code and identify the issue.' }
         ]
       }
     ]
